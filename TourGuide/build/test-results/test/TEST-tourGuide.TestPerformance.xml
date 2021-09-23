@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestPerformance" tests="2" skipped="2" failures="0" errors="0" timestamp="2021-09-23T13:28:42" hostname="DESKTOP-2K67CMT" time="0.058">
+  <properties/>
+  <testcase name="highVolumeTrackLocation" classname="tourGuide.TestPerformance" time="0.005">
+    <skipped/>
+  </testcase>
+  <testcase name="highVolumeGetRewards" classname="tourGuide.TestPerformance" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
