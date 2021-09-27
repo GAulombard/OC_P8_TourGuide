@@ -2,6 +2,8 @@ package tourGuide.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,20 +19,26 @@ import tripPricer.Provider;
 @RestController
 public class TourGuideController {
 
+    private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
+
 	@Autowired
 	TourGuideService tourGuideService;
 	
     @RequestMapping("/")
     public String index() {
+        logger.info("HTTP GET request receive at \"/\"");
+
         return "Greetings from TourGuide!";
     }
     
     @RequestMapping("/getLocation") 
     public String getLocation(@RequestParam String userName) {
+        logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
+
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
 		return JsonStream.serialize(visitedLocation.location);
     }
-    
+
     //  TODO: Change this method to no longer return a List of Attractions.
  	//  Instead: Get the closest five tourist attractions to the user - no matter how far away they are.
  	//  Return a new JSON object that contains:
@@ -42,17 +50,22 @@ public class TourGuideController {
         //    Note: Attraction reward points can be gathered from RewardsCentral
     @RequestMapping("/getNearbyAttractions") 
     public String getNearbyAttractions(@RequestParam String userName) {
+        logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
+
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
     	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));
     }
     
     @RequestMapping("/getRewards") 
     public String getRewards(@RequestParam String userName) {
+        logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
+
     	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));
     }
     
     @RequestMapping("/getAllCurrentLocations")
     public String getAllCurrentLocations() {
+        logger.info("HTTP GET request receive at \"/getAllCurrentLocations\"");
     	// TODO: Get a list of every user's most recent location as JSON
     	//- Note: does not use gpsUtil to query for their current location, 
     	//        but rather gathers the user's current location from their stored location history.
@@ -65,13 +78,18 @@ public class TourGuideController {
     	
     	return JsonStream.serialize("");
     }
-    
+
+    //FIXME: error when using this endpoint "java.lang.reflect.InaccessibleObjectException"
     @RequestMapping("/getTripDeals")
     public String getTripDeals(@RequestParam String userName) {
+        logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
+
     	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
     	return JsonStream.serialize(providers);
     }
-    
+
+    //FIXME: ?? make endpoint for that ?
+    //TODO: add logger
     private User getUser(String userName) {
     	return tourGuideService.getUser(userName);
     }

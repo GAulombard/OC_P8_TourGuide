@@ -29,7 +29,9 @@ import tripPricer.TripPricer;
 
 @Service
 public class TourGuideService {
+
 	private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
+
 	private final GpsUtil gpsUtil;
 	private final RewardsService rewardsService;
 	private final TripPricer tripPricer = new TripPricer();
@@ -49,7 +51,8 @@ public class TourGuideService {
 		tracker = new Tracker(this);
 		addShutDownHook();
 	}
-	
+
+	//FIXME: maybe put this in RewardsService
 	public List<UserReward> getUserRewards(User user) {
 		return user.getUserRewards();
 	}

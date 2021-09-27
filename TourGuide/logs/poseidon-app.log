@@ -1,0 +1,35 @@
+2021-09-27 16:38:24.877  INFO 13676 --- [main] tourGuide.Application                    : Starting Application on DESKTOP-2K67CMT with PID 13676 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide)
+2021-09-27 16:38:24.880  INFO 13676 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-09-27 16:38:26.021  INFO 13676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-27 16:38:26.046  INFO 13676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-27 16:38:26.047  INFO 13676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-09-27 16:38:26.158  INFO 13676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-27 16:38:26.159  INFO 13676 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1239 ms
+2021-09-27 16:38:26.478  INFO 13676 --- [main] tourGuide.service.TourGuideService       : TestMode enabled
+2021-09-27 16:38:26.494  INFO 13676 --- [main] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2021-09-27 16:38:26.647  INFO 13676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-27 16:38:26.960  INFO 13676 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-09-27 16:38:27.057  INFO 13676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-27 16:38:27.062  INFO 13676 --- [main] tourGuide.Application                    : Started Application in 2.707 seconds (JVM running for 3.511)
+2021-09-27 16:38:27.502  INFO 13676 --- [RMI TCP Connection(2)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-27 16:38:27.507  INFO 13676 --- [RMI TCP Connection(2)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-27 16:38:27.538  INFO 13676 --- [RMI TCP Connection(2)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+2021-09-27 16:38:34.188  INFO 13676 --- [http-nio-8080-exec-1] t.controller.TourGuideController         : HTTP GET request receive at "/getLocation?userName=internalUser1"
+2021-09-27 16:38:57.895  INFO 13676 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-27 16:39:00.457  INFO 14208 --- [main] tourGuide.Application                    : Starting Application on DESKTOP-2K67CMT with PID 14208 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide)
+2021-09-27 16:39:00.477  INFO 14208 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-09-27 16:39:01.769  INFO 14208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-27 16:39:01.801  INFO 14208 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-27 16:39:01.802  INFO 14208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-09-27 16:39:01.930  INFO 14208 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-27 16:39:01.930  INFO 14208 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1390 ms
+2021-09-27 16:39:02.228  INFO 14208 --- [main] tourGuide.service.TourGuideService       : TestMode enabled
+2021-09-27 16:39:02.247  INFO 14208 --- [main] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2021-09-27 16:39:02.404  INFO 14208 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-27 16:39:02.618  INFO 14208 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-09-27 16:39:02.706  INFO 14208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-27 16:39:02.709  INFO 14208 --- [main] tourGuide.Application                    : Started Application in 2.562 seconds (JVM running for 3.231)
+2021-09-27 16:39:02.918  INFO 14208 --- [RMI TCP Connection(2)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-27 16:39:02.921  INFO 14208 --- [RMI TCP Connection(2)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-27 16:39:02.940  INFO 14208 --- [RMI TCP Connection(2)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2021-09-27 16:39:21.535  INFO 14208 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

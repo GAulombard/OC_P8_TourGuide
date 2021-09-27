@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.TestRewardsService" tests="3" skipped="1" failures="1" errors="0" timestamp="2021-09-23T13:28:42" hostname="DESKTOP-2K67CMT" time="0.588">
+<testsuite name="tourGuide.TestRewardsService" tests="3" skipped="1" failures="1" errors="0" timestamp="2021-09-27T14:13:09" hostname="DESKTOP-2K67CMT" time="0.422">
   <properties/>
-  <testcase name="nearAllAttractions" classname="tourGuide.TestRewardsService" time="0.001">
+  <testcase name="nearAllAttractions" classname="tourGuide.TestRewardsService" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="userGetRewards" classname="tourGuide.TestRewardsService" time="0.573">
-    <failure message="java.lang.NumberFormatException: For input string: &quot;113,724841&quot;" type="java.lang.NumberFormatException">java.lang.NumberFormatException: For input string: &quot;113,724841&quot;
+  <testcase name="userGetRewards" classname="tourGuide.TestRewardsService" time="0.396">
+    <failure message="java.lang.NumberFormatException: For input string: &quot;75,108076&quot;" type="java.lang.NumberFormatException">java.lang.NumberFormatException: For input string: &quot;75,108076&quot;
 	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
 	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
 	at java.lang.Double.parseDouble(Double.java:538)
 	at gpsUtil.GpsUtil.getUserLocation(GpsUtil.java:30)
-	at tourGuide.service.TourGuideService.trackUserLocation(TourGuideService.java:87)
+	at tourGuide.service.TourGuideService.trackUserLocation(TourGuideService.java:90)
 	at tourGuide.TestRewardsService.userGetRewards(TestRewardsService.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -61,16 +61,16 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="isWithinAttractionProximity" classname="tourGuide.TestRewardsService" time="0.01"/>
-  <system-out><![CDATA[15:28:43.272 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
-15:28:43.281 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
-15:28:43.287 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
-15:28:43.287 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
-15:28:43.341 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
-15:28:43.343 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
-15:28:43.344 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+  <testcase name="isWithinAttractionProximity" classname="tourGuide.TestRewardsService" time="0.021"/>
+  <system-out><![CDATA[16:13:10.067 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+16:13:10.076 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+16:13:10.081 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+16:13:10.081 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+16:13:10.100 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
+16:13:10.102 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+16:13:10.102 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
 ]]></system-out>
-  <system-err><![CDATA[sept. 23, 2021 3:28:43 PM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+  <system-err><![CDATA[sept. 27, 2021 4:13:10 PM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
 INFOS: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
 ]]></system-err>
 </testsuite>
