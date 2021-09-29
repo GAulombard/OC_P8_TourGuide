@@ -24,16 +24,16 @@ import tripPricer.Provider;
 	@Autowired
 	TourGuideService tourGuideService;
 	
-    @RequestMapping(&quot;/&quot;)
+    @RequestMapping(value={&quot;&quot;,&quot;/&quot;})
     public String index() {
-<span class="nc" id="L29">        logger.info(&quot;HTTP GET request receive at \&quot;/\&quot;&quot;);</span>
+<span class="nc" id="L29">        logger.info(&quot;* HTTP GET request receive at \&quot;/\&quot;&quot;);</span>
 
 <span class="nc" id="L31">        return &quot;Greetings from TourGuide!&quot;;</span>
     }
     
     @RequestMapping(&quot;/getLocation&quot;) 
     public String getLocation(@RequestParam String userName) {
-<span class="nc" id="L36">        logger.info(&quot;HTTP GET request receive at \&quot;/getLocation?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L36">        logger.info(&quot;* HTTP GET request receive at \&quot;/getLocation?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
 
 <span class="nc" id="L38">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
 <span class="nc" id="L39">		return JsonStream.serialize(visitedLocation.location);</span>

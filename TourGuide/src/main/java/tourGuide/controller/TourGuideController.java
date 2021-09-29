@@ -24,16 +24,16 @@ public class TourGuideController {
 	@Autowired
 	TourGuideService tourGuideService;
 	
-    @RequestMapping("/")
+    @RequestMapping(value={"","/"})
     public String index() {
-        logger.info("HTTP GET request receive at \"/\"");
+        logger.info("* HTTP GET request receive at \"/\"");
 
         return "Greetings from TourGuide!";
     }
     
     @RequestMapping("/getLocation") 
     public String getLocation(@RequestParam String userName) {
-        logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
+        logger.info("* HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
 		return JsonStream.serialize(visitedLocation.location);

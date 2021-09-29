@@ -2,16 +2,11 @@ package tourGuide.service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.jsoniter.output.JsonStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -37,6 +32,7 @@ public class TourGuideService {
 	private final TripPricer tripPricer = new TripPricer();
 	public final Tracker tracker;
 	boolean testMode = true;
+
 	
 	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService) {
 		this.gpsUtil = gpsUtil;
@@ -58,9 +54,14 @@ public class TourGuideService {
 	}
 	
 	public VisitedLocation getUserLocation(User user) {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to get user location. User: "+user.getUserName());
+
 		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ?
 			user.getLastVisitedLocation() :
 			trackUserLocation(user);
+
+		logger.info("** User location found at: "+ JsonStream.serialize(visitedLocation.location));
 		return visitedLocation;
 	}
 	
@@ -79,7 +80,11 @@ public class TourGuideService {
 	}
 	
 	public List<Provider> getTripDeals(User user) {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to get trip deals. User: "+user.getUserName());
+
 		int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
+		logger.info("cumulativePoint: "+cumulatativeRewardPoints);
 		List<Provider> providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(), 
 				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulatativeRewardPoints);
 		user.setTripDeals(providers);
@@ -87,20 +92,40 @@ public class TourGuideService {
 	}
 	
 	public VisitedLocation trackUserLocation(User user) {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to track user location. User: "+user.getUserName());
+
+		Locale.setDefault(new Locale("en", "US"));
 		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
+		//logger.info("Latitude: "+visitedLocation.location.latitude+" Longitude: "+visitedLocation.location.longitude);
 		user.addToVisitedLocations(visitedLocation);
 		rewardsService.calculateRewards(user);
+
+		//logger.info("** User location found: "+user.getVisitedLocations().size());
 		return visitedLocation;
 	}
 
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to get nearby attractions. User: "+visitedLocation.userId);
+
 		List<Attraction> nearbyAttractions = new ArrayList<>();
-		for(Attraction attraction : gpsUtil.getAttractions()) {
+
+		gpsUtil.getAttractions().forEach(attraction -> {
+			logger.debug("Attraction: "+attraction.attractionName+" Distance: "+rewardsService.getDistance(attraction,visitedLocation.location));
 			if(rewardsService.isWithinAttractionProximity(attraction, visitedLocation.location)) {
+				logger.info("Attraction nearby found");
 				nearbyAttractions.add(attraction);
 			}
-		}
-		
+		});
+/*		for(Attraction attraction : gpsUtil.getAttractions()) {
+			if(rewardsService.isWithinAttractionProximity(attraction, visitedLocation.location)) {
+				logger.info("Attraction nearby found");
+				nearbyAttractions.add(attraction);
+			}
+		}*/
+
+		logger.info("** Attraction nearby: "+ JsonStream.serialize(nearbyAttractions.toString()));
 		return nearbyAttractions;
 	}
 	

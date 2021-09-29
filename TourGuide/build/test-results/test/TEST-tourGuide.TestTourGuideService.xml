@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestTourGuideService" tests="6" skipped="1" failures="0" errors="0" timestamp="2021-09-29T16:32:50" hostname="DESKTOP-2K67CMT" time="0.176">
+  <properties/>
+  <testcase name="getUserLocation" classname="tourGuide.TestTourGuideService" time="0.065"/>
+  <testcase name="addUser" classname="tourGuide.TestTourGuideService" time="0.001"/>
+  <testcase name="getTripDeals" classname="tourGuide.TestTourGuideService" time="0.047"/>
+  <testcase name="getAllUsers" classname="tourGuide.TestTourGuideService" time="0.001"/>
+  <testcase name="trackUser" classname="tourGuide.TestTourGuideService" time="0.06"/>
+  <testcase name="getNearbyAttractions" classname="tourGuide.TestTourGuideService" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[18:32:50.913 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+18:32:50.913 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+18:32:50.913 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+18:32:50.913 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+18:32:50.913 [Test worker] INFO tourGuide.service.TourGuideService - ********** Processing **********
+18:32:50.914 [Test worker] INFO tourGuide.service.TourGuideService - ** Processing to track user location. User: jon
+18:32:50.914 [pool-5-thread-1] INFO tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
+18:32:50.914 [pool-5-thread-1] INFO tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+18:32:50.914 [pool-5-thread-1] INFO tourGuide.tracker.Tracker - Tracker sleeping
+18:32:50.967 [Test worker] INFO tourGuide.service.RewardsService - ********** Processing **********
+18:32:50.967 [Test worker] INFO tourGuide.service.RewardsService - ** Processing to calculate rewards. User: jon
+18:32:50.977 [Test worker] INFO tourGuide.service.RewardsService - ** User rewards found: 0
+18:32:50.978 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+18:32:50.978 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+18:32:50.978 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+18:32:50.978 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+18:32:50.979 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+18:32:50.980 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+18:32:50.980 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+18:32:50.980 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+18:32:50.980 [Test worker] INFO tourGuide.service.TourGuideService - ********** Processing **********
+18:32:50.980 [Test worker] INFO tourGuide.service.TourGuideService - ** Processing to get trip deals. User: jon
+18:32:50.983 [pool-6-thread-1] INFO tourGuide.tracker.Tracker - Tracker stopping
+18:32:50.984 [pool-7-thread-1] INFO tourGuide.tracker.Tracker - Tracker stopping
+18:32:50.985 [Test worker] INFO tourGuide.service.TourGuideService - cumulativePoint: 0
+18:32:51.027 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+18:32:51.027 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+18:32:51.027 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+18:32:51.027 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+18:32:51.028 [pool-8-thread-1] INFO tourGuide.tracker.Tracker - Tracker stopping
+18:32:51.028 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+18:32:51.028 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+18:32:51.028 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+18:32:51.028 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+18:32:51.028 [Test worker] INFO tourGuide.service.TourGuideService - ********** Processing **********
+18:32:51.028 [Test worker] INFO tourGuide.service.TourGuideService - ** Processing to track user location. User: jon
+18:32:51.029 [pool-9-thread-1] INFO tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
+18:32:51.030 [pool-9-thread-1] INFO tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+18:32:51.030 [pool-9-thread-1] INFO tourGuide.tracker.Tracker - Tracker sleeping
+18:32:51.077 [Test worker] INFO tourGuide.service.RewardsService - ********** Processing **********
+18:32:51.077 [Test worker] INFO tourGuide.service.RewardsService - ** Processing to calculate rewards. User: jon
+18:32:51.087 [Test worker] INFO tourGuide.service.RewardsService - ** User rewards found: 0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

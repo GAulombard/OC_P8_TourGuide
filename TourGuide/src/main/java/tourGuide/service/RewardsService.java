@@ -2,6 +2,9 @@ package tourGuide.service;
 
 import java.util.List;
 
+import com.jsoniter.output.JsonStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
@@ -14,6 +17,9 @@ import tourGuide.model.UserReward;
 
 @Service
 public class RewardsService {
+
+	private Logger logger = LoggerFactory.getLogger(RewardsService.class);
+
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 
 	// proximity in miles
@@ -38,21 +44,30 @@ public class RewardsService {
 	}
 	
 	public void calculateRewards(User user) {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to calculate rewards. User: "+user.getUserName());
+
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 		List<Attraction> attractions = gpsUtil.getAttractions();
-		
+
 		for(VisitedLocation visitedLocation : userLocations) {
 			for(Attraction attraction : attractions) {
-				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-					if(nearAttraction(visitedLocation, attraction)) {
+				int countRewardForAttraction = (int) user.getUserRewards()
+						.stream()
+						.filter(r -> r.attraction.attractionName.equals(attraction.attractionName))
+						.count();
+				if(countRewardForAttraction == 0 && nearAttraction(visitedLocation,attraction)) {
+						//logger.debug("countRewardForAttraction: "+countRewardForAttraction+" nearAttraction: "+nearAttraction(visitedLocation,attraction));
 						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
-					}
 				}
 			}
 		}
+
+		logger.info("** User rewards found: "+ user.getUserRewards().size());
 	}
 	
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
+
 		return getDistance(attraction, location) > attractionProximityRange ? false : true;
 	}
 	
