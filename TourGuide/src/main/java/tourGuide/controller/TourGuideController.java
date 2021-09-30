@@ -2,6 +2,8 @@ package tourGuide.controller;
 
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jsoniter.output.JsonStream;
 
 import gpsUtil.location.VisitedLocation;
+import tourGuide.exception.UserNotFoundException;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
+import tourGuide.util.UserUtil;
 import tripPricer.Provider;
 
 @RestController
@@ -22,7 +26,7 @@ public class TourGuideController {
     private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
 
 	@Autowired
-	TourGuideService tourGuideService;
+	private TourGuideService tourGuideService;
 	
     @RequestMapping(value={"","/"})
     public String index() {
@@ -32,11 +36,20 @@ public class TourGuideController {
     }
     
     @RequestMapping("/getLocation") 
-    public String getLocation(@RequestParam String userName) {
+    public String getLocation(@RequestParam String userName) throws UserNotFoundException {
         logger.info("* HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
-    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
-		return JsonStream.serialize(visitedLocation.location);
+        User user = tourGuideService.getUser(userName);
+    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+
+    	try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(visitedLocation);
+
+        } catch (JsonProcessingException e) {
+    	    logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
+    	    return null;
+        }
     }
 
     //  TODO: Change this method to no longer return a List of Attractions.
@@ -49,18 +62,22 @@ public class TourGuideController {
         // The reward points for visiting each Attraction.
         //    Note: Attraction reward points can be gathered from RewardsCentral
     @RequestMapping("/getNearbyAttractions") 
-    public String getNearbyAttractions(@RequestParam String userName) {
+    public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
 
-    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
+        User user = tourGuideService.getUser(userName);
+    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+
     	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));
     }
     
     @RequestMapping("/getRewards") 
-    public String getRewards(@RequestParam String userName) {
+    public String getRewards(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
-    	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));
+        User user = tourGuideService.getUser(userName);
+
+    	return JsonStream.serialize(tourGuideService.getUserRewards(user));
     }
     
     @RequestMapping("/getAllCurrentLocations")
@@ -81,18 +98,13 @@ public class TourGuideController {
 
     //FIXME: error when using this endpoint "java.lang.reflect.InaccessibleObjectException"
     @RequestMapping("/getTripDeals")
-    public String getTripDeals(@RequestParam String userName) {
+    public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
 
-    	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
+        User user = tourGuideService.getUser(userName);
+    	List<Provider> providers = tourGuideService.getTripDeals(user);
+
     	return JsonStream.serialize(providers);
     }
-
-    //FIXME: ?? make endpoint for that ?
-    //TODO: add logger
-    private User getUser(String userName) {
-    	return tourGuideService.getUser(userName);
-    }
-   
 
 }

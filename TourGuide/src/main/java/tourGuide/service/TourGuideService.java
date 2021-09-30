@@ -9,12 +9,14 @@ import java.util.stream.IntStream;
 import com.jsoniter.output.JsonStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
@@ -53,19 +55,22 @@ public class TourGuideService {
 		return user.getUserRewards();
 	}
 	
-	public VisitedLocation getUserLocation(User user) {
+	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
 		logger.info("********** Processing **********");
 		logger.info("** Processing to get user location. User: "+user.getUserName());
 
-		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ?
-			user.getLastVisitedLocation() :
-			trackUserLocation(user);
+		//TODO: check if userName exists in database
 
-		logger.info("** User location found at: "+ JsonStream.serialize(visitedLocation.location));
+		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ? user.getLastVisitedLocation() : trackUserLocation(user);
+
 		return visitedLocation;
 	}
 	
-	public User getUser(String userName) {
+	public User getUser(String userName) throws UserNotFoundException {
+		logger.info("********** Processing **********");
+		logger.info("** Processing to get user by username");
+		//TODO: check if userName exists in database
+
 		return internalUserMap.get(userName);
 	}
 	
@@ -144,7 +149,13 @@ public class TourGuideService {
 	 **********************************************************************************/
 	private static final String tripPricerApiKey = "test-server-api-key";
 	// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
+
 	private final Map<String, User> internalUserMap = new HashMap<>();
+
+	public Map<String,User> getInternalUserMap() {
+		return internalUserMap;
+	}
+
 	private void initializeInternalUsers() {
 		IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -> {
 			String userName = "internalUser" + i;
