@@ -37,7 +37,7 @@ public class Tracker extends Thread {
 	@Override
 	public void run() {
 
-		StopWatch stopWatch = new StopWatch();
+		StopWatch stopWatch = new StopWatch(); // calcul stop time
 
 		while(true) {
 			if(Thread.currentThread().isInterrupted() || stop) {
