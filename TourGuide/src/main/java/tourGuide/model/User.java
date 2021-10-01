@@ -8,7 +8,6 @@ import java.util.UUID;
 import gpsUtil.location.VisitedLocation;
 import tripPricer.Provider;
 
-import javax.persistence.Entity;
 
 public class User {
 

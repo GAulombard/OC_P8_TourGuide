@@ -15,6 +15,7 @@ import com.jsoniter.output.JsonStream;
 
 import gpsUtil.location.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.model.UserReward;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 import tourGuide.util.UserUtil;
@@ -30,7 +31,7 @@ public class TourGuideController {
 	
     @RequestMapping(value={"","/"})
     public String index() {
-        logger.info("* HTTP GET request receive at \"/\"");
+        logger.info("* HTTP GET request receive at root");
 
         return "Greetings from TourGuide!";
     }
@@ -76,8 +77,16 @@ public class TourGuideController {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
+        List<UserReward> userRewards = tourGuideService.getUserRewards(user);
 
-    	return JsonStream.serialize(tourGuideService.getUserRewards(user));
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(userRewards);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: List of user rewards could not be serialized to JSON.");
+            return null;
+        }
     }
     
     @RequestMapping("/getAllCurrentLocations")
