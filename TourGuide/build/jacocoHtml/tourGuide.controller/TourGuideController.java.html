@@ -15,40 +15,41 @@ import com.jsoniter.output.JsonStream;
 
 import gpsUtil.location.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.model.UserReward;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 import tourGuide.util.UserUtil;
 import tripPricer.Provider;
 
 @RestController
-<span class="nc" id="L24">public class TourGuideController {</span>
+<span class="nc" id="L25">public class TourGuideController {</span>
 
-<span class="nc" id="L26">    private Logger logger = LoggerFactory.getLogger(TourGuideController.class);</span>
+<span class="nc" id="L27">    private Logger logger = LoggerFactory.getLogger(TourGuideController.class);</span>
 
 	@Autowired
 	private TourGuideService tourGuideService;
 	
     @RequestMapping(value={&quot;&quot;,&quot;/&quot;})
     public String index() {
-<span class="nc" id="L33">        logger.info(&quot;* HTTP GET request receive at \&quot;/\&quot;&quot;);</span>
+<span class="nc" id="L34">        logger.info(&quot;* HTTP GET request receive at root&quot;);</span>
 
-<span class="nc" id="L35">        return &quot;Greetings from TourGuide!&quot;;</span>
+<span class="nc" id="L36">        return &quot;Greetings from TourGuide!&quot;;</span>
     }
     
     @RequestMapping(&quot;/getLocation&quot;) 
     public String getLocation(@RequestParam String userName) throws UserNotFoundException {
-<span class="nc" id="L40">        logger.info(&quot;* HTTP GET request receive at \&quot;/getLocation?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L41">        logger.info(&quot;* HTTP GET request receive at \&quot;/getLocation?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
 
-<span class="nc" id="L42">        User user = tourGuideService.getUser(userName);</span>
-<span class="nc" id="L43">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
+<span class="nc" id="L43">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L44">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
 
     	try {
-<span class="nc" id="L46">            ObjectMapper objectMapper = new ObjectMapper();</span>
-<span class="nc" id="L47">            return objectMapper.writeValueAsString(visitedLocation);</span>
+<span class="nc" id="L47">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L48">            return objectMapper.writeValueAsString(visitedLocation);</span>
 
-<span class="nc" id="L49">        } catch (JsonProcessingException e) {</span>
-<span class="nc" id="L50">    	    logger.error(&quot;ERROR: Object visitedLocation could not be serialized to JSON.&quot;);</span>
-<span class="nc" id="L51">    	    return null;</span>
+<span class="nc" id="L50">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L51">    	    logger.error(&quot;ERROR: Object visitedLocation could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L52">    	    return null;</span>
         }
     }
 
@@ -63,26 +64,34 @@ import tripPricer.Provider;
         //    Note: Attraction reward points can be gathered from RewardsCentral
     @RequestMapping(&quot;/getNearbyAttractions&quot;) 
     public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
-<span class="nc" id="L66">        logger.info(&quot;HTTP GET request receive at \&quot;/getNearbyAttractions?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L67">        logger.info(&quot;HTTP GET request receive at \&quot;/getNearbyAttractions?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
 
-<span class="nc" id="L68">        User user = tourGuideService.getUser(userName);</span>
-<span class="nc" id="L69">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
+<span class="nc" id="L69">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L70">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
 
-<span class="nc" id="L71">    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));</span>
+<span class="nc" id="L72">    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));</span>
     }
     
     @RequestMapping(&quot;/getRewards&quot;) 
     public String getRewards(@RequestParam String userName) throws UserNotFoundException {
-<span class="nc" id="L76">        logger.info(&quot;HTTP GET request receive at \&quot;/getRewards?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L77">        logger.info(&quot;HTTP GET request receive at \&quot;/getRewards?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
 
-<span class="nc" id="L78">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L79">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L80">        List&lt;UserReward&gt; userRewards = tourGuideService.getUserRewards(user);</span>
 
-<span class="nc" id="L80">    	return JsonStream.serialize(tourGuideService.getUserRewards(user));</span>
+        try {
+<span class="nc" id="L83">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L84">            return objectMapper.writeValueAsString(userRewards);</span>
+
+<span class="nc" id="L86">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L87">            logger.error(&quot;ERROR: List of user rewards could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L88">            return null;</span>
+        }
     }
     
     @RequestMapping(&quot;/getAllCurrentLocations&quot;)
     public String getAllCurrentLocations() {
-<span class="nc" id="L85">        logger.info(&quot;HTTP GET request receive at \&quot;/getAllCurrentLocations\&quot;&quot;);</span>
+<span class="nc" id="L94">        logger.info(&quot;HTTP GET request receive at \&quot;/getAllCurrentLocations\&quot;&quot;);</span>
     	// TODO: Get a list of every user's most recent location as JSON
     	//- Note: does not use gpsUtil to query for their current location, 
     	//        but rather gathers the user's current location from their stored location history.
@@ -93,18 +102,18 @@ import tripPricer.Provider;
     	//        ...
     	//     }
     	
-<span class="nc" id="L96">    	return JsonStream.serialize(&quot;&quot;);</span>
+<span class="nc" id="L105">    	return JsonStream.serialize(&quot;&quot;);</span>
     }
 
     //FIXME: error when using this endpoint &quot;java.lang.reflect.InaccessibleObjectException&quot;
     @RequestMapping(&quot;/getTripDeals&quot;)
     public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
-<span class="nc" id="L102">        logger.info(&quot;HTTP GET request receive at \&quot;/getTripDeals?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L111">        logger.info(&quot;HTTP GET request receive at \&quot;/getTripDeals?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
 
-<span class="nc" id="L104">        User user = tourGuideService.getUser(userName);</span>
-<span class="nc" id="L105">    	List&lt;Provider&gt; providers = tourGuideService.getTripDeals(user);</span>
+<span class="nc" id="L113">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L114">    	List&lt;Provider&gt; providers = tourGuideService.getTripDeals(user);</span>
 
-<span class="nc" id="L107">    	return JsonStream.serialize(providers);</span>
+<span class="nc" id="L116">    	return JsonStream.serialize(providers);</span>
     }
 
 }

@@ -1,10 +1,15 @@
 package tourGuide.service;
 
 
+import gpsUtil.GpsUtil;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import tourGuide.exception.UserNotFoundException;
@@ -18,11 +23,16 @@ import java.util.UUID;
 import static org.junit.Assert.*;
 
 
-@SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 public class TourGuideServiceTest {
 
+    @Mock
+    private GpsUtil gpsUtil;
 
-    @Autowired
+    @Mock
+    private RewardsService rewardsService;
+
+    @InjectMocks
     private TourGuideService tourGuideService;
     private User user;
 
@@ -34,8 +44,8 @@ public class TourGuideServiceTest {
 
     @BeforeEach
     public void setUpBeforeEach(){
-        user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
-        tourGuideService.addUser(user);
+        tourGuideService = new TourGuideService(gpsUtil,rewardsService);
+
     }
 
     @AfterEach
@@ -45,8 +55,9 @@ public class TourGuideServiceTest {
 
     @Test
     public void test_getUser() throws UserNotFoundException {
-
-        assertTrue(tourGuideService.getUser(user.getUserName()).equals("jon"));
+        user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
+        tourGuideService.addUser(user);
+        assertTrue(tourGuideService.getUser(user.getUserName()).getUserName().equals("jon"));
 
     }
 }
