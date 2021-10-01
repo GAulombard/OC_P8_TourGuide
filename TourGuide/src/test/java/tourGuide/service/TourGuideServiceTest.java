@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
@@ -34,7 +33,10 @@ public class TourGuideServiceTest {
 
     @InjectMocks
     private TourGuideService tourGuideService;
+
     private User user;
+
+    //private User user;
 
     @BeforeAll
     public static void setUpBeforeAll(){
@@ -43,21 +45,23 @@ public class TourGuideServiceTest {
     }
 
     @BeforeEach
-    public void setUpBeforeEach(){
+    void setUpBeforeEach(){
         tourGuideService = new TourGuideService(gpsUtil,rewardsService);
-
+        user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
+        tourGuideService.addUser(user);
     }
 
     @AfterEach
-    public void setUpAfterEach(){
+    void setUpAfterEach(){
         tourGuideService.getInternalUserMap().remove(user.getUserName());
     }
 
     @Test
     public void test_getUser() throws UserNotFoundException {
-        user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
-        tourGuideService.addUser(user);
+
         assertTrue(tourGuideService.getUser(user.getUserName()).getUserName().equals("jon"));
+        assertTrue(tourGuideService.getUser(user.getUserName()).getPhoneNumber().equals("000"));
+        assertTrue(tourGuideService.getUser(user.getUserName()).getEmailAddress().equals("jon@tourGuide.com"));
 
     }
 }
