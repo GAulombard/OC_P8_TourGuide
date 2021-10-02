@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import gpsUtil.location.VisitedLocation;
+import org.springframework.stereotype.Component;
 import tripPricer.Provider;
 
 
