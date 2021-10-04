@@ -15,6 +15,7 @@ import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import rewardCentral.RewardCentral;
+import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
@@ -44,7 +45,7 @@ public class TestPerformance {
 	
 	//@Ignore
 	@Test
-	public void highVolumeTrackLocation() {
+	public void highVolumeTrackLocation() throws UserNotFoundException {
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
 		// Users should be incremented up to 100,000, and test finishes within 15 minutes
@@ -85,7 +86,13 @@ public class TestPerformance {
 		allUsers = tourGuideService.getAllUsers();
 		allUsers.forEach(u -> u.addToVisitedLocations(new VisitedLocation(u.getUserId(), attraction, new Date())));
 	     
-	    allUsers.forEach(u -> rewardsService.calculateRewards(u));
+	    allUsers.forEach(u -> {
+			try {
+				rewardsService.calculateRewards(u);
+			} catch (UserNotFoundException e) {
+				e.printStackTrace();
+			}
+		});
 	    
 		for(User user : allUsers) {
 			assertTrue(user.getUserRewards().size() > 0);

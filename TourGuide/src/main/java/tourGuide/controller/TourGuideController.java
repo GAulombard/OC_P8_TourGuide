@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gpsUtil.location.Attraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ import com.jsoniter.output.JsonStream;
 import gpsUtil.location.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.model.UserReward;
+import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
-import tourGuide.util.UserUtil;
 import tripPricer.Provider;
 
 @RestController
@@ -28,12 +29,30 @@ public class TourGuideController {
 
 	@Autowired
 	private TourGuideService tourGuideService;
+    @Autowired
+    private RewardsService rewardsService;
 	
     @RequestMapping(value={"","/"})
     public String index() {
         logger.info("* HTTP GET request receive at root");
 
         return "Greetings from TourGuide!";
+    }
+
+    @RequestMapping("/getAllUsers")
+    public String getAll(){
+        logger.info("* HTTP GET request receive at /getAllUsers");
+
+        List<User> users = tourGuideService.getAllUsers();
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(users);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: list of users could not be serialized to JSON.");
+            return null;
+        }
     }
     
     @RequestMapping("/getLocation") 
@@ -68,8 +87,16 @@ public class TourGuideController {
 
         User user = tourGuideService.getUser(userName);
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+        List<Attraction> attractions = tourGuideService.getNearByAttractions(visitedLocation);
 
-    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(attractions);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
+            return null;
+        }
     }
     
     @RequestMapping("/getRewards") 
@@ -77,7 +104,7 @@ public class TourGuideController {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
-        List<UserReward> userRewards = tourGuideService.getUserRewards(user);
+        List<UserReward> userRewards = rewardsService.getUserRewards(user);
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -105,7 +132,6 @@ public class TourGuideController {
     	return JsonStream.serialize("");
     }
 
-    //FIXME: error when using this endpoint "java.lang.reflect.InaccessibleObjectException"
     @RequestMapping("/getTripDeals")
     public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
@@ -113,7 +139,14 @@ public class TourGuideController {
         User user = tourGuideService.getUser(userName);
     	List<Provider> providers = tourGuideService.getTripDeals(user);
 
-    	return JsonStream.serialize(providers);
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(providers);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: List of providers could not be serialized to JSON.");
+            return null;
+        }
     }
 
 }

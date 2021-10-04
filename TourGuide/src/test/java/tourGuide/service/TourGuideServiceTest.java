@@ -2,10 +2,7 @@ package tourGuide.service;
 
 
 import gpsUtil.GpsUtil;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,18 +11,20 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import java.util.Locale;
 import java.util.UUID;
 
-
-import static org.junit.Assert.*;
-
-
-@RunWith(MockitoJUnitRunner.class)
-//@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
+//@RunWith(JUnitPlatform.class)
 public class TourGuideServiceTest {
 
     private Logger logger = LoggerFactory.getLogger(TourGuideServiceTest.class);
@@ -48,7 +47,7 @@ public class TourGuideServiceTest {
     }
 
     @BeforeEach
-    void setUpBeforeEach(){
+    void setUpBeforeEach() throws UserAlreadyExistsException {
         logger.debug("before each");
         tourGuideService = new TourGuideService(gpsUtil,rewardsService);
         tourGuideService.tracker.stopTracking();
@@ -58,16 +57,16 @@ public class TourGuideServiceTest {
 
     @AfterEach
     void setUpAfterEach(){
-        logger.debug("teardown");
-        tourGuideService.getInternalUserMap().remove(user.getUserName());
+        logger.debug("tear down");
+        //tourGuideService.getInternalUserMap().remove(user.getUserName());
     }
 
     @Test
-    public void test_getUser() throws UserNotFoundException {
+    public void getUser() throws UserNotFoundException {
 
-        assertTrue(tourGuideService.getUser(user.getUserName()).getUserName().equals("jon"));
-        assertTrue(tourGuideService.getUser(user.getUserName()).getPhoneNumber().equals("000"));
-        assertTrue(tourGuideService.getUser(user.getUserName()).getEmailAddress().equals("jon@tourGuide.com"));
+        Assertions.assertEquals("jon", tourGuideService.getUser(user.getUserName()).getUserName());
+        Assertions.assertEquals("000", tourGuideService.getUser(user.getUserName()).getPhoneNumber());
+        Assertions.assertEquals("jon@tourGuide.com", tourGuideService.getUser(user.getUserName()).getEmailAddress());
 
     }
 }
