@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import lombok.SneakyThrows;
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,7 @@ public class Tracker extends Thread {
 		executorService.shutdownNow();
 	}
 	
+	@SneakyThrows
 	@Override
 	public void run() {
 

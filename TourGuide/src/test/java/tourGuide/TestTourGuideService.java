@@ -18,7 +18,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
+import tourGuide.model.NearbyAttraction;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
@@ -62,7 +64,7 @@ public class TestTourGuideService {
 	}
 	
 	@Test
-	public void getAllUsers() throws UserAlreadyExistsException {
+	public void getAllUsers() throws UserAlreadyExistsException, UsersGatheringException {
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
 		InternalTestHelper.setInternalUserNumber(0);
@@ -110,10 +112,10 @@ public class TestTourGuideService {
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
 		
-		List<Attraction> attractions = tourGuideService.getNearByAttractions(visitedLocation);
+		List<NearbyAttraction> nearbyAttractions = tourGuideService.getNearByAttractions(visitedLocation,user);
 
 		
-		assertEquals(5, attractions.size());
+		assertEquals(5, nearbyAttractions.size());
 	}
 
 	//@Ignore

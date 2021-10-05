@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.jsoniter.output.JsonStream;
+import gpsUtil.location.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,12 @@ import org.springframework.stereotype.Service;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import rewardCentral.RewardCentral;
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
+import tourGuide.model.NearbyAttraction;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
 import tourGuide.util.DistanceCalculator;
@@ -25,9 +29,13 @@ public class TourGuideService {
 
 	private final Logger logger = LoggerFactory.getLogger(TourGuideService.class);
 
+	//Libs
 	private final GpsUtil gpsUtil;
-	private final RewardsService rewardsService;
+	private final RewardCentral rewardCentral = new RewardCentral();
 	private final TripPricer tripPricer = new TripPricer();
+
+
+	private final RewardsService rewardsService;
 	public final Tracker tracker;
 	private final InternalTestHelper internalTestHelper = new InternalTestHelper();
 	boolean testMode = true;
@@ -37,7 +45,7 @@ public class TourGuideService {
 		this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
 		
-		if(testMode) { //fixme: put it into internal test helper and call it when launch the app
+		if(testMode) { //fixme: put it into internal test helper and call it when launch the app ????
 			logger.info("TestMode enabled");
 			logger.debug("Initializing users");
 			internalTestHelper.initializeInternalUsers();
@@ -65,9 +73,18 @@ public class TourGuideService {
 		return internalTestHelper.getInternalUserMap().get(userName);
 	}
 	
-	public List<User> getAllUsers() {
+	public List<User> getAllUsers() throws UsersGatheringException {
 		logger.info("** Processing to get all users");
-		return internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());
+
+		List<User> users = new ArrayList<>();
+
+		try {
+			users = internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());
+		}catch (Exception e) {
+			logger.error("ERROR: Impossible to get all users");
+			throw new UsersGatheringException(e.getMessage());
+		}
+		return users;
 	}
 	
 	public void addUser(User user) throws UserAlreadyExistsException {
@@ -104,28 +121,52 @@ public class TourGuideService {
 
 		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
 		user.addToVisitedLocations(visitedLocation);
-		rewardsService.calculateRewards(user);
+		rewardsService.calculateRewards(user); //fixme: why is this here ?
 
 		return visitedLocation;
 	}
 
-	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
-		logger.info("** Processing to get nearby attractions. User: "+visitedLocation.userId);
+	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) {// Get the closest five tourist attractions to the user - no matter how far away they are.
+		logger.info("** Processing to get nearby attractions.");
+		logger.info("** User: "+user.getUserName());
+		logger.info("** Latitude: "+visitedLocation.location.latitude+" Longitude: "+visitedLocation.location.longitude);
 
-		List<Attraction> nearbyAttractions = new ArrayList<>();
 
-		gpsUtil.getAttractions().forEach(attraction -> {
-			logger.debug("Attraction: "+attraction.attractionName+" Distance: "+ DistanceCalculator.getDistance(attraction,visitedLocation.location));
-			if(DistanceCalculator.isWithinAttractionProximity(attraction, visitedLocation.location)) {
-				logger.info("Attraction nearby found");
-				nearbyAttractions.add(attraction);
-			}
+		List<NearbyAttraction> nearbyAttractions = new ArrayList<>();
+		List<Attraction> attractions = gpsUtil.getAttractions();
+
+		attractions.forEach(attraction -> {
+			NearbyAttraction nearbyAttraction = new NearbyAttraction();
+			nearbyAttraction.setAttractionName(attraction.attractionName);
+			nearbyAttraction.setAttractionLatitude(attraction.latitude);
+			nearbyAttraction.setAttractionLongitude(attraction.longitude);
+			nearbyAttraction.setUserLatitude(visitedLocation.location.latitude);
+			nearbyAttraction.setUserLongitude(visitedLocation.location.longitude);
+			nearbyAttraction.setDistanceBetweenUserAndAttraction(DistanceCalculator.getDistance(attraction,visitedLocation.location));
+			nearbyAttraction.setRewardPoint(rewardCentral.getAttractionRewardPoints(attraction.attractionId,user.getUserId()));
+			nearbyAttractions.add(nearbyAttraction);
 		});
+
+		Collections.sort(nearbyAttractions,Comparator.comparingDouble(NearbyAttraction::getDistanceBetweenUserAndAttraction));
+		nearbyAttractions.subList(5,nearbyAttractions.size()).clear();
 
 		return nearbyAttractions;
 	}
-	
-	private void addShutDownHook() {
+
+	public Map<String, Location> getAllCurrentLocation() throws UsersGatheringException {
+		logger.info("** Processing to get all user's current location");
+		Map<String,Location> allCurrentLocations = new HashMap<>();
+		List<User> users = getAllUsers();
+
+		users.forEach(user -> {
+			allCurrentLocations.put(user.getUserId().toString(),user.getLastVisitedLocation().location);
+		});
+
+		return allCurrentLocations;
+	}
+
+
+	private void addShutDownHook() { //fixme: put it in InternalTestHelper
 		logger.info("** Processing to add shut down hook");
 
 		Runtime.getRuntime().addShutdownHook(new Thread() { 

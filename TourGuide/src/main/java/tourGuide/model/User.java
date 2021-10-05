@@ -93,6 +93,7 @@ public class User {
 	}
 
 	public VisitedLocation getLastVisitedLocation() {
+		//fixme: see if it's correct ?? doesn't see correct
 		return visitedLocations.get(visitedLocations.size() - 1);
 	}
 	

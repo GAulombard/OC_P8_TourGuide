@@ -15,6 +15,7 @@ import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
@@ -51,7 +52,7 @@ public class TestRewardsService {
 	
 	//@Ignore // Needs fixed - can throw ConcurrentModificationException
 	@Test
-	public void nearAllAttractions() throws UserNotFoundException {
+	public void nearAllAttractions() throws UserNotFoundException, UsersGatheringException {
 
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
