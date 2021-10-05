@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.jsoniter.output.JsonStream;
 import gpsUtil.location.Location;
+import org.javamoney.moneta.Money;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,15 @@ import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
 import tourGuide.util.DistanceCalculator;
 import tripPricer.Provider;
 import tripPricer.TripPricer;
+
+import javax.money.CurrencyUnit;
+import javax.money.Monetary;
 
 @Service
 public class TourGuideService {
@@ -45,7 +50,7 @@ public class TourGuideService {
 		this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
 		
-		if(testMode) { //fixme: put it into internal test helper and call it when launch the app ????
+		if(testMode) {
 			logger.info("TestMode enabled");
 			logger.debug("Initializing users");
 			internalTestHelper.initializeInternalUsers();
@@ -96,7 +101,8 @@ public class TourGuideService {
 			throw new UserAlreadyExistsException("ERROR: User already exists");
 		}
 	}
-	
+
+	//fixme: should return only corresponding trip with user preferences including price and ?? proximity ??
 	public List<Provider> getTripDeals(User user) throws UserNotFoundException {
 		logger.info("** Processing to get trip deals. User: "+user.getUserName());
 
@@ -104,10 +110,11 @@ public class TourGuideService {
 
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
-		logger.info("** cumulativePoint: "+cumulativeRewardPoints);
+		logger.info("** --> cumulativePoint: "+cumulativeRewardPoints);
 
 		List<Provider> providers = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
 				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
+
 		user.setTripDeals(providers);
 
 		return providers;
@@ -128,8 +135,8 @@ public class TourGuideService {
 
 	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) {// Get the closest five tourist attractions to the user - no matter how far away they are.
 		logger.info("** Processing to get nearby attractions.");
-		logger.info("** User: "+user.getUserName());
-		logger.info("** Latitude: "+visitedLocation.location.latitude+" Longitude: "+visitedLocation.location.longitude);
+		logger.info("** -->User: "+user.getUserName());
+		logger.info("** -->Latitude: "+visitedLocation.location.latitude+" Longitude: "+visitedLocation.location.longitude);
 
 
 		List<NearbyAttraction> nearbyAttractions = new ArrayList<>();
@@ -165,17 +172,32 @@ public class TourGuideService {
 		return allCurrentLocations;
 	}
 
+	public void updatePreferences(User user, UserPreferences newPreferences) {
+		logger.info("** Processing to update preferences");
 
-	private void addShutDownHook() { //fixme: put it in InternalTestHelper
-		logger.info("** Processing to add shut down hook");
+		//CurrencyUnit currency = Monetary.getCurrency("USD");
+		UserPreferences actualPreferences = user.getUserPreferences();
 
-		Runtime.getRuntime().addShutdownHook(new Thread() { 
+		actualPreferences.setNumberOfAdults(newPreferences.getNumberOfAdults());
+		actualPreferences.setNumberOfChildren(newPreferences.getNumberOfChildren());
+		actualPreferences.setAttractionProximity(newPreferences.getAttractionProximity());
+/*		actualPreferences.setHighPricePoint(Money.of(newPreferences.getHighPricePoint(),currency));
+		actualPreferences.setLowerPricePoint(Money.of(newPreferences.getLowerPricePoint(),currency));*/
+		actualPreferences.setHighPricePoint(newPreferences.getHighPricePoint().getNumber().intValue());
+		actualPreferences.setLowerPricePoint(newPreferences.getLowerPricePoint().getNumber().intValue());
+		actualPreferences.setTicketQuantity(newPreferences.getTicketQuantity());
+		actualPreferences.setTripDuration(newPreferences.getTripDuration());
+
+	}
+
+	private void addShutDownHook() {
+		Runtime.getRuntime().addShutdownHook(new Thread() {
 		      public void run() {
 		        tracker.stopTracking();
 		      } 
 		    }); 
 	}
-	
 
-	
+
+
 }

@@ -1,9 +1,6 @@
 package tourGuide.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import gpsUtil.location.VisitedLocation;
 import org.springframework.stereotype.Component;
@@ -93,8 +90,16 @@ public class User {
 	}
 
 	public VisitedLocation getLastVisitedLocation() {
-		//fixme: see if it's correct ?? doesn't see correct
-		return visitedLocations.get(visitedLocations.size() - 1);
+		List<VisitedLocation> visitedLocationList = getVisitedLocations();
+		Comparator<VisitedLocation> byTimeVisited = new Comparator<VisitedLocation>() {
+
+			public int compare(VisitedLocation o1, VisitedLocation o2) {
+				return Long.valueOf(o1.timeVisited.getTime()).compareTo(o2.timeVisited.getTime());
+			}
+		};
+		Collections.sort(visitedLocationList,byTimeVisited.reversed());
+
+		return visitedLocationList.get(0);
 	}
 	
 	public void setTripDeals(List<Provider> tripDeals) {

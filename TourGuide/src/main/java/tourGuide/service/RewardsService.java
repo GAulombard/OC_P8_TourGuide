@@ -2,15 +2,12 @@ package tourGuide.service;
 
 import java.util.List;
 
-import com.jsoniter.output.JsonStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserNotFoundException;
@@ -55,13 +52,12 @@ public class RewardsService {
 						.filter(r -> r.attraction.attractionName.equals(attraction.attractionName))
 						.count();
 				if(countRewardForAttraction == 0 && DistanceCalculator.nearAttraction(visitedLocation,attraction)) {
-						//logger.debug("countRewardForAttraction: "+countRewardForAttraction+" nearAttraction: "+nearAttraction(visitedLocation,attraction));
 						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
 				}
 			}
 		}
 
-		logger.info("** User rewards found: "+ user.getUserRewards().size());
+		logger.info("** --> User rewards found: "+ user.getUserRewards().size());
 	}
 	
 	private int getRewardPoints(Attraction attraction, User user) {

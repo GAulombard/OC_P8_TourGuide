@@ -9,15 +9,15 @@ import gpsUtil.location.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
 import gpsUtil.location.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
 import tourGuide.model.UserReward;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
@@ -36,14 +36,46 @@ public class TourGuideController {
 	
     @RequestMapping(value={"","/"})
     public String index() {
-        logger.info("* HTTP GET request receive at index");
+        logger.info("HTTP GET request receive at index");
 
         return "Greetings from TourGuide!";
     }
 
+    @RequestMapping("/getUser")
+    public String getUser(@RequestParam String userName) throws UserNotFoundException {
+        logger.info("HTTP GET request receive at /getUseruserName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(user);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: user could not be serialized to JSON.");
+            return null;
+        }
+    }
+
+    @RequestMapping("/getPreferences")
+    public String getUserPreferences(@RequestParam String userName) throws UserNotFoundException {
+        logger.info("HTTP GET request receive at /getPreferences?userName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+        logger.info("HighPricePoint: "+user.getUserPreferences().getHighPricePoint().getNumber());
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(user.getUserPreferences());
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: user could not be serialized to JSON.");
+            return null;
+        }
+    }
+
     @RequestMapping("/getAllUsers")
     public String getAll() throws UsersGatheringException {
-        logger.info("* HTTP GET request receive at /getAllUsers");
+        logger.info("HTTP GET request receive at /getAllUsers");
 
         List<User> users = tourGuideService.getAllUsers();
 
@@ -59,14 +91,14 @@ public class TourGuideController {
     
     @RequestMapping("/getLocation") 
     public String getLocation(@RequestParam String userName) throws UserNotFoundException {
-        logger.info("* HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
+        logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
     	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
 
     	try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(visitedLocation);
+            return objectMapper.writeValueAsString(visitedLocation); //fixme: return timeVisited as Integer number instead of readable date format
 
         } catch (JsonProcessingException e) {
     	    logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
@@ -140,6 +172,17 @@ public class TourGuideController {
             logger.error("ERROR: List of providers could not be serialized to JSON.");
             return null;
         }
+    }
+
+    @PostMapping("/updatePreferences")
+    public ResponseEntity<String> updatePreferences(@RequestParam String userName, @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+        logger.info("HTTP POST request receive at \"/updatePreferences?userName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+
+        tourGuideService.updatePreferences(user,newPreferences);
+
+        return ResponseEntity.ok("Preferences updated");
     }
 
 }
