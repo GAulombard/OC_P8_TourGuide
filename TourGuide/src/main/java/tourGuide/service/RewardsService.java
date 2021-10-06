@@ -57,7 +57,7 @@ public class RewardsService {
 			}
 		}
 
-		logger.info("** --> User rewards found: "+ user.getUserRewards().size());
+		logger.info("** --> User reward found: "+ user.getUserRewards().size());
 	}
 	
 	private int getRewardPoints(Attraction attraction, User user) {

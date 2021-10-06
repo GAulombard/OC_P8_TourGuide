@@ -106,6 +106,22 @@ public class TourGuideController {
         }
     }
 
+    @RequestMapping("/trackUsers")
+    public String trackAllUsersLocation() throws UsersGatheringException {
+        logger.info("HTTP GET request receive at /trackUsers");
+
+        List<User> users = tourGuideService.getAllUsers();
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(tourGuideService.trackAllUsersLocation(users));
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: all user's location could not be serialized to JSON.");
+            return null;
+        }
+    }
+
     @RequestMapping("/getNearbyAttractions") //Get the closest five tourist attractions to the user - no matter how far away they are.
     public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");

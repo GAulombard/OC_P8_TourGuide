@@ -105,20 +105,25 @@ public class TourGuideService {
 	public List<Provider> getTripDeals(User user) throws UserNotFoundException {
 		logger.info("** Processing to get trip deals. User: "+user.getUserName());
 		List<Provider> providers = new ArrayList<>();
+		List<Provider> tempProviders =new ArrayList<>();
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
 
-
-		List<Provider> tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
+		//todo: need to get attractions within the range set as user preferences
+		//  - replace user.getUserId() by attractions Id
+		//  note: by the way attractionId is useless in tripPricer.
+		tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
 				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
 
 		tempProviders.forEach(provider -> {
 			if(provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {
 				logger.info("** --> Provider found: "+provider.name);
 				providers.add(provider);
+			} else {
+				logger.info("** --> Unfortunately there is no trip deal matching your preferences. Consider modifying your preferences.");
 			}
 		});
 
@@ -139,6 +144,20 @@ public class TourGuideService {
 
 		return visitedLocation;
 	}
+
+	//todo:add exceptions if needed
+	public Map<String, List<VisitedLocation>> trackAllUsersLocation(List<User> users) {
+		logger.info("** Processing to track all user's location: "+users.size());
+
+		Map<String, List<VisitedLocation>> mapUsernameVisitedLocation = new HashMap<>();
+
+		users.forEach(user -> {
+			mapUsernameVisitedLocation.put(user.getUserName(),user.getVisitedLocations());
+		});
+
+		return mapUsernameVisitedLocation;
+	}
+
 
 	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) {// Get the closest five tourist attractions to the user - no matter how far away they are.
 		logger.info("** Processing to get nearby attractions.");

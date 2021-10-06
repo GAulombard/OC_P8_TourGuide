@@ -64,14 +64,14 @@ public class InternalTestHelper {
 	}
 
 	private double generateRandomLongitude() {
-		double leftLimit = -180; //-180 by default
-		double rightLimit = 180; //180 by default
+		double leftLimit = -149.88; //-180 by default
+		double rightLimit = -71.07; //180 by default
 		return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
 	}
 
 	private double generateRandomLatitude() {
-		double leftLimit = -50; //-85.05112878 by default
-		double rightLimit = 50; //85.05112878 by default
+		double leftLimit = 33.6; //-85.05112878 by default
+		double rightLimit = 61.22; //85.05112878 by default
 		return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
 	}
 

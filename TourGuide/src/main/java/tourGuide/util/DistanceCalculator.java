@@ -7,7 +7,7 @@ import gpsUtil.location.VisitedLocation;
 public class DistanceCalculator {
 
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
-    private static int defaultProximityBuffer = 200; // proximity in miles (10 by default but systematically find 0 reward)
+    private static int defaultProximityBuffer = 60; // proximity in miles (10 by default but systematically find 0 reward)
     private static int proximityBuffer = defaultProximityBuffer; // proximity in miles
     private static int attractionProximityRange = 200; // proximity in miles (200 by default)
 
