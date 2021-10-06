@@ -2,28 +2,18 @@ package tourGuide.service;
 
 
 import gpsUtil.GpsUtil;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import tourGuide.exception.UserAlreadyExistsException;
-import tourGuide.exception.UserNotFoundException;
-import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
-import java.util.Locale;
-import java.util.UUID;
+
 
 @SpringBootTest
 //@RunWith(SpringRunner.class)
 //@RunWith(MockitoJUnitRunner.class)
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
 //@RunWith(JUnitPlatform.class)
 public class TourGuideServiceTest {
 
@@ -40,7 +30,7 @@ public class TourGuideServiceTest {
 
     private User user;
 
-    @BeforeAll
+/*    @BeforeAll
     public static void setUp(){
         InternalTestHelper.setInternalUserNumber(0); //set the list of user to 0
         Locale.setDefault(new Locale("en", "US")); //Set default locale to avoid problems with comma between "," and "."
@@ -68,5 +58,5 @@ public class TourGuideServiceTest {
         Assertions.assertEquals("000", tourGuideService.getUser(user.getUserName()).getPhoneNumber());
         Assertions.assertEquals("jon@tourGuide.com", tourGuideService.getUser(user.getUserName()).getEmailAddress());
 
-    }
+    }*/
 }
