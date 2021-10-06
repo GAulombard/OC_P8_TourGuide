@@ -105,7 +105,7 @@ public class TourGuideService {
 	public List<Provider> getTripDeals(User user) throws UserNotFoundException {
 		logger.info("** Processing to get trip deals. User: "+user.getUserName());
 		List<Provider> providers = new ArrayList<>();
-		List<Provider> tempProviders =new ArrayList<>();
+
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
@@ -115,23 +115,44 @@ public class TourGuideService {
 		//todo: need to get attractions within the range set as user preferences
 		//  - replace user.getUserId() by attractions Id
 		//  note: by the way attractionId is useless in tripPricer.
-		tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
-				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
 
-		tempProviders.forEach(provider -> {
-			if(provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {
-				logger.info("** --> Provider found: "+provider.name);
-				providers.add(provider);
-			} else {
-				logger.info("** --> Unfortunately there is no trip deal matching your preferences. Consider modifying your preferences.");
-			}
+		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user);
+
+
+		attractionsWithinRange.forEach(attraction -> {
+
+			List<Provider> tempProviders = new ArrayList<>();
+
+			tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), attraction.attractionId, user.getUserPreferences().getNumberOfAdults(),
+					user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
+
+			tempProviders.forEach(provider -> {
+				if(provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {
+					logger.info("** --> Provider found: "+provider.name+" / Attraction: "+attraction.attractionName);
+					providers.add(provider);
+				}
+			});
 		});
 
 		user.setTripDeals(providers);
 
 		return providers;
 	}
-	
+
+	public List<Attraction> getAttractionsWithinRangePreferences(List <Attraction> attractions, User user) throws UserNotFoundException {
+		List<Attraction> attractionsWithinRange = new ArrayList<>();
+
+		Location userLocation = trackUserLocation(user).location;
+
+		attractions.forEach(attraction -> {
+			if(DistanceCalculator.getDistance(attraction,userLocation) <= user.getUserPreferences().getAttractionProximity()) {
+				attractionsWithinRange.add(attraction);
+			}
+		});
+
+		return attractionsWithinRange;
+	}
+
 	public VisitedLocation trackUserLocation(User user) throws UserNotFoundException {
 		logger.info("** Processing to track user location. User: "+user.getUserName());
 		Locale.setDefault(new Locale("en", "US"));
