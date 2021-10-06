@@ -3,15 +3,17 @@ package tourGuide.model;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.javamoney.moneta.Money;
+import tourGuide.validator.PriceCheck;
 
-
+@PriceCheck
 public class UserPreferences {
 
-	@Min(value = 0, message = "The proximity should be a positive number")
-	private int attractionProximity = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
 	private CurrencyUnit currency = Monetary.getCurrency("USD");
+	@Min(value = 1, message = "The proximity should be a positive number and at least 1")
+	private int attractionProximity = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
 	@Min(value = 0, message = "Lower price should be a positive number or 0")
 	private double lowerPricePoint = 0; //0 by default
 	@Min(value = 0, message = "High price should be a positive number")
@@ -22,11 +24,11 @@ public class UserPreferences {
 	private int ticketQuantity = 1; //1 by default
 	@Min(value = 1, message = "Number of adults should be positive and at least 1")
 	private int numberOfAdults = 1; //1 by default
-	@Min(value = 1, message = "Number of children should be positive and at least 0")
+	@Min(value = 0, message = "Number of children should be positive and at least 0")
 	private int numberOfChildren = 0; //0 by default
 	
-	/*public UserPreferences() {
-	}*/
+	public UserPreferences() {
+	}
 	
 	public void setAttractionProximity(int attractionProximity) {
 		this.attractionProximity = attractionProximity;

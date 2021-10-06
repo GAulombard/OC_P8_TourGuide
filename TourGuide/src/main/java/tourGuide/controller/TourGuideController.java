@@ -9,14 +9,13 @@ import gpsUtil.location.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
 import gpsUtil.location.VisitedLocation;
-import tourGuide.exception.FieldErrorException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.model.NearbyAttraction;
@@ -30,6 +29,7 @@ import tripPricer.Provider;
 import javax.validation.Valid;
 
 @RestController
+@Validated
 public class TourGuideController {
 
     private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
@@ -67,7 +67,7 @@ public class TourGuideController {
         logger.info("HTTP GET request receive at /getPreferences?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
-        logger.info("HighPricePoint: "+user.getUserPreferences().getHighPricePoint().getNumber());
+
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(user.getUserPreferences());
@@ -195,16 +195,15 @@ public class TourGuideController {
         }
     }
 
-    //fixme: validations doesn't work
-    @PostMapping("/updatePreferences")
+    @PutMapping("/updatePreferences")
     public ResponseEntity<String> updatePreferences(@RequestParam String userName, @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
-        logger.info("HTTP POST request receive at \"/updatePreferences?userName="+userName+"\"");
+        logger.info("HTTP PUT request receive at \"/updatePreferences?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
 
         tourGuideService.updatePreferences(user,newPreferences);
 
-        return ResponseEntity.ok("Preferences updated");
+        return new ResponseEntity<>("Preferences updated", HttpStatus.OK);
     }
 
 }
