@@ -8,11 +8,12 @@ import java.util.Locale;
 import java.util.UUID;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import org.springframework.boot.test.context.SpringBootTest;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
@@ -24,6 +25,7 @@ import tourGuide.model.User;
 import tourGuide.model.UserReward;
 import tourGuide.util.DistanceCalculator;
 
+@SpringBootTest
 public class TestRewardsService {
 
 	@Test

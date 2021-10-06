@@ -8,7 +8,7 @@ import java.util.Locale;
 import java.util.UUID;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gpsUtil.GpsUtil;
 

@@ -9,11 +9,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
-import org.junit.Test;
+
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
@@ -22,6 +24,7 @@ import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 
+@SpringBootTest
 public class TestPerformance {
 	
 	/*

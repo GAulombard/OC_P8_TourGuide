@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import tourGuide.model.User;
+import org.junit.jupiter.api.Test;
 
 
 @SpringBootTest
@@ -18,17 +19,6 @@ import tourGuide.model.User;
 public class TourGuideServiceTest {
 
     private Logger logger = LoggerFactory.getLogger(TourGuideServiceTest.class);
-
-    @Mock
-    private GpsUtil gpsUtil;
-
-    @Mock
-    private RewardsService rewardsService;
-
-    @InjectMocks
-    private TourGuideService tourGuideService;
-
-    private User user;
 
 /*    @BeforeAll
     public static void setUp(){
