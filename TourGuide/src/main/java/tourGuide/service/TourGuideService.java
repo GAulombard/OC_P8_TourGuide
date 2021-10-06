@@ -102,18 +102,25 @@ public class TourGuideService {
 		}
 	}
 
-	//fixme: should return only corresponding trip with user preferences including price and ?? proximity ??
 	public List<Provider> getTripDeals(User user) throws UserNotFoundException {
 		logger.info("** Processing to get trip deals. User: "+user.getUserName());
+		List<Provider> providers = new ArrayList<>();
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
-		logger.info("** --> cumulativePoint: "+cumulativeRewardPoints);
 
-		List<Provider> providers = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
+
+		List<Provider> tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
 				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
+
+		tempProviders.forEach(provider -> {
+			if(provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {
+				logger.info("** --> Provider found: "+provider.name);
+				providers.add(provider);
+			}
+		});
 
 		user.setTripDeals(providers);
 
