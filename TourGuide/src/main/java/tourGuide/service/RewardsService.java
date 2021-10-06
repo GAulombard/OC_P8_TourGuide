@@ -60,8 +60,10 @@ public class RewardsService {
 		logger.info("** --> User reward found: "+ user.getUserRewards().size());
 	}
 	
-	private int getRewardPoints(Attraction attraction, User user) {
+	private int getRewardPoints(Attraction attraction, User user) throws UserNotFoundException {
 		logger.info("** Processing get reward points");
+
+		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
 	}

@@ -10,10 +10,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
 import gpsUtil.location.VisitedLocation;
+import tourGuide.exception.FieldErrorException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.model.NearbyAttraction;
@@ -23,6 +26,8 @@ import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 import tripPricer.Provider;
+
+import javax.validation.Valid;
 
 @RestController
 public class TourGuideController {
@@ -98,7 +103,7 @@ public class TourGuideController {
 
     	try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(visitedLocation); //fixme: return timeVisited as Integer number instead of readable date format
+            return objectMapper.writeValueAsString(visitedLocation); //fixme:?? return timeVisited as Integer number instead of readable date format
 
         } catch (JsonProcessingException e) {
     	    logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
@@ -140,7 +145,7 @@ public class TourGuideController {
         }
     }
     
-    @RequestMapping("/getRewards") //fixme: always return nothing... ???
+    @RequestMapping("/getRewards")
     public String getRewards(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
@@ -190,8 +195,9 @@ public class TourGuideController {
         }
     }
 
+    //fixme: validations doesn't work
     @PostMapping("/updatePreferences")
-    public ResponseEntity<String> updatePreferences(@RequestParam String userName, @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+    public ResponseEntity<String> updatePreferences(@RequestParam String userName, @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
         logger.info("HTTP POST request receive at \"/updatePreferences?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);

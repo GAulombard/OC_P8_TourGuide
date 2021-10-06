@@ -100,6 +100,7 @@ dependencies {
     testRuntime 'org.junit.platform:junit-platform-console:1.8.1'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0-rc2'
     implementation 'org.projectlombok:lombok:1.18.20'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
 }
 
 test {

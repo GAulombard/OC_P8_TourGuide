@@ -3,9 +3,7 @@ package tourGuide.service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.jsoniter.output.JsonStream;
 import gpsUtil.location.Location;
-import org.javamoney.moneta.Money;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,6 @@ import tourGuide.util.DistanceCalculator;
 import tripPricer.Provider;
 import tripPricer.TripPricer;
 
-import javax.money.CurrencyUnit;
-import javax.money.Monetary;
 
 @Service
 public class TourGuideService {
@@ -91,7 +87,8 @@ public class TourGuideService {
 		}
 		return users;
 	}
-	
+
+	//todo:add endpoint for that ?
 	public void addUser(User user) throws UserAlreadyExistsException {
 		logger.info("** Processing to add new user: "+user.getUserName());
 
@@ -111,13 +108,7 @@ public class TourGuideService {
 
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
-
-		//todo: need to get attractions within the range set as user preferences
-		//  - replace user.getUserId() by attractions Id
-		//  note: by the way attractionId is useless in tripPricer.
-
 		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user);
-
 
 		attractionsWithinRange.forEach(attraction -> {
 
@@ -128,7 +119,7 @@ public class TourGuideService {
 
 			tempProviders.forEach(provider -> {
 				if(provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {
-					logger.info("** --> Provider found: "+provider.name+" / Attraction: "+attraction.attractionName);
+					logger.info("** --> Provider found: "+provider.name+" / Price: "+provider.price+" USD / Attraction: "+attraction.attractionName);
 					providers.add(provider);
 				}
 			});
@@ -161,12 +152,11 @@ public class TourGuideService {
 
 		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
 		user.addToVisitedLocations(visitedLocation);
-		rewardsService.calculateRewards(user); //fixme: why is this here ?
+		rewardsService.calculateRewards(user);
 
 		return visitedLocation;
 	}
 
-	//todo:add exceptions if needed
 	public Map<String, List<VisitedLocation>> trackAllUsersLocation(List<User> users) {
 		logger.info("** Processing to track all user's location: "+users.size());
 
@@ -179,12 +169,13 @@ public class TourGuideService {
 		return mapUsernameVisitedLocation;
 	}
 
-
-	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) {// Get the closest five tourist attractions to the user - no matter how far away they are.
+	// Get the closest five tourist attractions to the user - no matter how far away they are.
+	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) throws UserNotFoundException {
 		logger.info("** Processing to get nearby attractions.");
 		logger.info("** -->User: "+user.getUserName());
 		logger.info("** -->Latitude: "+visitedLocation.location.latitude+" Longitude: "+visitedLocation.location.longitude);
 
+		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		List<NearbyAttraction> nearbyAttractions = new ArrayList<>();
 		List<Attraction> attractions = gpsUtil.getAttractions();
@@ -219,17 +210,16 @@ public class TourGuideService {
 		return allCurrentLocations;
 	}
 
-	public void updatePreferences(User user, UserPreferences newPreferences) {
+	public void updatePreferences(User user, UserPreferences newPreferences) throws UserNotFoundException {
 		logger.info("** Processing to update preferences");
 
-		//CurrencyUnit currency = Monetary.getCurrency("USD");
+		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
+
 		UserPreferences actualPreferences = user.getUserPreferences();
 
 		actualPreferences.setNumberOfAdults(newPreferences.getNumberOfAdults());
 		actualPreferences.setNumberOfChildren(newPreferences.getNumberOfChildren());
 		actualPreferences.setAttractionProximity(newPreferences.getAttractionProximity());
-/*		actualPreferences.setHighPricePoint(Money.of(newPreferences.getHighPricePoint(),currency));
-		actualPreferences.setLowerPricePoint(Money.of(newPreferences.getLowerPricePoint(),currency));*/
 		actualPreferences.setHighPricePoint(newPreferences.getHighPricePoint().getNumber().intValue());
 		actualPreferences.setLowerPricePoint(newPreferences.getLowerPricePoint().getNumber().intValue());
 		actualPreferences.setTicketQuantity(newPreferences.getTicketQuantity());
