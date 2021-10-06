@@ -17,7 +17,8 @@ public class InternalTestHelper {
 	private Logger logger = LoggerFactory.getLogger(InternalTestHelper.class);
 	private static int internalUserNumber = 100;// Set this default up to 100,000 for testing
 	private static final String tripPricerApiKey = "test-server-api-key";
-	private static final Map<String, User> internalUserMap = new HashMap<>();// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
+	// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
+	private static final Map<String, User> internalUserMap = new HashMap<>();
 
 	public InternalTestHelper() {
 	}
@@ -31,7 +32,11 @@ public class InternalTestHelper {
 	public static void setInternalUserNumber(int internalUserNumber) {
 		InternalTestHelper.internalUserNumber = internalUserNumber;
 	}
-	
+
+	public static void freeInternalUserMap() {
+		internalUserMap.clear();
+	}
+
 	public static int getInternalUserNumber() {
 		return internalUserNumber;
 	}

@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourGuideService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.service</a> &gt; <span class="el_source">TourGuideService.java</span></div><h1>TourGuideService.java</h1><pre class="source lang-java linenums">package tourGuide.service;
 
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-import com.jsoniter.output.JsonStream;
+import gpsUtil.location.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import rewardCentral.RewardCentral;
+import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
+import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
-import tourGuide.model.UserReward;
+import tourGuide.util.DistanceCalculator;
 import tripPricer.Provider;
 import tripPricer.TripPricer;
+
 
 @Service
 public class TourGuideService {
 
-<span class="fc" id="L30">	private Logger logger = LoggerFactory.getLogger(TourGuideService.class);</span>
+<span class="nc" id="L31">	private final Logger logger = LoggerFactory.getLogger(TourGuideService.class);</span>
 
+	//Libs
 	private final GpsUtil gpsUtil;
+<span class="nc" id="L35">	private final RewardCentral rewardCentral = new RewardCentral();</span>
+<span class="nc" id="L36">	private final TripPricer tripPricer = new TripPricer();</span>
+
+
 	private final RewardsService rewardsService;
-<span class="fc" id="L34">	private final TripPricer tripPricer = new TripPricer();</span>
 	public final Tracker tracker;
-<span class="fc" id="L36">	boolean testMode = true;</span>
+<span class="nc" id="L41">	private final InternalTestHelper internalTestHelper = new InternalTestHelper();</span>
+<span class="nc" id="L42">	boolean testMode = true;</span>
 
 	
-<span class="fc" id="L39">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService) {</span>
-<span class="fc" id="L40">		this.gpsUtil = gpsUtil;</span>
-<span class="fc" id="L41">		this.rewardsService = rewardsService;</span>
+<span class="nc" id="L45">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService) {</span>
+<span class="nc" id="L46">		this.gpsUtil = gpsUtil;</span>
+<span class="nc" id="L47">		this.rewardsService = rewardsService;</span>
 		
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">		if(testMode) {</span>
-<span class="fc" id="L44">			logger.info(&quot;TestMode enabled&quot;);</span>
-<span class="fc" id="L45">			logger.debug(&quot;Initializing users&quot;);</span>
-<span class="fc" id="L46">			initializeInternalUsers();</span>
-<span class="fc" id="L47">			logger.debug(&quot;Finished initializing users&quot;);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		if(testMode) {</span>
+<span class="nc" id="L50">			logger.info(&quot;TestMode enabled&quot;);</span>
+<span class="nc" id="L51">			logger.debug(&quot;Initializing users&quot;);</span>
+<span class="nc" id="L52">			internalTestHelper.initializeInternalUsers();</span>
+<span class="nc" id="L53">			logger.debug(&quot;Finished initializing users&quot;);</span>
 		}
-<span class="fc" id="L49">		tracker = new Tracker(this);</span>
-<span class="fc" id="L50">		addShutDownHook();</span>
-<span class="fc" id="L51">	}</span>
-
-	//FIXME: maybe put this in RewardsService
-	public List&lt;UserReward&gt; getUserRewards(User user) {
-<span class="nc" id="L55">		return user.getUserRewards();</span>
-	}
+<span class="nc" id="L55">		tracker = new Tracker(this);</span>
+<span class="nc" id="L56">		addShutDownHook();</span>
+<span class="nc" id="L57">	}</span>
 	
 	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
-<span class="nc" id="L59">		logger.info(&quot;********** Processing **********&quot;);</span>
 <span class="nc" id="L60">		logger.info(&quot;** Processing to get user location. User: &quot;+user.getUserName());</span>
 
-		//TODO: check if userName exists in database
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
 
 <span class="nc bnc" id="L64" title="All 2 branches missed.">		VisitedLocation visitedLocation = (user.getVisitedLocations().size() &gt; 0) ? user.getLastVisitedLocation() : trackUserLocation(user);</span>
 
@@ -67,130 +67,175 @@ public class TourGuideService {
 	}
 	
 	public User getUser(String userName) throws UserNotFoundException {
-<span class="fc" id="L70">		logger.info(&quot;********** Processing **********&quot;);</span>
-<span class="fc" id="L71">		logger.info(&quot;** Processing to get user by username&quot;);</span>
-		//TODO: check if userName exists in database
+<span class="nc" id="L70">		logger.info(&quot;** Processing to get user by username&quot;);</span>
 
-<span class="fc" id="L74">		return internalUserMap.get(userName);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(userName)) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L74">		return internalTestHelper.getInternalUserMap().get(userName);</span>
 	}
 	
-	public List&lt;User&gt; getAllUsers() {
-<span class="fc" id="L78">		return internalUserMap.values().stream().collect(Collectors.toList());</span>
+	public List&lt;User&gt; getAllUsers() throws UsersGatheringException {
+<span class="nc" id="L78">		logger.info(&quot;** Processing to get all users&quot;);</span>
+
+<span class="nc" id="L80">		List&lt;User&gt; users = new ArrayList&lt;&gt;();</span>
+
+		try {
+<span class="nc" id="L83">			users = internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());</span>
+<span class="nc" id="L84">		}catch (Exception e) {</span>
+<span class="nc" id="L85">			logger.error(&quot;ERROR: Impossible to get all users&quot;);</span>
+<span class="nc" id="L86">			throw new UsersGatheringException(e.getMessage());</span>
+<span class="nc" id="L87">		}</span>
+<span class="nc" id="L88">		return users;</span>
 	}
-	
-	public void addUser(User user) {
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if(!internalUserMap.containsKey(user.getUserName())) {</span>
-<span class="fc" id="L83">			internalUserMap.put(user.getUserName(), user);</span>
+
+	//todo:add endpoint for that ?
+	public void addUser(User user) throws UserAlreadyExistsException {
+<span class="nc" id="L93">		logger.info(&quot;** Processing to add new user: &quot;+user.getUserName());</span>
+
+<span class="nc bnc" id="L95" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) {</span>
+<span class="nc" id="L96">			internalTestHelper.getInternalUserMap().put(user.getUserName(), user);</span>
+		} else {
+<span class="nc" id="L98">			throw new UserAlreadyExistsException(&quot;ERROR: User already exists&quot;);</span>
 		}
-<span class="fc" id="L85">	}</span>
-	
-	public List&lt;Provider&gt; getTripDeals(User user) {
-<span class="nc" id="L88">		logger.info(&quot;********** Processing **********&quot;);</span>
-<span class="nc" id="L89">		logger.info(&quot;** Processing to get trip deals. User: &quot;+user.getUserName());</span>
+<span class="nc" id="L100">	}</span>
 
-<span class="nc" id="L91">		int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -&gt; i.getRewardPoints()).sum();</span>
-<span class="nc" id="L92">		logger.info(&quot;cumulativePoint: &quot;+cumulatativeRewardPoints);</span>
-<span class="nc" id="L93">		List&lt;Provider&gt; providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(), </span>
-<span class="nc" id="L94">				user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulatativeRewardPoints);</span>
-<span class="nc" id="L95">		user.setTripDeals(providers);</span>
-<span class="nc" id="L96">		return providers;</span>
+	public List&lt;Provider&gt; getTripDeals(User user) throws UserNotFoundException {
+<span class="nc" id="L103">		logger.info(&quot;** Processing to get trip deals. User: &quot;+user.getUserName());</span>
+<span class="nc" id="L104">		List&lt;Provider&gt; providers = new ArrayList&lt;&gt;();</span>
+
+
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L109">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -&gt; i.getRewardPoints()).sum();</span>
+
+<span class="nc" id="L111">		List&lt;Attraction&gt; attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user);</span>
+
+<span class="nc" id="L113">		attractionsWithinRange.forEach(attraction -&gt; {</span>
+
+<span class="nc" id="L115">			List&lt;Provider&gt; tempProviders = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L117">			tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), attraction.attractionId, user.getUserPreferences().getNumberOfAdults(),</span>
+<span class="nc" id="L118">					user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);</span>
+
+<span class="nc" id="L120">			tempProviders.forEach(provider -&gt; {</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">				if(provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {</span>
+<span class="nc" id="L122">					logger.info(&quot;** --&gt; Provider found: &quot;+provider.name+&quot; / Price: &quot;+provider.price+&quot; USD / Attraction: &quot;+attraction.attractionName);</span>
+<span class="nc" id="L123">					providers.add(provider);</span>
+				}
+<span class="nc" id="L125">			});</span>
+<span class="nc" id="L126">		});</span>
+
+<span class="nc" id="L128">		user.setTripDeals(providers);</span>
+
+<span class="nc" id="L130">		return providers;</span>
 	}
-	
-	public VisitedLocation trackUserLocation(User user) {
-<span class="fc" id="L100">		logger.info(&quot;********** Processing **********&quot;);</span>
-<span class="fc" id="L101">		logger.info(&quot;** Processing to track user location. User: &quot;+user.getUserName());</span>
 
-<span class="fc" id="L103">		Locale.setDefault(new Locale(&quot;en&quot;, &quot;US&quot;));</span>
-<span class="fc" id="L104">		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
-		//logger.info(&quot;Latitude: &quot;+visitedLocation.location.latitude+&quot; Longitude: &quot;+visitedLocation.location.longitude);
-<span class="fc" id="L106">		user.addToVisitedLocations(visitedLocation);</span>
-<span class="fc" id="L107">		rewardsService.calculateRewards(user);</span>
+	public List&lt;Attraction&gt; getAttractionsWithinRangePreferences(List &lt;Attraction&gt; attractions, User user) throws UserNotFoundException {
+<span class="nc" id="L134">		List&lt;Attraction&gt; attractionsWithinRange = new ArrayList&lt;&gt;();</span>
 
-		//logger.info(&quot;** User location found: &quot;+user.getVisitedLocations().size());
-<span class="fc" id="L110">		return visitedLocation;</span>
-	}
+<span class="nc" id="L136">		Location userLocation = trackUserLocation(user).location;</span>
 
-	public List&lt;Attraction&gt; getNearByAttractions(VisitedLocation visitedLocation) {
-<span class="nc" id="L114">		logger.info(&quot;********** Processing **********&quot;);</span>
-<span class="nc" id="L115">		logger.info(&quot;** Processing to get nearby attractions. User: &quot;+visitedLocation.userId);</span>
-
-<span class="nc" id="L117">		List&lt;Attraction&gt; nearbyAttractions = new ArrayList&lt;&gt;();</span>
-
-<span class="nc" id="L119">		gpsUtil.getAttractions().forEach(attraction -&gt; {</span>
-<span class="nc" id="L120">			logger.debug(&quot;Attraction: &quot;+attraction.attractionName+&quot; Distance: &quot;+rewardsService.getDistance(attraction,visitedLocation.location));</span>
-<span class="nc bnc" id="L121" title="All 2 branches missed.">			if(rewardsService.isWithinAttractionProximity(attraction, visitedLocation.location)) {</span>
-<span class="nc" id="L122">				logger.info(&quot;Attraction nearby found&quot;);</span>
-<span class="nc" id="L123">				nearbyAttractions.add(attraction);</span>
+<span class="nc" id="L138">		attractions.forEach(attraction -&gt; {</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">			if(DistanceCalculator.getDistance(attraction,userLocation) &lt;= user.getUserPreferences().getAttractionProximity()) {</span>
+<span class="nc" id="L140">				attractionsWithinRange.add(attraction);</span>
 			}
-<span class="nc" id="L125">		});</span>
-/*		for(Attraction attraction : gpsUtil.getAttractions()) {
-			if(rewardsService.isWithinAttractionProximity(attraction, visitedLocation.location)) {
-				logger.info(&quot;Attraction nearby found&quot;);
-				nearbyAttractions.add(attraction);
-			}
-		}*/
+<span class="nc" id="L142">		});</span>
 
-<span class="nc" id="L133">		logger.info(&quot;** Attraction nearby: &quot;+ JsonStream.serialize(nearbyAttractions.toString()));</span>
-<span class="nc" id="L134">		return nearbyAttractions;</span>
+<span class="nc" id="L144">		return attractionsWithinRange;</span>
 	}
-	
+
+	public VisitedLocation trackUserLocation(User user) throws UserNotFoundException {
+<span class="nc" id="L148">		logger.info(&quot;** Processing to track user location. User: &quot;+user.getUserName());</span>
+<span class="nc" id="L149">		Locale.setDefault(new Locale(&quot;en&quot;, &quot;US&quot;));</span>
+
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L153">		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
+<span class="nc" id="L154">		user.addToVisitedLocations(visitedLocation);</span>
+<span class="nc" id="L155">		rewardsService.calculateRewards(user);</span>
+
+<span class="nc" id="L157">		return visitedLocation;</span>
+	}
+
+	public Map&lt;String, List&lt;VisitedLocation&gt;&gt; trackAllUsersLocation(List&lt;User&gt; users) {
+<span class="nc" id="L161">		logger.info(&quot;** Processing to track all user's location: &quot;+users.size());</span>
+
+<span class="nc" id="L163">		Map&lt;String, List&lt;VisitedLocation&gt;&gt; mapUsernameVisitedLocation = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L165">		users.forEach(user -&gt; {</span>
+<span class="nc" id="L166">			mapUsernameVisitedLocation.put(user.getUserName(),user.getVisitedLocations());</span>
+<span class="nc" id="L167">		});</span>
+
+<span class="nc" id="L169">		return mapUsernameVisitedLocation;</span>
+	}
+
+	// Get the closest five tourist attractions to the user - no matter how far away they are.
+	public List&lt;NearbyAttraction&gt; getNearByAttractions(VisitedLocation visitedLocation,User user) throws UserNotFoundException {
+<span class="nc" id="L174">		logger.info(&quot;** Processing to get nearby attractions.&quot;);</span>
+<span class="nc" id="L175">		logger.info(&quot;** --&gt;User: &quot;+user.getUserName());</span>
+<span class="nc" id="L176">		logger.info(&quot;** --&gt;Latitude: &quot;+visitedLocation.location.latitude+&quot; Longitude: &quot;+visitedLocation.location.longitude);</span>
+
+<span class="nc bnc" id="L178" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L180">		List&lt;NearbyAttraction&gt; nearbyAttractions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L181">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+
+<span class="nc" id="L183">		attractions.forEach(attraction -&gt; {</span>
+<span class="nc" id="L184">			NearbyAttraction nearbyAttraction = new NearbyAttraction();</span>
+<span class="nc" id="L185">			nearbyAttraction.setAttractionName(attraction.attractionName);</span>
+<span class="nc" id="L186">			nearbyAttraction.setAttractionLatitude(attraction.latitude);</span>
+<span class="nc" id="L187">			nearbyAttraction.setAttractionLongitude(attraction.longitude);</span>
+<span class="nc" id="L188">			nearbyAttraction.setUserLatitude(visitedLocation.location.latitude);</span>
+<span class="nc" id="L189">			nearbyAttraction.setUserLongitude(visitedLocation.location.longitude);</span>
+<span class="nc" id="L190">			nearbyAttraction.setDistanceBetweenUserAndAttraction(DistanceCalculator.getDistance(attraction,visitedLocation.location));</span>
+<span class="nc" id="L191">			nearbyAttraction.setRewardPoint(rewardCentral.getAttractionRewardPoints(attraction.attractionId,user.getUserId()));</span>
+<span class="nc" id="L192">			nearbyAttractions.add(nearbyAttraction);</span>
+<span class="nc" id="L193">		});</span>
+
+<span class="nc" id="L195">		Collections.sort(nearbyAttractions,Comparator.comparingDouble(NearbyAttraction::getDistanceBetweenUserAndAttraction));</span>
+<span class="nc" id="L196">		nearbyAttractions.subList(5,nearbyAttractions.size()).clear();</span>
+
+<span class="nc" id="L198">		return nearbyAttractions;</span>
+	}
+
+	public Map&lt;String, Location&gt; getAllCurrentLocation() throws UsersGatheringException {
+<span class="nc" id="L202">		logger.info(&quot;** Processing to get all user's current location&quot;);</span>
+<span class="nc" id="L203">		Map&lt;String,Location&gt; allCurrentLocations = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L204">		List&lt;User&gt; users = getAllUsers();</span>
+
+<span class="nc" id="L206">		users.forEach(user -&gt; {</span>
+<span class="nc" id="L207">			allCurrentLocations.put(user.getUserId().toString(),user.getLastVisitedLocation().location);</span>
+<span class="nc" id="L208">		});</span>
+
+<span class="nc" id="L210">		return allCurrentLocations;</span>
+	}
+
+	public void updatePreferences(User user, UserPreferences newPreferences) throws UserNotFoundException {
+<span class="nc" id="L214">		logger.info(&quot;** Processing to update preferences&quot;);</span>
+
+<span class="nc bnc" id="L216" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L218">		UserPreferences actualPreferences = user.getUserPreferences();</span>
+
+<span class="nc" id="L220">		actualPreferences.setNumberOfAdults(newPreferences.getNumberOfAdults());</span>
+<span class="nc" id="L221">		actualPreferences.setNumberOfChildren(newPreferences.getNumberOfChildren());</span>
+<span class="nc" id="L222">		actualPreferences.setAttractionProximity(newPreferences.getAttractionProximity());</span>
+<span class="nc" id="L223">		actualPreferences.setHighPricePoint(newPreferences.getHighPricePoint().getNumber().intValue());</span>
+<span class="nc" id="L224">		actualPreferences.setLowerPricePoint(newPreferences.getLowerPricePoint().getNumber().intValue());</span>
+<span class="nc" id="L225">		actualPreferences.setTicketQuantity(newPreferences.getTicketQuantity());</span>
+<span class="nc" id="L226">		actualPreferences.setTripDuration(newPreferences.getTripDuration());</span>
+
+<span class="nc" id="L228">	}</span>
+
 	private void addShutDownHook() {
-<span class="fc" id="L138">		Runtime.getRuntime().addShutdownHook(new Thread() { </span>
+<span class="nc" id="L231">		Runtime.getRuntime().addShutdownHook(new Thread() {</span>
 		      public void run() {
-<span class="fc" id="L140">		        tracker.stopTracking();</span>
-<span class="fc" id="L141">		      } </span>
+<span class="nc" id="L233">		        tracker.stopTracking();</span>
+<span class="nc" id="L234">		      } </span>
 		    }); 
-<span class="fc" id="L143">	}</span>
-	
-	/**********************************************************************************
-	 * 
-	 * Methods Below: For Internal Testing
-	 * 
-	 **********************************************************************************/
-	private static final String tripPricerApiKey = &quot;test-server-api-key&quot;;
-	// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
+<span class="nc" id="L236">	}</span>
 
-<span class="fc" id="L153">	private final Map&lt;String, User&gt; internalUserMap = new HashMap&lt;&gt;();</span>
 
-	public Map&lt;String,User&gt; getInternalUserMap() {
-<span class="fc" id="L156">		return internalUserMap;</span>
-	}
 
-	private void initializeInternalUsers() {
-<span class="fc" id="L160">		IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
-<span class="fc" id="L161">			String userName = &quot;internalUser&quot; + i;</span>
-<span class="fc" id="L162">			String phone = &quot;000&quot;;</span>
-<span class="fc" id="L163">			String email = userName + &quot;@tourGuide.com&quot;;</span>
-<span class="fc" id="L164">			User user = new User(UUID.randomUUID(), userName, phone, email);</span>
-<span class="fc" id="L165">			generateUserLocationHistory(user);</span>
-			
-<span class="fc" id="L167">			internalUserMap.put(userName, user);</span>
-<span class="fc" id="L168">		});</span>
-<span class="fc" id="L169">		logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users.&quot;);</span>
-<span class="fc" id="L170">	}</span>
-	
-	private void generateUserLocationHistory(User user) {
-<span class="fc" id="L173">		IntStream.range(0, 3).forEach(i-&gt; {</span>
-<span class="fc" id="L174">			user.addToVisitedLocations(new VisitedLocation(user.getUserId(), new Location(generateRandomLatitude(), generateRandomLongitude()), getRandomTime()));</span>
-<span class="fc" id="L175">		});</span>
-<span class="fc" id="L176">	}</span>
-	
-	private double generateRandomLongitude() {
-<span class="fc" id="L179">		double leftLimit = -180;</span>
-<span class="fc" id="L180">	    double rightLimit = 180;</span>
-<span class="fc" id="L181">	    return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
-	}
-	
-	private double generateRandomLatitude() {
-<span class="fc" id="L185">		double leftLimit = -85.05112878;</span>
-<span class="fc" id="L186">	    double rightLimit = 85.05112878;</span>
-<span class="fc" id="L187">	    return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
-	}
-	
-	private Date getRandomTime() {
-<span class="fc" id="L191">		LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));</span>
-<span class="fc" id="L192">	    return Date.from(localDateTime.toInstant(ZoneOffset.UTC));</span>
-	}
-	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

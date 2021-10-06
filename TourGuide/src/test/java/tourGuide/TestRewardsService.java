@@ -14,6 +14,7 @@ import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import rewardCentral.RewardCentral;
+import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
@@ -26,20 +27,24 @@ import tourGuide.util.DistanceCalculator;
 public class TestRewardsService {
 
 	@Test
-	public void userGetRewards() throws UserNotFoundException {
+	public void userGetRewards() throws UserNotFoundException, UserAlreadyExistsException {
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
-
+		DistanceCalculator.setProximityBuffer(10);
 		InternalTestHelper.setInternalUserNumber(0);
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
-		
+		tourGuideService.tracker.stopTracking();
+
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
+		tourGuideService.addUser(user);
 		Attraction attraction = gpsUtil.getAttractions().get(0);
 		user.addToVisitedLocations(new VisitedLocation(user.getUserId(), attraction, new Date()));
 		tourGuideService.trackUserLocation(user);
 		List<UserReward> userRewards = user.getUserRewards();
-		tourGuideService.tracker.stopTracking();
+
 		assertTrue(userRewards.size() == 1);
+
+		InternalTestHelper.freeInternalUserMap();
 	}
 	
 	@Test

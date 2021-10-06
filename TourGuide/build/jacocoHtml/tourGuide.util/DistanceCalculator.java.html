@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DistanceCalculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.util</a> &gt; <span class="el_source">DistanceCalculator.java</span></div><h1>DistanceCalculator.java</h1><pre class="source lang-java linenums">package tourGuide.util;
+
+import gpsUtil.location.Attraction;
+import gpsUtil.location.Location;
+import gpsUtil.location.VisitedLocation;
+
+<span class="nc" id="L7">public class DistanceCalculator {</span>
+
+    private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
+<span class="nc" id="L10">    private static int defaultProximityBuffer = 60; // proximity in miles (10 by default but systematically find 0 reward)</span>
+<span class="nc" id="L11">    private static int proximityBuffer = defaultProximityBuffer; // proximity in miles</span>
+<span class="nc" id="L12">    private static int attractionProximityRange = 200; // proximity in miles (200 by default)</span>
+
+    public static void setProximityBuffer(int proximityBufferToSet) {
+<span class="nc" id="L15">        proximityBuffer = proximityBufferToSet;</span>
+<span class="nc" id="L16">    }</span>
+
+    public void setDefaultProximityBuffer() {
+<span class="nc" id="L19">        proximityBuffer = defaultProximityBuffer;</span>
+<span class="nc" id="L20">    }</span>
+
+    public static boolean isWithinAttractionProximity(Attraction attraction, Location location) {
+
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
+    }
+
+    public static boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        return getDistance(attraction, visitedLocation.location) &gt; proximityBuffer ? false : true;</span>
+    }
+
+    public static double getDistance(Location loc1, Location loc2) {
+<span class="nc" id="L32">        double lat1 = Math.toRadians(loc1.latitude);</span>
+<span class="nc" id="L33">        double lon1 = Math.toRadians(loc1.longitude);</span>
+<span class="nc" id="L34">        double lat2 = Math.toRadians(loc2.latitude);</span>
+<span class="nc" id="L35">        double lon2 = Math.toRadians(loc2.longitude);</span>
+
+<span class="nc" id="L37">        double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)</span>
+<span class="nc" id="L38">                + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));</span>
+
+<span class="nc" id="L40">        double nauticalMiles = 60 * Math.toDegrees(angle);</span>
+<span class="nc" id="L41">        double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;</span>
+<span class="nc" id="L42">        return statuteMiles;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

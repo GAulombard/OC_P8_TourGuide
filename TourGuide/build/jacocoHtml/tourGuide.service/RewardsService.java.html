@@ -2,96 +2,72 @@
 
 import java.util.List;
 
-import com.jsoniter.output.JsonStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
 import rewardCentral.RewardCentral;
+import tourGuide.exception.UserNotFoundException;
+import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import tourGuide.model.UserReward;
+import tourGuide.util.DistanceCalculator;
 
 @Service
 public class RewardsService {
 
-<span class="nc" id="L21">	private Logger logger = LoggerFactory.getLogger(RewardsService.class);</span>
-
-    private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
-
-	// proximity in miles
-<span class="nc" id="L26">    private int defaultProximityBuffer = 10;</span>
-<span class="nc" id="L27">	private int proximityBuffer = defaultProximityBuffer;</span>
-<span class="nc" id="L28">	private int attractionProximityRange = 200;</span>
+<span class="nc" id="L22">	private Logger logger = LoggerFactory.getLogger(RewardsService.class);</span>
 	private final GpsUtil gpsUtil;
 	private final RewardCentral rewardsCentral;
 	
-<span class="nc" id="L32">	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {</span>
-<span class="nc" id="L33">		this.gpsUtil = gpsUtil;</span>
-<span class="nc" id="L34">		this.rewardsCentral = rewardCentral;</span>
-<span class="nc" id="L35">	}</span>
-	
-	public void setProximityBuffer(int proximityBuffer) {
-<span class="nc" id="L38">		this.proximityBuffer = proximityBuffer;</span>
-<span class="nc" id="L39">	}</span>
+<span class="nc" id="L26">	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {</span>
+<span class="nc" id="L27">		this.gpsUtil = gpsUtil;</span>
+<span class="nc" id="L28">		this.rewardsCentral = rewardCentral;</span>
+<span class="nc" id="L29">	}</span>
 
-	//FIXME: never used
-	public void setDefaultProximityBuffer() {
-<span class="nc" id="L43">		proximityBuffer = defaultProximityBuffer;</span>
-<span class="nc" id="L44">	}</span>
-	
-	public void calculateRewards(User user) {
-<span class="nc" id="L47">		logger.info(&quot;********** Processing **********&quot;);</span>
-<span class="nc" id="L48">		logger.info(&quot;** Processing to calculate rewards. User: &quot;+user.getUserName());</span>
 
-<span class="nc" id="L50">		List&lt;VisitedLocation&gt; userLocations = user.getVisitedLocations();</span>
-<span class="nc" id="L51">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+	public List&lt;UserReward&gt; getUserRewards(User user) throws UserNotFoundException {
+<span class="nc" id="L33">		logger.info(&quot;** Processing to get user rewards&quot;);</span>
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">		for(VisitedLocation visitedLocation : userLocations) {</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">			for(Attraction attraction : attractions) {</span>
-<span class="nc" id="L55">				int countRewardForAttraction = (int) user.getUserRewards()</span>
-<span class="nc" id="L56">						.stream()</span>
-<span class="nc" id="L57">						.filter(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))</span>
-<span class="nc" id="L58">						.count();</span>
-<span class="nc bnc" id="L59" title="All 4 branches missed.">				if(countRewardForAttraction == 0 &amp;&amp; nearAttraction(visitedLocation,attraction)) {</span>
-						//logger.debug(&quot;countRewardForAttraction: &quot;+countRewardForAttraction+&quot; nearAttraction: &quot;+nearAttraction(visitedLocation,attraction));
-<span class="nc" id="L61">						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L37">		return user.getUserRewards();</span>
+	}
+
+	public void calculateRewards(User user) throws UserNotFoundException {
+<span class="nc" id="L41">		logger.info(&quot;** Processing to calculate rewards. User: &quot;+user.getUserName());</span>
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L45">		List&lt;VisitedLocation&gt; userLocations = user.getVisitedLocations();</span>
+<span class="nc" id="L46">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		for(VisitedLocation visitedLocation : userLocations) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">			for(Attraction attraction : attractions) {</span>
+<span class="nc" id="L50">				int countRewardForAttraction = (int) user.getUserRewards()</span>
+<span class="nc" id="L51">						.stream()</span>
+<span class="nc" id="L52">						.filter(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))</span>
+<span class="nc" id="L53">						.count();</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">				if(countRewardForAttraction == 0 &amp;&amp; DistanceCalculator.nearAttraction(visitedLocation,attraction)) {</span>
+<span class="nc" id="L55">						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));</span>
 				}
-<span class="nc" id="L63">			}</span>
-<span class="nc" id="L64">		}</span>
+<span class="nc" id="L57">			}</span>
+<span class="nc" id="L58">		}</span>
 
-<span class="nc" id="L66">		logger.info(&quot;** User rewards found: &quot;+ user.getUserRewards().size());</span>
-<span class="nc" id="L67">	}</span>
+<span class="nc" id="L60">		logger.info(&quot;** --&gt; User reward found: &quot;+ user.getUserRewards().size());</span>
+<span class="nc" id="L61">	}</span>
 	
-	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
+	private int getRewardPoints(Attraction attraction, User user) throws UserNotFoundException {
+<span class="nc" id="L64">		logger.info(&quot;** Processing get reward points&quot;);</span>
 
-<span class="nc bnc" id="L71" title="All 2 branches missed.">		return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
-	}
-	
-	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-<span class="nc bnc" id="L75" title="All 2 branches missed.">		return getDistance(attraction, visitedLocation.location) &gt; proximityBuffer ? false : true;</span>
-	}
-	
-	private int getRewardPoints(Attraction attraction, User user) {
-<span class="nc" id="L79">		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());</span>
-	}
-	
-	public double getDistance(Location loc1, Location loc2) {
-<span class="nc" id="L83">        double lat1 = Math.toRadians(loc1.latitude);</span>
-<span class="nc" id="L84">        double lon1 = Math.toRadians(loc1.longitude);</span>
-<span class="nc" id="L85">        double lat2 = Math.toRadians(loc2.latitude);</span>
-<span class="nc" id="L86">        double lon2 = Math.toRadians(loc2.longitude);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
 
-<span class="nc" id="L88">        double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)</span>
-<span class="nc" id="L89">                               + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));</span>
-
-<span class="nc" id="L91">        double nauticalMiles = 60 * Math.toDegrees(angle);</span>
-<span class="nc" id="L92">        double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;</span>
-<span class="nc" id="L93">        return statuteMiles;</span>
+<span class="nc" id="L68">		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());</span>
 	}
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

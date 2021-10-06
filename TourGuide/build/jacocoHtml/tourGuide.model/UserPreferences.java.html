@@ -2,79 +2,97 @@
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.javamoney.moneta.Money;
+import tourGuide.validator.PriceCheck;
 
-
+@PriceCheck
 public class UserPreferences {
+
+<span class="nc" id="L14">	private CurrencyUnit currency = Monetary.getCurrency(&quot;USD&quot;);</span>
+<span class="nc" id="L15">	@Min(value = 1, message = &quot;The proximity should be a positive number and at least 1&quot;)</span>
+	private int attractionProximity = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
+<span class="nc" id="L17">	@Min(value = 0, message = &quot;Lower price should be a positive number or 0&quot;)</span>
+	private double lowerPricePoint = 0; //0 by default
+<span class="nc" id="L19">	@Min(value = 0, message = &quot;High price should be a positive number&quot;)</span>
+	private double highPricePoint = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
+<span class="nc" id="L21">	@Min(value = 1, message = &quot;Trip duration should be positive and at least 1&quot;)</span>
+	private int tripDuration = 1; //1 by default
+<span class="nc" id="L23">	@Min(value = 1, message = &quot;Ticket Quantity should be positive and at least 1&quot;)</span>
+	private int ticketQuantity = 1; //1 by default
+<span class="nc" id="L25">	@Min(value = 1, message = &quot;Number of adults should be positive and at least 1&quot;)</span>
+	private int numberOfAdults = 1; //1 by default
+<span class="nc" id="L27">	@Min(value = 0, message = &quot;Number of children should be positive and at least 0&quot;)</span>
+	private int numberOfChildren = 0; //0 by default
 	
-<span class="fc" id="L11">	private int attractionProximity = Integer.MAX_VALUE;</span>
-<span class="fc" id="L12">	private CurrencyUnit currency = Monetary.getCurrency(&quot;USD&quot;);</span>
-<span class="fc" id="L13">	private Money lowerPricePoint = Money.of(0, currency);</span>
-<span class="fc" id="L14">	private Money highPricePoint = Money.of(Integer.MAX_VALUE, currency);</span>
-<span class="fc" id="L15">	private int tripDuration = 1;</span>
-<span class="fc" id="L16">	private int ticketQuantity = 1;</span>
-<span class="fc" id="L17">	private int numberOfAdults = 1;</span>
-<span class="fc" id="L18">	private int numberOfChildren = 0;</span>
-	
-<span class="fc" id="L20">	public UserPreferences() {</span>
-<span class="fc" id="L21">	}</span>
+<span class="nc" id="L30">	public UserPreferences() {</span>
+<span class="nc" id="L31">	}</span>
 	
 	public void setAttractionProximity(int attractionProximity) {
-<span class="nc" id="L24">		this.attractionProximity = attractionProximity;</span>
-<span class="nc" id="L25">	}</span>
+<span class="nc" id="L34">		this.attractionProximity = attractionProximity;</span>
+<span class="nc" id="L35">	}</span>
 	
 	public int getAttractionProximity() {
-<span class="nc" id="L28">		return attractionProximity;</span>
+<span class="nc" id="L38">		return attractionProximity;</span>
 	}
 	
 	public Money getLowerPricePoint() {
-<span class="nc" id="L32">		return lowerPricePoint;</span>
+<span class="nc" id="L42">		return Money.of(lowerPricePoint, currency);</span>
 	}
 
-	public void setLowerPricePoint(Money lowerPricePoint) {
-<span class="nc" id="L36">		this.lowerPricePoint = lowerPricePoint;</span>
-<span class="nc" id="L37">	}</span>
+	public CurrencyUnit getCurrency() {
+<span class="nc" id="L46">		return currency;</span>
+	}
+
+	public void setCurrency(CurrencyUnit currency) {
+<span class="nc" id="L50">		this.currency = currency;</span>
+<span class="nc" id="L51">	}</span>
+
+	public void setLowerPricePoint(double lowerPricePoint) {
+<span class="nc" id="L54">		this.lowerPricePoint = lowerPricePoint;</span>
+<span class="nc" id="L55">	}</span>
 
 	public Money getHighPricePoint() {
-<span class="nc" id="L40">		return highPricePoint;</span>
+<span class="nc" id="L58">		return Money.of(highPricePoint, currency);</span>
 	}
 
-	public void setHighPricePoint(Money highPricePoint) {
-<span class="nc" id="L44">		this.highPricePoint = highPricePoint;</span>
-<span class="nc" id="L45">	}</span>
+	public void setHighPricePoint(double highPricePoint) {
+<span class="nc" id="L62">		this.highPricePoint = highPricePoint;</span>
+<span class="nc" id="L63">	}</span>
 	
 	public int getTripDuration() {
-<span class="nc" id="L48">		return tripDuration;</span>
+<span class="nc" id="L66">		return tripDuration;</span>
 	}
 
 	public void setTripDuration(int tripDuration) {
-<span class="nc" id="L52">		this.tripDuration = tripDuration;</span>
-<span class="nc" id="L53">	}</span>
+<span class="nc" id="L70">		this.tripDuration = tripDuration;</span>
+<span class="nc" id="L71">	}</span>
 
 	public int getTicketQuantity() {
-<span class="nc" id="L56">		return ticketQuantity;</span>
+<span class="nc" id="L74">		return ticketQuantity;</span>
 	}
 
 	public void setTicketQuantity(int ticketQuantity) {
-<span class="nc" id="L60">		this.ticketQuantity = ticketQuantity;</span>
-<span class="nc" id="L61">	}</span>
+<span class="nc" id="L78">		this.ticketQuantity = ticketQuantity;</span>
+<span class="nc" id="L79">	}</span>
 	
 	public int getNumberOfAdults() {
-<span class="nc" id="L64">		return numberOfAdults;</span>
+<span class="nc" id="L82">		return numberOfAdults;</span>
 	}
 
 	public void setNumberOfAdults(int numberOfAdults) {
-<span class="nc" id="L68">		this.numberOfAdults = numberOfAdults;</span>
-<span class="nc" id="L69">	}</span>
+<span class="nc" id="L86">		this.numberOfAdults = numberOfAdults;</span>
+<span class="nc" id="L87">	}</span>
 
 	public int getNumberOfChildren() {
-<span class="nc" id="L72">		return numberOfChildren;</span>
+<span class="nc" id="L90">		return numberOfChildren;</span>
 	}
 
 	public void setNumberOfChildren(int numberOfChildren) {
-<span class="nc" id="L76">		this.numberOfChildren = numberOfChildren;</span>
-<span class="nc" id="L77">	}</span>
+<span class="nc" id="L94">		this.numberOfChildren = numberOfChildren;</span>
+<span class="nc" id="L95">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
