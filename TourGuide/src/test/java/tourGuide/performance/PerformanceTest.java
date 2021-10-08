@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.performance;
 
 import static org.junit.Assert.assertTrue;
 
@@ -25,7 +25,7 @@ import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 
 @SpringBootTest
-public class TestPerformance {
+public class PerformanceTest {
 	
 	/*
 	 * A note on performance improvements:

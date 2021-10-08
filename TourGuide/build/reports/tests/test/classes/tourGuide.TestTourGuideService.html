@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestTourGuideService</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestTourGuideService</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.html">tourGuide</a> &gt; TestTourGuideService</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">18.321s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addUser()</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllUsers()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getNearbyAttractions()</td>
+<td class="success">17.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTripDeals()</td>
+<td class="success">1.088s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getUserLocation()</td>
+<td class="success">0.085s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">trackUser()</td>
+<td class="success">0.116s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-10-07 10:12:45.190  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.TestTourGuideService], using SpringBootContextLoader
+2021-10-07 10:12:45.192  INFO 5552 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.TestTourGuideService]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-07 10:12:45.194  INFO 5552 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.TestTourGuideService]: TestTourGuideService does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-07 10:12:45.197  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestTourGuideService
+2021-10-07 10:12:45.231  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-07 10:12:45.235  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@78e691f9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6306f2a6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6fa42b14, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5260a00d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1e458ae1, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4a02c84d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@430b692, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@53870ed1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@612794c2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3d3b680b]
+2021-10-07 10:12:45.239  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:45.244  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:45.244  INFO 5552 --- [pool-9-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:45.246  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-07 10:12:45.310  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-07 10:12:45.321  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:12:45.325  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:45.330  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:45.331  INFO 5552 --- [ool-10-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:45.331  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-07 10:12:45.332  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-07 10:12:45.333  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-07 10:12:45.339  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:45.366  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:45.367  INFO 5552 --- [ool-11-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:45.367  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get trip deals. User: jon
+2021-10-07 10:12:45.380  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-07 10:12:45.422  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-07 10:12:45.433  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:12:45.471  INFO 5552 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2021-10-07 10:12:45.479  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 409.99 USD / Attraction: Disneyland
+2021-10-07 10:12:45.480  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 362.99 USD / Attraction: Disneyland
+2021-10-07 10:12:45.481  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 393.99 USD / Attraction: Disneyland
+2021-10-07 10:12:45.482  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 346.99 USD / Attraction: Disneyland
+2021-10-07 10:12:45.484  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 678.99 USD / Attraction: Disneyland
+2021-10-07 10:12:45.486  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 306.99 USD / Attraction: Jackson Hole
+2021-10-07 10:12:45.512  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 525.99 USD / Attraction: Jackson Hole
+2021-10-07 10:12:45.513  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 631.99 USD / Attraction: Jackson Hole
+2021-10-07 10:12:45.516  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 437.99 USD / Attraction: Jackson Hole
+2021-10-07 10:12:45.516  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 631.99 USD / Attraction: Jackson Hole
+2021-10-07 10:12:45.560  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 445.99 USD / Attraction: Mojave National Preserve
+2021-10-07 10:12:45.560  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 120.99 USD / Attraction: Mojave National Preserve
+2021-10-07 10:12:45.561  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 475.99 USD / Attraction: Mojave National Preserve
+2021-10-07 10:12:45.561  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 291.99 USD / Attraction: Mojave National Preserve
+2021-10-07 10:12:45.563  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 516.99 USD / Attraction: Mojave National Preserve
+2021-10-07 10:12:45.585  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 214.99 USD / Attraction: Joshua Tree National Park
+2021-10-07 10:12:45.587  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 199.99 USD / Attraction: Joshua Tree National Park
+2021-10-07 10:12:45.588  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 575.99 USD / Attraction: Joshua Tree National Park
+2021-10-07 10:12:45.589  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 218.99 USD / Attraction: Joshua Tree National Park
+2021-10-07 10:12:45.589  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 324.99 USD / Attraction: Joshua Tree National Park
+2021-10-07 10:12:45.607  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 606.99 USD / Attraction: Buffalo National River
+2021-10-07 10:12:45.608  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 419.99 USD / Attraction: Buffalo National River
+2021-10-07 10:12:45.608  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 308.99 USD / Attraction: Buffalo National River
+2021-10-07 10:12:45.609  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 392.99 USD / Attraction: Buffalo National River
+2021-10-07 10:12:45.610  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 468.99 USD / Attraction: Buffalo National River
+2021-10-07 10:12:45.622  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 630.99 USD / Attraction: Hot Springs National Park
+2021-10-07 10:12:45.624  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 132.99 USD / Attraction: Hot Springs National Park
+2021-10-07 10:12:45.625  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 630.99 USD / Attraction: Hot Springs National Park
+2021-10-07 10:12:45.626  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 658.99 USD / Attraction: Hot Springs National Park
+2021-10-07 10:12:45.627  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 413.99 USD / Attraction: Hot Springs National Park
+2021-10-07 10:12:45.662  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 257.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-07 10:12:45.671  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 115.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-07 10:12:45.672  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 583.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-07 10:12:45.674  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 296.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-07 10:12:45.675  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 491.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-07 10:12:45.692  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 180.99 USD / Attraction: Legend Valley
+2021-10-07 10:12:45.693  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 682.99 USD / Attraction: Legend Valley
+2021-10-07 10:12:45.693  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 130.99 USD / Attraction: Legend Valley
+2021-10-07 10:12:45.695  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 384.99 USD / Attraction: Legend Valley
+2021-10-07 10:12:45.696  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 419.99 USD / Attraction: Legend Valley
+2021-10-07 10:12:45.707  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 625.99 USD / Attraction: Flowers Bakery of London
+2021-10-07 10:12:45.707  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 498.99 USD / Attraction: Flowers Bakery of London
+2021-10-07 10:12:45.708  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 297.99 USD / Attraction: Flowers Bakery of London
+2021-10-07 10:12:45.709  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 324.99 USD / Attraction: Flowers Bakery of London
+2021-10-07 10:12:45.709  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 468.99 USD / Attraction: Flowers Bakery of London
+2021-10-07 10:12:45.753  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 622.99 USD / Attraction: McKinley Tower
+2021-10-07 10:12:45.754  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 411.99 USD / Attraction: McKinley Tower
+2021-10-07 10:12:45.755  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 333.99 USD / Attraction: McKinley Tower
+2021-10-07 10:12:45.757  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 666.99 USD / Attraction: McKinley Tower
+2021-10-07 10:12:45.758  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 605.99 USD / Attraction: McKinley Tower
+2021-10-07 10:12:45.792  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 510.99 USD / Attraction: Flatiron Building
+2021-10-07 10:12:45.793  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 506.99 USD / Attraction: Flatiron Building
+2021-10-07 10:12:45.793  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 372.99 USD / Attraction: Flatiron Building
+2021-10-07 10:12:45.795  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 538.99 USD / Attraction: Flatiron Building
+2021-10-07 10:12:45.796  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 200.99 USD / Attraction: Flatiron Building
+2021-10-07 10:12:45.821  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 172.99 USD / Attraction: Fallingwater
+2021-10-07 10:12:45.822  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 366.99 USD / Attraction: Fallingwater
+2021-10-07 10:12:45.822  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 159.99 USD / Attraction: Fallingwater
+2021-10-07 10:12:45.823  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 501.99 USD / Attraction: Fallingwater
+2021-10-07 10:12:45.823  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 146.99 USD / Attraction: Fallingwater
+2021-10-07 10:12:45.871  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 660.99 USD / Attraction: Union Station
+2021-10-07 10:12:45.872  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 194.99 USD / Attraction: Union Station
+2021-10-07 10:12:45.873  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 603.99 USD / Attraction: Union Station
+2021-10-07 10:12:45.874  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 359.99 USD / Attraction: Union Station
+2021-10-07 10:12:45.874  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 650.99 USD / Attraction: Union Station
+2021-10-07 10:12:45.884  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 276.99 USD / Attraction: Roger Dean Stadium
+2021-10-07 10:12:45.886  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 438.99 USD / Attraction: Roger Dean Stadium
+2021-10-07 10:12:45.886  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 124.99 USD / Attraction: Roger Dean Stadium
+2021-10-07 10:12:45.887  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 330.99 USD / Attraction: Roger Dean Stadium
+2021-10-07 10:12:45.888  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 278.99 USD / Attraction: Roger Dean Stadium
+2021-10-07 10:12:45.913  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 134.99 USD / Attraction: Texas Memorial Stadium
+2021-10-07 10:12:45.921  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 451.99 USD / Attraction: Texas Memorial Stadium
+2021-10-07 10:12:45.922  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 363.99 USD / Attraction: Texas Memorial Stadium
+2021-10-07 10:12:45.924  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 404.99 USD / Attraction: Texas Memorial Stadium
+2021-10-07 10:12:45.924  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 229.99 USD / Attraction: Texas Memorial Stadium
+2021-10-07 10:12:45.974  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 469.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-07 10:12:45.975  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 140.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-07 10:12:45.975  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 635.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-07 10:12:45.976  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 116.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-07 10:12:45.977  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 144.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-07 10:12:45.994  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 606.99 USD / Attraction: Tiger Stadium
+2021-10-07 10:12:45.994  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 330.99 USD / Attraction: Tiger Stadium
+2021-10-07 10:12:45.995  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 624.99 USD / Attraction: Tiger Stadium
+2021-10-07 10:12:45.995  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 223.99 USD / Attraction: Tiger Stadium
+2021-10-07 10:12:45.997  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 525.99 USD / Attraction: Tiger Stadium
+2021-10-07 10:12:46.016  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 428.99 USD / Attraction: Neyland Stadium
+2021-10-07 10:12:46.017  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 691.99 USD / Attraction: Neyland Stadium
+2021-10-07 10:12:46.018  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 121.99 USD / Attraction: Neyland Stadium
+2021-10-07 10:12:46.019  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 509.99 USD / Attraction: Neyland Stadium
+2021-10-07 10:12:46.020  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 286.99 USD / Attraction: Neyland Stadium
+2021-10-07 10:12:46.033  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 474.99 USD / Attraction: Kyle Field
+2021-10-07 10:12:46.101  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 637.99 USD / Attraction: Kyle Field
+2021-10-07 10:12:46.102  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 464.99 USD / Attraction: Kyle Field
+2021-10-07 10:12:46.104  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 213.99 USD / Attraction: Kyle Field
+2021-10-07 10:12:46.104  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 395.99 USD / Attraction: Kyle Field
+2021-10-07 10:12:46.150  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 136.99 USD / Attraction: San Diego Zoo
+2021-10-07 10:12:46.151  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 192.99 USD / Attraction: San Diego Zoo
+2021-10-07 10:12:46.152  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 493.99 USD / Attraction: San Diego Zoo
+2021-10-07 10:12:46.153  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 245.99 USD / Attraction: San Diego Zoo
+2021-10-07 10:12:46.153  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 414.99 USD / Attraction: San Diego Zoo
+2021-10-07 10:12:46.170  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 124.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-07 10:12:46.172  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 328.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-07 10:12:46.173  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 149.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-07 10:12:46.174  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 358.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-07 10:12:46.175  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 280.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-07 10:12:46.210  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 458.99 USD / Attraction: Franklin Park Zoo
+2021-10-07 10:12:46.211  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 221.99 USD / Attraction: Franklin Park Zoo
+2021-10-07 10:12:46.213  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 250.99 USD / Attraction: Franklin Park Zoo
+2021-10-07 10:12:46.213  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 104.99 USD / Attraction: Franklin Park Zoo
+2021-10-07 10:12:46.214  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 606.99 USD / Attraction: Franklin Park Zoo
+2021-10-07 10:12:46.231  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 267.99 USD / Attraction: El Paso Zoo
+2021-10-07 10:12:46.231  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 343.99 USD / Attraction: El Paso Zoo
+2021-10-07 10:12:46.232  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 638.99 USD / Attraction: El Paso Zoo
+2021-10-07 10:12:46.233  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 613.99 USD / Attraction: El Paso Zoo
+2021-10-07 10:12:46.233  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 586.99 USD / Attraction: El Paso Zoo
+2021-10-07 10:12:46.277  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Enterprize Ventures Limited / Price: 249.99 USD / Attraction: Kansas City Zoo
+2021-10-07 10:12:46.277  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 194.99 USD / Attraction: Kansas City Zoo
+2021-10-07 10:12:46.337  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 184.99 USD / Attraction: Kansas City Zoo
+2021-10-07 10:12:46.338  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 468.99 USD / Attraction: Kansas City Zoo
+2021-10-07 10:12:46.340  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 237.99 USD / Attraction: Kansas City Zoo
+2021-10-07 10:12:46.384  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Holiday Travels / Price: 331.99 USD / Attraction: Bronx Zoo
+2021-10-07 10:12:46.385  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 379.99 USD / Attraction: Bronx Zoo
+2021-10-07 10:12:46.386  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dream Trips / Price: 277.99 USD / Attraction: Bronx Zoo
+2021-10-07 10:12:46.386  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 684.99 USD / Attraction: Bronx Zoo
+2021-10-07 10:12:46.387  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Sunny Days / Price: 452.99 USD / Attraction: Bronx Zoo
+2021-10-07 10:12:46.415  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Dancing Waves Cruselines and Partners / Price: 363.99 USD / Attraction: Cinderella Castle
+2021-10-07 10:12:46.421  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: United Partners Vacations / Price: 307.99 USD / Attraction: Cinderella Castle
+2021-10-07 10:12:46.421  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: AdventureCo / Price: 560.99 USD / Attraction: Cinderella Castle
+2021-10-07 10:12:46.424  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: FlyAway Trips / Price: 303.99 USD / Attraction: Cinderella Castle
+2021-10-07 10:12:46.424  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt; Provider found: Live Free / Price: 644.99 USD / Attraction: Cinderella Castle
+2021-10-07 10:12:46.427  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:46.434  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:46.434  INFO 5552 --- [ool-12-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:46.435  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-07 10:12:46.436  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:12:46.442  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:46.446  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:46.446  INFO 5552 --- [ool-13-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:46.487  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-07 10:12:46.533  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-07 10:12:46.548  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:12:46.558  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:46.563  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:46.563  INFO 5552 --- [ool-14-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:46.587  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-07 10:12:46.682  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-07 10:12:46.693  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:12:46.693  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get nearby attractions.
+2021-10-07 10:12:46.694  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt;User: jon
+2021-10-07 10:12:46.694  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** --&gt;Latitude: 80.914465 Longitude: -7.498473
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at 7 oct. 2021 10:14:20</p>
+</div>
+</div>
+</body>
+</html>

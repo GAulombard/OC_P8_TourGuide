@@ -18,7 +18,7 @@ public class InternalTestHelper {
 	private static int internalUserNumber = 100;// Set this default up to 100,000 for testing
 	private static final String tripPricerApiKey = "test-server-api-key";
 	// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
-	private static final Map<String, User> internalUserMap = new HashMap<>();
+	private static Map<String, User> internalUserMap = new HashMap<>();
 
 	public InternalTestHelper() {
 	}
@@ -47,6 +47,10 @@ public class InternalTestHelper {
 
 	public static Map<String,User> getInternalUserMap() {
 		return internalUserMap;
+	}
+
+	public static void setInternalUserMapToNull() { //for testing purpose only
+		InternalTestHelper.internalUserMap = null;
 	}
 
 	public void initializeInternalUsers() {

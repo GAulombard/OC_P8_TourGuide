@@ -1,4 +1,4 @@
-package tourGuide;
+package tourGuide.service;
 
 import static org.junit.Assert.*;
 
@@ -26,7 +26,7 @@ import tourGuide.model.UserReward;
 import tourGuide.util.DistanceCalculator;
 
 @SpringBootTest
-public class TestRewardsService {
+public class RewardsServiceTest {
 
 	@Test
 	public void userGetRewards() throws UserNotFoundException, UserAlreadyExistsException {

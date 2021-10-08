@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TourGuideServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TourGuideServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.service.html">tourGuide.service</a> &gt; TourGuideServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.513s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getAllUsers()</td>
+<td class="success">0.037s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getUser()</td>
+<td class="success">0.054s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getUser_shouldThrowsUserNotFoundException()</td>
+<td class="success">0.422s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>10:11:22.518 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:11:22.588 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:11:22.647 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [tourGuide.service.TourGuideServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+10:11:22.684 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.service.TourGuideServiceTest], using SpringBootContextLoader
+10:11:22.691 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.service.TourGuideServiceTest]: class path resource [tourGuide/service/TourGuideServiceTest-context.xml] does not exist
+10:11:22.692 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.service.TourGuideServiceTest]: class path resource [tourGuide/service/TourGuideServiceTestContext.groovy] does not exist
+10:11:22.692 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.service.TourGuideServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:11:22.693 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.service.TourGuideServiceTest]: TourGuideServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:11:22.804 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [tourGuide.service.TourGuideServiceTest]
+10:11:22.958 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide\build\classes\java\main\tourGuide\Application.class]
+10:11:22.962 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.service.TourGuideServiceTest
+10:11:23.686 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [tourGuide.service.TourGuideServiceTest]: using defaults.
+10:11:23.688 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+10:11:23.753 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+10:11:23.755 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+10:11:23.755 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3cfb60df, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5785589f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@16395872, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@37a31858, org.springframework.test.context.support.DirtiesContextTestExecutionListener@50b97beb, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2d8580c3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7123a7c9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5e6d006d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@45105e68, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@44125d91]
+10:11:23.771 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@5d81ffb0 testClass = TourGuideServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@65ba9d4f testClass = TourGuideServiceTest, locations = '{}', classes = '{class tourGuide.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@43de3b20, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4262bd05, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2336afb4, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@9046c66], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+10:11:23.775 [Test worker] DEBUG tourGuide.service.TourGuideServiceTest - @BeforeAll
+10:11:23.971 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.6.RELEASE)
+
+2021-10-07 10:11:25.406  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideServiceTest   : Starting TourGuideServiceTest on DESKTOP-2K67CMT with PID 5552 (started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide)
+2021-10-07 10:11:25.422  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideServiceTest   : No active profile set, falling back to default profiles: default
+2021-10-07 10:11:28.306  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:28.324  INFO 5552 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:11:28.326  INFO 5552 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
+2021-10-07 10:11:28.330  INFO 5552 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-10-07 10:11:28.338  INFO 5552 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-10-07 10:11:29.572  INFO 5552 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-07 10:11:30.932  INFO 5552 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-10-07 10:11:31.025  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideServiceTest   : Started TourGuideServiceTest in 6.989 seconds (JVM running for 10.467)
+2021-10-07 10:11:31.411  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:31.417  INFO 5552 --- [pool-2-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:11:31.443  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:11:31.447  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-07 10:11:31.457  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-07 10:11:31.491  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:31.503  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:11:31.503  INFO 5552 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:11:31.514  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-07 10:11:31.518  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:11:31.531  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:31.538  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:11:31.538  INFO 5552 --- [pool-4-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:11:31.564  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-07 10:11:31.567  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-07 10:11:31.568  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-07 10:11:31.571  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at 7 oct. 2021 10:14:20</p>
+</div>
+</div>
+</body>
+</html>

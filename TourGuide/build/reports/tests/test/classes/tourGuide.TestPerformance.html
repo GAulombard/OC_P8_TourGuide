@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestPerformance</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestPerformance</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.html">tourGuide</a> &gt; TestPerformance</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">59.206s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">highVolumeGetRewards()</td>
+<td class="success">50.990s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">highVolumeTrackLocation()</td>
+<td class="success">8.216s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-10-07 10:11:31.588  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.TestPerformance], using SpringBootContextLoader
+2021-10-07 10:11:31.616  INFO 5552 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-07 10:11:31.617  INFO 5552 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-07 10:11:31.633  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
+2021-10-07 10:11:31.638  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-07 10:11:31.644  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@57d179c0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6989d8c7, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@269719ff, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@40842afe, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1cc75457, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3b2fe8e8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@25e95693, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@44db4b0a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6218ca2a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@26341629]
+2021-10-07 10:11:31.669  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:31.731  INFO 5552 --- [pool-5-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:11:31.732  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:11:31.736  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser78
+2021-10-07 10:11:31.843  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-10-07 10:11:31.865  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:31.867  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser77
+2021-10-07 10:11:31.984  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser77
+2021-10-07 10:11:31.997  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:31.999  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser79
+2021-10-07 10:11:32.091  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser79
+2021-10-07 10:11:32.103  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.104  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser74
+2021-10-07 10:11:32.189  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser74
+2021-10-07 10:11:32.201  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.202  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser73
+2021-10-07 10:11:32.250  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser73
+2021-10-07 10:11:32.263  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.264  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser76
+2021-10-07 10:11:32.321  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser76
+2021-10-07 10:11:32.332  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.333  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser75
+2021-10-07 10:11:32.425  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser75
+2021-10-07 10:11:32.441  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.442  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser70
+2021-10-07 10:11:32.483  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser70
+2021-10-07 10:11:32.494  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.505  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser72
+2021-10-07 10:11:32.583  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser72
+2021-10-07 10:11:32.596  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.598  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser71
+2021-10-07 10:11:32.666  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser71
+2021-10-07 10:11:32.678  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.679  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser90
+2021-10-07 10:11:32.722  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser90
+2021-10-07 10:11:32.733  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.734  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser89
+2021-10-07 10:11:32.817  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser89
+2021-10-07 10:11:32.848  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.861  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser88
+2021-10-07 10:11:32.927  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser88
+2021-10-07 10:11:32.939  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:32.939  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser85
+2021-10-07 10:11:32.991  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser85
+2021-10-07 10:11:33.003  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.004  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser84
+2021-10-07 10:11:33.059  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser84
+2021-10-07 10:11:33.070  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.071  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser87
+2021-10-07 10:11:33.145  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser87
+2021-10-07 10:11:33.156  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.157  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser86
+2021-10-07 10:11:33.205  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser86
+2021-10-07 10:11:33.216  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.217  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser81
+2021-10-07 10:11:33.291  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser81
+2021-10-07 10:11:33.303  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.304  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser80
+2021-10-07 10:11:33.347  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser80
+2021-10-07 10:11:33.358  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.359  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser83
+2021-10-07 10:11:33.403  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser83
+2021-10-07 10:11:33.414  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.415  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser82
+2021-10-07 10:11:33.456  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser82
+2021-10-07 10:11:33.467  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.468  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser9
+2021-10-07 10:11:33.501  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser9
+2021-10-07 10:11:33.512  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.514  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser8
+2021-10-07 10:11:33.572  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser8
+2021-10-07 10:11:33.583  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.584  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser19
+2021-10-07 10:11:33.651  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser19
+2021-10-07 10:11:33.664  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.665  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser16
+2021-10-07 10:11:33.711  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser16
+2021-10-07 10:11:33.723  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.723  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser15
+2021-10-07 10:11:33.757  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser15
+2021-10-07 10:11:33.768  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.770  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser18
+2021-10-07 10:11:33.820  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser18
+2021-10-07 10:11:33.832  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.833  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser17
+2021-10-07 10:11:33.887  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser17
+2021-10-07 10:11:33.899  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.901  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser12
+2021-10-07 10:11:33.979  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser12
+2021-10-07 10:11:33.991  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:33.992  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser11
+2021-10-07 10:11:34.037  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser11
+2021-10-07 10:11:34.048  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.049  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser99
+2021-10-07 10:11:34.140  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser99
+2021-10-07 10:11:34.151  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.153  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser14
+2021-10-07 10:11:34.197  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser14
+2021-10-07 10:11:34.209  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.210  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser13
+2021-10-07 10:11:34.267  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser13
+2021-10-07 10:11:34.279  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.280  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser3
+2021-10-07 10:11:34.359  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser3
+2021-10-07 10:11:34.370  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.371  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser96
+2021-10-07 10:11:34.426  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser96
+2021-10-07 10:11:34.436  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.438  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser2
+2021-10-07 10:11:34.484  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser2
+2021-10-07 10:11:34.495  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.497  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser95
+2021-10-07 10:11:34.546  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser95
+2021-10-07 10:11:34.558  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.559  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser1
+2021-10-07 10:11:34.616  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser1
+2021-10-07 10:11:34.628  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.630  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser10
+2021-10-07 10:11:34.682  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser10
+2021-10-07 10:11:34.695  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.697  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser98
+2021-10-07 10:11:34.760  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser98
+2021-10-07 10:11:34.772  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.773  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-10-07 10:11:34.837  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-10-07 10:11:34.848  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.849  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser97
+2021-10-07 10:11:34.942  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser97
+2021-10-07 10:11:34.957  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:34.958  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser7
+2021-10-07 10:11:35.057  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser7
+2021-10-07 10:11:35.069  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.069  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser92
+2021-10-07 10:11:35.162  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser92
+2021-10-07 10:11:35.204  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.205  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser6
+2021-10-07 10:11:35.278  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser6
+2021-10-07 10:11:35.290  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.291  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser91
+2021-10-07 10:11:35.354  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser91
+2021-10-07 10:11:35.365  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.366  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser5
+2021-10-07 10:11:35.416  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser5
+2021-10-07 10:11:35.427  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.428  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser94
+2021-10-07 10:11:35.524  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser94
+2021-10-07 10:11:35.535  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.537  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser4
+2021-10-07 10:11:35.614  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser4
+2021-10-07 10:11:35.627  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.630  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser93
+2021-10-07 10:11:35.688  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser93
+2021-10-07 10:11:35.706  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.712  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser27
+2021-10-07 10:11:35.795  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser27
+2021-10-07 10:11:35.807  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.808  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser26
+2021-10-07 10:11:35.866  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser26
+2021-10-07 10:11:35.877  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.879  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser29
+2021-10-07 10:11:35.981  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser29
+2021-10-07 10:11:35.992  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:35.992  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser28
+2021-10-07 10:11:36.070  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser28
+2021-10-07 10:11:36.082  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.083  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser23
+2021-10-07 10:11:36.171  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser23
+2021-10-07 10:11:36.182  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.183  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser22
+2021-10-07 10:11:36.230  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser22
+2021-10-07 10:11:36.241  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.242  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser25
+2021-10-07 10:11:36.323  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser25
+2021-10-07 10:11:36.334  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.335  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser24
+2021-10-07 10:11:36.411  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser24
+2021-10-07 10:11:36.429  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.431  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser21
+2021-10-07 10:11:36.527  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser21
+2021-10-07 10:11:36.538  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.539  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser20
+2021-10-07 10:11:36.618  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser20
+2021-10-07 10:11:36.630  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.632  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser38
+2021-10-07 10:11:36.721  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser38
+2021-10-07 10:11:36.732  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.733  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser37
+2021-10-07 10:11:36.772  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser37
+2021-10-07 10:11:36.783  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.784  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser39
+2021-10-07 10:11:36.840  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser39
+2021-10-07 10:11:36.852  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.853  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser34
+2021-10-07 10:11:36.949  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser34
+2021-10-07 10:11:36.961  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:36.962  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser33
+2021-10-07 10:11:37.053  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser33
+2021-10-07 10:11:37.063  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.065  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser36
+2021-10-07 10:11:37.149  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser36
+2021-10-07 10:11:37.161  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.162  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser35
+2021-10-07 10:11:37.202  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser35
+2021-10-07 10:11:37.213  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.214  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser30
+2021-10-07 10:11:37.279  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser30
+2021-10-07 10:11:37.291  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.292  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser32
+2021-10-07 10:11:37.335  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser32
+2021-10-07 10:11:37.346  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.347  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser31
+2021-10-07 10:11:37.430  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser31
+2021-10-07 10:11:37.442  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.443  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser49
+2021-10-07 10:11:37.523  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser49
+2021-10-07 10:11:37.534  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.535  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser48
+2021-10-07 10:11:37.602  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser48
+2021-10-07 10:11:37.613  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.615  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser45
+2021-10-07 10:11:37.657  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser45
+2021-10-07 10:11:37.668  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.669  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser44
+2021-10-07 10:11:37.763  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser44
+2021-10-07 10:11:37.774  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.775  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser47
+2021-10-07 10:11:37.850  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser47
+2021-10-07 10:11:37.862  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.862  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser46
+2021-10-07 10:11:37.953  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser46
+2021-10-07 10:11:37.964  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:37.965  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser41
+2021-10-07 10:11:38.002  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser41
+2021-10-07 10:11:38.013  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.014  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser40
+2021-10-07 10:11:38.048  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser40
+2021-10-07 10:11:38.060  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.061  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser43
+2021-10-07 10:11:38.145  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser43
+2021-10-07 10:11:38.157  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.158  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser42
+2021-10-07 10:11:38.255  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser42
+2021-10-07 10:11:38.267  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.268  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser59
+2021-10-07 10:11:38.305  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser59
+2021-10-07 10:11:38.316  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.317  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser56
+2021-10-07 10:11:38.367  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser56
+2021-10-07 10:11:38.379  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.381  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser55
+2021-10-07 10:11:38.462  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser55
+2021-10-07 10:11:38.478  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.492  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser58
+2021-10-07 10:11:38.536  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser58
+2021-10-07 10:11:38.548  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.569  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser57
+2021-10-07 10:11:38.657  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser57
+2021-10-07 10:11:38.669  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.670  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser52
+2021-10-07 10:11:38.758  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser52
+2021-10-07 10:11:38.770  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.770  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser51
+2021-10-07 10:11:38.867  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser51
+2021-10-07 10:11:38.878  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.879  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser54
+2021-10-07 10:11:38.917  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser54
+2021-10-07 10:11:38.928  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.928  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser53
+2021-10-07 10:11:38.965  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser53
+2021-10-07 10:11:38.977  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:38.977  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser50
+2021-10-07 10:11:39.038  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser50
+2021-10-07 10:11:39.049  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.050  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser67
+2021-10-07 10:11:39.124  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser67
+2021-10-07 10:11:39.135  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.136  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser66
+2021-10-07 10:11:39.190  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser66
+2021-10-07 10:11:39.200  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.202  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser69
+2021-10-07 10:11:39.278  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser69
+2021-10-07 10:11:39.290  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.290  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser68
+2021-10-07 10:11:39.340  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser68
+2021-10-07 10:11:39.351  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.352  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser63
+2021-10-07 10:11:39.416  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser63
+2021-10-07 10:11:39.428  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.429  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser62
+2021-10-07 10:11:39.475  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser62
+2021-10-07 10:11:39.486  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.486  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser65
+2021-10-07 10:11:39.585  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser65
+2021-10-07 10:11:39.596  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.597  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser64
+2021-10-07 10:11:39.667  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser64
+2021-10-07 10:11:39.678  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.680  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser61
+2021-10-07 10:11:39.781  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser61
+2021-10-07 10:11:39.792  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-07 10:11:39.793  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser60
+2021-10-07 10:11:39.859  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser60
+2021-10-07 10:11:39.871  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+highVolumeTrackLocation: Time Elapsed: 8 seconds.
+2021-10-07 10:11:39.876  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:11:39.911  INFO 5552 --- [pool-6-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:11:39.921  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:11:39.923  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-10-07 10:11:39.934  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:40.318  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:40.319  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser77
+2021-10-07 10:11:40.330  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:40.649  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:40.650  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser79
+2021-10-07 10:11:40.662  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:41.206  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:41.207  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser74
+2021-10-07 10:11:41.219  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:42.165  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:42.166  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser73
+2021-10-07 10:11:42.177  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:42.367  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:42.368  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser76
+2021-10-07 10:11:42.380  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:42.780  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:42.781  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser75
+2021-10-07 10:11:42.792  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:43.004  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:43.005  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser70
+2021-10-07 10:11:43.015  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:43.557  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:43.557  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser72
+2021-10-07 10:11:43.568  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:43.612  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:43.613  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser71
+2021-10-07 10:11:43.624  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:43.751  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:43.752  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser90
+2021-10-07 10:11:43.763  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:44.062  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:44.064  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser89
+2021-10-07 10:11:44.075  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:44.578  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:44.578  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser88
+2021-10-07 10:11:44.589  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:45.135  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:45.137  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser85
+2021-10-07 10:11:45.148  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:45.762  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:45.764  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser84
+2021-10-07 10:11:45.774  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:45.856  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:45.857  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser87
+2021-10-07 10:11:45.868  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:45.892  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:45.899  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser86
+2021-10-07 10:11:45.910  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:46.095  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:46.096  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser81
+2021-10-07 10:11:46.108  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:46.362  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:46.362  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser80
+2021-10-07 10:11:46.373  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:47.127  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:47.127  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser83
+2021-10-07 10:11:47.138  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:47.498  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:47.499  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser82
+2021-10-07 10:11:47.510  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:47.612  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:47.614  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser9
+2021-10-07 10:11:47.625  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:48.520  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:48.534  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser8
+2021-10-07 10:11:48.545  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:49.095  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:49.096  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser19
+2021-10-07 10:11:49.108  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:49.965  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:49.966  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser16
+2021-10-07 10:11:49.977  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:50.394  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:50.394  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser15
+2021-10-07 10:11:50.405  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:51.342  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:51.343  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser18
+2021-10-07 10:11:51.354  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:51.503  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:51.504  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser17
+2021-10-07 10:11:51.514  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:51.527  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:51.528  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser12
+2021-10-07 10:11:51.539  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:52.469  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:52.470  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser11
+2021-10-07 10:11:52.481  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:53.175  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:53.176  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser99
+2021-10-07 10:11:53.187  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:53.777  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:53.777  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser14
+2021-10-07 10:11:53.789  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:53.885  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:53.885  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser13
+2021-10-07 10:11:53.897  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:54.555  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:54.556  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser3
+2021-10-07 10:11:54.567  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:55.346  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:55.348  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser96
+2021-10-07 10:11:55.359  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:55.859  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:55.860  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser2
+2021-10-07 10:11:55.871  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:56.821  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:56.821  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser95
+2021-10-07 10:11:56.833  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:57.052  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:57.053  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser1
+2021-10-07 10:11:57.064  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:57.742  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:57.743  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser10
+2021-10-07 10:11:57.754  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:58.686  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:58.687  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser98
+2021-10-07 10:11:58.698  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:59.329  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:59.330  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-10-07 10:11:59.342  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:59.633  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:59.634  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser97
+2021-10-07 10:11:59.645  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:11:59.946  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:11:59.947  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser7
+2021-10-07 10:11:59.957  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:00.209  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:00.210  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser92
+2021-10-07 10:12:00.221  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:01.119  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:01.120  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser6
+2021-10-07 10:12:01.131  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:01.863  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:01.864  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser91
+2021-10-07 10:12:01.875  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:02.736  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:02.736  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser5
+2021-10-07 10:12:02.748  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:03.368  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:03.369  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser94
+2021-10-07 10:12:03.380  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:04.243  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:04.244  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser4
+2021-10-07 10:12:04.255  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:04.448  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:04.448  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser93
+2021-10-07 10:12:04.460  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:04.829  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:04.830  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser27
+2021-10-07 10:12:04.841  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:05.762  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:05.763  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser26
+2021-10-07 10:12:05.774  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:06.102  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:06.102  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser29
+2021-10-07 10:12:06.114  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:06.644  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:06.645  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser28
+2021-10-07 10:12:06.656  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:06.816  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:06.817  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser23
+2021-10-07 10:12:06.827  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:07.012  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:07.013  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser22
+2021-10-07 10:12:07.024  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:07.426  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:07.426  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser25
+2021-10-07 10:12:07.437  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:08.369  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:08.369  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser24
+2021-10-07 10:12:08.381  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:08.420  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:08.421  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser21
+2021-10-07 10:12:08.432  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:09.424  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:09.425  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser20
+2021-10-07 10:12:09.436  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:09.580  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:09.580  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser38
+2021-10-07 10:12:09.591  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:09.964  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:09.964  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser37
+2021-10-07 10:12:09.975  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:10.257  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:10.258  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser39
+2021-10-07 10:12:10.269  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:10.622  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:10.622  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser34
+2021-10-07 10:12:10.633  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:10.907  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:10.907  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser33
+2021-10-07 10:12:10.918  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:11.462  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:11.463  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser36
+2021-10-07 10:12:11.474  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:12.157  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:12.158  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser35
+2021-10-07 10:12:12.170  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:12.572  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:12.573  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser30
+2021-10-07 10:12:12.584  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:13.044  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:13.044  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser32
+2021-10-07 10:12:13.055  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:13.517  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:13.518  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser31
+2021-10-07 10:12:13.529  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:14.489  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:14.489  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser49
+2021-10-07 10:12:14.500  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:14.586  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:14.586  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser48
+2021-10-07 10:12:14.598  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:15.369  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:15.474  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser45
+2021-10-07 10:12:15.485  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:15.506  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:15.506  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser44
+2021-10-07 10:12:15.517  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:16.167  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:16.168  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser47
+2021-10-07 10:12:16.179  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:16.831  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:16.833  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser46
+2021-10-07 10:12:16.844  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:17.550  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:17.552  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser41
+2021-10-07 10:12:17.598  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:18.165  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:18.175  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser40
+2021-10-07 10:12:18.186  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:18.584  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:18.585  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser43
+2021-10-07 10:12:18.596  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:19.033  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:19.034  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser42
+2021-10-07 10:12:19.045  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:19.495  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:19.496  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser59
+2021-10-07 10:12:19.506  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:20.055  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:20.056  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser56
+2021-10-07 10:12:20.067  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:20.455  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:20.455  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser55
+2021-10-07 10:12:20.465  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:20.722  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:20.723  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser58
+2021-10-07 10:12:20.733  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:21.646  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:21.647  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser57
+2021-10-07 10:12:21.657  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:22.067  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:22.068  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser52
+2021-10-07 10:12:22.079  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:22.337  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:22.338  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser51
+2021-10-07 10:12:22.349  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:22.942  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:22.943  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser54
+2021-10-07 10:12:22.953  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:23.690  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:23.690  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser53
+2021-10-07 10:12:23.701  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:24.317  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:24.318  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser50
+2021-10-07 10:12:24.329  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:25.111  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:25.111  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser67
+2021-10-07 10:12:25.122  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:25.930  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:25.930  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser66
+2021-10-07 10:12:25.941  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:26.532  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:26.533  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser69
+2021-10-07 10:12:26.545  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:27.516  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:27.517  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser68
+2021-10-07 10:12:27.527  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:27.541  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:27.541  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser63
+2021-10-07 10:12:27.552  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:27.721  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:27.722  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser62
+2021-10-07 10:12:27.733  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:28.725  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:28.726  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser65
+2021-10-07 10:12:28.737  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:29.702  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:29.703  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser64
+2021-10-07 10:12:29.713  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:30.111  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:30.111  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser61
+2021-10-07 10:12:30.122  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:30.313  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+2021-10-07 10:12:30.314  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser60
+2021-10-07 10:12:30.325  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:30.854  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 1
+highVolumeGetRewards: Time Elapsed: 50 seconds.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at 7 oct. 2021 10:14:20</p>
+</div>
+</div>
+</body>
+</html>

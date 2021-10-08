@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestRewardsService" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-10-07T08:12:30" hostname="DESKTOP-2K67CMT" time="14.31">
+  <properties/>
+  <testcase name="nearAllAttractions()" classname="tourGuide.TestRewardsService" time="13.274"/>
+  <testcase name="userGetRewards()" classname="tourGuide.TestRewardsService" time="1.021"/>
+  <testcase name="isWithinAttractionProximity()" classname="tourGuide.TestRewardsService" time="0.013"/>
+  <system-out><![CDATA[2021-10-07 10:12:30.867  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.TestRewardsService], using SpringBootContextLoader
+2021-10-07 10:12:30.869  INFO 5552 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.TestRewardsService]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-07 10:12:30.869  INFO 5552 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.TestRewardsService]: TestRewardsService does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-07 10:12:30.872  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestRewardsService
+2021-10-07 10:12:30.874  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-07 10:12:30.875  INFO 5552 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71e2937f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@53a5261f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@39fd79c3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@64e61324, org.springframework.test.context.support.DirtiesContextTestExecutionListener@17a0dac, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7b955642, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@29741b92, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7d5f52ab, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2c1927c1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7d6f4346]
+2021-10-07 10:12:30.878  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:30.884  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:12:30.885  INFO 5552 --- [pool-7-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:30.885  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-10-07 10:12:30.897  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:31.234  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:31.990  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:32.534  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:33.410  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:33.855  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:34.209  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:34.840  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:35.405  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:36.253  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:36.354  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:36.894  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:37.543  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:37.884  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:38.301  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:38.876  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:39.813  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:40.102  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:40.654  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:41.307  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:41.398  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:41.954  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:42.779  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:43.237  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:43.704  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:44.136  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 26
+2021-10-07 10:12:44.136  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-07 10:12:44.137  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to get user rewards
+2021-10-07 10:12:44.154  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-07 10:12:44.158  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-07 10:12:44.158  INFO 5552 --- [pool-8-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-07 10:12:44.169  INFO 5552 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-07 10:12:44.261  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-07 10:12:44.272  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-07 10:12:45.171  INFO 5552 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

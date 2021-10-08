@@ -11,31 +11,31 @@ import tourGuide.validator.PriceCheck;
 @PriceCheck
 public class UserPreferences {
 
-<span class="nc" id="L14">	private CurrencyUnit currency = Monetary.getCurrency(&quot;USD&quot;);</span>
-<span class="nc" id="L15">	@Min(value = 1, message = &quot;The proximity should be a positive number and at least 1&quot;)</span>
+<span class="fc" id="L14">	private CurrencyUnit currency = Monetary.getCurrency(&quot;USD&quot;);</span>
+<span class="fc" id="L15">	@Min(value = 1, message = &quot;The proximity should be a positive number and at least 1&quot;)</span>
 	private int attractionProximity = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
-<span class="nc" id="L17">	@Min(value = 0, message = &quot;Lower price should be a positive number or 0&quot;)</span>
+<span class="fc" id="L17">	@Min(value = 0, message = &quot;Lower price should be a positive number or 0&quot;)</span>
 	private double lowerPricePoint = 0; //0 by default
-<span class="nc" id="L19">	@Min(value = 0, message = &quot;High price should be a positive number&quot;)</span>
+<span class="fc" id="L19">	@Min(value = 0, message = &quot;High price should be a positive number&quot;)</span>
 	private double highPricePoint = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
-<span class="nc" id="L21">	@Min(value = 1, message = &quot;Trip duration should be positive and at least 1&quot;)</span>
+<span class="fc" id="L21">	@Min(value = 1, message = &quot;Trip duration should be positive and at least 1&quot;)</span>
 	private int tripDuration = 1; //1 by default
-<span class="nc" id="L23">	@Min(value = 1, message = &quot;Ticket Quantity should be positive and at least 1&quot;)</span>
+<span class="fc" id="L23">	@Min(value = 1, message = &quot;Ticket Quantity should be positive and at least 1&quot;)</span>
 	private int ticketQuantity = 1; //1 by default
-<span class="nc" id="L25">	@Min(value = 1, message = &quot;Number of adults should be positive and at least 1&quot;)</span>
+<span class="fc" id="L25">	@Min(value = 1, message = &quot;Number of adults should be positive and at least 1&quot;)</span>
 	private int numberOfAdults = 1; //1 by default
-<span class="nc" id="L27">	@Min(value = 0, message = &quot;Number of children should be positive and at least 0&quot;)</span>
+<span class="fc" id="L27">	@Min(value = 0, message = &quot;Number of children should be positive and at least 0&quot;)</span>
 	private int numberOfChildren = 0; //0 by default
 	
-<span class="nc" id="L30">	public UserPreferences() {</span>
-<span class="nc" id="L31">	}</span>
+<span class="fc" id="L30">	public UserPreferences() {</span>
+<span class="fc" id="L31">	}</span>
 	
 	public void setAttractionProximity(int attractionProximity) {
 <span class="nc" id="L34">		this.attractionProximity = attractionProximity;</span>
 <span class="nc" id="L35">	}</span>
 	
 	public int getAttractionProximity() {
-<span class="nc" id="L38">		return attractionProximity;</span>
+<span class="fc" id="L38">		return attractionProximity;</span>
 	}
 	
 	public Money getLowerPricePoint() {
@@ -55,7 +55,7 @@ public class UserPreferences {
 <span class="nc" id="L55">	}</span>
 
 	public Money getHighPricePoint() {
-<span class="nc" id="L58">		return Money.of(highPricePoint, currency);</span>
+<span class="fc" id="L58">		return Money.of(highPricePoint, currency);</span>
 	}
 
 	public void setHighPricePoint(double highPricePoint) {
@@ -63,7 +63,7 @@ public class UserPreferences {
 <span class="nc" id="L63">	}</span>
 	
 	public int getTripDuration() {
-<span class="nc" id="L66">		return tripDuration;</span>
+<span class="fc" id="L66">		return tripDuration;</span>
 	}
 
 	public void setTripDuration(int tripDuration) {
@@ -79,7 +79,7 @@ public class UserPreferences {
 <span class="nc" id="L79">	}</span>
 	
 	public int getNumberOfAdults() {
-<span class="nc" id="L82">		return numberOfAdults;</span>
+<span class="fc" id="L82">		return numberOfAdults;</span>
 	}
 
 	public void setNumberOfAdults(int numberOfAdults) {
@@ -87,7 +87,7 @@ public class UserPreferences {
 <span class="nc" id="L87">	}</span>
 
 	public int getNumberOfChildren() {
-<span class="nc" id="L90">		return numberOfChildren;</span>
+<span class="fc" id="L90">		return numberOfChildren;</span>
 	}
 
 	public void setNumberOfChildren(int numberOfChildren) {

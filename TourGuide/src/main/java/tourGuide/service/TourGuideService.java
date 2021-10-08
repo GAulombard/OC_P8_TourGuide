@@ -56,16 +56,7 @@ public class TourGuideService {
 		addShutDownHook();
 	}
 	
-	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
-		logger.info("** Processing to get user location. User: "+user.getUserName());
 
-		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
-
-		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ? user.getLastVisitedLocation() : trackUserLocation(user);
-
-		return visitedLocation;
-	}
-	
 	public User getUser(String userName) throws UserNotFoundException {
 		logger.info("** Processing to get user by username");
 
@@ -88,12 +79,23 @@ public class TourGuideService {
 		return users;
 	}
 
+	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
+		logger.info("** Processing to get user location. User: "+user.getUserName());
+
+		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
+
+		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ? user.getLastVisitedLocation() : trackUserLocation(user);
+
+		return visitedLocation;
+	}
+
 	//todo:add endpoint for that ?
-	public void addUser(User user) throws UserAlreadyExistsException {
+	public void addUser(User user) throws UserAlreadyExistsException, UserNotFoundException {
 		logger.info("** Processing to add new user: "+user.getUserName());
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) {
 			internalTestHelper.getInternalUserMap().put(user.getUserName(), user);
+			trackUserLocation(user);
 		} else {
 			throw new UserAlreadyExistsException("ERROR: User already exists");
 		}
