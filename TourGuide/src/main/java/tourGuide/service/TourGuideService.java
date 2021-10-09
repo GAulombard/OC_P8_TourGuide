@@ -72,7 +72,7 @@ public class TourGuideService {
 
 		try {
 			users = internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());
-		}catch (Exception e) {
+		}catch (Exception e) { //todo: find a way to test this
 			logger.error("ERROR: Impossible to get all users");
 			throw new UsersGatheringException(e.getMessage());
 		}

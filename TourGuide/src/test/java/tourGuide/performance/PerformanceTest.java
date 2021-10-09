@@ -16,6 +16,7 @@ import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
@@ -25,6 +26,7 @@ import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 
 @SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class PerformanceTest {
 	
 	/*

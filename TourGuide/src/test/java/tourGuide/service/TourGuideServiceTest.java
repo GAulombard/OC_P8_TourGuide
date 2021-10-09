@@ -7,6 +7,7 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import rewardCentral.RewardCentral;
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
@@ -30,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class TourGuideServiceTest {
 
     private final static Logger logger = LoggerFactory.getLogger(TourGuideServiceTest.class);
@@ -180,13 +182,13 @@ public class TourGuideServiceTest {
     }
 
     @Test
-    public void trackAllUsersLocation() throws UserNotFoundException {
+    public void trackAllUsersLocation() throws UserNotFoundException, UsersGatheringException {
 
         VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
         VisitedLocation visitedLocation2 = tourGuideService.trackUserLocation(user2);
 
-        assertEquals(2, user.getVisitedLocations().size());
-        assertEquals(2, user2.getVisitedLocations().size());
+        assertEquals(2, tourGuideService.trackAllUsersLocation(tourGuideService.getAllUsers()).get(user.getUserName()).size());
+        assertEquals(2, tourGuideService.trackAllUsersLocation(tourGuideService.getAllUsers()).get(user2.getUserName()).size());
 
     }
 
@@ -209,13 +211,13 @@ public class TourGuideServiceTest {
     }
 
     @Test
-    public void getAllCurrentLocation() throws UserNotFoundException {
+    public void getAllCurrentLocation() throws UserNotFoundException, UsersGatheringException {
 
         VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
         VisitedLocation visitedLocation2 = tourGuideService.trackUserLocation(user2);
 
-        assertEquals(visitedLocation, user.getLastVisitedLocation());
-        assertEquals(visitedLocation2, user2.getLastVisitedLocation());
+        assertEquals(visitedLocation.location, tourGuideService.getAllCurrentLocation().get(user.getUserId().toString()));
+        assertEquals(visitedLocation2.location, tourGuideService.getAllCurrentLocation().get(user2.getUserId().toString()));
 
     }
 
