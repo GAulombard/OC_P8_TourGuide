@@ -33,6 +33,7 @@ targetCompatibility = 1.8
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+
 }
 
 dependencies {
@@ -68,6 +69,15 @@ jacocoTestReport {
         xml.enabled true
         csv.enabled false
         html.destination file("${buildDir}/jacocoHtml")
+    }
+
+
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                   exclude: ['**/model/**'])
+        })
     }
 }
 

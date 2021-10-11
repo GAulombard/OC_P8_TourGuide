@@ -48,7 +48,7 @@ public class TourGuideController {
 
     @RequestMapping("/getUser")
     public String getUser(@RequestParam String userName) throws UserNotFoundException {
-        logger.info("HTTP GET request receive at /getUseruserName="+userName+"\"");
+        logger.info("HTTP GET request receive at /getUser?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
 
@@ -127,7 +127,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/getNearbyAttractions") //Get the closest five tourist attractions to the user - no matter how far away they are.
+    @RequestMapping("/getNearbyAttractions") //Get the closest 5 tourist attractions to the user - no matter how far away they are.
     public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
 
