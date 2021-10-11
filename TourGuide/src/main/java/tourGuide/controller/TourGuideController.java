@@ -6,6 +6,8 @@ import java.util.Map;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gpsUtil.location.Location;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ import javax.validation.Valid;
 
 @RestController
 @Validated
+@Api(description = "description")
 public class TourGuideController {
 
     private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
@@ -46,6 +49,7 @@ public class TourGuideController {
         return "Greetings from TourGuide!";
     }
 
+    @ApiOperation(value = "Api Operation value")
     @RequestMapping("/getUser")
     public String getUser(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at /getUser?userName="+userName+"\"");
