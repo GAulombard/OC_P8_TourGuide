@@ -1,98 +1,213 @@
 package tourGuide.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import gpsUtil.location.Location;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-import com.jsoniter.output.JsonStream;
 
 import gpsUtil.location.VisitedLocation;
+import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
+import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
+import tourGuide.model.UserReward;
+import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 import tripPricer.Provider;
 
+import javax.validation.Valid;
+
 @RestController
+@Validated
+@Api(description = "description")
 public class TourGuideController {
 
     private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
 
 	@Autowired
-	TourGuideService tourGuideService;
+	private TourGuideService tourGuideService;
+    @Autowired
+    private RewardsService rewardsService;
 	
     @RequestMapping(value={"","/"})
     public String index() {
-        logger.info("* HTTP GET request receive at \"/\"");
+        logger.info("HTTP GET request receive at index");
 
         return "Greetings from TourGuide!";
     }
+
+    @ApiOperation(value = "Api Operation value")
+    @RequestMapping("/getUser")
+    public String getUser(@RequestParam String userName) throws UserNotFoundException {
+        logger.info("HTTP GET request receive at /getUser?userName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(user);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: user could not be serialized to JSON.");
+            return null;
+        }
+    }
+
+    @RequestMapping("/getPreferences")
+    public String getUserPreferences(@RequestParam String userName) throws UserNotFoundException {
+        logger.info("HTTP GET request receive at /getPreferences?userName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(user.getUserPreferences());
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: user could not be serialized to JSON.");
+            return null;
+        }
+    }
+
+    @RequestMapping("/getAllUsers")
+    public String getAll() throws UsersGatheringException {
+        logger.info("HTTP GET request receive at /getAllUsers");
+
+        List<User> users = tourGuideService.getAllUsers();
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(users);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: list of users could not be serialized to JSON.");
+            return null;
+        }
+    }
     
     @RequestMapping("/getLocation") 
-    public String getLocation(@RequestParam String userName) {
-        logger.info("* HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
+    public String getLocation(@RequestParam String userName) throws UserNotFoundException {
+        logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
-    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
-		return JsonStream.serialize(visitedLocation.location);
+        User user = tourGuideService.getUser(userName);
+    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+
+    	try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(visitedLocation); //fixme:?? return timeVisited as Integer number instead of readable date format
+
+        } catch (JsonProcessingException e) {
+    	    logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
+    	    return null;
+        }
     }
 
-    //  TODO: Change this method to no longer return a List of Attractions.
- 	//  Instead: Get the closest five tourist attractions to the user - no matter how far away they are.
- 	//  Return a new JSON object that contains:
-    	// Name of Tourist attraction, 
-        // Tourist attractions lat/long, 
-        // The user's location lat/long, 
-        // The distance in miles between the user's location and each of the attractions.
-        // The reward points for visiting each Attraction.
-        //    Note: Attraction reward points can be gathered from RewardsCentral
-    @RequestMapping("/getNearbyAttractions") 
-    public String getNearbyAttractions(@RequestParam String userName) {
+    @RequestMapping("/trackUsers")
+    public String trackAllUsersLocation() throws UsersGatheringException {
+        logger.info("HTTP GET request receive at /trackUsers");
+
+        List<User> users = tourGuideService.getAllUsers();
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(tourGuideService.trackAllUsersLocation(users));
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: all user's location could not be serialized to JSON.");
+            return null;
+        }
+    }
+
+    @RequestMapping("/getNearbyAttractions") //Get the closest 5 tourist attractions to the user - no matter how far away they are.
+    public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
 
-    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
-    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));
+        User user = tourGuideService.getUser(userName);
+    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+        List<NearbyAttraction> nearbyAttractions = tourGuideService.getNearByAttractions(visitedLocation,user);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(nearbyAttractions);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
+            return null;
+        }
     }
     
-    @RequestMapping("/getRewards") 
-    public String getRewards(@RequestParam String userName) {
+    @RequestMapping("/getRewards")
+    public String getRewards(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
-    	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));
+        User user = tourGuideService.getUser(userName);
+        List<UserReward> userRewards = rewardsService.getUserRewards(user);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(userRewards);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: List of user rewards could not be serialized to JSON.");
+            return null;
+        }
     }
     
     @RequestMapping("/getAllCurrentLocations")
-    public String getAllCurrentLocations() {
+    public String getAllCurrentLocations() throws UsersGatheringException {
         logger.info("HTTP GET request receive at \"/getAllCurrentLocations\"");
-    	// TODO: Get a list of every user's most recent location as JSON
-    	//- Note: does not use gpsUtil to query for their current location, 
-    	//        but rather gathers the user's current location from their stored location history.
-    	//
-    	// Return object should be the just a JSON mapping of userId to Locations similar to:
-    	//     {
-    	//        "019b04a9-067a-4c76-8817-ee75088c3822": {"longitude":-48.188821,"latitude":74.84371} 
-    	//        ...
-    	//     }
-    	
-    	return JsonStream.serialize("");
+
+        Map<String, Location> allCurrentLocations = tourGuideService.getAllCurrentLocation();
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(allCurrentLocations);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: List of user's current location could not be serialized to JSON.");
+            return null;
+        }
     }
 
-    //FIXME: error when using this endpoint "java.lang.reflect.InaccessibleObjectException"
     @RequestMapping("/getTripDeals")
-    public String getTripDeals(@RequestParam String userName) {
+    public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
 
-    	List<Provider> providers = tourGuideService.getTripDeals(getUser(userName));
-    	return JsonStream.serialize(providers);
+        User user = tourGuideService.getUser(userName);
+    	List<Provider> providers = tourGuideService.getTripDeals(user);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(providers);
+
+        } catch (JsonProcessingException e) {
+            logger.error("ERROR: List of providers could not be serialized to JSON.");
+            return null;
+        }
     }
 
-    //FIXME: ?? make endpoint for that ?
-    //TODO: add logger
-    private User getUser(String userName) {
-    	return tourGuideService.getUser(userName);
+    @PutMapping("/updatePreferences")
+    public ResponseEntity<String> updatePreferences(@RequestParam String userName, @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+        logger.info("HTTP PUT request receive at \"/updatePreferences?userName="+userName+"\"");
+
+        User user = tourGuideService.getUser(userName);
+
+        tourGuideService.updatePreferences(user,newPreferences);
+
+        return new ResponseEntity<>("Preferences updated", HttpStatus.OK);
     }
-   
 
 }

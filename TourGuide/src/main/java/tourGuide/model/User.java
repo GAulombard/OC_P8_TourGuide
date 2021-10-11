@@ -1,14 +1,14 @@
 package tourGuide.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import gpsUtil.location.VisitedLocation;
+import org.springframework.stereotype.Component;
 import tripPricer.Provider;
 
+
 public class User {
+
 	private final UUID userId;
 	private final String userName;
 	private String phoneNumber;
@@ -18,6 +18,8 @@ public class User {
 	private List<UserReward> userRewards = new ArrayList<>();
 	private UserPreferences userPreferences = new UserPreferences();
 	private List<Provider> tripDeals = new ArrayList<>();
+
+
 	public User(UUID userId, String userName, String phoneNumber, String emailAddress) {
 		this.userId = userId;
 		this.userName = userName;
@@ -88,7 +90,16 @@ public class User {
 	}
 
 	public VisitedLocation getLastVisitedLocation() {
-		return visitedLocations.get(visitedLocations.size() - 1);
+		List<VisitedLocation> visitedLocationList = getVisitedLocations();
+		Comparator<VisitedLocation> byTimeVisited = new Comparator<VisitedLocation>() {
+
+			public int compare(VisitedLocation o1, VisitedLocation o2) {
+				return Long.valueOf(o1.timeVisited.getTime()).compareTo(o2.timeVisited.getTime());
+			}
+		};
+		Collections.sort(visitedLocationList,byTimeVisited.reversed());
+
+		return visitedLocationList.get(0);
 	}
 	
 	public void setTripDeals(List<Provider> tripDeals) {
