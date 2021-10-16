@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -49,8 +50,8 @@ public class TourGuideController {
         return "Greetings from TourGuide!";
     }
 
-    @ApiOperation(value = "Api Operation value")
-    @RequestMapping("/getUser")
+    @ApiOperation(value = "Api Operation value") //todo:do this for every endpoints
+    @RequestMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUser(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at /getUser?userName="+userName+"\"");
 
@@ -66,7 +67,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/getPreferences")
+    @RequestMapping(value = "/getPreferences",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUserPreferences(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at /getPreferences?userName="+userName+"\"");
 
@@ -82,7 +83,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/getAllUsers")
+    @RequestMapping(value = "/getAllUsers",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAll() throws UsersGatheringException {
         logger.info("HTTP GET request receive at /getAllUsers");
 
@@ -98,7 +99,7 @@ public class TourGuideController {
         }
     }
     
-    @RequestMapping("/getLocation") 
+    @RequestMapping(value = "/getLocation",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getLocation(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
@@ -115,7 +116,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/trackUsers")
+    @RequestMapping(value = "/trackUsers",produces = MediaType.APPLICATION_JSON_VALUE)
     public String trackAllUsersLocation() throws UsersGatheringException {
         logger.info("HTTP GET request receive at /trackUsers");
 
@@ -131,7 +132,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/getNearbyAttractions") //Get the closest 5 tourist attractions to the user - no matter how far away they are.
+    @RequestMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE) //Get the closest 5 tourist attractions to the user - no matter how far away they are.
     public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
 
@@ -149,7 +150,7 @@ public class TourGuideController {
         }
     }
     
-    @RequestMapping("/getRewards")
+    @RequestMapping(value = "/getRewards",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getRewards(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
@@ -166,7 +167,7 @@ public class TourGuideController {
         }
     }
     
-    @RequestMapping("/getAllCurrentLocations")
+    @RequestMapping(value = "/getAllCurrentLocations",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllCurrentLocations() throws UsersGatheringException {
         logger.info("HTTP GET request receive at \"/getAllCurrentLocations\"");
 
@@ -182,7 +183,7 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping("/getTripDeals")
+    @RequestMapping(value = "/getTripDeals",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
 

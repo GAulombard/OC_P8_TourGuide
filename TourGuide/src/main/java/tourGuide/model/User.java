@@ -51,7 +51,7 @@ public class User {
 		return emailAddress;
 	}
 	
-	public void setLatestLocationTimestamp(Date latestLocationTimestamp) {
+	public void setLatestLocationTimestamp(Date latestLocationTimestamp) { //fixme: always null
 		this.latestLocationTimestamp = latestLocationTimestamp;
 	}
 	
