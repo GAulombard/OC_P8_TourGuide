@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.RewardsServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-10-14T11:25:55" hostname="DESKTOP-2K67CMT" time="16.401">
+  <properties/>
+  <testcase name="nearAllAttractions()" classname="tourGuide.service.RewardsServiceTest" time="15.19"/>
+  <testcase name="getUserRewards()" classname="tourGuide.service.RewardsServiceTest" time="1.043"/>
+  <testcase name="getUserRewards_shouldThrowsUserNotFoundException()" classname="tourGuide.service.RewardsServiceTest" time="0.064"/>
+  <testcase name="isWithinAttractionProximity()" classname="tourGuide.service.RewardsServiceTest" time="0.101"/>
+  <system-out><![CDATA[2021-10-14 13:25:55.544  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.service.RewardsServiceTest], using SpringBootContextLoader
+2021-10-14 13:25:55.545  INFO 2236 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.service.RewardsServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-14 13:25:55.546  INFO 2236 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.service.RewardsServiceTest]: RewardsServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-14 13:25:55.553  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.service.RewardsServiceTest
+2021-10-14 13:25:55.555  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-14 13:25:55.556  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@582513ef, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5ac9e7cf, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3db8929c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4cde75bc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3c94ada3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@29f6d261, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@50a389b1, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6f6f658c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@768f3477, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6975951d]
+2021-10-14 13:25:55.560  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:25:55.565  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:25:55.565  INFO 2236 --- [pool-6-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:25:55.565  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:25:55.607  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:25:55.618  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:25:55.619  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:25:55.619  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-10-14 13:25:55.630  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:25:56.548  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:25:57.367  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:25:58.212  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:25:58.793  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:25:59.365  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:00.205  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:00.836  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:01.300  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:01.346  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:02.161  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:03.116  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:03.978  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:04.058  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:04.949  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:05.020  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:05.461  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:06.340  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:06.665  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:07.608  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:08.413  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:08.991  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:09.181  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:09.701  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:10.564  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:10.733  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 26
+2021-10-14 13:26:10.734  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:10.734  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to get user rewards
+2021-10-14 13:26:10.745  INFO 2236 --- [    Test worker] tourGuide.service.RewardsServiceTest     : @AfterEach
+2021-10-14 13:26:10.750  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:10.756  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:10.756  INFO 2236 --- [pool-7-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:10.756  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:10.813  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:10.825  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:10.835  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:10.927  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:10.938  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:26:11.789  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 1
+2021-10-14 13:26:11.790  INFO 2236 --- [    Test worker] tourGuide.service.RewardsServiceTest     : @AfterEach
+2021-10-14 13:26:11.794  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:11.800  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:11.800  INFO 2236 --- [pool-8-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:11.800  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:11.839  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:11.850  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:11.854  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to get user rewards
+2021-10-14 13:26:11.855  INFO 2236 --- [    Test worker] tourGuide.service.RewardsServiceTest     : @AfterEach
+2021-10-14 13:26:11.859  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:11.864  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:11.864  INFO 2236 --- [pool-9-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:11.865  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:11.936  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:11.947  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:11.957  INFO 2236 --- [    Test worker] tourGuide.service.RewardsServiceTest     : @AfterEach
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

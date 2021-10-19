@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-10-14T11:24:38" hostname="DESKTOP-2K67CMT" time="15.482">
+  <properties/>
+  <testcase name="updatePreferences_shouldReturnBadRequest()" classname="tourGuide.controller.TourGuideControllerTest" time="0.665"/>
+  <testcase name="getTripDeals()" classname="tourGuide.controller.TourGuideControllerTest" time="1.107"/>
+  <testcase name="getAllUsers()" classname="tourGuide.controller.TourGuideControllerTest" time="0.084"/>
+  <testcase name="getLocation()" classname="tourGuide.controller.TourGuideControllerTest" time="0.022"/>
+  <testcase name="getUser()" classname="tourGuide.controller.TourGuideControllerTest" time="0.034"/>
+  <testcase name="getAllCurrentLocations()" classname="tourGuide.controller.TourGuideControllerTest" time="0.068"/>
+  <testcase name="index()" classname="tourGuide.controller.TourGuideControllerTest" time="0.019"/>
+  <testcase name="indexBis()" classname="tourGuide.controller.TourGuideControllerTest" time="0.012"/>
+  <testcase name="updatePreferences()" classname="tourGuide.controller.TourGuideControllerTest" time="0.046"/>
+  <testcase name="getNearbyAttractions()" classname="tourGuide.controller.TourGuideControllerTest" time="13.036"/>
+  <testcase name="trackAllUsersLocation()" classname="tourGuide.controller.TourGuideControllerTest" time="0.019"/>
+  <testcase name="getPreferences()" classname="tourGuide.controller.TourGuideControllerTest" time="0.03"/>
+  <testcase name="getRewards()" classname="tourGuide.controller.TourGuideControllerTest" time="0.319"/>
+  <system-out><![CDATA[13:24:30.843 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+13:24:30.899 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+13:24:30.938 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [tourGuide.controller.TourGuideControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+13:24:30.966 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.controller.TourGuideControllerTest], using SpringBootContextLoader
+13:24:30.973 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerTest]: class path resource [tourGuide/controller/TourGuideControllerTest-context.xml] does not exist
+13:24:30.974 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerTest]: class path resource [tourGuide/controller/TourGuideControllerTestContext.groovy] does not exist
+13:24:30.974 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.controller.TourGuideControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+13:24:30.976 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.controller.TourGuideControllerTest]: TourGuideControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:24:31.078 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [tourGuide.controller.TourGuideControllerTest]
+13:24:31.267 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide\build\classes\java\main\tourGuide\Application.class]
+13:24:31.271 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.controller.TourGuideControllerTest
+13:24:31.525 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [tourGuide.controller.TourGuideControllerTest]: using defaults.
+13:24:31.526 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+13:24:31.563 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/TransactionDefinition]
+13:24:31.565 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+13:24:31.565 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ee9a779, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@78d49719, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@77ac1129, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@64a8ee1b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@57c94f98, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@bf97627, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1ccb0b28, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3fb0e69c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2218cb7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6290d957]
+13:24:31.574 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@53d28edc testClass = TourGuideControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@242e7b3d testClass = TourGuideControllerTest, locations = '{}', classes = '{class tourGuide.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application-test.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@50ba6de7, [ImportsContextCustomizer@77290218 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@41137f4b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5792d078, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@38b3172f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+13:24:31.623 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.6.RELEASE)
+
+2021-10-14 13:24:32.248  INFO 2236 --- [    Test worker] t.controller.TourGuideControllerTest     : Starting TourGuideControllerTest on DESKTOP-2K67CMT with PID 2236 (started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\TourGuide\TourGuide)
+2021-10-14 13:24:32.263  INFO 2236 --- [    Test worker] t.controller.TourGuideControllerTest     : No active profile set, falling back to default profiles: default
+2021-10-14 13:24:34.686  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:24:34.735  INFO 2236 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:24:34.737  INFO 2236 --- [pool-2-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 1 users.
+2021-10-14 13:24:34.739  INFO 2236 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-10-14 13:24:34.792  INFO 2236 --- [pool-2-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-10-14 13:24:34.812  INFO 2236 --- [pool-2-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:24:34.814  INFO 2236 --- [pool-2-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-10-14 13:24:34.815  INFO 2236 --- [pool-2-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-10-14 13:24:36.189  INFO 2236 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-10-14 13:24:36.434  INFO 2236 --- [    Test worker] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-10-14 13:24:37.034  INFO 2236 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-14 13:24:37.545  INFO 2236 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-10-14 13:24:37.546  INFO 2236 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-10-14 13:24:37.568  INFO 2236 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 21 ms
+2021-10-14 13:24:37.633  INFO 2236 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-10-14 13:24:37.682  INFO 2236 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-10-14 13:24:37.721  INFO 2236 --- [    Test worker] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-10-14 13:24:37.916  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-10-14 13:24:37.921  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2021-10-14 13:24:37.924  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2021-10-14 13:24:37.931  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2021-10-14 13:24:37.935  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2021-10-14 13:24:37.940  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2021-10-14 13:24:37.945  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2021-10-14 13:24:37.949  INFO 2236 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2021-10-14 13:24:38.123  INFO 2236 --- [    Test worker] t.controller.TourGuideControllerTest     : Started TourGuideControllerTest in 6.483 seconds (JVM running for 9.059)
+2021-10-14 13:24:38.477  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:38.738  INFO 2236 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2021-10-14 13:24:38.761  WARN 2236 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<java.lang.String> tourGuide.controller.TourGuideController.updatePreferences(java.lang.String,tourGuide.model.UserPreferences) throws tourGuide.exception.UserNotFoundException: [Field error in object 'userPreferences' on field 'attractionProximity': rejected value [-4200]; codes [Min.userPreferences.attractionProximity,Min.attractionProximity,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userPreferences.attractionProximity,attractionProximity]; arguments []; default message [attractionProximity],1]; default message [The proximity should be a positive number and at least 1]] ]
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /updatePreferences
+       Parameters = {userName=[internalUser0]}
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+             Body = {"attractionProximity": "-4200","lowerPricePoint": "0","highPricePoint": "1255.55","tripDuration": "3","ticketQuantity": "5","numberOfAdults": "2","numberOfChildren": "1"}
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public org.springframework.http.ResponseEntity<java.lang.String> tourGuide.controller.TourGuideController.updatePreferences(java.lang.String,tourGuide.model.UserPreferences) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:38.831  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:38.879  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at "/getTripDeals?userName=internalUser0"
+2021-10-14 13:24:38.881  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:38.882  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get trip deals. User: internalUser0
+2021-10-14 13:24:38.895  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-10-14 13:24:38.970  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-10-14 13:24:38.981  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:24:39.015  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 128.99 USD / Attraction: Disneyland
+2021-10-14 13:24:39.016  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 647.99 USD / Attraction: Disneyland
+2021-10-14 13:24:39.016  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 324.99 USD / Attraction: Disneyland
+2021-10-14 13:24:39.017  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 654.99 USD / Attraction: Disneyland
+2021-10-14 13:24:39.018  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 478.99 USD / Attraction: Disneyland
+2021-10-14 13:24:39.021  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 140.99 USD / Attraction: Jackson Hole
+2021-10-14 13:24:39.022  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 438.99 USD / Attraction: Jackson Hole
+2021-10-14 13:24:39.023  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 288.99 USD / Attraction: Jackson Hole
+2021-10-14 13:24:39.023  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 195.99 USD / Attraction: Jackson Hole
+2021-10-14 13:24:39.024  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 655.99 USD / Attraction: Jackson Hole
+2021-10-14 13:24:39.046  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 600.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:24:39.047  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 358.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:24:39.048  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 365.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:24:39.049  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 691.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:24:39.050  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 109.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:24:39.099  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 188.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:24:39.100  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 536.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:24:39.101  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 192.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:24:39.119  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 437.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:24:39.121  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 277.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:24:39.154  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 111.99 USD / Attraction: Buffalo National River
+2021-10-14 13:24:39.155  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 443.99 USD / Attraction: Buffalo National River
+2021-10-14 13:24:39.156  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 401.99 USD / Attraction: Buffalo National River
+2021-10-14 13:24:39.156  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 161.99 USD / Attraction: Buffalo National River
+2021-10-14 13:24:39.157  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 166.99 USD / Attraction: Buffalo National River
+2021-10-14 13:24:39.204  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 658.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:24:39.205  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 234.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:24:39.205  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 673.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:24:39.206  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 430.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:24:39.207  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 137.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:24:39.239  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 638.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:24:39.240  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 499.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:24:39.241  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 185.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:24:39.242  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 297.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:24:39.242  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 236.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:24:39.282  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 278.99 USD / Attraction: Legend Valley
+2021-10-14 13:24:39.283  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 483.99 USD / Attraction: Legend Valley
+2021-10-14 13:24:39.283  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 317.99 USD / Attraction: Legend Valley
+2021-10-14 13:24:39.284  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 355.99 USD / Attraction: Legend Valley
+2021-10-14 13:24:39.285  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 115.99 USD / Attraction: Legend Valley
+2021-10-14 13:24:39.304  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 544.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:24:39.305  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 301.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:24:39.306  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 654.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:24:39.307  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 156.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:24:39.307  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 472.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:24:39.343  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 136.99 USD / Attraction: McKinley Tower
+2021-10-14 13:24:39.343  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 294.99 USD / Attraction: McKinley Tower
+2021-10-14 13:24:39.344  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 281.99 USD / Attraction: McKinley Tower
+2021-10-14 13:24:39.345  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 555.99 USD / Attraction: McKinley Tower
+2021-10-14 13:24:39.345  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 388.99 USD / Attraction: McKinley Tower
+2021-10-14 13:24:39.365  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 335.99 USD / Attraction: Flatiron Building
+2021-10-14 13:24:39.379  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 131.99 USD / Attraction: Flatiron Building
+2021-10-14 13:24:39.380  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 329.99 USD / Attraction: Flatiron Building
+2021-10-14 13:24:39.381  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 100.99 USD / Attraction: Flatiron Building
+2021-10-14 13:24:39.381  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 524.99 USD / Attraction: Flatiron Building
+2021-10-14 13:24:39.420  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 258.99 USD / Attraction: Fallingwater
+2021-10-14 13:24:39.421  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 494.99 USD / Attraction: Fallingwater
+2021-10-14 13:24:39.422  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 338.99 USD / Attraction: Fallingwater
+2021-10-14 13:24:39.423  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 500.99 USD / Attraction: Fallingwater
+2021-10-14 13:24:39.423  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 206.99 USD / Attraction: Fallingwater
+2021-10-14 13:24:39.435  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 385.99 USD / Attraction: Union Station
+2021-10-14 13:24:39.436  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 157.99 USD / Attraction: Union Station
+2021-10-14 13:24:39.437  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 339.99 USD / Attraction: Union Station
+2021-10-14 13:24:39.438  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 100.99 USD / Attraction: Union Station
+2021-10-14 13:24:39.438  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 635.99 USD / Attraction: Union Station
+2021-10-14 13:24:39.475  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 273.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:24:39.476  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 244.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:24:39.477  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 444.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:24:39.478  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 597.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:24:39.479  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 101.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:24:39.489  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 634.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:24:39.491  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 689.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:24:39.492  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 320.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:24:39.493  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 377.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:24:39.494  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 649.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:24:39.497  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 220.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:24:39.498  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 260.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:24:39.500  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 102.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:24:39.501  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 386.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:24:39.504  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 479.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:24:39.517  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 477.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:24:39.519  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 330.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:24:39.519  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 533.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:24:39.520  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 100.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:24:39.521  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 592.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:24:39.524  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 682.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:24:39.525  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 593.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:24:39.525  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 601.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:24:39.527  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 632.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:24:39.531  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 174.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:24:39.555  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 577.99 USD / Attraction: Kyle Field
+2021-10-14 13:24:39.556  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 224.99 USD / Attraction: Kyle Field
+2021-10-14 13:24:39.557  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 110.99 USD / Attraction: Kyle Field
+2021-10-14 13:24:39.558  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 522.99 USD / Attraction: Kyle Field
+2021-10-14 13:24:39.558  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 101.99 USD / Attraction: Kyle Field
+2021-10-14 13:24:39.567  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 376.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:24:39.568  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 493.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:24:39.569  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 358.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:24:39.570  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 194.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:24:39.571  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 563.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:24:39.615  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 661.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:24:39.616  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 364.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:24:39.616  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 609.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:24:39.617  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 518.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:24:39.623  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 453.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:24:39.653  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 519.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:24:39.654  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 332.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:24:39.654  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 492.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:24:39.655  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 298.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:24:39.656  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 538.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:24:39.681  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 227.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:24:39.681  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 341.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:24:39.682  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 142.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:24:39.683  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 482.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:24:39.684  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 265.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:24:39.689  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 451.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:24:39.690  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 607.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:24:39.690  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 515.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:24:39.691  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 264.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:24:39.692  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 577.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:24:39.738  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 364.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:24:39.739  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 529.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:24:39.739  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 227.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:24:39.740  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 686.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:24:39.741  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 128.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:24:39.765  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 689.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:24:39.766  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 155.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:24:39.767  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 252.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:24:39.768  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 583.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:24:39.768  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 220.99 USD / Attraction: Cinderella Castle
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getTripDeals
+       Parameters = {userName=[internalUser0]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getTripDeals(java.lang.String) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"12135"]
+     Content type = text/plain;charset=UTF-8
+             Body = [{"name":"Sunny Days","price":128.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Holiday Travels","price":647.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Dream Trips","price":324.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"FlyAway Trips","price":654.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Live Free","price":478.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"AdventureCo","price":140.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Live Free","price":438.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"United Partners Vacations","price":288.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"FlyAway Trips","price":195.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Dancing Waves Cruselines and Partners","price":655.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Dream Trips","price":600.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Dancing Waves Cruselines and Partners","price":358.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"AdventureCo","price":365.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Holiday Travels","price":691.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"United Partners Vacations","price":109.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Sunny Days","price":188.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Dream Trips","price":536.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Holiday Travels","price":192.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Dancing Waves Cruselines and Partners","price":437.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Enterprize Ventures Limited","price":277.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Enterprize Ventures Limited","price":111.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"FlyAway Trips","price":443.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Live Free","price":401.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Dancing Waves Cruselines and Partners","price":161.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Holiday Travels","price":166.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"AdventureCo","price":658.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Dream Trips","price":234.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Holiday Travels","price":673.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Dancing Waves Cruselines and Partners","price":430.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Live Free","price":137.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"United Partners Vacations","price":638.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Live Free","price":499.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Dancing Waves Cruselines and Partners","price":185.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"FlyAway Trips","price":297.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Enterprize Ventures Limited","price":236.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Live Free","price":278.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dream Trips","price":483.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"United Partners Vacations","price":317.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dancing Waves Cruselines and Partners","price":355.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Enterprize Ventures Limited","price":115.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dream Trips","price":544.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"AdventureCo","price":301.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"United Partners Vacations","price":654.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"FlyAway Trips","price":156.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"Holiday Travels","price":472.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"Holiday Travels","price":136.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Live Free","price":294.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"FlyAway Trips","price":281.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Enterprize Ventures Limited","price":555.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Dream Trips","price":388.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"FlyAway Trips","price":335.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Dream Trips","price":131.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Enterprize Ventures Limited","price":329.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Sunny Days","price":100.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"United Partners Vacations","price":524.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"FlyAway Trips","price":258.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Dancing Waves Cruselines and Partners","price":494.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Enterprize Ventures Limited","price":338.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Dream Trips","price":500.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Live Free","price":206.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Sunny Days","price":385.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Dancing Waves Cruselines and Partners","price":157.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Dream Trips","price":339.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"AdventureCo","price":100.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Holiday Travels","price":635.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Holiday Travels","price":273.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Sunny Days","price":244.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Dancing Waves Cruselines and Partners","price":444.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Enterprize Ventures Limited","price":597.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"United Partners Vacations","price":101.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"AdventureCo","price":634.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Live Free","price":689.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Sunny Days","price":320.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Enterprize Ventures Limited","price":377.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"United Partners Vacations","price":649.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Dream Trips","price":220.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"Enterprize Ventures Limited","price":260.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"United Partners Vacations","price":102.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"Live Free","price":386.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"FlyAway Trips","price":479.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"United Partners Vacations","price":477.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Holiday Travels","price":330.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Sunny Days","price":533.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Enterprize Ventures Limited","price":100.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Live Free","price":592.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"FlyAway Trips","price":682.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Dream Trips","price":593.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Sunny Days","price":601.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Dancing Waves Cruselines and Partners","price":632.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"United Partners Vacations","price":174.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Enterprize Ventures Limited","price":577.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"United Partners Vacations","price":224.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"Live Free","price":110.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"Dancing Waves Cruselines and Partners","price":522.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"AdventureCo","price":101.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"AdventureCo","price":376.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dancing Waves Cruselines and Partners","price":493.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"United Partners Vacations","price":358.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dream Trips","price":194.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"FlyAway Trips","price":563.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dancing Waves Cruselines and Partners","price":661.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"United Partners Vacations","price":364.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"AdventureCo","price":609.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Enterprize Ventures Limited","price":518.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Holiday Travels","price":453.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Dream Trips","price":519.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Dancing Waves Cruselines and Partners","price":332.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Sunny Days","price":492.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Holiday Travels","price":298.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"AdventureCo","price":538.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Live Free","price":227.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Holiday Travels","price":341.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Sunny Days","price":142.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Enterprize Ventures Limited","price":482.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"FlyAway Trips","price":265.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"AdventureCo","price":451.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Dancing Waves Cruselines and Partners","price":607.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Dream Trips","price":515.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Holiday Travels","price":264.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Enterprize Ventures Limited","price":577.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Live Free","price":364.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"Dancing Waves Cruselines and Partners","price":529.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"Enterprize Ventures Limited","price":227.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"FlyAway Trips","price":686.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"AdventureCo","price":128.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"United Partners Vacations","price":689.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Dream Trips","price":155.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Holiday Travels","price":252.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"AdventureCo","price":583.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Live Free","price":220.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:39.941  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:39.944  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at /getAllUsers
+2021-10-14 13:24:39.945  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getAllUsers
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getAll() throws tourGuide.exception.UsersGatheringException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"15134"]
+     Content type = text/plain;charset=UTF-8
+             Body = [{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","userName":"internalUser0","phoneNumber":"000","emailAddress":"internalUser0@tourGuide.com","latestLocationTimestamp":null,"visitedLocations":[{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-136.9658793292,"latitude":42.75043063852947},"timeVisited":1633872274725},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-89.16112763314071,"latitude":51.989152469902905},"timeVisited":1632489874726},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-136.3179001626466,"latitude":33.873921321078576},"timeVisited":1634045074726},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-41.089322,"latitude":35.164024},"timeVisited":1634210674792},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":95.071323,"latitude":70.278763},"timeVisited":1634210678969}],"userRewards":[],"userPreferences":{"currency":{"context":{"providerName":"java.util.Currency","empty":false},"defaultFractionDigits":2,"numericCode":840,"currencyCode":"USD"},"attractionProximity":2147483647,"lowerPricePoint":{"currency":{"context":{"providerName":"java.util.Currency","empty":false},"defaultFractionDigits":2,"numericCode":840,"currencyCode":"USD"},"number":0,"negative":false,"zero":true,"positive":false,"positiveOrZero":true,"negativeOrZero":true,"numberStripped":0,"factory":{"defaultMonetaryContext":{"maxScale":63,"precision":0,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false},"maxNumber":null,"minNumber":null,"amountType":"org.javamoney.moneta.Money","maximalMonetaryContext":{"maxScale":-1,"precision":0,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false}},"context":{"maxScale":-1,"precision":256,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false}},"highPricePoint":{"currency":{"context":{"providerName":"java.util.Currency","empty":false},"defaultFractionDigits":2,"numericCode":840,"currencyCode":"USD"},"number":2147483647,"negative":false,"zero":false,"positive":true,"positiveOrZero":true,"negativeOrZero":false,"numberStripped":2147483647,"factory":{"defaultMonetaryContext":{"maxScale":63,"precision":0,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false},"maxNumber":null,"minNumber":null,"amountType":"org.javamoney.moneta.Money","maximalMonetaryContext":{"maxScale":-1,"precision":0,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false}},"context":{"maxScale":-1,"precision":256,"amountType":"org.javamoney.moneta.Money","fixedScale":false,"providerName":null,"empty":false}},"tripDuration":1,"ticketQuantity":1,"numberOfAdults":1,"numberOfChildren":0},"tripDeals":[{"name":"Sunny Days","price":128.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Holiday Travels","price":647.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Dream Trips","price":324.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"FlyAway Trips","price":654.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"Live Free","price":478.99,"tripId":"c5789e32-4a54-430a-8111-ed8e5cd91c0e"},{"name":"AdventureCo","price":140.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Live Free","price":438.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"United Partners Vacations","price":288.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"FlyAway Trips","price":195.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Dancing Waves Cruselines and Partners","price":655.99,"tripId":"e15a6433-e521-4ce7-8deb-bbc61b5724d9"},{"name":"Dream Trips","price":600.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Dancing Waves Cruselines and Partners","price":358.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"AdventureCo","price":365.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Holiday Travels","price":691.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"United Partners Vacations","price":109.99,"tripId":"20c809d9-776f-4a64-b657-6bdf67a8c65b"},{"name":"Sunny Days","price":188.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Dream Trips","price":536.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Holiday Travels","price":192.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Dancing Waves Cruselines and Partners","price":437.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Enterprize Ventures Limited","price":277.99,"tripId":"8b662b0b-a302-43a1-a4fa-0637b3e6f0c6"},{"name":"Enterprize Ventures Limited","price":111.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"FlyAway Trips","price":443.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Live Free","price":401.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Dancing Waves Cruselines and Partners","price":161.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"Holiday Travels","price":166.99,"tripId":"2b457318-579c-45f4-b017-bc802f933d86"},{"name":"AdventureCo","price":658.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Dream Trips","price":234.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Holiday Travels","price":673.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Dancing Waves Cruselines and Partners","price":430.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"Live Free","price":137.99,"tripId":"be2cb611-2145-412e-a750-86452a6d84ac"},{"name":"United Partners Vacations","price":638.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Live Free","price":499.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Dancing Waves Cruselines and Partners","price":185.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"FlyAway Trips","price":297.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Enterprize Ventures Limited","price":236.99,"tripId":"7e7dc69a-bb89-42a1-8367-2d9f2b67853c"},{"name":"Live Free","price":278.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dream Trips","price":483.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"United Partners Vacations","price":317.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dancing Waves Cruselines and Partners","price":355.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Enterprize Ventures Limited","price":115.99,"tripId":"bae38b7b-3261-4f54-be7d-cbbf7bbad41b"},{"name":"Dream Trips","price":544.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"AdventureCo","price":301.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"United Partners Vacations","price":654.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"FlyAway Trips","price":156.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"Holiday Travels","price":472.99,"tripId":"859ce81e-46fe-4a83-9147-e6b8d5e74bb5"},{"name":"Holiday Travels","price":136.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Live Free","price":294.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"FlyAway Trips","price":281.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Enterprize Ventures Limited","price":555.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"Dream Trips","price":388.99,"tripId":"c38d6deb-a1fc-4ab1-89d3-5e47bdd77b5c"},{"name":"FlyAway Trips","price":335.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Dream Trips","price":131.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Enterprize Ventures Limited","price":329.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"Sunny Days","price":100.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"United Partners Vacations","price":524.99,"tripId":"a4b9ab98-b59f-449b-8205-1604277b7b57"},{"name":"FlyAway Trips","price":258.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Dancing Waves Cruselines and Partners","price":494.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Enterprize Ventures Limited","price":338.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Dream Trips","price":500.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Live Free","price":206.99,"tripId":"1b19b0c5-8ab6-44c9-b50f-7174e1fc7ed2"},{"name":"Sunny Days","price":385.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Dancing Waves Cruselines and Partners","price":157.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Dream Trips","price":339.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"AdventureCo","price":100.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Holiday Travels","price":635.99,"tripId":"48441034-149a-42bf-b44c-3cd1946e0e8c"},{"name":"Holiday Travels","price":273.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Sunny Days","price":244.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Dancing Waves Cruselines and Partners","price":444.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"Enterprize Ventures Limited","price":597.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"United Partners Vacations","price":101.99,"tripId":"061f3e04-678c-49ef-af0a-2f6b4b71ea79"},{"name":"AdventureCo","price":634.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Live Free","price":689.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Sunny Days","price":320.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Enterprize Ventures Limited","price":377.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"United Partners Vacations","price":649.99,"tripId":"d9e3e819-afaa-4954-ab26-28bf4048ab96"},{"name":"Dream Trips","price":220.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"Enterprize Ventures Limited","price":260.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"United Partners Vacations","price":102.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"Live Free","price":386.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"FlyAway Trips","price":479.99,"tripId":"8f8ce79e-1597-4827-8c76-86d2940c9080"},{"name":"United Partners Vacations","price":477.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Holiday Travels","price":330.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Sunny Days","price":533.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Enterprize Ventures Limited","price":100.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"Live Free","price":592.99,"tripId":"a86e0700-9d08-4075-b196-e1dbacb859f8"},{"name":"FlyAway Trips","price":682.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Dream Trips","price":593.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Sunny Days","price":601.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Dancing Waves Cruselines and Partners","price":632.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"United Partners Vacations","price":174.99,"tripId":"e630a1a1-05f0-4327-b903-1033ad5f5b7a"},{"name":"Enterprize Ventures Limited","price":577.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"United Partners Vacations","price":224.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"Live Free","price":110.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"Dancing Waves Cruselines and Partners","price":522.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"AdventureCo","price":101.99,"tripId":"e8a0b7bf-dda1-4c89-867b-7efbe237dc66"},{"name":"AdventureCo","price":376.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dancing Waves Cruselines and Partners","price":493.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"United Partners Vacations","price":358.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dream Trips","price":194.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"FlyAway Trips","price":563.99,"tripId":"29a27633-2c7f-4dc2-b4d2-29225a441eb4"},{"name":"Dancing Waves Cruselines and Partners","price":661.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"United Partners Vacations","price":364.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"AdventureCo","price":609.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Enterprize Ventures Limited","price":518.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Holiday Travels","price":453.99,"tripId":"82b2cd35-953a-4cf9-8824-ab1739af6602"},{"name":"Dream Trips","price":519.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Dancing Waves Cruselines and Partners","price":332.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Sunny Days","price":492.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Holiday Travels","price":298.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"AdventureCo","price":538.99,"tripId":"82aaf5ad-d569-4d7e-a418-2bb3d18aff9a"},{"name":"Live Free","price":227.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Holiday Travels","price":341.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Sunny Days","price":142.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"Enterprize Ventures Limited","price":482.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"FlyAway Trips","price":265.99,"tripId":"7c33603c-f6ba-4ec2-a27e-55f2133073e0"},{"name":"AdventureCo","price":451.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Dancing Waves Cruselines and Partners","price":607.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Dream Trips","price":515.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Holiday Travels","price":264.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Enterprize Ventures Limited","price":577.99,"tripId":"6a95ea2f-d534-4d92-9391-4b52d97dc09f"},{"name":"Live Free","price":364.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"Dancing Waves Cruselines and Partners","price":529.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"Enterprize Ventures Limited","price":227.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"FlyAway Trips","price":686.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"AdventureCo","price":128.99,"tripId":"9870e359-1a00-4856-a63c-d136a9aaed86"},{"name":"United Partners Vacations","price":689.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Dream Trips","price":155.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Holiday Travels","price":252.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"AdventureCo","price":583.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"},{"name":"Live Free","price":220.99,"tripId":"d824f7f2-069f-41f6-b3b9-61b3c4ba5133"}],"lastVisitedLocation":{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":95.071323,"latitude":70.278763},"timeVisited":1634210678969}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:40.026  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.029  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at "/getLocation?userName=internalUser0"
+2021-10-14 13:24:40.030  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.031  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user location. User: internalUser0
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getLocation
+       Parameters = {userName=[internalUser0]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getLocation(java.lang.String) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"133"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":95.071323,"latitude":70.278763},"timeVisited":1634210678969}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:40.051  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.056  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at /getUser?userName=internalUser0"
+2021-10-14 13:24:40.057  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.085  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.117  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at "/getAllCurrentLocations"
+2021-10-14 13:24:40.130  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all user's current location
+2021-10-14 13:24:40.131  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getAllCurrentLocations
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getAllCurrentLocations() throws tourGuide.exception.UsersGatheringException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"85"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7":{"longitude":95.071323,"latitude":70.278763}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:40.166  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-10-14 13:24:40.180  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-10-14 13:24:40.191  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.202  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP PUT request receive at "/updatePreferences?userName=internalUser0"
+2021-10-14 13:24:40.204  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.205  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to update preferences
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /updatePreferences
+       Parameters = {userName=[internalUser0]}
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+             Body = {"attractionProximity": "4200","lowerPricePoint": "0","highPricePoint": "1255.55","tripDuration": "3","ticketQuantity": "5","numberOfAdults": "2","numberOfChildren": "1"}
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public org.springframework.http.ResponseEntity<java.lang.String> tourGuide.controller.TourGuideController.updatePreferences(java.lang.String,tourGuide.model.UserPreferences) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"19"]
+     Content type = text/plain;charset=UTF-8
+             Body = Preferences updated
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:40.240  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.244  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at "/getNearbyAttractions?userName=internalUser0"
+2021-10-14 13:24:40.245  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:40.246  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user location. User: internalUser0
+2021-10-14 13:24:40.247  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get nearby attractions.
+2021-10-14 13:24:40.248  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** -->User: internalUser0
+2021-10-14 13:24:40.248  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** -->Latitude: 70.278763 Longitude: 95.071323
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getNearbyAttractions
+       Parameters = {userName=[internalUser0]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getNearbyAttractions(java.lang.String) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"1112"]
+     Content type = text/plain;charset=UTF-8
+             Body = [{"attractionName":"McKinley Tower","attractionLatitude":61.218887,"attractionLongitude":-149.877502,"userLatitude":70.278763,"userLongitude":95.071323,"distanceBetweenUserAndAttraction":2821.5337341007603,"rewardPoint":798},{"attractionName":"Jackson Hole","attractionLatitude":43.582767,"attractionLongitude":-110.821999,"userLatitude":70.278763,"userLongitude":95.071323,"distanceBetweenUserAndAttraction":4459.843411932194,"rewardPoint":588},{"attractionName":"Franklin Park Zoo","attractionLatitude":42.302601,"attractionLongitude":-71.086731,"userLatitude":70.278763,"userLongitude":95.071323,"distanceBetweenUserAndAttraction":4623.93410846945,"rewardPoint":637},{"attractionName":"Bronx Zoo","attractionLatitude":40.852905,"attractionLongitude":-73.872971,"userLatitude":70.278763,"userLongitude":95.071323,"distanceBetweenUserAndAttraction":4735.025041813979,"rewardPoint":279},{"attractionName":"Flatiron Building","attractionLatitude":40.741112,"attractionLongitude":-73.989723,"userLatitude":70.278763,"userLongitude":95.071323,"distanceBetweenUserAndAttraction":4743.147351837903,"rewardPoint":722}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:53.275  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:53.280  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at /trackUsers
+2021-10-14 13:24:53.280  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:24:53.281  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track all user's location: 1
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /trackUsers
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.trackAllUsersLocation() throws tourGuide.exception.UsersGatheringException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"740"]
+     Content type = text/plain;charset=UTF-8
+             Body = {"internalUser0":[{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":95.071323,"latitude":70.278763},"timeVisited":1634210678969},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-41.089322,"latitude":35.164024},"timeVisited":1634210674792},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-136.3179001626466,"latitude":33.873921321078576},"timeVisited":1634045074726},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-136.9658793292,"latitude":42.75043063852947},"timeVisited":1633872274725},{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-89.16112763314071,"latitude":51.989152469902905},"timeVisited":1632489874726}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-10-14 13:24:53.297  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at /getPreferences?userName=internalUser0"
+2021-10-14 13:24:53.298  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:53.327  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:53.339  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-10-14 13:24:53.385  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-10-14 13:24:53.404  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing get reward points
+2021-10-14 13:24:53.630  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 1
+2021-10-14 13:24:53.633  INFO 2236 --- [    Test worker] t.controller.TourGuideController         : HTTP GET request receive at "/getRewards?userName=internalUser0"
+2021-10-14 13:24:53.634  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:24:53.634  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to get user rewards
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /getRewards
+       Parameters = {userName=[internalUser0]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = tourGuide.controller.TourGuideController
+           Method = public java.lang.String tourGuide.controller.TourGuideController.getRewards(java.lang.String) throws tourGuide.exception.UserNotFoundException
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"464"]
+     Content type = text/plain;charset=UTF-8
+             Body = [{"visitedLocation":{"userId":"c839b4f8-fdf9-4ab2-8184-9dd7a3b1bff7","location":{"longitude":-117.922008,"latitude":33.817595,"attractionName":"Disneyland","city":"Anaheim","state":"CA","attractionId":"ff9ab1f1-fa4f-4424-84b3-5c46c36febb7"},"timeVisited":1634210693339},"attraction":{"longitude":-117.922008,"latitude":33.817595,"attractionName":"Disneyland","city":"Anaheim","state":"CA","attractionId":"549204dc-5ece-475d-a987-0637069f5c46"},"rewardPoints":723}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

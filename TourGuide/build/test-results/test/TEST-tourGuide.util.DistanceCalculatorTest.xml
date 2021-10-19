@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.util.DistanceCalculatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-10-14T11:26:29" hostname="DESKTOP-2K67CMT" time="0.29">
+  <properties/>
+  <testcase name="setDefaultProximityBuffer()" classname="tourGuide.util.DistanceCalculatorTest" time="0.073"/>
+  <testcase name="isWithinAttractionProximity_shouldReturnFalse()" classname="tourGuide.util.DistanceCalculatorTest" time="0.085"/>
+  <testcase name="isWithinAttractionProximity_shouldReturnTrue()" classname="tourGuide.util.DistanceCalculatorTest" time="0.13"/>
+  <system-out><![CDATA[2021-10-14 13:26:29.511  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.util.DistanceCalculatorTest], using SpringBootContextLoader
+2021-10-14 13:26:29.512  INFO 2236 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.util.DistanceCalculatorTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-14 13:26:29.512  INFO 2236 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.util.DistanceCalculatorTest]: DistanceCalculatorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-14 13:26:29.517  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.util.DistanceCalculatorTest
+2021-10-14 13:26:29.519  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-14 13:26:29.521  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@e68657a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7459b5b9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6ba9745b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a18fc86, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77961d0a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4e5b9a3c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ef03400, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@13711994, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@54c838bd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@46d0c262]
+2021-10-14 13:26:29.525  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.530  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.530  INFO 2236 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.531  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.582  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.593  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.594  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+2021-10-14 13:26:29.599  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.605  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.605  INFO 2236 --- [ool-30-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.606  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.649  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.660  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.681  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+2021-10-14 13:26:29.686  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.694  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.694  INFO 2236 --- [ool-31-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.694  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.790  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.801  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.812  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

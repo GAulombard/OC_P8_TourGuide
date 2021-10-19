@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.TourGuideServiceTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2021-10-14T11:26:11" hostname="DESKTOP-2K67CMT" time="17.539">
+  <properties/>
+  <testcase name="getUserLocation_shouldThrowsUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.201"/>
+  <testcase name="getUserLocation()" classname="tourGuide.service.TourGuideServiceTest" time="0.121"/>
+  <testcase name="addUser()" classname="tourGuide.service.TourGuideServiceTest" time="0.259"/>
+  <testcase name="getUser_shouldThrowsUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.189"/>
+  <testcase name="getAttractionsWithinRangePreferences()" classname="tourGuide.service.TourGuideServiceTest" time="0.243"/>
+  <testcase name="getTripDeals()" classname="tourGuide.service.TourGuideServiceTest" time="1.018"/>
+  <testcase name="getAllUsers()" classname="tourGuide.service.TourGuideServiceTest" time="0.167"/>
+  <testcase name="getTripDeals_shouldThrowsUserNotfoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.15"/>
+  <testcase name="getUser()" classname="tourGuide.service.TourGuideServiceTest" time="0.23"/>
+  <testcase name="getAttractionsWithinRangePreferences_shouldThrowsUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.18"/>
+  <testcase name="updatePreferences()" classname="tourGuide.service.TourGuideServiceTest" time="0.184"/>
+  <testcase name="getNearbyAttractions()" classname="tourGuide.service.TourGuideServiceTest" time="12.996"/>
+  <testcase name="trackAllUsersLocation()" classname="tourGuide.service.TourGuideServiceTest" time="0.317"/>
+  <testcase name="updatePreferences_shouldThrowsUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.221"/>
+  <testcase name="getNearbyAttractions_shouldThrowUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.191"/>
+  <testcase name="trackUserLocation_shouldThrowsUserNotFoundException()" classname="tourGuide.service.TourGuideServiceTest" time="0.211"/>
+  <testcase name="trackUserLocation()" classname="tourGuide.service.TourGuideServiceTest" time="0.26"/>
+  <testcase name="getAllCurrentLocation()" classname="tourGuide.service.TourGuideServiceTest" time="0.245"/>
+  <testcase name="addUser_shouldThrowsUserAlreadyExistsException()" classname="tourGuide.service.TourGuideServiceTest" time="0.142"/>
+  <system-out><![CDATA[2021-10-14 13:26:11.961  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.service.TourGuideServiceTest], using SpringBootContextLoader
+2021-10-14 13:26:11.962  INFO 2236 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.service.TourGuideServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-14 13:26:11.962  INFO 2236 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.service.TourGuideServiceTest]: TourGuideServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-14 13:26:11.964  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.service.TourGuideServiceTest
+2021-10-14 13:26:11.965  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-14 13:26:11.967  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7f12f407, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6503dcee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@19371fc9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5bdcb26b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3306c7db, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@481989f9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@69f10e64, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5700b6db, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@523d9bff, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@566f8600]
+2021-10-14 13:26:11.971  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:11.977  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:11.977  INFO 2236 --- [ool-10-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:11.977  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.072  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.083  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.083  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:12.084  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:12.157  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:12.167  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.168  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user location. User: jon3
+2021-10-14 13:26:12.173  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:12.178  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:12.178  INFO 2236 --- [ool-11-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:12.178  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.211  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.221  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.222  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:12.222  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:12.276  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:12.287  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.288  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user location. User: jon
+2021-10-14 13:26:12.291  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user location. User: jon
+2021-10-14 13:26:12.294  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:12.300  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:12.300  INFO 2236 --- [ool-12-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:12.300  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.378  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.389  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.390  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:12.390  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:12.488  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:12.498  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.499  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon4
+2021-10-14 13:26:12.500  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon4
+2021-10-14 13:26:12.538  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon4
+2021-10-14 13:26:12.549  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.550  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:26:12.550  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:12.554  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:12.559  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:12.559  INFO 2236 --- [ool-13-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:12.560  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.629  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.640  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.641  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:12.641  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:12.728  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:12.739  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.740  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:26:12.744  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:12.750  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:12.750  INFO 2236 --- [ool-14-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:12.750  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.820  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.832  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.845  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:12.846  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:12.892  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:12.903  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.915  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:12.973  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:12.984  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:12.987  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:12.993  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:12.994  INFO 2236 --- [ool-15-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:12.994  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:13.074  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:13.085  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:13.085  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:13.086  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:13.183  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:13.210  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:13.210  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get trip deals. User: jon
+2021-10-14 13:26:13.222  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:13.281  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:13.292  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:13.309  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 503.99 USD / Attraction: Disneyland
+2021-10-14 13:26:13.310  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 685.99 USD / Attraction: Disneyland
+2021-10-14 13:26:13.311  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 272.99 USD / Attraction: Disneyland
+2021-10-14 13:26:13.311  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 400.99 USD / Attraction: Disneyland
+2021-10-14 13:26:13.312  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 452.99 USD / Attraction: Disneyland
+2021-10-14 13:26:13.334  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 165.99 USD / Attraction: Jackson Hole
+2021-10-14 13:26:13.334  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 430.99 USD / Attraction: Jackson Hole
+2021-10-14 13:26:13.335  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 654.99 USD / Attraction: Jackson Hole
+2021-10-14 13:26:13.336  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 670.99 USD / Attraction: Jackson Hole
+2021-10-14 13:26:13.336  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 251.99 USD / Attraction: Jackson Hole
+2021-10-14 13:26:13.379  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 329.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:26:13.379  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 215.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:26:13.380  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 497.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:26:13.381  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 637.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:26:13.381  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 491.99 USD / Attraction: Mojave National Preserve
+2021-10-14 13:26:13.395  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 257.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:26:13.396  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 453.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:26:13.397  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 691.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:26:13.397  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 623.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:26:13.398  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 141.99 USD / Attraction: Joshua Tree National Park
+2021-10-14 13:26:13.443  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 469.99 USD / Attraction: Buffalo National River
+2021-10-14 13:26:13.444  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 276.99 USD / Attraction: Buffalo National River
+2021-10-14 13:26:13.444  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 326.99 USD / Attraction: Buffalo National River
+2021-10-14 13:26:13.445  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 670.99 USD / Attraction: Buffalo National River
+2021-10-14 13:26:13.445  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 622.99 USD / Attraction: Buffalo National River
+2021-10-14 13:26:13.485  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 233.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:26:13.485  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 225.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:26:13.486  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 358.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:26:13.486  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 114.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:26:13.487  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 658.99 USD / Attraction: Hot Springs National Park
+2021-10-14 13:26:13.516  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 487.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:26:13.516  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 641.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:26:13.517  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 159.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:26:13.517  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 181.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:26:13.518  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 513.99 USD / Attraction: Kartchner Caverns State Park
+2021-10-14 13:26:13.534  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 264.99 USD / Attraction: Legend Valley
+2021-10-14 13:26:13.534  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 576.99 USD / Attraction: Legend Valley
+2021-10-14 13:26:13.535  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 574.99 USD / Attraction: Legend Valley
+2021-10-14 13:26:13.536  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 198.99 USD / Attraction: Legend Valley
+2021-10-14 13:26:13.537  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 633.99 USD / Attraction: Legend Valley
+2021-10-14 13:26:13.545  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 695.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:26:13.546  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 469.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:26:13.546  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 610.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:26:13.547  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 128.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:26:13.547  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 662.99 USD / Attraction: Flowers Bakery of London
+2021-10-14 13:26:13.585  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 341.99 USD / Attraction: McKinley Tower
+2021-10-14 13:26:13.585  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 446.99 USD / Attraction: McKinley Tower
+2021-10-14 13:26:13.586  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 659.99 USD / Attraction: McKinley Tower
+2021-10-14 13:26:13.587  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 151.99 USD / Attraction: McKinley Tower
+2021-10-14 13:26:13.587  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 355.99 USD / Attraction: McKinley Tower
+2021-10-14 13:26:13.598  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 498.99 USD / Attraction: Flatiron Building
+2021-10-14 13:26:13.598  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 464.99 USD / Attraction: Flatiron Building
+2021-10-14 13:26:13.599  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 412.99 USD / Attraction: Flatiron Building
+2021-10-14 13:26:13.599  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 513.99 USD / Attraction: Flatiron Building
+2021-10-14 13:26:13.600  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 696.99 USD / Attraction: Flatiron Building
+2021-10-14 13:26:13.617  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 545.99 USD / Attraction: Fallingwater
+2021-10-14 13:26:13.618  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 491.99 USD / Attraction: Fallingwater
+2021-10-14 13:26:13.619  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 321.99 USD / Attraction: Fallingwater
+2021-10-14 13:26:13.620  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 345.99 USD / Attraction: Fallingwater
+2021-10-14 13:26:13.620  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 457.99 USD / Attraction: Fallingwater
+2021-10-14 13:26:13.622  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 387.99 USD / Attraction: Union Station
+2021-10-14 13:26:13.623  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 164.99 USD / Attraction: Union Station
+2021-10-14 13:26:13.624  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 698.99 USD / Attraction: Union Station
+2021-10-14 13:26:13.624  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 692.99 USD / Attraction: Union Station
+2021-10-14 13:26:13.625  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 342.99 USD / Attraction: Union Station
+2021-10-14 13:26:13.629  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 329.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:26:13.629  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 274.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:26:13.630  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 353.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:26:13.630  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 172.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:26:13.631  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 602.99 USD / Attraction: Roger Dean Stadium
+2021-10-14 13:26:13.669  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 471.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:26:13.670  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 448.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:26:13.671  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 239.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:26:13.671  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 616.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:26:13.672  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 387.99 USD / Attraction: Texas Memorial Stadium
+2021-10-14 13:26:13.690  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 550.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:26:13.690  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 273.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:26:13.691  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 640.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:26:13.692  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 561.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:26:13.692  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 156.99 USD / Attraction: Bryant-Denny Stadium
+2021-10-14 13:26:13.705  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 327.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:26:13.706  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 349.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:26:13.706  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 105.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:26:13.707  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 181.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:26:13.707  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 279.99 USD / Attraction: Tiger Stadium
+2021-10-14 13:26:13.756  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 133.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:26:13.757  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 322.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:26:13.757  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 533.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:26:13.758  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 406.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:26:13.758  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 206.99 USD / Attraction: Neyland Stadium
+2021-10-14 13:26:13.773  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 621.99 USD / Attraction: Kyle Field
+2021-10-14 13:26:13.773  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 600.99 USD / Attraction: Kyle Field
+2021-10-14 13:26:13.774  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 266.99 USD / Attraction: Kyle Field
+2021-10-14 13:26:13.774  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 517.99 USD / Attraction: Kyle Field
+2021-10-14 13:26:13.775  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 680.99 USD / Attraction: Kyle Field
+2021-10-14 13:26:13.805  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 661.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:26:13.806  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 581.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:26:13.806  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 302.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:26:13.807  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 138.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:26:13.807  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 596.99 USD / Attraction: San Diego Zoo
+2021-10-14 13:26:13.856  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 600.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:26:13.857  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 135.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:26:13.858  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 197.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:26:13.859  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 360.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:26:13.860  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 552.99 USD / Attraction: Zoo Tampa at Lowry Park
+2021-10-14 13:26:13.866  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 292.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:26:13.866  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: AdventureCo / Price: 573.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:26:13.867  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 593.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:26:13.867  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 431.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:26:13.868  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 641.99 USD / Attraction: Franklin Park Zoo
+2021-10-14 13:26:13.918  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 367.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:26:13.919  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 183.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:26:13.920  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 150.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:26:13.920  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 670.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:26:13.920  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 139.99 USD / Attraction: El Paso Zoo
+2021-10-14 13:26:13.944  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 689.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:26:13.945  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 451.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:26:13.945  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 167.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:26:13.946  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 389.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:26:13.946  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 215.99 USD / Attraction: Kansas City Zoo
+2021-10-14 13:26:13.990  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 302.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:26:13.991  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 112.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:26:13.991  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 266.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:26:13.992  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Holiday Travels / Price: 395.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:26:13.992  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 638.99 USD / Attraction: Bronx Zoo
+2021-10-14 13:26:14.000  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Sunny Days / Price: 575.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:26:14.001  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dream Trips / Price: 239.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:26:14.001  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 343.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:26:14.002  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: FlyAway Trips / Price: 697.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:26:14.002  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** --> Provider found: Enterprize Ventures Limited / Price: 493.99 USD / Attraction: Cinderella Castle
+2021-10-14 13:26:14.006  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.011  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.012  INFO 2236 --- [ool-16-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.012  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.102  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.114  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.114  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.115  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:14.157  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:14.168  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.169  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:14.169  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:14.170  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:14.174  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.179  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.179  INFO 2236 --- [ool-17-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.180  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.218  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.229  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.230  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.230  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:14.309  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:14.320  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.320  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get trip deals. User: jon3
+2021-10-14 13:26:14.324  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.330  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.331  INFO 2236 --- [ool-18-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.331  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.429  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.447  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.447  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.448  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:14.538  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:14.549  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.550  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:26:14.550  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:26:14.551  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-10-14 13:26:14.555  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.560  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.560  INFO 2236 --- [ool-19-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.560  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.614  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.624  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.625  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.625  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:14.710  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:14.721  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.732  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon3
+2021-10-14 13:26:14.735  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.741  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.741  INFO 2236 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.741  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.804  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.815  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.815  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.816  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:14.905  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:14.916  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.916  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to update preferences
+2021-10-14 13:26:14.921  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:14.927  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:14.927  INFO 2236 --- [ool-21-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:14.927  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:14.980  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:14.991  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:14.991  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:14.992  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:15.064  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:15.074  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:15.075  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:15.127  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:15.138  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:15.139  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get nearby attractions.
+2021-10-14 13:26:15.140  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** -->User: jon
+2021-10-14 13:26:15.140  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** -->Latitude: 70.514024 Longitude: -133.468838
+2021-10-14 13:26:27.918  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:27.925  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:27.925  INFO 2236 --- [ool-22-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:27.925  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:27.982  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:27.993  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:27.993  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:27.994  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:28.039  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:28.051  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.051  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:28.128  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:28.138  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.139  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:28.220  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:28.230  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.231  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:28.231  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track all user's location: 2
+2021-10-14 13:26:28.232  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:28.232  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track all user's location: 2
+2021-10-14 13:26:28.236  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:28.242  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:28.242  INFO 2236 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:28.242  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:28.339  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:28.350  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.350  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:28.351  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:28.442  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:28.452  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.453  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to update preferences
+2021-10-14 13:26:28.458  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:28.463  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:28.463  INFO 2236 --- [ool-24-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:28.464  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:28.545  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:28.556  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.556  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:28.557  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:28.634  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:28.645  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.646  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon3
+2021-10-14 13:26:28.651  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:28.656  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:28.656  INFO 2236 --- [ool-25-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:28.656  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:28.742  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:28.753  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.753  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:28.754  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:28.845  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:28.856  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.857  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon3
+2021-10-14 13:26:28.861  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:28.867  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:28.867  INFO 2236 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:28.867  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:28.928  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:28.939  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:28.940  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:28.940  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:29.002  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:29.014  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.015  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.107  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.118  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.123  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.131  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.131  INFO 2236 --- [ool-27-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.131  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.165  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.177  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.178  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:29.178  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:29.211  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:29.223  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.223  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.272  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.282  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.282  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:29.352  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:29.363  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.363  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all user's current location
+2021-10-14 13:26:29.363  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:29.364  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all user's current location
+2021-10-14 13:26:29.364  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-10-14 13:26:29.369  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.375  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.375  INFO 2236 --- [ool-28-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.375  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.427  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.437  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.438  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon2
+2021-10-14 13:26:29.438  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon2
+2021-10-14 13:26:29.495  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon2
+2021-10-14 13:26:29.506  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-10-14 13:26:29.507  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

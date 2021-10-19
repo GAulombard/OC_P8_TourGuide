@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - DistanceCalculatorTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>DistanceCalculatorTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.util.html">tourGuide.util</a> &gt; DistanceCalculatorTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.288s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">isWithinAttractionProximity_shouldReturnFalse()</td>
+<td class="success">0.085s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">isWithinAttractionProximity_shouldReturnTrue()</td>
+<td class="success">0.130s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">setDefaultProximityBuffer()</td>
+<td class="success">0.073s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-10-14 13:26:29.511  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.util.DistanceCalculatorTest], using SpringBootContextLoader
+2021-10-14 13:26:29.512  INFO 2236 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [tourGuide.util.DistanceCalculatorTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-10-14 13:26:29.512  INFO 2236 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.util.DistanceCalculatorTest]: DistanceCalculatorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-10-14 13:26:29.517  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.util.DistanceCalculatorTest
+2021-10-14 13:26:29.519  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2021-10-14 13:26:29.521  INFO 2236 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@e68657a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7459b5b9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6ba9745b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a18fc86, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77961d0a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4e5b9a3c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ef03400, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@13711994, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@54c838bd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@46d0c262]
+2021-10-14 13:26:29.525  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.530  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.530  INFO 2236 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.531  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.582  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.593  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-14 13:26:29.594  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+2021-10-14 13:26:29.599  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.605  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.605  INFO 2236 --- [ool-30-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.606  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.649  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.660  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-14 13:26:29.681  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+2021-10-14 13:26:29.686  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2021-10-14 13:26:29.694  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to add new user: jon
+2021-10-14 13:26:29.694  INFO 2236 --- [ool-31-thread-1] tourGuide.tracker.Tracker                : Tracker stopping
+2021-10-14 13:26:29.694  INFO 2236 --- [    Test worker] tourGuide.service.TourGuideService       : ** Processing to track user location. User: jon
+2021-10-14 13:26:29.790  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: jon
+2021-10-14 13:26:29.801  INFO 2236 --- [    Test worker] tourGuide.service.RewardsService         : ** --&gt; User reward found: 0
+2021-10-14 13:26:29.812  INFO 2236 --- [    Test worker] tourGuide.util.DistanceCalculatorTest    : @AfterEach
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at 14 oct. 2021 13:26:51</p>
+</div>
+</div>
+</body>
+</html>
