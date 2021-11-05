@@ -10,6 +10,7 @@ bootJar {
 
 dependencies {
 
+
     implementation project(':commons')
 
     implementation 'io.springfox:springfox-boot-starter:3.0.0'

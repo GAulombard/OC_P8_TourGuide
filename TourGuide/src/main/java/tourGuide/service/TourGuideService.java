@@ -4,14 +4,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+import gpsUtil.location.Attraction;
+import gpsUtil.location.Location;
+import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-/*import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;*/
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
@@ -84,7 +84,7 @@ public class TourGuideService {
 		return users;
 	}
 
-	public VisitedLocationDTO getUserLocation(User user) throws UserNotFoundException {
+	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
 		logger.info("** Processing to get user location. User: "+user.getUserName());
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");

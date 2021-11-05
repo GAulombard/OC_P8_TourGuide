@@ -16,8 +16,8 @@ subprojects {
         mavenCentral()
     }
 
-    sourceCompatibility = 17
-    targetCompatibility = 17
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     configurations {
         compileOnly {
@@ -91,6 +91,7 @@ subprojects {
             }
         }
     }
+
 
     task prepareKotlinBuildScriptModel {
 
