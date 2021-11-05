@@ -16,7 +16,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()  //initialize ApiSelectorBuilder
-                .apis(RequestHandlerSelectors.basePackage("trippricer.controller")) //filter documentation to expose for each controller
+                .apis(RequestHandlerSelectors.basePackage("com.api.trippricer.controller")) //filter documentation to expose for each controller
                 .paths(PathSelectors.any()) // another filter
                 .build();
     }

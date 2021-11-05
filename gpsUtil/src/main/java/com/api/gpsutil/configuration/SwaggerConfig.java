@@ -16,7 +16,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()  //initialize ApiSelectorBuilder
-                .apis(RequestHandlerSelectors.basePackage("gpsutil.controller")) //filter documentation to expose for each controller
+                .apis(RequestHandlerSelectors.basePackage("com.api.gpsutil.controller")) //filter documentation to expose for each controller
                 .paths(PathSelectors.any()) // another filter
                 .build();
     }
