@@ -1,20 +1,29 @@
 version: '3.6'
 services:
-  gpsutil:
+  tourguide:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - gpsutilapi
+      - rewardcentralapi
+      - trippricerapi
+  gpsutilapi:
     build:
       context: .
     restart: always
     ports:
       - "8081:8081"
     container_name: gpsutil
-  rewardcentral:
+  rewardcentralapi:
     build:
       context: .
     restart: always
     ports:
       - "8082:8082"
     container_name: reward_central
-  trippricer:
+  trippricerapi:
     build:
       context: .
     restart: always

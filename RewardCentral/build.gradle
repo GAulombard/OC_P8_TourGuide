@@ -1,5 +1,5 @@
 bootJar {
-    baseName = 'rewardapi'
+    baseName = 'rewardcentralapi'
     version =  '1.0.0'
 }
 
