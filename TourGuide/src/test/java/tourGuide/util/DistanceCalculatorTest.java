@@ -16,6 +16,7 @@ import gpsUtil.location.Attraction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import rewardCentral.RewardCentral;
@@ -26,15 +27,21 @@ import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
+import tourGuide.service.feign.GpsUtilFeign;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class DistanceCalculatorTest {
 
     private final static Logger logger = LoggerFactory.getLogger(DistanceCalculatorTest.class);
-    private GpsUtil gpsUtil = new GpsUtil();
-    private RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+
+    @Autowired
+    private GpsUtilFeign gpsUtilFeign;
+    @Autowired
     private TourGuideService tourGuideService;
+    @Autowired
+    private RewardsService rewardsService;
+
     private User user;
     private User user2;
 
@@ -51,7 +58,6 @@ public class DistanceCalculatorTest {
     void init() throws UserAlreadyExistsException, UserNotFoundException {
         logger.debug("@BeforeEach");
         DistanceCalculator.setProximityBuffer(10);
-        tourGuideService = new TourGuideService(gpsUtil,rewardsService);
         tourGuideService.tracker.stopTracking();
 
         user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
@@ -70,15 +76,15 @@ public class DistanceCalculatorTest {
     @Test
     public void isWithinAttractionProximity_shouldReturnTrue() {
 
-        Attraction attraction = gpsUtil.getAttractions().get(0);
+        Attraction attraction = gpsUtilFeign.getAttractions().get(0);
         assertTrue(DistanceCalculator.isWithinAttractionProximity(attraction, attraction));
     }
 
     @Test
     public void isWithinAttractionProximity_shouldReturnFalse() {
 
-        Attraction attraction = gpsUtil.getAttractions().get(0);
-        Attraction attraction2 = gpsUtil.getAttractions().get(1);
+        Attraction attraction = gpsUtilFeign.getAttractions().get(0);
+        Attraction attraction2 = gpsUtilFeign.getAttractions().get(1);
 
         DistanceCalculator.setAttractionProximityRange(1);
 

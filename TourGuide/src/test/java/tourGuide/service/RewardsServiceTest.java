@@ -19,6 +19,7 @@ import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import rewardCentral.RewardCentral;
@@ -28,16 +29,22 @@ import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import tourGuide.model.UserReward;
+import tourGuide.service.feign.GpsUtilFeign;
 import tourGuide.util.DistanceCalculator;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class RewardsServiceTest {
 
-	private final static Logger logger = LoggerFactory.getLogger(RewardsServiceTest.class);
-	private GpsUtil gpsUtil = new GpsUtil();
-	private RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+	@Autowired
+	private GpsUtilFeign gpsUtilFeign;
+	@Autowired
 	private TourGuideService tourGuideService;
+	@Autowired
+	private RewardsService rewardsService;
+
+	private final static Logger logger = LoggerFactory.getLogger(RewardsServiceTest.class);
+
 	private User user;
 	private User user2;
 
@@ -54,7 +61,6 @@ public class RewardsServiceTest {
 	void init() throws UserAlreadyExistsException, UserNotFoundException {
 		logger.debug("@BeforeEach");
 		DistanceCalculator.setProximityBuffer(10);
-		tourGuideService = new TourGuideService(gpsUtil,rewardsService);
 		tourGuideService.tracker.stopTracking();
 
 		user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
@@ -72,7 +78,7 @@ public class RewardsServiceTest {
 	@Test
 	public void getUserRewards() throws UserNotFoundException {
 
-		Attraction attraction = gpsUtil.getAttractions().get(0);
+		Attraction attraction = gpsUtilFeign.getAttractions().get(0);
 		user.addToVisitedLocations(new VisitedLocation(user.getUserId(), attraction, new Date()));
 		tourGuideService.trackUserLocation(user);
 		List<UserReward> userRewards = user.getUserRewards();
@@ -91,7 +97,7 @@ public class RewardsServiceTest {
 	@Test
 	public void isWithinAttractionProximity() {
 
-		Attraction attraction = gpsUtil.getAttractions().get(0);
+		Attraction attraction = gpsUtilFeign.getAttractions().get(0);
 		assertTrue(DistanceCalculator.isWithinAttractionProximity(attraction, attraction));
 	}
 	
@@ -104,7 +110,7 @@ public class RewardsServiceTest {
 		rewardsService.calculateRewards(tourGuideService.getAllUsers().get(0));
 		List<UserReward> userRewards = rewardsService.getUserRewards(tourGuideService.getAllUsers().get(0));
 
-		assertEquals(gpsUtil.getAttractions().size(), userRewards.size());
+		assertEquals(gpsUtilFeign.getAttractions().size(), userRewards.size());
 
 	}
 	

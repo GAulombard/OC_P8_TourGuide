@@ -1,0 +1,3 @@
+rootProject.name = 'TourGuideApp'
+
+include('TourGuide', 'gpsUtil', 'RewardCentral', 'TripPricer', 'commons')

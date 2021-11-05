@@ -3,26 +3,28 @@ package tourGuide.service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import gpsUtil.location.Location;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gpsUtil.GpsUtil;
-import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;
-import rewardCentral.RewardCentral;
+
+/*import gpsUtil.location.Attraction;
+import gpsUtil.location.VisitedLocation;*/
 import tourGuide.exception.UserAlreadyExistsException;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.NearbyAttraction;
 import tourGuide.model.UserPreferences;
+import tourGuide.service.feign.GpsUtilFeign;
+import tourGuide.service.feign.RewardCentralFeign;
+import tourGuide.service.feign.TripPricerFeign;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
 import tourGuide.util.DistanceCalculator;
 import tripPricer.Provider;
-import tripPricer.TripPricer;
 
 
 @Service
@@ -31,9 +33,12 @@ public class TourGuideService {
 	private final Logger logger = LoggerFactory.getLogger(TourGuideService.class);
 
 	//Libs
-	private final GpsUtil gpsUtil;
-	private final RewardCentral rewardCentral = new RewardCentral();
-	private final TripPricer tripPricer = new TripPricer();
+	@Autowired
+	private GpsUtilFeign gpsUtilFeign;
+	@Autowired
+	private RewardCentralFeign rewardCentralFeign;
+	@Autowired
+	private TripPricerFeign tripPricerFeign;
 
 
 	private final RewardsService rewardsService;
@@ -42,8 +47,8 @@ public class TourGuideService {
 	boolean testMode = true;
 
 	
-	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService) {
-		this.gpsUtil = gpsUtil;
+	public TourGuideService(RewardsService rewardsService) {
+		//this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
 		
 		if(testMode) {
@@ -79,7 +84,7 @@ public class TourGuideService {
 		return users;
 	}
 
-	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
+	public VisitedLocationDTO getUserLocation(User user) throws UserNotFoundException {
 		logger.info("** Processing to get user location. User: "+user.getUserName());
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
@@ -110,13 +115,13 @@ public class TourGuideService {
 
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
-		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user);
+		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user);
 
 		attractionsWithinRange.forEach(attraction -> {
 
 			List<Provider> tempProviders = new ArrayList<>();
 
-			tempProviders = tripPricer.getPrice(internalTestHelper.getTripPricerApiKey(), attraction.attractionId, user.getUserPreferences().getNumberOfAdults(),
+			tempProviders = tripPricerFeign.getPrice(internalTestHelper.getTripPricerApiKey(), attraction.attractionId, user.getUserPreferences().getNumberOfAdults(),
 					user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);
 
 			tempProviders.forEach(provider -> {
@@ -152,7 +157,7 @@ public class TourGuideService {
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
+		VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());
 		user.addToVisitedLocations(visitedLocation);
 		rewardsService.calculateRewards(user);
 
@@ -180,7 +185,7 @@ public class TourGuideService {
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		List<NearbyAttraction> nearbyAttractions = new ArrayList<>();
-		List<Attraction> attractions = gpsUtil.getAttractions();
+		List<Attraction> attractions = gpsUtilFeign.getAttractions();
 
 		attractions.forEach(attraction -> {
 			NearbyAttraction nearbyAttraction = new NearbyAttraction();
@@ -190,7 +195,7 @@ public class TourGuideService {
 			nearbyAttraction.setUserLatitude(visitedLocation.location.latitude);
 			nearbyAttraction.setUserLongitude(visitedLocation.location.longitude);
 			nearbyAttraction.setDistanceBetweenUserAndAttraction(DistanceCalculator.getDistance(attraction,visitedLocation.location));
-			nearbyAttraction.setRewardPoint(rewardCentral.getAttractionRewardPoints(attraction.attractionId,user.getUserId()));
+			nearbyAttraction.setRewardPoint(rewardCentralFeign.getAttractionRewardPoints(attraction.attractionId,user.getUserId()));
 			nearbyAttractions.add(nearbyAttraction);
 		});
 

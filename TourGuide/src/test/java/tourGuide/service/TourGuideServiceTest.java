@@ -6,6 +6,7 @@ import gpsUtil.location.VisitedLocation;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import rewardCentral.RewardCentral;
@@ -16,6 +17,7 @@ import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.NearbyAttraction;
 import tourGuide.model.User;
 import tourGuide.model.UserPreferences;
+import tourGuide.service.feign.GpsUtilFeign;
 import tripPricer.Provider;
 
 import java.util.List;
@@ -35,9 +37,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TourGuideServiceTest {
 
     private final static Logger logger = LoggerFactory.getLogger(TourGuideServiceTest.class);
-    private GpsUtil gpsUtil = new GpsUtil();
-    private RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+
+    @Autowired
+    private GpsUtilFeign gpsUtilFeign;
+    @Autowired
     private TourGuideService tourGuideService;
+    @Autowired
+    private RewardsService rewardsService;
+
     private User user;
     private User user2;
     private User user3;
@@ -53,7 +60,6 @@ public class TourGuideServiceTest {
     @BeforeEach
     void init() throws UserAlreadyExistsException, UserNotFoundException {
         logger.debug("@BeforeEach");
-        tourGuideService = new TourGuideService(gpsUtil,rewardsService);
         tourGuideService.tracker.stopTracking();
 
         user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
@@ -151,7 +157,7 @@ public class TourGuideServiceTest {
     @Test
     public void getAttractionsWithinRangePreferences_shouldThrowsUserNotFoundException(){
 
-        assertThrows(UserNotFoundException.class, () -> tourGuideService.getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user3));
+        assertThrows(UserNotFoundException.class, () -> tourGuideService.getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user3));
 
     }
 
@@ -161,7 +167,7 @@ public class TourGuideServiceTest {
         UserPreferences userPreferences = user.getUserPreferences();
         userPreferences.setAttractionProximity(Integer.MAX_VALUE);
 
-        assertEquals(26,tourGuideService.getAttractionsWithinRangePreferences(gpsUtil.getAttractions(),user).size());
+        assertEquals(26,tourGuideService.getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user).size());
 
     }
 

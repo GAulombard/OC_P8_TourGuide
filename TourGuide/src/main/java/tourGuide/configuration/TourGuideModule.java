@@ -10,7 +10,7 @@ import tourGuide.service.RewardsService;
 @Configuration
 public class TourGuideModule {
 	
-	@Bean
+/*	@Bean
 	public GpsUtil getGpsUtil() {
 		return new GpsUtil();
 	}
@@ -23,6 +23,6 @@ public class TourGuideModule {
 	@Bean
 	public RewardCentral getRewardCentral() {
 		return new RewardCentral();
-	}
+	}*/
 	
 }

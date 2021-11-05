@@ -1,15 +1,18 @@
 package com.tourguide.commons.model;
 
-public class VisitedLocation {
+import java.util.Date;
+import java.util.UUID;
+
+public class VisitedLocationDTO {
 
     private UUID userId;
     private Location location;
     private Date timeVisited;
 
-    public VisitedLocation() {
+    public VisitedLocationDTO() {
     }
 
-    public VisitedLocation(UUID userId, Location location, Date timeVisited) {
+    public VisitedLocationDTO(UUID userId, Location location, Date timeVisited) {
         this.userId = userId;
         this.location = location;
         this.timeVisited = timeVisited;

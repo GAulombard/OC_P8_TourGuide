@@ -23,6 +23,7 @@ import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
+import tourGuide.service.feign.GpsUtilFeign;
 
 import java.util.Date;
 
@@ -43,7 +44,7 @@ public class TourGuideControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    GpsUtil gpsUtil;
+    GpsUtilFeign gpsUtilFeign;
 
     @Autowired
     private TourGuideService tourGuideService;
@@ -163,7 +164,7 @@ public class TourGuideControllerTest {
         String username = "internalUser0";
         User user = tourGuideService.getUser(username);
 
-        Attraction attraction = gpsUtil.getAttractions().get(0);
+        Attraction attraction = gpsUtilFeign.getAttractions().get(0);
         VisitedLocation visitedLocation = new VisitedLocation(user.getUserId(), attraction, new Date());
         user.addToVisitedLocations(visitedLocation);
         tourGuideService.trackUserLocation(user);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
@@ -14,18 +15,23 @@ import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
 import tourGuide.model.UserReward;
+import tourGuide.service.feign.GpsUtilFeign;
+import tourGuide.service.feign.RewardCentralFeign;
 import tourGuide.util.DistanceCalculator;
 
 @Service
 public class RewardsService {
 
 	private Logger logger = LoggerFactory.getLogger(RewardsService.class);
-	private final GpsUtil gpsUtil;
-	private final RewardCentral rewardsCentral;
+
+	@Autowired
+	private GpsUtilFeign gpsUtilFeign;
+	@Autowired
+	private RewardCentralFeign rewardsCentralFeign;
 	
-	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {
-		this.gpsUtil = gpsUtil;
-		this.rewardsCentral = rewardCentral;
+	public RewardsService(GpsUtilFeign gpsUtilFeign, RewardCentralFeign rewardCentralFeign) {
+		this.gpsUtilFeign = gpsUtilFeign;
+		this.rewardsCentralFeign = rewardCentralFeign;
 	}
 
 
@@ -43,7 +49,7 @@ public class RewardsService {
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtil.getAttractions();
+		List<Attraction> attractions = gpsUtilFeign.getAttractions();
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for(Attraction attraction : attractions) {
@@ -65,7 +71,7 @@ public class RewardsService {
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
+		return rewardsCentralFeign.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
 	}
 
 
