@@ -1,40 +1,14 @@
-plugins {
-    id 'org.springframework.boot' version '2.4.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-    id "jacoco"
-}
-
-group = 'com.api'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
-
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs '../libs'
-    }
+bootJar {
+    baseName = 'rewardapi'
+    version =  '1.0.0'
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter:2.5.5'
-    implementation('org.springframework.boot:spring-boot-starter-web:2.5.5')
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.5.5')
 
-    //SWAGGER2
-    implementation 'io.springfox:springfox-swagger2:2.9.2' //doesn't work with the latest version
-    implementation 'io.springfox:springfox-swagger-ui:2.9.2' //doesn't work with the latest version
+    implementation project(':commons')
+    //To use the Java Validation API, we have to add a JSR 303 implementation such as hibernate-validator:
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    //Swagger:
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
 
-
-    implementation 'org.projectlombok:lombok:1.18.20'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0-rc2'
-    implementation 'javax.validation:validation-api:2.0.1.Final'
-    implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    implementation(name:'RewardCentral', ext:'jar')
-}
-
-test {
-    useJUnitPlatform()
 }
