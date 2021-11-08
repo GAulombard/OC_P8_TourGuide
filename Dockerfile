@@ -35,5 +35,5 @@ FROM openjdk:17-jdk-alpine AS tourguide
 RUN apk --no-cache add curl
 RUN mkdir /tmp/app
 COPY ./TourGuide/build/libs/tourguide-1.0.0.jar /tmp/app
-EXPOSE 9000
+EXPOSE 8080
 CMD java -jar /tmp/app/tourguide-1.0.0.jar
