@@ -1,7 +1,7 @@
 package tourGuide.service.feign;
 
-import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.VisitedLocation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;

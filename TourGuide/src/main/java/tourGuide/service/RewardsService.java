@@ -7,10 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gpsUtil.GpsUtil;
-import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;
-import rewardCentral.RewardCentral;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
@@ -27,11 +25,11 @@ public class RewardsService {
 	@Autowired
 	private GpsUtilFeign gpsUtilFeign;
 	@Autowired
-	private RewardCentralFeign rewardsCentralFeign;
+	private RewardCentralFeign rewardCentralFeign;
 	
 	public RewardsService(GpsUtilFeign gpsUtilFeign, RewardCentralFeign rewardCentralFeign) {
 		this.gpsUtilFeign = gpsUtilFeign;
-		this.rewardsCentralFeign = rewardCentralFeign;
+		this.rewardCentralFeign = rewardCentralFeign;
 	}
 
 
@@ -71,7 +69,7 @@ public class RewardsService {
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		return rewardsCentralFeign.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
+		return rewardCentralFeign.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
 	}
 
 

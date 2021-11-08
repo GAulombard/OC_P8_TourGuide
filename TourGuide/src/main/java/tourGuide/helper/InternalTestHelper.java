@@ -1,7 +1,7 @@
 package tourGuide.helper;
 
-import gpsUtil.location.Location;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.Location;
+import com.tourguide.commons.model.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tourGuide.model.User;

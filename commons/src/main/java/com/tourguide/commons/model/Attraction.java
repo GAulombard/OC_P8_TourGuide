@@ -3,7 +3,7 @@ package com.tourguide.commons.model;
 import java.util.UUID;
 
 public class Attraction extends Location {
-    private String attractionName;
+    public String attractionName;
     private String city;
     private String state;
     public UUID attractionId;

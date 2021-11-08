@@ -2,9 +2,9 @@ package tourGuide.model;
 
 import java.util.*;
 
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.VisitedLocation;
 import org.springframework.stereotype.Component;
-import tripPricer.Provider;
+import com.tourguide.commons.model.Provider;
 
 
 public class User {

@@ -2,7 +2,7 @@ package tourGuide.service;
 
 
 import gpsUtil.GpsUtil;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.VisitedLocation;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import tourGuide.model.NearbyAttraction;
 import tourGuide.model.User;
 import tourGuide.model.UserPreferences;
 import tourGuide.service.feign.GpsUtilFeign;
-import tripPricer.Provider;
+import com.tourguide.commons.model.Provider;
 
 import java.util.List;
 import java.util.Locale;

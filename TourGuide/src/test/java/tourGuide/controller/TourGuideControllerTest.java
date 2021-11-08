@@ -1,8 +1,8 @@
 package tourGuide.controller;
 
 import gpsUtil.GpsUtil;
-import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.VisitedLocation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

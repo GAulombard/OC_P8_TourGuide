@@ -1,8 +1,8 @@
 package com.tourguide.commons.model;
 
 public class Location {
-    private double longitude;
-    private double latitude;
+    public double longitude;
+    public double latitude;
 
     public Location() {
     }

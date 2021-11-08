@@ -1,8 +1,8 @@
 package tourGuide.util;
 
-import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.Location;
+import com.tourguide.commons.model.VisitedLocation;
 
 public class DistanceCalculator {
 

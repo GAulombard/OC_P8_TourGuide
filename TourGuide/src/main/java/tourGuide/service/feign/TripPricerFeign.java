@@ -5,7 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tripPricer.Provider;
+import com.tourguide.commons.model.Provider;
 
 import java.util.List;
 import java.util.UUID;

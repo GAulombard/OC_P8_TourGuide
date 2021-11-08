@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gpsUtil.location.Location;
+import com.tourguide.commons.model.Location;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.VisitedLocation;
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.model.NearbyAttraction;
@@ -27,7 +27,7 @@ import tourGuide.model.UserReward;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
-import tripPricer.Provider;
+import com.tourguide.commons.model.Provider;
 
 import javax.validation.Valid;
 

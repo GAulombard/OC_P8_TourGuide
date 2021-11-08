@@ -3,10 +3,9 @@ package tourGuide.service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
-import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
-import gpsUtil.location.VisitedLocation;
+import com.tourguide.commons.model.VisitedLocation;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ import tourGuide.service.feign.TripPricerFeign;
 import tourGuide.tracker.Tracker;
 import tourGuide.model.User;
 import tourGuide.util.DistanceCalculator;
-import tripPricer.Provider;
+import com.tourguide.commons.model.Provider;
 
 
 @Service
