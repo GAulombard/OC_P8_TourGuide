@@ -920,3 +920,675 @@ java.net.ConnectException: Connection refused: connect
 2021-11-08 12:26:57.481  INFO 14432 --- [http-nio-8080-exec-5] tourGuide.service.TourGuideService       : ** --> Provider found: United Partners Vacations / Price: 1184.99 USD / Attraction: Bronx Zoo
 2021-11-08 12:26:57.482  INFO 14432 --- [http-nio-8080-exec-5] tourGuide.service.TourGuideService       : ** --> Provider found: Dancing Waves Cruselines and Partners / Price: 1248.99 USD / Attraction: Bronx Zoo
 2021-11-08 12:26:57.484  INFO 14432 --- [http-nio-8080-exec-5] tourGuide.service.TourGuideService       : ** --> Provider found: Live Free / Price: 572.99 USD / Attraction: Bronx Zoo
+2021-11-08 14:24:31.794  INFO 18708 --- [main] tourGuide.Application                    : Starting Application using Java 11.0.11 on DESKTOP-2K67CMT with PID 18708 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide)
+2021-11-08 14:24:31.813  INFO 18708 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-11-08 14:24:34.608  INFO 18708 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=12f9823e-0840-3e70-994b-bbdec016781f
+2021-11-08 14:24:35.570  INFO 18708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-08 14:24:35.602  INFO 18708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-08 14:24:35.608  INFO 18708 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-08 14:24:36.027  INFO 18708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-08 14:24:36.029  INFO 18708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4103 ms
+2021-11-08 14:24:37.318  INFO 18708 --- [main] tourGuide.service.TourGuideService       : TestMode enabled
+2021-11-08 14:24:37.427  INFO 18708 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-08 14:24:37.436  INFO 18708 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-08 14:24:37.439  INFO 18708 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser78
+2021-11-08 14:24:38.835  INFO 18708 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-11-08 14:24:39.016  INFO 18708 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-08 14:24:40.497  INFO 18708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-08 14:24:40.818  INFO 18708 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-08 14:24:40.852  INFO 18708 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-08 14:24:41.225  INFO 18708 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-08 14:24:41.589  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-11-08 14:24:41.593  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2021-11-08 14:24:41.596  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2021-11-08 14:24:41.600  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2021-11-08 14:24:41.603  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2021-11-08 14:24:41.605  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2021-11-08 14:24:41.608  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2021-11-08 14:24:41.611  INFO 18708 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2021-11-08 14:24:41.929  INFO 18708 --- [main] tourGuide.Application                    : Started Application in 11.524 seconds (JVM running for 13.347)
+2021-11-08 14:24:42.522  INFO 18708 --- [RMI TCP Connection(4)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-08 14:24:42.531  INFO 18708 --- [RMI TCP Connection(4)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-08 14:24:42.536  INFO 18708 --- [RMI TCP Connection(4)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-11-08 14:24:58.046  INFO 18708 --- [http-nio-8080-exec-1] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-11-08 15:49:08.376  INFO 5028 --- [main] tourGuide.Application                    : Starting Application using Java 11.0.11 on DESKTOP-2K67CMT with PID 5028 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide)
+2021-11-08 15:49:08.394  INFO 5028 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-11-08 15:49:09.709  INFO 5028 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=428df5fb-272a-3dd3-afd2-ac1bcba8e2a9
+2021-11-08 15:49:10.029  INFO 5028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-08 15:49:10.036  INFO 5028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-08 15:49:10.038  INFO 5028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-08 15:49:10.148  INFO 5028 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-08 15:49:10.150  INFO 5028 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1705 ms
+2021-11-08 15:49:10.537  INFO 5028 --- [main] tourGuide.service.TourGuideService       : TestMode enabled
+2021-11-08 15:49:10.566  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-08 15:49:10.568  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-08 15:49:10.571  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser78
+2021-11-08 15:49:10.973  INFO 5028 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-11-08 15:49:11.083  INFO 5028 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-08 15:49:11.116  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-11-08 15:49:11.153  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.155  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser77
+2021-11-08 15:49:11.250  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser77
+2021-11-08 15:49:11.268  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.268  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser79
+2021-11-08 15:49:11.350  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser79
+2021-11-08 15:49:11.373  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.374  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser74
+2021-11-08 15:49:11.443  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser74
+2021-11-08 15:49:11.457  INFO 5028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-08 15:49:11.461  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.461  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser73
+2021-11-08 15:49:11.496  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser73
+2021-11-08 15:49:11.515  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.516  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser76
+2021-11-08 15:49:11.567  INFO 5028 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-08 15:49:11.581  INFO 5028 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-08 15:49:11.610  INFO 5028 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-08 15:49:11.618  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser76
+2021-11-08 15:49:11.638  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.640  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser75
+2021-11-08 15:49:11.729  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser75
+2021-11-08 15:49:11.760  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.761  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser70
+2021-11-08 15:49:11.861  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser70
+2021-11-08 15:49:11.861  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-11-08 15:49:11.863  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2021-11-08 15:49:11.865  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2021-11-08 15:49:11.866  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2021-11-08 15:49:11.867  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2021-11-08 15:49:11.867  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2021-11-08 15:49:11.868  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2021-11-08 15:49:11.869  INFO 5028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2021-11-08 15:49:11.877  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:11.878  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser72
+2021-11-08 15:49:11.957  INFO 5028 --- [main] tourGuide.Application                    : Started Application in 4.224 seconds (JVM running for 5.007)
+2021-11-08 15:49:11.984  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser72
+2021-11-08 15:49:12.001  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.002  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser71
+2021-11-08 15:49:12.100  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser71
+2021-11-08 15:49:12.117  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.119  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser90
+2021-11-08 15:49:12.179  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser90
+2021-11-08 15:49:12.194  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.195  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser89
+2021-11-08 15:49:12.276  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser89
+2021-11-08 15:49:12.292  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.292  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser88
+2021-11-08 15:49:12.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser88
+2021-11-08 15:49:12.380  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.382  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser85
+2021-11-08 15:49:12.411  INFO 5028 --- [RMI TCP Connection(3)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-08 15:49:12.412  INFO 5028 --- [RMI TCP Connection(3)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-08 15:49:12.414  INFO 5028 --- [RMI TCP Connection(3)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-08 15:49:12.451  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser85
+2021-11-08 15:49:12.475  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.476  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser84
+2021-11-08 15:49:12.551  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser84
+2021-11-08 15:49:12.566  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.566  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser87
+2021-11-08 15:49:12.668  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser87
+2021-11-08 15:49:12.699  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.700  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser86
+2021-11-08 15:49:12.774  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser86
+2021-11-08 15:49:12.794  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.795  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser81
+2021-11-08 15:49:12.881  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser81
+2021-11-08 15:49:12.900  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.901  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser80
+2021-11-08 15:49:12.975  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser80
+2021-11-08 15:49:12.991  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:12.992  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser83
+2021-11-08 15:49:13.041  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser83
+2021-11-08 15:49:13.056  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.057  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser82
+2021-11-08 15:49:13.100  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser82
+2021-11-08 15:49:13.116  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.117  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser9
+2021-11-08 15:49:13.158  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser9
+2021-11-08 15:49:13.175  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.176  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser8
+2021-11-08 15:49:13.268  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser8
+2021-11-08 15:49:13.284  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.284  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser19
+2021-11-08 15:49:13.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser19
+2021-11-08 15:49:13.374  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.375  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser16
+2021-11-08 15:49:13.442  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser16
+2021-11-08 15:49:13.457  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.458  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser15
+2021-11-08 15:49:13.556  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser15
+2021-11-08 15:49:13.572  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.573  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser18
+2021-11-08 15:49:13.662  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser18
+2021-11-08 15:49:13.677  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.677  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser17
+2021-11-08 15:49:13.712  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser17
+2021-11-08 15:49:13.726  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.727  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser12
+2021-11-08 15:49:13.803  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser12
+2021-11-08 15:49:13.820  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.822  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser11
+2021-11-08 15:49:13.865  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser11
+2021-11-08 15:49:13.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser99
+2021-11-08 15:49:13.959  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser99
+2021-11-08 15:49:13.974  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:13.975  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser14
+2021-11-08 15:49:14.059  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser14
+2021-11-08 15:49:14.075  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.075  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser13
+2021-11-08 15:49:14.176  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser13
+2021-11-08 15:49:14.191  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.192  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser3
+2021-11-08 15:49:14.244  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser3
+2021-11-08 15:49:14.258  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.258  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser96
+2021-11-08 15:49:14.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser96
+2021-11-08 15:49:14.374  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.375  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser2
+2021-11-08 15:49:14.440  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser2
+2021-11-08 15:49:14.455  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.456  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser95
+2021-11-08 15:49:14.507  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser95
+2021-11-08 15:49:14.524  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.525  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser1
+2021-11-08 15:49:14.617  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser1
+2021-11-08 15:49:14.629  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.630  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser10
+2021-11-08 15:49:14.709  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser10
+2021-11-08 15:49:14.724  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.725  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser98
+2021-11-08 15:49:14.785  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser98
+2021-11-08 15:49:14.799  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.800  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-11-08 15:49:14.898  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-11-08 15:49:14.911  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.912  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser97
+2021-11-08 15:49:14.968  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser97
+2021-11-08 15:49:14.983  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:14.984  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser7
+2021-11-08 15:49:15.061  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser7
+2021-11-08 15:49:15.075  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.076  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser92
+2021-11-08 15:49:15.140  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser92
+2021-11-08 15:49:15.155  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.156  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser6
+2021-11-08 15:49:15.242  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser6
+2021-11-08 15:49:15.257  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.258  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser91
+2021-11-08 15:49:15.311  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser91
+2021-11-08 15:49:15.325  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.325  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser5
+2021-11-08 15:49:15.368  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser5
+2021-11-08 15:49:15.382  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.383  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser94
+2021-11-08 15:49:15.468  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser94
+2021-11-08 15:49:15.483  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.483  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser4
+2021-11-08 15:49:15.540  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser4
+2021-11-08 15:49:15.557  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.558  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser93
+2021-11-08 15:49:15.624  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser93
+2021-11-08 15:49:15.640  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.641  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser27
+2021-11-08 15:49:15.745  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser27
+2021-11-08 15:49:15.759  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.760  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser26
+2021-11-08 15:49:15.851  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser26
+2021-11-08 15:49:15.865  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.866  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser29
+2021-11-08 15:49:15.929  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser29
+2021-11-08 15:49:15.945  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:15.946  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser28
+2021-11-08 15:49:16.044  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser28
+2021-11-08 15:49:16.058  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.058  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser23
+2021-11-08 15:49:16.160  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser23
+2021-11-08 15:49:16.174  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.175  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser22
+2021-11-08 15:49:16.212  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser22
+2021-11-08 15:49:16.226  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.226  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser25
+2021-11-08 15:49:16.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser25
+2021-11-08 15:49:16.325  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.325  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser24
+2021-11-08 15:49:16.417  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser24
+2021-11-08 15:49:16.430  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.431  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser21
+2021-11-08 15:49:16.477  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser21
+2021-11-08 15:49:16.492  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.492  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser20
+2021-11-08 15:49:16.588  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser20
+2021-11-08 15:49:16.603  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.604  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser38
+2021-11-08 15:49:16.655  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser38
+2021-11-08 15:49:16.671  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.672  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser37
+2021-11-08 15:49:16.758  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser37
+2021-11-08 15:49:16.774  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.775  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser39
+2021-11-08 15:49:16.865  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser39
+2021-11-08 15:49:16.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.880  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser34
+2021-11-08 15:49:16.925  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser34
+2021-11-08 15:49:16.939  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:16.940  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser33
+2021-11-08 15:49:17.027  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser33
+2021-11-08 15:49:17.041  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.042  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser36
+2021-11-08 15:49:17.117  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser36
+2021-11-08 15:49:17.132  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.132  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser35
+2021-11-08 15:49:17.225  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser35
+2021-11-08 15:49:17.242  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.242  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser30
+2021-11-08 15:49:17.338  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser30
+2021-11-08 15:49:17.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser32
+2021-11-08 15:49:17.412  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser32
+2021-11-08 15:49:17.425  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.426  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser31
+2021-11-08 15:49:17.509  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser31
+2021-11-08 15:49:17.524  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.525  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser49
+2021-11-08 15:49:17.568  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser49
+2021-11-08 15:49:17.581  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.582  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser48
+2021-11-08 15:49:17.653  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser48
+2021-11-08 15:49:17.668  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.669  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser45
+2021-11-08 15:49:17.765  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser45
+2021-11-08 15:49:17.779  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.780  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser44
+2021-11-08 15:49:17.878  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser44
+2021-11-08 15:49:17.891  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.892  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser47
+2021-11-08 15:49:17.928  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser47
+2021-11-08 15:49:17.946  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:17.947  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser46
+2021-11-08 15:49:18.014  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser46
+2021-11-08 15:49:18.029  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.030  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser41
+2021-11-08 15:49:18.084  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser41
+2021-11-08 15:49:18.099  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.099  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser40
+2021-11-08 15:49:18.176  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser40
+2021-11-08 15:49:18.192  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.193  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser43
+2021-11-08 15:49:18.291  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser43
+2021-11-08 15:49:18.310  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.310  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser42
+2021-11-08 15:49:18.360  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser42
+2021-11-08 15:49:18.377  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.377  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser59
+2021-11-08 15:49:18.426  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser59
+2021-11-08 15:49:18.442  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.443  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser56
+2021-11-08 15:49:18.532  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser56
+2021-11-08 15:49:18.546  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.547  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser55
+2021-11-08 15:49:18.593  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser55
+2021-11-08 15:49:18.610  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.611  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser58
+2021-11-08 15:49:18.683  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser58
+2021-11-08 15:49:18.699  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.699  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser57
+2021-11-08 15:49:18.744  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser57
+2021-11-08 15:49:18.761  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.761  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser52
+2021-11-08 15:49:18.828  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser52
+2021-11-08 15:49:18.847  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.848  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser51
+2021-11-08 15:49:18.893  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser51
+2021-11-08 15:49:18.909  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:18.910  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser54
+2021-11-08 15:49:19.014  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser54
+2021-11-08 15:49:19.028  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.029  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser53
+2021-11-08 15:49:19.123  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser53
+2021-11-08 15:49:19.139  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.140  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser50
+2021-11-08 15:49:19.225  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser50
+2021-11-08 15:49:19.240  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.241  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser67
+2021-11-08 15:49:19.298  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser67
+2021-11-08 15:49:19.311  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.312  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser66
+2021-11-08 15:49:19.394  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser66
+2021-11-08 15:49:19.408  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.409  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser69
+2021-11-08 15:49:19.502  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser69
+2021-11-08 15:49:19.517  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.518  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser68
+2021-11-08 15:49:19.558  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser68
+2021-11-08 15:49:19.573  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.574  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser63
+2021-11-08 15:49:19.630  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser63
+2021-11-08 15:49:19.644  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.644  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser62
+2021-11-08 15:49:19.741  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser62
+2021-11-08 15:49:19.757  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.758  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser65
+2021-11-08 15:49:19.793  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser65
+2021-11-08 15:49:19.808  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.809  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser64
+2021-11-08 15:49:19.856  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser64
+2021-11-08 15:49:19.870  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.871  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser61
+2021-11-08 15:49:19.924  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser61
+2021-11-08 15:49:19.940  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:19.941  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser60
+2021-11-08 15:49:19.987  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser60
+2021-11-08 15:49:20.002  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:49:20.002  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 9 seconds.
+2021-11-08 15:49:20.003  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-08 15:49:24.011  INFO 5028 --- [http-nio-8080-exec-2] t.controller.TourGuideController         : HTTP GET request receive at "/getNearbyAttractions?userName=internalUser57"
+2021-11-08 15:49:24.012  INFO 5028 --- [http-nio-8080-exec-2] tourGuide.service.TourGuideService       : ** Processing to get user by username
+2021-11-08 15:49:24.012  INFO 5028 --- [http-nio-8080-exec-2] tourGuide.service.TourGuideService       : ** Processing to get user location. User: internalUser57
+2021-11-08 15:49:24.039  INFO 5028 --- [http-nio-8080-exec-2] tourGuide.service.TourGuideService       : ** Processing to get nearby attractions.
+2021-11-08 15:49:24.064  INFO 5028 --- [http-nio-8080-exec-2] tourGuide.service.TourGuideService       : ** -->User: internalUser57
+2021-11-08 15:49:24.065  INFO 5028 --- [http-nio-8080-exec-2] tourGuide.service.TourGuideService       : ** -->Latitude: -14.100757 Longitude: -128.621952
+2021-11-08 15:54:20.004  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-08 15:54:20.013  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-08 15:54:20.014  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser78
+2021-11-08 15:54:20.072  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser78
+2021-11-08 15:54:20.087  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.087  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser77
+2021-11-08 15:54:20.187  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser77
+2021-11-08 15:54:20.204  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.204  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser79
+2021-11-08 15:54:20.299  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser79
+2021-11-08 15:54:20.312  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.313  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser74
+2021-11-08 15:54:20.366  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser74
+2021-11-08 15:54:20.380  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.380  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser73
+2021-11-08 15:54:20.455  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser73
+2021-11-08 15:54:20.470  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.471  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser76
+2021-11-08 15:54:20.517  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser76
+2021-11-08 15:54:20.530  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.531  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser75
+2021-11-08 15:54:20.616  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser75
+2021-11-08 15:54:20.629  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.629  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser70
+2021-11-08 15:54:20.684  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser70
+2021-11-08 15:54:20.698  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.698  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser72
+2021-11-08 15:54:20.759  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser72
+2021-11-08 15:54:20.775  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.775  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser71
+2021-11-08 15:54:20.865  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser71
+2021-11-08 15:54:20.878  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser90
+2021-11-08 15:54:20.964  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser90
+2021-11-08 15:54:20.977  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:20.978  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser89
+2021-11-08 15:54:21.020  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser89
+2021-11-08 15:54:21.034  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.035  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser88
+2021-11-08 15:54:21.080  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser88
+2021-11-08 15:54:21.093  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.094  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser85
+2021-11-08 15:54:21.193  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser85
+2021-11-08 15:54:21.208  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.209  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser84
+2021-11-08 15:54:21.280  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser84
+2021-11-08 15:54:21.293  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.294  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser87
+2021-11-08 15:54:21.343  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser87
+2021-11-08 15:54:21.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser86
+2021-11-08 15:54:21.439  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser86
+2021-11-08 15:54:21.454  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.454  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser81
+2021-11-08 15:54:21.510  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser81
+2021-11-08 15:54:21.525  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.525  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser80
+2021-11-08 15:54:21.608  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser80
+2021-11-08 15:54:21.622  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.623  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser83
+2021-11-08 15:54:21.681  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser83
+2021-11-08 15:54:21.694  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.695  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser82
+2021-11-08 15:54:21.770  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser82
+2021-11-08 15:54:21.783  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.784  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser9
+2021-11-08 15:54:21.841  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser9
+2021-11-08 15:54:21.855  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.856  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser8
+2021-11-08 15:54:21.932  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser8
+2021-11-08 15:54:21.945  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.946  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser19
+2021-11-08 15:54:21.982  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser19
+2021-11-08 15:54:21.995  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:21.995  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser16
+2021-11-08 15:54:22.095  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser16
+2021-11-08 15:54:22.109  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.110  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser15
+2021-11-08 15:54:22.185  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser15
+2021-11-08 15:54:22.199  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.200  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser18
+2021-11-08 15:54:22.275  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser18
+2021-11-08 15:54:22.290  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.291  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser17
+2021-11-08 15:54:22.341  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser17
+2021-11-08 15:54:22.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.360  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser12
+2021-11-08 15:54:22.400  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser12
+2021-11-08 15:54:22.414  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.415  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser11
+2021-11-08 15:54:22.452  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser11
+2021-11-08 15:54:22.466  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.467  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser99
+2021-11-08 15:54:22.549  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser99
+2021-11-08 15:54:22.562  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.563  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser14
+2021-11-08 15:54:22.597  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser14
+2021-11-08 15:54:22.611  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.612  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser13
+2021-11-08 15:54:22.693  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser13
+2021-11-08 15:54:22.708  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.708  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser3
+2021-11-08 15:54:22.806  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser3
+2021-11-08 15:54:22.821  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.821  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser96
+2021-11-08 15:54:22.861  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser96
+2021-11-08 15:54:22.875  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.876  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser2
+2021-11-08 15:54:22.928  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser2
+2021-11-08 15:54:22.942  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:22.943  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser95
+2021-11-08 15:54:23.001  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser95
+2021-11-08 15:54:23.013  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.014  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser1
+2021-11-08 15:54:23.074  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser1
+2021-11-08 15:54:23.088  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.088  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser10
+2021-11-08 15:54:23.173  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser10
+2021-11-08 15:54:23.188  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.189  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser98
+2021-11-08 15:54:23.226  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser98
+2021-11-08 15:54:23.238  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.239  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser0
+2021-11-08 15:54:23.293  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser0
+2021-11-08 15:54:23.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser97
+2021-11-08 15:54:23.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser97
+2021-11-08 15:54:23.374  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.375  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser7
+2021-11-08 15:54:23.479  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser7
+2021-11-08 15:54:23.493  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.493  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser92
+2021-11-08 15:54:23.564  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser92
+2021-11-08 15:54:23.599  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.599  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser6
+2021-11-08 15:54:23.683  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser6
+2021-11-08 15:54:23.696  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.697  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser91
+2021-11-08 15:54:23.797  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser91
+2021-11-08 15:54:23.810  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.811  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser5
+2021-11-08 15:54:23.887  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser5
+2021-11-08 15:54:23.902  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.903  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser94
+2021-11-08 15:54:23.948  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser94
+2021-11-08 15:54:23.961  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:23.961  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser4
+2021-11-08 15:54:24.050  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser4
+2021-11-08 15:54:24.064  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.064  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser93
+2021-11-08 15:54:24.098  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser93
+2021-11-08 15:54:24.113  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.113  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser27
+2021-11-08 15:54:24.177  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser27
+2021-11-08 15:54:24.192  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.193  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser26
+2021-11-08 15:54:24.259  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser26
+2021-11-08 15:54:24.275  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.276  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser29
+2021-11-08 15:54:24.360  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser29
+2021-11-08 15:54:24.375  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.376  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser28
+2021-11-08 15:54:24.452  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser28
+2021-11-08 15:54:24.465  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.466  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser23
+2021-11-08 15:54:24.542  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser23
+2021-11-08 15:54:24.555  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.555  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser22
+2021-11-08 15:54:24.645  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser22
+2021-11-08 15:54:24.659  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.660  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser25
+2021-11-08 15:54:24.745  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser25
+2021-11-08 15:54:24.759  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.760  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser24
+2021-11-08 15:54:24.808  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser24
+2021-11-08 15:54:24.836  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.837  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser21
+2021-11-08 15:54:24.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser21
+2021-11-08 15:54:24.892  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:24.893  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser20
+2021-11-08 15:54:24.996  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser20
+2021-11-08 15:54:25.009  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.010  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser38
+2021-11-08 15:54:25.064  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser38
+2021-11-08 15:54:25.077  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.078  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser37
+2021-11-08 15:54:25.119  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser37
+2021-11-08 15:54:25.132  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.133  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser39
+2021-11-08 15:54:25.214  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser39
+2021-11-08 15:54:25.228  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.228  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser34
+2021-11-08 15:54:25.293  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser34
+2021-11-08 15:54:25.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser33
+2021-11-08 15:54:25.343  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser33
+2021-11-08 15:54:25.357  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser36
+2021-11-08 15:54:25.448  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser36
+2021-11-08 15:54:25.463  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.463  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser35
+2021-11-08 15:54:25.547  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser35
+2021-11-08 15:54:25.579  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.580  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser30
+2021-11-08 15:54:25.649  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser30
+2021-11-08 15:54:25.662  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.663  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser32
+2021-11-08 15:54:25.755  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser32
+2021-11-08 15:54:25.769  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.770  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser31
+2021-11-08 15:54:25.838  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser31
+2021-11-08 15:54:25.852  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.852  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser49
+2021-11-08 15:54:25.888  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser49
+2021-11-08 15:54:25.904  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.904  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser48
+2021-11-08 15:54:25.972  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser48
+2021-11-08 15:54:25.986  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:25.986  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser45
+2021-11-08 15:54:26.058  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser45
+2021-11-08 15:54:26.071  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.072  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser44
+2021-11-08 15:54:26.169  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser44
+2021-11-08 15:54:26.182  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.183  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser47
+2021-11-08 15:54:26.258  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser47
+2021-11-08 15:54:26.272  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.273  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser46
+2021-11-08 15:54:26.342  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser46
+2021-11-08 15:54:26.358  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.359  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser41
+2021-11-08 15:54:26.418  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser41
+2021-11-08 15:54:26.431  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.431  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser40
+2021-11-08 15:54:26.500  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser40
+2021-11-08 15:54:26.513  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.514  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser43
+2021-11-08 15:54:26.559  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser43
+2021-11-08 15:54:26.572  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.572  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser42
+2021-11-08 15:54:26.665  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser42
+2021-11-08 15:54:26.677  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.678  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser59
+2021-11-08 15:54:26.711  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser59
+2021-11-08 15:54:26.725  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.726  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser56
+2021-11-08 15:54:26.791  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser56
+2021-11-08 15:54:26.804  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.805  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser55
+2021-11-08 15:54:26.865  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser55
+2021-11-08 15:54:26.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.879  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser58
+2021-11-08 15:54:26.934  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser58
+2021-11-08 15:54:26.947  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:26.947  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser57
+2021-11-08 15:54:26.991  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser57
+2021-11-08 15:54:27.004  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.004  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser52
+2021-11-08 15:54:27.053  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser52
+2021-11-08 15:54:27.065  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.066  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser51
+2021-11-08 15:54:27.128  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser51
+2021-11-08 15:54:27.142  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.143  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser54
+2021-11-08 15:54:27.201  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser54
+2021-11-08 15:54:27.215  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.215  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser53
+2021-11-08 15:54:27.293  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser53
+2021-11-08 15:54:27.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.308  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser50
+2021-11-08 15:54:27.411  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser50
+2021-11-08 15:54:27.425  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.426  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser67
+2021-11-08 15:54:27.504  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser67
+2021-11-08 15:54:27.517  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.517  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser66
+2021-11-08 15:54:27.575  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser66
+2021-11-08 15:54:27.590  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.591  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser69
+2021-11-08 15:54:27.653  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser69
+2021-11-08 15:54:27.665  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.666  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser68
+2021-11-08 15:54:27.745  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser68
+2021-11-08 15:54:27.760  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.761  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser63
+2021-11-08 15:54:27.816  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser63
+2021-11-08 15:54:27.828  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.829  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser62
+2021-11-08 15:54:27.912  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser62
+2021-11-08 15:54:27.927  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:27.927  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser65
+2021-11-08 15:54:27.998  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser65
+2021-11-08 15:54:28.010  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:28.011  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser64
+2021-11-08 15:54:28.085  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser64
+2021-11-08 15:54:28.098  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:28.099  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser61
+2021-11-08 15:54:28.146  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser61
+2021-11-08 15:54:28.161  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:28.162  INFO 5028 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to track user location. User: internalUser60
+2021-11-08 15:54:28.217  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Processing to calculate rewards. User: internalUser60
+2021-11-08 15:54:28.229  INFO 5028 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** --> User reward found: 0
+2021-11-08 15:54:28.230  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 8 seconds.
+2021-11-08 15:54:28.231  INFO 5028 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping

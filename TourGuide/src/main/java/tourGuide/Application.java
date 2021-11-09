@@ -10,7 +10,7 @@ import java.util.Locale;
 
 @SpringBootApplication
 //@EnableSwagger2
-@EnableFeignClients
+@EnableFeignClients("tourGuide")
 public class Application {
 
     public static void main(String[] args) {

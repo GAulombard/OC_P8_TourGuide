@@ -1,7 +1,7 @@
 ###########################
 #GPSUTIL API
 ###########################
-FROM openjdk:17-jdk-alpine AS gpsapi
+FROM openjdk:17-jdk-alpine AS gpsutilapi
 RUN apk --no-cache add curl
 RUN mkdir /tmp/app
 COPY ./gpsUtil/build/libs/gpsapi-1.0.0.jar /tmp/app

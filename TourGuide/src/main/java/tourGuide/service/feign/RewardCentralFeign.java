@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.UUID;
 
 @Service
-@FeignClient(value = "RewardCentral",url = "http://localhost:8082")
+@FeignClient(value = "RewardCentralApi",url = "http://127.0.0.1:8082")
 public interface RewardCentralFeign {
 
     @GetMapping(value = "/getAttractionRewardPoints", produces = MediaType.APPLICATION_JSON_VALUE)

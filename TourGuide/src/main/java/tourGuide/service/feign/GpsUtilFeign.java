@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@FeignClient(value = "gpsUtil",url = "http://localhost:8081")
+@FeignClient(value = "gpsUtilApi",url = "http://127.0.0.1:8081")
 public interface GpsUtilFeign {
 
     @GetMapping(value = "/getUserLocation", produces = MediaType.APPLICATION_JSON_VALUE)
