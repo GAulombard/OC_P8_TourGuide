@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.UUID;
 
-@FeignClient(value = "rewardcentral",url = "${proxy.rewardcentral}")
+@FeignClient(name = "rewardcentral",url = "${proxy.rewardcentral}")
 public interface RewardCentralFeign {
 
     @GetMapping(value = "/getAttractionRewardPoints", produces = MediaType.APPLICATION_JSON_VALUE)

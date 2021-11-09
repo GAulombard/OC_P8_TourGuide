@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(value = "gpsutil",url = "${proxy.gpsutil}")
+@FeignClient(name = "gpsutil",url = "${proxy.gpsutil}")
 public interface GpsUtilFeign {
 
     @GetMapping(value = "/getUserLocation", produces = MediaType.APPLICATION_JSON_VALUE)

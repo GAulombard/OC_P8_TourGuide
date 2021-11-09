@@ -1,10 +1,13 @@
 version: '3.6'
 services:
   tourguide:
-    build:
-      context: .
+    environment:
+      - PROXY_GPSUTIL=gpsutil:8081
+      - PROXY_REWARDCENTRAL=rewardcentral:8082
+      - PROXY_TRIPPRICER=trippricer:8083
+    image: tourguide-1.0.0.jar
     networks:
-      - microservice
+      - default
     ports:
       - "8080:8080"
     container_name: tourguide
@@ -13,31 +16,27 @@ services:
       - rewardcentral
       - trippricer
   gpsutil:
-    build:
-      context: .
+    image: gpsapi-1.0.0.jar
     networks:
-      - microservice
+      - default
     restart: always
     ports:
       - "8081:8081"
     container_name: gpsutil
   rewardcentral:
-    build:
-      context: .
+    image: rewardcentralapi-1.0.0.jar
     networks:
-      - microservice
+      - default
     restart: always
     ports:
       - "8082:8082"
     container_name: rewardcentral
   trippricer:
-    build:
-      context: .
+    image: trippricerapi-1.0.0.jar
     networks:
-      - microservice
+      - default
     restart: always
     ports:
       - "8083:8083"
     container_name: trippricer
-networks:
-  microservice:
+
