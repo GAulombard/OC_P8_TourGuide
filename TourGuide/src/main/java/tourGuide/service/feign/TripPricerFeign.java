@@ -10,8 +10,7 @@ import com.tourguide.commons.model.Provider;
 import java.util.List;
 import java.util.UUID;
 
-@Service
-@FeignClient(value = "TripPricerApi", url = "http://127.0.0.1:8083")
+@FeignClient(value = "trippricer", url = "${proxy.trippricer}")
 public interface TripPricerFeign {
 
     @GetMapping(value = "/getPrice", produces = MediaType.APPLICATION_JSON_VALUE)
