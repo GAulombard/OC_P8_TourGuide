@@ -76,11 +76,6 @@ public class TourGuideControllerTest {
     }
 
     @Test
-    public void indexBis() throws Exception {
-        mockMvc.perform(get("")).andExpect(status().isOk());
-    }
-
-    @Test
     public void getUser() throws Exception {
 
         String username = "internalUser0";
