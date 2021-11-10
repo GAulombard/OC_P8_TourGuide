@@ -4,3 +4,5 @@
 /TourGuide/TourGuide/
 /TourGuide/build/
 /logs/
+/.gradle/
+/build/
