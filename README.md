@@ -16,8 +16,9 @@ description
 
 This is a Spring Boot Application, working with (check the ``build.gradle`` file to see all dependencies and versions)
 
-- java 17 2021-09-14 LTS
-- gradle 6.9.1
+- Java 11
+- Gradle 6.9.1
+- Docker version 18.09.0, build 4d60db4
 
 ### Architecture
 
@@ -28,11 +29,14 @@ This is a Spring Boot Application, working with (check the ``build.gradle`` file
 
 use the following command to run the app:
 
-```bash
- gradle
- ```
+cd /path/to/directory/project
+
+git clone https://
+
+cd dossier
+
  ```bash
- gradle bootJar
+ gradle clean bootJar
 ```
 
  ```bash
