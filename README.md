@@ -32,8 +32,16 @@ use the following command to run the app:
  gradle
  ```
  ```bash
- gradle
+ gradle bootJar
 ```
+
+ ```bash
+ docker-compose up -d --build 
+```
+ ```bash
+ docker-compose down
+```
+
 
 ### Run the tests
 
@@ -48,7 +56,13 @@ use the following command to run the app:
 
 http://localhost:8080/v2/api-docs
 
-http://localhost:8080/swagger-ui.html
+http://localhost:8080/swagger-ui.html#/
+
+http://localhost:8081/swagger-ui.html#/
+
+http://localhost:8082/swagger-ui.html#/
+
+http://localhost:8083/swagger-ui.html#/
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

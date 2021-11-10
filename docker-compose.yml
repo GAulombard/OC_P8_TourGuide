@@ -5,6 +5,7 @@ services:
       - PROXY_GPSUTIL=gpsutil:8081
       - PROXY_REWARDCENTRAL=rewardcentral:8082
       - PROXY_TRIPPRICER=trippricer:8083
+    build: tourguide
     image: tourguide-1.0.0.jar
     networks:
       - default
@@ -16,6 +17,7 @@ services:
       - rewardcentral
       - trippricer
   gpsutil:
+    build: gpsutil
     image: gpsapi-1.0.0.jar
     networks:
       - default
@@ -24,6 +26,7 @@ services:
       - "8081:8081"
     container_name: gpsutil
   rewardcentral:
+    build: rewardcentral
     image: rewardcentralapi-1.0.0.jar
     networks:
       - default
@@ -32,6 +35,7 @@ services:
       - "8082:8082"
     container_name: rewardcentral
   trippricer:
+    build: trippricer
     image: trippricerapi-1.0.0.jar
     networks:
       - default
