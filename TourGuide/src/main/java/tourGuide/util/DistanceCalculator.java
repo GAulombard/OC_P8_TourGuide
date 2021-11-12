@@ -7,7 +7,7 @@ import com.tourguide.commons.model.VisitedLocation;
 public class DistanceCalculator {
 
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
-    private static int defaultProximityBuffer = 10; // proximity in miles (10 by default but systematically)
+    private static int defaultProximityBuffer = 10; // proximity in miles (10 by default)
     private static int proximityBuffer = defaultProximityBuffer; // proximity in miles
     private static int attractionProximityRange = 200; // proximity in miles (200 by default)
 
@@ -37,14 +37,14 @@ public class DistanceCalculator {
     }
 
     public static boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-        return getDistance(attraction, visitedLocation.location) > proximityBuffer ? false : true;
+        return (getDistance(attraction, visitedLocation.getLocation()) < proximityBuffer);
     }
 
-    public static double getDistance(Location loc1, Location loc2) {
-        double lat1 = Math.toRadians(loc1.latitude);
-        double lon1 = Math.toRadians(loc1.longitude);
-        double lat2 = Math.toRadians(loc2.latitude);
-        double lon2 = Math.toRadians(loc2.longitude);
+    public static double getDistance(Attraction loc1, Location loc2) {
+        double lat1 = Math.toRadians(loc1.getLatitude());
+        double lon1 = Math.toRadians(loc1.getLongitude());
+        double lat2 = Math.toRadians(loc2.getLatitude());
+        double lon2 = Math.toRadians(loc2.getLongitude());
 
         double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)
                 + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));

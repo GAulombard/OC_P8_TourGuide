@@ -116,21 +116,23 @@ public class TourGuideController {
         }
     }
 
-    @RequestMapping(value = "/trackUsers",produces = MediaType.APPLICATION_JSON_VALUE)
+    //todo: this need to return the map<>
+/*    @RequestMapping(value = "/trackUsers",produces = MediaType.APPLICATION_JSON_VALUE)
     public String trackAllUsersLocation() throws UsersGatheringException {
         logger.info("HTTP GET request receive at /trackUsers");
 
         List<User> users = tourGuideService.getAllUsers();
+        tourGuideService.trackUserLocationMultiThread(users);
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(tourGuideService.trackAllUsersLocation(users));
+            return objectMapper.writeValueAsString();
 
         } catch (JsonProcessingException e) {
             logger.error("ERROR: all user's location could not be serialized to JSON.");
             return null;
         }
-    }
+    }*/
 
     @RequestMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE) //Get the closest 5 tourist attractions to the user - no matter how far away they are.
     public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {

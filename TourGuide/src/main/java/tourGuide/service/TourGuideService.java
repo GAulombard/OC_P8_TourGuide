@@ -1,6 +1,10 @@
 package tourGuide.service;
 
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 import com.tourguide.commons.model.VisitedLocation;
@@ -44,6 +48,7 @@ public class TourGuideService {
 	public final Tracker tracker;
 	private final InternalTestHelper internalTestHelper = new InternalTestHelper();
 	boolean testMode = true;
+
 
 	
 	public TourGuideService(RewardsService rewardsService) {
@@ -112,6 +117,7 @@ public class TourGuideService {
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
+		//les complex than foreach
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
 		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user);
@@ -163,16 +169,33 @@ public class TourGuideService {
 		return visitedLocation;
 	}
 
-	public Map<String, List<VisitedLocation>> trackAllUsersLocation(List<User> users) {
-		logger.info("** Processing to track all user's location: "+users.size());
+	public void trackUserLocationMultiThread(List<User> userList) {
 
-		Map<String, List<VisitedLocation>> mapUsernameVisitedLocation = new HashMap<>();
+		logger.info("** Multithread ** Processing to track all user location.");
+		ExecutorService executorService = Executors.newFixedThreadPool(50);
 
-		users.forEach(user -> {
-			mapUsernameVisitedLocation.put(user.getUserName(),user.getVisitedLocations());
+		List<Future<?>> listFuture = new ArrayList<>();
+
+		for(User user: userList) {
+			Future<?> future = executorService.submit( () -> {
+
+				VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());;
+				user.addToVisitedLocations(visitedLocation);
+			});
+			listFuture.add(future);
+		}
+
+		listFuture.stream().forEach(f->{
+			try {
+				f.get();
+			} catch (InterruptedException | ExecutionException e) {
+				logger.error(e.getMessage());
+
+			}
 		});
 
-		return mapUsernameVisitedLocation;
+		rewardsService.calculateRewardsMultiThread(userList);
+
 	}
 
 	// Get the closest five tourist attractions to the user - no matter how far away they are.

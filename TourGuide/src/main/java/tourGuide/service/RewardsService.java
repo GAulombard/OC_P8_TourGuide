@@ -1,6 +1,9 @@
 package tourGuide.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +30,12 @@ public class RewardsService {
 	@Autowired
 	private RewardCentralFeign rewardCentralFeign;
 	
+/*
 	public RewardsService(GpsUtilFeign gpsUtilFeign, RewardCentralFeign rewardCentralFeign) {
 		this.gpsUtilFeign = gpsUtilFeign;
 		this.rewardCentralFeign = rewardCentralFeign;
 	}
+*/
 
 
 	public List<UserReward> getUserRewards(User user) throws UserNotFoundException {
@@ -46,26 +51,65 @@ public class RewardsService {
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtilFeign.getAttractions();
+		CopyOnWriteArrayList<VisitedLocation> userLocations = new CopyOnWriteArrayList<>();
+		CopyOnWriteArrayList<Attraction> attractions = new CopyOnWriteArrayList<>();
+
+		userLocations.addAll(user.getVisitedLocations());
+		attractions.addAll(gpsUtilFeign.getAttractions());
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for(Attraction attraction : attractions) {
-				int countRewardForAttraction = (int) user.getUserRewards()
-						.stream()
-						.filter(r -> r.attraction.attractionName.equals(attraction.attractionName))
-						.count();
-				if(countRewardForAttraction == 0 && DistanceCalculator.nearAttraction(visitedLocation,attraction)) {
-						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
+				if (user.getUserRewards().stream()
+						.noneMatch(r -> r.attraction.getAttractionName().equals(attraction.getAttractionName()))
+						&& DistanceCalculator.nearAttraction(visitedLocation, attraction)) {
+					user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
 				}
 			}
 		}
-
-		logger.info("** --> User reward found: "+ user.getUserRewards().size());
 	}
-	
+
+	public void calculateRewardsMultiThread(List<User> userList) {
+		logger.info("** Multithread ** Processing to calculate all rewards");
+
+		ExecutorService executorService = Executors.newFixedThreadPool(200);
+
+		List<Attraction> attractions = gpsUtilFeign.getAttractions();
+		List<Future<?>> listFuture = new ArrayList<>();
+
+		for(User user : userList) {
+			Future<?> future = executorService.submit( () -> {
+
+				for(Attraction attraction : attractions) {
+					//this condition is needed to avoid useless call to reward calculation that won't be stored...
+					if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attraction.attractionName))) {
+						//rewards are calculated on the last Location only:
+						VisitedLocation lastVisitedLocation = user.getVisitedLocations().get(user.getVisitedLocations().size()-1);
+						if(DistanceCalculator.nearAttraction(lastVisitedLocation, attraction)) {
+							try {
+								user.addUserReward(new UserReward(lastVisitedLocation, attraction, getRewardPoints(attraction, user)));
+							} catch (UserNotFoundException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				}
+			});
+			listFuture.add(future);
+		}
+
+		listFuture.stream().forEach(f->{
+			try {
+				f.get();
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+
+	}
+
 	private int getRewardPoints(Attraction attraction, User user) throws UserNotFoundException {
-		logger.info("** Processing get reward points");
+		logger.info("** Processing to get reward points");
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 

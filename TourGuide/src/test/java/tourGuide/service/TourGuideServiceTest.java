@@ -187,7 +187,7 @@ public class TourGuideServiceTest {
 
     }
 
-    @Test
+/*    @Test
     public void trackAllUsersLocation() throws UserNotFoundException, UsersGatheringException {
 
         VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
@@ -196,7 +196,7 @@ public class TourGuideServiceTest {
         assertEquals(2, tourGuideService.trackAllUsersLocation(tourGuideService.getAllUsers()).get(user.getUserName()).size());
         assertEquals(2, tourGuideService.trackAllUsersLocation(tourGuideService.getAllUsers()).get(user2.getUserName()).size());
 
-    }
+    }*/
 
     @Test
     public void getNearbyAttractions() throws UserNotFoundException {

@@ -1,24 +1,23 @@
 package tourGuide.performance;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.Ignore;
 
 
-import gpsUtil.GpsUtil;
 import com.tourguide.commons.model.Attraction;
 import com.tourguide.commons.model.VisitedLocation;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
-import rewardCentral.RewardCentral;
+
 import tourGuide.exception.UserNotFoundException;
 import tourGuide.exception.UsersGatheringException;
 import tourGuide.helper.InternalTestHelper;
@@ -30,6 +29,8 @@ import tourGuide.service.feign.GpsUtilFeign;
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class PerformanceTest {
+
+	private Logger logger = LoggerFactory.getLogger(PerformanceTest.class);
 	
 	/*
 	 * A note on performance improvements:
@@ -57,61 +58,63 @@ public class PerformanceTest {
 	private TourGuideService tourGuideService;
 	@Autowired
 	private RewardsService rewardsService;
+	private static Locale locale = new Locale("en", "US");
+
+	@BeforeAll
+	public static void setUp() {
+		Locale.setDefault(locale);
+		InternalTestHelper.setInternalUserNumber(1000);
+	}
 
 	//@Ignore
 	@Test
 	public void highVolumeTrackLocation() throws UserNotFoundException, UsersGatheringException {
 
-		// Users should be incremented up to 100,000, and test finishes within 15 minutes
-		InternalTestHelper.setInternalUserNumber(100);
 		tourGuideService.tracker.stopTracking();
 
 		List<User> allUsers = new ArrayList<>();
 		allUsers = tourGuideService.getAllUsers();
 		
 	    StopWatch stopWatch = new StopWatch();
+
 		stopWatch.start();
-		for(User user : allUsers) {
-			tourGuideService.trackUserLocation(user);
-		}
+		tourGuideService.trackUserLocationMultiThread(allUsers);
 		stopWatch.stop();
 
 
-		System.out.println("highVolumeTrackLocation: Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds."); 
+		logger.info("highVolumeTrackLocation: Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds.");
+
+		// Users should be incremented up to 100,000, and test finishes within 15 minutes
 		assertTrue(TimeUnit.MINUTES.toSeconds(15) >= TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()));
+
 	}
-	
+
 	//@Ignore
 	@Test
 	public void highVolumeGetRewards() throws UsersGatheringException {
-
-		// Users should be incremented up to 100,000, and test finishes within 20 minutes
-		InternalTestHelper.setInternalUserNumber(100);
-		StopWatch stopWatch = new StopWatch();
-		stopWatch.start();
 		tourGuideService.tracker.stopTracking();
 
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+
 	    Attraction attraction = gpsUtilFeign.getAttractions().get(0);
-		List<User> allUsers = new ArrayList<>();
+		List<User> allUsers;
 		allUsers = tourGuideService.getAllUsers();
 		allUsers.forEach(u -> u.addToVisitedLocations(new VisitedLocation(u.getUserId(), attraction, new Date())));
-	     
-	    allUsers.forEach(u -> {
-			try {
-				rewardsService.calculateRewards(u);
-			} catch (UserNotFoundException e) {
-				e.printStackTrace();
-			}
-		});
-	    
+
+		rewardsService.calculateRewardsMultiThread(allUsers);
+
 		for(User user : allUsers) {
 			assertTrue(user.getUserRewards().size() > 0);
 		}
+
 		stopWatch.stop();
 
+		System.out.println("highVolumeGetRewards: Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds.");
 
-		System.out.println("highVolumeGetRewards: Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds."); 
+		// Users should be incremented up to 100,000, and test finishes within 20 minutes
 		assertTrue(TimeUnit.MINUTES.toSeconds(20) >= TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()));
+
 	}
 	
 }
