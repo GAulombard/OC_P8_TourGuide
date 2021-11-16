@@ -29,6 +29,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type Tour guide controller test.
+ */
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 @AutoConfigureMockMvc
@@ -39,6 +42,9 @@ public class TourGuideControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * The Gps util feign.
+     */
     @Autowired
     GpsUtilFeign gpsUtilFeign;
 
@@ -48,6 +54,9 @@ public class TourGuideControllerTest {
     @Autowired
     private RewardsService rewardsService;
 
+    /**
+     * Sets up.
+     */
     @BeforeAll
     public static void setUp() {
 
@@ -55,22 +64,38 @@ public class TourGuideControllerTest {
 
     }
 
+    /**
+     * Init.
+     */
     @BeforeEach
     void init() {
 
 
     }
 
+    /**
+     * Tear down.
+     */
     @AfterEach
     void tearDown(){
 
     }
 
+    /**
+     * Index.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void index() throws Exception {
         mockMvc.perform(get("/")).andExpect(status().isOk());
     }
 
+    /**
+     * Gets user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getUser() throws Exception {
 
@@ -82,6 +107,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$.userId",is(user.getUserId().toString())));
     }
 
+    /**
+     * Gets preferences.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getPreferences() throws Exception {
 
@@ -95,6 +125,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$.numberOfChildren",is(1)));
     }
 
+    /**
+     * Gets all users.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllUsers() throws Exception {
 
@@ -108,6 +143,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$[0].userName",is(username)));
     }
 
+    /**
+     * Gets location.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getLocation() throws Exception {
 
@@ -122,22 +162,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$.location").isMap());
     }
 
-    //todo: make this test works again
-/*    @Test
-    public void trackAllUsersLocation() throws Exception {
-
-        String username = "internalUser0";
-        User user = tourGuideService.getUser(username);
-
-        mockMvc.perform(get("/trackUsers"))
-                .andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(jsonPath("$").isMap())
-                .andExpect(jsonPath("$."+username).isArray())
-                .andExpect(jsonPath("$."+username,hasSize(5)));
-
-    }*/
-
+    /**
+     * Gets nearby attractions.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getNearbyAttractions() throws Exception {
         String username = "internalUser0";
@@ -151,6 +180,11 @@ public class TourGuideControllerTest {
 
     }
 
+    /**
+     * Gets rewards.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getRewards() throws Exception {
         String username = "internalUser0";
@@ -171,6 +205,11 @@ public class TourGuideControllerTest {
 
     }
 
+    /**
+     * Gets all current locations.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllCurrentLocations() throws Exception {
         String username = "internalUser0";
@@ -183,6 +222,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$",hasKey(user.getUserId().toString())));
     }
 
+    /**
+     * Gets trip deals.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getTripDeals() throws Exception {
         String username = "internalUser0";
@@ -195,6 +239,11 @@ public class TourGuideControllerTest {
                 .andExpect(jsonPath("$",hasSize(130)));
     }
 
+    /**
+     * Update preferences.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updatePreferences() throws Exception {
         String username = "internalUser0";
@@ -208,6 +257,11 @@ public class TourGuideControllerTest {
                 .andDo(print());
     }
 
+    /**
+     * Update preferences should return bad request.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updatePreferences_shouldReturnBadRequest() throws Exception {
         String username = "internalUser0";

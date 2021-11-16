@@ -1,5 +1,7 @@
 package com.api.trippricer.controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +13,49 @@ import org.springframework.web.bind.annotation.RestController;
 import tripPricer.Provider;
 import tripPricer.TripPricer;
 
+import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The type Trip pricer controller.
+ */
 @RestController
 public class TripPricerController {
 
-    private Logger logger = LoggerFactory.getLogger(TripPricerController.class);
+    private final Logger logger = LoggerFactory.getLogger(TripPricerController.class);
 
     @Autowired
     private TripPricer tripPricer;
 
+    @ApiOperation(value = "This URI returns the list of price proposals by different operators.")
     @RequestMapping(value = "/getPrice", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    private List<Provider> getPrice(@RequestParam String tripPricerApiKey, @RequestParam UUID userId,
-                                    @RequestParam int numberOfAdults, @RequestParam int numberChildren, @RequestParam int tripDuration,
-                                    @RequestParam int cumulatativeRewardPoints) {
+    private List<Provider> getPrice(
+            @ApiParam(
+            value = "Key to access the api.",
+            example = "test-server-api-key")
+            @RequestParam String tripPricerApiKey,
+            @ApiParam(
+                    value = "User ID in UUID format.",
+                    example = "123e4567-e89b-12d3-a456-426614174000")
+            @RequestParam UUID userId,
+            @ApiParam(
+                    value = "Number of adults.",
+                    example = "2")
+            @RequestParam @PositiveOrZero int numberOfAdults,
+            @ApiParam(
+                    value = "Number of children.",
+                    example = "3")
+            @RequestParam @PositiveOrZero int numberChildren,
+            @ApiParam(
+                    value = "Number of night stay.",
+                    example = "10")
+            @RequestParam @PositiveOrZero int tripDuration,
+            @ApiParam(
+                    value = "Number of rewards points.",
+                    example = "489")
+            @RequestParam @PositiveOrZero int cumulatativeRewardPoints) {
+
         logger.info("HTTP GET request receive at /getPrice to TripPricer microservice");
 
         List<Provider> providers = null;

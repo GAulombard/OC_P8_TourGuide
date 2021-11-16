@@ -12,14 +12,24 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 
+/**
+ * The type Internal test helper.
+ * This class is for test purpose only.
+ * <p>
+ * Database connection will be used for external users,
+ * but for testing purposes internal users are provided and stored in memory.
+ * </p>
+ */
 public class InternalTestHelper {
 
 	private Logger logger = LoggerFactory.getLogger(InternalTestHelper.class);
 	private static int internalUserNumber = 100;// Set this default up to 100,000 for testing
 	private static final String tripPricerApiKey = "test-server-api-key";
-	// Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
 	private static Map<String, User> internalUserMap = new HashMap<>();
 
+	/**
+	 * Instantiates a new Internal test helper.
+	 */
 	public InternalTestHelper() {
 	}
 
@@ -27,32 +37,56 @@ public class InternalTestHelper {
 	 *
 	 * Methods Below: For Internal Testing
 	 *
-	 **********************************************************************************/
-
+	 * @param internalUserNumber the internal user number
+	 */
 	public static void setInternalUserNumber(int internalUserNumber) {
 		InternalTestHelper.internalUserNumber = internalUserNumber;
 	}
 
+	/**
+	 * Free internal user map.
+	 */
 	public static void freeInternalUserMap() {
 		internalUserMap.clear();
 	}
 
+	/**
+	 * Gets internal user number.
+	 *
+	 * @return the internal user number
+	 */
 	public static int getInternalUserNumber() {
 		return internalUserNumber;
 	}
 
+	/**
+	 * Gets trip pricer api key.
+	 *
+	 * @return the trip pricer api key
+	 */
 	public String getTripPricerApiKey() {
 		return tripPricerApiKey;
 	}
 
+	/**
+	 * Gets internal user map.
+	 *
+	 * @return the internal user map
+	 */
 	public static Map<String,User> getInternalUserMap() {
 		return internalUserMap;
 	}
 
+	/**
+	 * Sets internal user map to null.
+	 */
 	public static void setInternalUserMapToNull() { //for testing purpose only
 		InternalTestHelper.internalUserMap = null;
 	}
 
+	/**
+	 * Initialize internal users.
+	 */
 	public void initializeInternalUsers() {
 		IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -> {
 			String userName = "internalUser" + i;

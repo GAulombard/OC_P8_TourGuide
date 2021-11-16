@@ -1,9 +1,7 @@
-/*plugins {
-   id 'org.springframework.boot' version '2.4.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-    id "jacoco"
-}*/
+/*Need to disable bootJar to avoid error:
+	> Execution failed for task ':commons:bootJar'.
+	> Error while evaluating property 'mainClass' of task ':commons:bootJar'
+*/
 
 bootJar {
     enabled = false

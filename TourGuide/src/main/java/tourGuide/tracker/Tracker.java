@@ -14,20 +14,28 @@ import tourGuide.exception.UserNotFoundException;
 import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 
+/**
+ * The type Tracker.
+ */
 public class Tracker extends Thread {
 	private Logger logger = LoggerFactory.getLogger(Tracker.class);
 
 	private static final long trackingPollingInterval = TimeUnit.MINUTES.toSeconds(5); //represent a time duration, perform timing delay operation every "$duration"
-	private final ExecutorService executorService = Executors.newSingleThreadExecutor();//execute task in asynchronous single thread
+	private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 	private final TourGuideService tourGuideService;
 	private boolean stop = false;
 
+	/**
+	 * Instantiates a new Tracker.
+	 *
+	 * @param tourGuideService the tour guide service
+	 */
 	public Tracker(TourGuideService tourGuideService) {
 		this.tourGuideService = tourGuideService;
 		
 		executorService.submit(this);
 	}
-	
+
 	/**
 	 * Assures to shut down the Tracker thread
 	 */
@@ -52,17 +60,8 @@ public class Tracker extends Thread {
 			logger.info("Begin Tracker. Tracking " + users.size() + " users.");
 			stopWatch.start();
 
-			//todo: change here for better performance
+
 			tourGuideService.trackUserLocationMultiThread(users);
-
-/*			users.forEach(u -> {
-				try {
-					tourGuideService.trackUserLocation(u);
-				} catch (UserNotFoundException e) {
-					e.printStackTrace();
-				}
-			});*/
-
 
 			stopWatch.stop();
 			logger.info("Tracker Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds.");

@@ -30,6 +30,9 @@ import tourGuide.util.DistanceCalculator;
 import com.tourguide.commons.model.Provider;
 
 
+/**
+ * The type Tour guide service.
+ */
 @Service
 public class TourGuideService {
 
@@ -43,16 +46,24 @@ public class TourGuideService {
 	@Autowired
 	private TripPricerFeign tripPricerFeign;
 
-
 	private final RewardsService rewardsService;
+	/**
+	 * The Tracker.
+	 */
 	public final Tracker tracker;
 	private final InternalTestHelper internalTestHelper = new InternalTestHelper();
+	/**
+	 * The Test mode.
+	 */
 	boolean testMode = true;
 
-
-	
+	/**
+	 * Instantiates a new Tour guide service.
+	 *
+	 * @param rewardsService the rewards service
+	 */
 	public TourGuideService(RewardsService rewardsService) {
-		//this.gpsUtil = gpsUtil;
+
 		this.rewardsService = rewardsService;
 		
 		if(testMode) {
@@ -64,8 +75,14 @@ public class TourGuideService {
 		tracker = new Tracker(this);
 		addShutDownHook();
 	}
-	
 
+	/**
+	 * Gets user.
+	 *
+	 * @param userName the user name
+	 * @return the user
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public User getUser(String userName) throws UserNotFoundException {
 		logger.info("** Processing to get user by username");
 
@@ -73,7 +90,13 @@ public class TourGuideService {
 
 		return internalTestHelper.getInternalUserMap().get(userName);
 	}
-	
+
+	/**
+	 * Gets all users.
+	 *
+	 * @return the all users
+	 * @throws UsersGatheringException the users gathering exception
+	 */
 	public List<User> getAllUsers() throws UsersGatheringException {
 		logger.info("** Processing to get all users");
 
@@ -81,13 +104,20 @@ public class TourGuideService {
 
 		try {
 			users = internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());
-		}catch (Exception e) { //todo: find a way to test this
+		}catch (Exception e) {
 			logger.error("ERROR: Impossible to get all users");
 			throw new UsersGatheringException(e.getMessage());
 		}
 		return users;
 	}
 
+	/**
+	 * Gets user location.
+	 *
+	 * @param user the user
+	 * @return the user location
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
 		logger.info("** Processing to get user location. User: "+user.getUserName());
 
@@ -98,7 +128,14 @@ public class TourGuideService {
 		return visitedLocation;
 	}
 
-	//todo:add endpoint for that ?
+	/**
+	 * Add user.
+	 *
+	 * @param user the user
+	 * @throws UserAlreadyExistsException the user already exists exception
+	 * @throws UserNotFoundException      the user not found exception
+	 */
+
 	public void addUser(User user) throws UserAlreadyExistsException, UserNotFoundException {
 		logger.info("** Processing to add new user: "+user.getUserName());
 
@@ -110,6 +147,15 @@ public class TourGuideService {
 		}
 	}
 
+	/**
+	 * Gets trip deals.
+	 * Calculate the sum of rewards points, and for each attraction within the range user preference
+	 * return a corresponding trip deal if this one exists (requiring user preferences).
+	 *
+	 * @param user the user
+	 * @return the trip deals
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public List<Provider> getTripDeals(User user) throws UserNotFoundException {
 		logger.info("** Processing to get trip deals. User: "+user.getUserName());
 		List<Provider> providers = new ArrayList<>();
@@ -117,7 +163,6 @@ public class TourGuideService {
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		//les complex than foreach
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 
 		List<Attraction> attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user);
@@ -142,6 +187,14 @@ public class TourGuideService {
 		return providers;
 	}
 
+	/**
+	 * Gets attractions within range preferences.
+	 *
+	 * @param attractions the attractions
+	 * @param user        the user
+	 * @return the attractions within range preferences
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public List<Attraction> getAttractionsWithinRangePreferences(List <Attraction> attractions, User user) throws UserNotFoundException {
 		List<Attraction> attractionsWithinRange = new ArrayList<>();
 
@@ -156,8 +209,21 @@ public class TourGuideService {
 		return attractionsWithinRange;
 	}
 
+	/**
+	 * Track user location by calling the GpsUtil Api.
+	 * The api provide a random coordinates in WGS884 decimal format.
+	 *
+	 *
+	 * @param user the user
+	 * @return the visited location
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public VisitedLocation trackUserLocation(User user) throws UserNotFoundException {
+
 		logger.info("** Processing to track user location. User: "+user.getUserName());
+
+		//tracker.run(); //update all user location
+
 		Locale.setDefault(new Locale("en", "US"));
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
@@ -169,9 +235,16 @@ public class TourGuideService {
 		return visitedLocation;
 	}
 
+
+	/**
+	 * Track all users' location by calling the GpsUtil api.
+	 * The api provide a random coordinates in WGS884 decimal format for all users.
+	 *
+	 * @param userList the user list
+	 */
 	public void trackUserLocationMultiThread(List<User> userList) {
 
-		logger.info("** Multithread ** Processing to track all user location.");
+		logger.info("** Multithreading ** Processing to track all user location.");
 		ExecutorService executorService = Executors.newFixedThreadPool(50);
 
 		List<Future<?>> listFuture = new ArrayList<>();
@@ -198,7 +271,16 @@ public class TourGuideService {
 
 	}
 
-	// Get the closest five tourist attractions to the user - no matter how far away they are.
+	/**
+	 * Gets nearby attractions.
+	 * Always return the 5 closest attraction from the user no matter how far he is.
+	 *
+	 * @param visitedLocation the visited location
+	 * @param user            the user
+	 * @return the near by attractions
+	 * @throws UserNotFoundException the user not found exception
+	 */
+
 	public List<NearbyAttraction> getNearByAttractions(VisitedLocation visitedLocation,User user) throws UserNotFoundException {
 		logger.info("** Processing to get nearby attractions.");
 		logger.info("** -->User: "+user.getUserName());
@@ -222,23 +304,42 @@ public class TourGuideService {
 		});
 
 		Collections.sort(nearbyAttractions,Comparator.comparingDouble(NearbyAttraction::getDistanceBetweenUserAndAttraction));
+
+		// Get the closest five tourist attractions to the user - no matter how far away they are.
 		nearbyAttractions.subList(5,nearbyAttractions.size()).clear();
 
 		return nearbyAttractions;
 	}
 
+	/**
+	 * Gets all most recent location.
+	 *
+	 * @return the all current location
+	 * @throws UsersGatheringException the users gathering exception
+	 */
 	public Map<String, Location> getAllCurrentLocation() throws UsersGatheringException {
 		logger.info("** Processing to get all user's current location");
 		Map<String,Location> allCurrentLocations = new HashMap<>();
 		List<User> users = getAllUsers();
 
 		users.forEach(user -> {
-			allCurrentLocations.put(user.getUserId().toString(),user.getLastVisitedLocation().location);
+			try {
+				allCurrentLocations.put(user.getUserId().toString(),getUserLocation(user).getLocation());
+			} catch (UserNotFoundException e) {
+				e.printStackTrace();
+			}
 		});
 
 		return allCurrentLocations;
 	}
 
+	/**
+	 * Update preferences.
+	 *
+	 * @param user           the user
+	 * @param newPreferences the new preferences
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public void updatePreferences(User user, UserPreferences newPreferences) throws UserNotFoundException {
 		logger.info("** Processing to update preferences");
 

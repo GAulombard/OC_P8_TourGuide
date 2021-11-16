@@ -14,6 +14,9 @@ import java.util.Locale;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+/**
+ * The type Gps util application tests.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class GpsUtilApplicationTests {
@@ -21,11 +24,19 @@ class GpsUtilApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * Sets up.
+     */
     @BeforeAll
     public static void setUp() {
         Locale.setDefault(new Locale("en", "US"));
     }
 
+    /**
+     * Gets user location test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getUserLocationTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getUserLocation").param("userId",
@@ -36,6 +47,11 @@ class GpsUtilApplicationTests {
                 .andExpect(jsonPath("$.timeVisited").isNotEmpty());
     }
 
+    /**
+     * Gets user location test when wrong parameters.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getUserLocationTest_WhenWrongParameters() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getUserLocation").param("uuid", ""))
@@ -43,6 +59,11 @@ class GpsUtilApplicationTests {
 
     }
 
+    /**
+     * Gets user location test when empty paramaters.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getUserLocationTest_WhenEmptyParamaters() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getUserLocation").param("userId", ""))
@@ -50,6 +71,11 @@ class GpsUtilApplicationTests {
 
     }
 
+    /**
+     * Gets user location test when error parameters string.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getUserLocationTest_WhenErrorParametersString() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getUserLocation").param("userId", "jon"))
@@ -57,6 +83,11 @@ class GpsUtilApplicationTests {
 
     }
 
+    /**
+     * Gets attractions test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAttractionsTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getAttractions")).andExpect(MockMvcResultMatchers.status().isOk())
@@ -66,6 +97,11 @@ class GpsUtilApplicationTests {
                 .andExpect(jsonPath("$[0].state").isNotEmpty()).andExpect(jsonPath("$[0].attractionId").isNotEmpty());
     }
 
+    /**
+     * Gets attractions test when bad request.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAttractionsTest_WhenBadRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/getAttractions"))

@@ -7,6 +7,9 @@ import tourGuide.model.UserPreferences;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * The type Price validator.
+ */
 public class PriceValidator implements ConstraintValidator<PriceCheck, UserPreferences> {
 
     private Logger logger = LoggerFactory.getLogger(PriceValidator.class);

@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * The type Nearby attraction.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -26,6 +26,9 @@ import tourGuide.service.TourGuideService;
 import tourGuide.model.User;
 import tourGuide.service.feign.GpsUtilFeign;
 
+/**
+ * The type Performance test.
+ */
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class PerformanceTest {
@@ -60,13 +63,22 @@ public class PerformanceTest {
 	private RewardsService rewardsService;
 	private static Locale locale = new Locale("en", "US");
 
-	@BeforeAll
+    /**
+     * Sets up.
+     */
+    @BeforeAll
 	public static void setUp() {
 		Locale.setDefault(locale);
 		InternalTestHelper.setInternalUserNumber(1000);
 	}
 
-	//@Ignore
+    /**
+     * High volume track location.
+     *
+     * @throws UserNotFoundException   the user not found exception
+     * @throws UsersGatheringException the users gathering exception
+     */
+//@Ignore
 	@Test
 	public void highVolumeTrackLocation() throws UserNotFoundException, UsersGatheringException {
 
@@ -89,7 +101,12 @@ public class PerformanceTest {
 
 	}
 
-	//@Ignore
+    /**
+     * High volume get rewards.
+     *
+     * @throws UsersGatheringException the users gathering exception
+     */
+//@Ignore
 	@Test
 	public void highVolumeGetRewards() throws UsersGatheringException {
 		tourGuideService.tracker.stopTracking();

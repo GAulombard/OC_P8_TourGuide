@@ -4,6 +4,9 @@ import feign.Response;
 import feign.codec.ErrorDecoder;
 
 
+/**
+ * The type Custom error decoder.
+ */
 public class CustomErrorDecoder implements ErrorDecoder {
 
     private final ErrorDecoder defaultErrorDecoder = new Default();

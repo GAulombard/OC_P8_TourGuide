@@ -28,6 +28,9 @@ import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.service.feign.GpsUtilFeign;
 
+/**
+ * The type Distance calculator test.
+ */
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class DistanceCalculatorTest {
@@ -44,6 +47,9 @@ public class DistanceCalculatorTest {
     private User user;
     private User user2;
 
+    /**
+     * Setup.
+     */
     @BeforeAll
     public static void setup(){
 
@@ -53,6 +59,12 @@ public class DistanceCalculatorTest {
 
     }
 
+    /**
+     * Init.
+     *
+     * @throws UserAlreadyExistsException the user already exists exception
+     * @throws UserNotFoundException      the user not found exception
+     */
     @BeforeEach
     void init() throws UserAlreadyExistsException, UserNotFoundException {
         logger.debug("@BeforeEach");
@@ -65,6 +77,9 @@ public class DistanceCalculatorTest {
 
     }
 
+    /**
+     * Tear down.
+     */
     @AfterEach
     void tearDown(){
         logger.info("@AfterEach");
@@ -72,6 +87,9 @@ public class DistanceCalculatorTest {
     }
 
 
+    /**
+     * Is within attraction proximity should return true.
+     */
     @Test
     public void isWithinAttractionProximity_shouldReturnTrue() {
 
@@ -79,6 +97,9 @@ public class DistanceCalculatorTest {
         assertTrue(DistanceCalculator.isWithinAttractionProximity(attraction, attraction));
     }
 
+    /**
+     * Is within attraction proximity should return false.
+     */
     @Test
     public void isWithinAttractionProximity_shouldReturnFalse() {
 
@@ -90,6 +111,9 @@ public class DistanceCalculatorTest {
         assertFalse(DistanceCalculator.isWithinAttractionProximity(attraction, attraction2));
     }
 
+    /**
+     * Set default proximity buffer.
+     */
     @Test
     public void setDefaultProximityBuffer(){
         DistanceCalculator distanceCalculator = new DistanceCalculator();

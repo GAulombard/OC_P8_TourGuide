@@ -20,24 +20,27 @@ import tourGuide.service.feign.GpsUtilFeign;
 import tourGuide.service.feign.RewardCentralFeign;
 import tourGuide.util.DistanceCalculator;
 
+/**
+ * The type Rewards service.
+ */
 @Service
 public class RewardsService {
 
-	private Logger logger = LoggerFactory.getLogger(RewardsService.class);
+	private final Logger logger = LoggerFactory.getLogger(RewardsService.class);
 
 	@Autowired
 	private GpsUtilFeign gpsUtilFeign;
 	@Autowired
 	private RewardCentralFeign rewardCentralFeign;
-	
-/*
-	public RewardsService(GpsUtilFeign gpsUtilFeign, RewardCentralFeign rewardCentralFeign) {
-		this.gpsUtilFeign = gpsUtilFeign;
-		this.rewardCentralFeign = rewardCentralFeign;
-	}
-*/
 
 
+	/**
+	 * Gets user rewards.
+	 *
+	 * @param user the user
+	 * @return the user rewards
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public List<UserReward> getUserRewards(User user) throws UserNotFoundException {
 		logger.info("** Processing to get user rewards");
 
@@ -46,6 +49,12 @@ public class RewardsService {
 		return user.getUserRewards();
 	}
 
+	/**
+	 * Calculate rewards for a specific user.
+	 *
+	 * @param user the user
+	 * @throws UserNotFoundException the user not found exception
+	 */
 	public void calculateRewards(User user) throws UserNotFoundException {
 		logger.info("** Processing to calculate rewards. User: "+user.getUserName());
 
@@ -68,8 +77,13 @@ public class RewardsService {
 		}
 	}
 
+	/**
+	 * Calculate rewards for all users.
+	 *
+	 * @param userList the user list
+	 */
 	public void calculateRewardsMultiThread(List<User> userList) {
-		logger.info("** Multithread ** Processing to calculate all rewards");
+		logger.info("** Multithreading ** Processing to calculate all rewards");
 
 		ExecutorService executorService = Executors.newFixedThreadPool(200);
 
@@ -80,9 +94,9 @@ public class RewardsService {
 			Future<?> future = executorService.submit( () -> {
 
 				for(Attraction attraction : attractions) {
-					//this condition is needed to avoid useless call to reward calculation that won't be stored...
+
 					if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attraction.attractionName))) {
-						//rewards are calculated on the last Location only:
+
 						VisitedLocation lastVisitedLocation = user.getVisitedLocations().get(user.getVisitedLocations().size()-1);
 						if(DistanceCalculator.nearAttraction(lastVisitedLocation, attraction)) {
 							try {
@@ -101,13 +115,19 @@ public class RewardsService {
 			try {
 				f.get();
 			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		});
 
 	}
 
+	/**
+	 * Get rewards points for a specific user and for a specific attraction.
+	 *
+	 * @param attraction the attraction
+	 * @param user the user
+	 */
 	private int getRewardPoints(Attraction attraction, User user) throws UserNotFoundException {
 		logger.info("** Processing to get reward points");
 

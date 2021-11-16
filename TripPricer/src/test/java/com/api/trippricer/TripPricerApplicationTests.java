@@ -15,6 +15,9 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+/**
+ * The type Trip pricer application tests.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class TripPricerApplicationTests {
@@ -22,11 +25,21 @@ class TripPricerApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * Sets up before class.
+     *
+     * @throws Exception the exception
+     */
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
         Locale.setDefault(new Locale("en", "US"));
     }
 
+    /**
+     * Gets price test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getPriceTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getPrice")
@@ -43,6 +56,11 @@ class TripPricerApplicationTests {
                 .andExpect(jsonPath("$[0].tripId").isNotEmpty());
     }
 
+    /**
+     * Gets price test when wrong parameters.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getPriceTest_WhenWrongParameters() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getPrice")
@@ -56,6 +74,11 @@ class TripPricerApplicationTests {
 
     }
 
+    /**
+     * Gets price test as post sent bad request.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getPriceTestAsPost_sentBadRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/getPrice")
@@ -69,6 +92,11 @@ class TripPricerApplicationTests {
 
     }
 
+    /**
+     * Gets price test bad parameter sent bad request.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getPriceTestBadParameter_sentBadRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/getPrice")

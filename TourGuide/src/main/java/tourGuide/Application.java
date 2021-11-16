@@ -8,11 +8,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Locale;
 
+/**
+ * The type Application.
+ */
 @SpringBootApplication
-//@EnableSwagger2
 @EnableFeignClients("tourGuide")
 public class Application {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

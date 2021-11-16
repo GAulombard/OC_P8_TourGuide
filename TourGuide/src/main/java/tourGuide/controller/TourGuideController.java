@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tourguide.commons.model.Location;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,28 +32,50 @@ import com.tourguide.commons.model.Provider;
 
 import javax.validation.Valid;
 
+/**
+ * The type Tour guide controller.
+ */
 @RestController
 @Validated
-@Api(description = "description")
+@Api(description = "Tour Guide api")
 public class TourGuideController {
 
-    private Logger logger = LoggerFactory.getLogger(TourGuideController.class);
+    private final Logger logger = LoggerFactory.getLogger(TourGuideController.class);
 
 	@Autowired
 	private TourGuideService tourGuideService;
     @Autowired
     private RewardsService rewardsService;
-	
+
+    /**
+     * Index string.
+     *
+     * @return the string
+     */
+    @ApiOperation(value = "This URI returns \"Greetings from TourGuide!\".")
     @RequestMapping(value={"","/"})
     public String index() {
+
         logger.info("HTTP GET request receive at index");
 
         return "Greetings from TourGuide!";
     }
 
-    @ApiOperation(value = "Api Operation value") //todo:do this for every endpoints
+    /**
+     * Gets user.
+     *
+     * @param userName the user name
+     * @return the user
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "This URI returns a User requiring userName.")
     @RequestMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getUser(@RequestParam String userName) throws UserNotFoundException {
+    public String getUser(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
+
         logger.info("HTTP GET request receive at /getUser?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -67,8 +90,21 @@ public class TourGuideController {
         }
     }
 
+    /**
+     * Gets user preferences.
+     *
+     * @param userName the user name
+     * @return the user preferences
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "This URI returns a user preferences requiring userName.")
     @RequestMapping(value = "/getPreferences",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getUserPreferences(@RequestParam String userName) throws UserNotFoundException {
+    public String getUserPreferences(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
+
         logger.info("HTTP GET request receive at /getPreferences?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -83,6 +119,13 @@ public class TourGuideController {
         }
     }
 
+    /**
+     * Gets all Users.
+     *
+     * @return the all
+     * @throws UsersGatheringException the users gathering exception
+     */
+    @ApiOperation(value = "This URI returns a list of all Users.")
     @RequestMapping(value = "/getAllUsers",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAll() throws UsersGatheringException {
         logger.info("HTTP GET request receive at /getAllUsers");
@@ -98,9 +141,22 @@ public class TourGuideController {
             return null;
         }
     }
-    
+
+    /**
+     * Return the last visited VisitedLocation for a specified userName.
+     *
+     * @param userName the user name
+     * @return the location
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "Return the last visited VisitedLocation for a specified user name.")
     @RequestMapping(value = "/getLocation",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getLocation(@RequestParam String userName) throws UserNotFoundException {
+    public String getLocation(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
+
         logger.info("HTTP GET request receive at \"/getLocation?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -116,26 +172,23 @@ public class TourGuideController {
         }
     }
 
-    //todo: this need to return the map<>
-/*    @RequestMapping(value = "/trackUsers",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String trackAllUsersLocation() throws UsersGatheringException {
-        logger.info("HTTP GET request receive at /trackUsers");
+    /**
+     * Gets nearby attractions.
+     * Return the closest five tourist attractions to the user
+     * - no matter how far the user is -
+     *
+     * @param userName the user name
+     * @return the nearby attractions
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "Return the closest five tourist attractions to the user - no matter how far the user is -")
+    @RequestMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getNearbyAttractions(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
 
-        List<User> users = tourGuideService.getAllUsers();
-        tourGuideService.trackUserLocationMultiThread(users);
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString();
-
-        } catch (JsonProcessingException e) {
-            logger.error("ERROR: all user's location could not be serialized to JSON.");
-            return null;
-        }
-    }*/
-
-    @RequestMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE) //Get the closest 5 tourist attractions to the user - no matter how far away they are.
-    public String getNearbyAttractions(@RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getNearbyAttractions?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -151,9 +204,21 @@ public class TourGuideController {
             return null;
         }
     }
-    
+
+    /**
+     * Rturns the rewards for a specific user.
+     *
+     * @param userName the user name
+     * @return the rewards
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "Return all the Rewards for a specified user name.")
     @RequestMapping(value = "/getRewards",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getRewards(@RequestParam String userName) throws UserNotFoundException {
+    public String getRewards(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getRewards?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -168,7 +233,22 @@ public class TourGuideController {
             return null;
         }
     }
-    
+
+    /**
+     * Gets all current locations as a JSON.
+     * Current location are the most recent ones.
+     * Return object is a JSON mapping of userId to Locations similar to:<br>
+     * <p>
+     * {
+     * "019b04a9-067a-4c76-8817-ee75088c3822": {"longitude":-48.188821,"latitude":74.84371}
+     *  ...
+     * }
+     * </p>
+     *
+     * @return the all current locations
+     * @throws UsersGatheringException the users gathering exception
+     */
+    @ApiOperation(value = "Get the list of every user's most recent location as JSON.")
     @RequestMapping(value = "/getAllCurrentLocations",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllCurrentLocations() throws UsersGatheringException {
         logger.info("HTTP GET request receive at \"/getAllCurrentLocations\"");
@@ -185,8 +265,20 @@ public class TourGuideController {
         }
     }
 
+    /**
+     * Return all the Rewards for a specified user name.
+     *
+     * @param userName the user name
+     * @return the trip deals
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "Return all the Rewards for a specified user name.")
     @RequestMapping(value = "/getTripDeals",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getTripDeals(@RequestParam String userName) throws UserNotFoundException {
+    public String getTripDeals(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName) throws UserNotFoundException {
         logger.info("HTTP GET request receive at \"/getTripDeals?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);
@@ -202,8 +294,23 @@ public class TourGuideController {
         }
     }
 
+    /**
+     * Update preferences response entity.
+     *
+     * @param userName       the user name
+     * @param newPreferences the new preferences
+     * @return the response entity
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = "This URI allows to update user preferencies.")
     @PutMapping("/updatePreferences")
-    public ResponseEntity<String> updatePreferences(@RequestParam String userName, @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+    public ResponseEntity<String> updatePreferences(
+            @ApiParam(
+                    value = "userName",
+                    example = "internalUser1")
+            @RequestParam String userName,
+            @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+
         logger.info("HTTP PUT request receive at \"/updatePreferences?userName="+userName+"\"");
 
         User user = tourGuideService.getUser(userName);

@@ -32,6 +32,9 @@ import tourGuide.model.UserReward;
 import tourGuide.service.feign.GpsUtilFeign;
 import tourGuide.util.DistanceCalculator;
 
+/**
+ * The type Rewards service test.
+ */
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class RewardsServiceTest {
@@ -48,7 +51,10 @@ public class RewardsServiceTest {
 	private User user;
 	private User user2;
 
-	@BeforeAll
+    /**
+     * Setup.
+     */
+    @BeforeAll
 	public static void setup(){
 
 		logger.debug("@BeforeAll");
@@ -57,7 +63,13 @@ public class RewardsServiceTest {
 
 	}
 
-	@BeforeEach
+    /**
+     * Init.
+     *
+     * @throws UserAlreadyExistsException the user already exists exception
+     * @throws UserNotFoundException      the user not found exception
+     */
+    @BeforeEach
 	void init() throws UserAlreadyExistsException, UserNotFoundException {
 		logger.debug("@BeforeEach");
 		DistanceCalculator.setProximityBuffer(10);
@@ -69,13 +81,21 @@ public class RewardsServiceTest {
 
 	}
 
-	@AfterEach
+    /**
+     * Tear down.
+     */
+    @AfterEach
 	void tearDown(){
 		logger.info("@AfterEach");
 		InternalTestHelper.freeInternalUserMap();
 	}
 
-	@Test
+    /**
+     * Gets user rewards.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
+    @Test
 	public void getUserRewards() throws UserNotFoundException {
 
 		Attraction attraction = gpsUtilFeign.getAttractions().get(0);
@@ -87,22 +107,34 @@ public class RewardsServiceTest {
 
 	}
 
-	@Test
+    /**
+     * Gets user rewards should throws user not found exception.
+     */
+    @Test
 	public void getUserRewards_shouldThrowsUserNotFoundException() {
 
 		assertThrows(UserNotFoundException.class,() -> rewardsService.getUserRewards(user2));
 
 	}
-	
-	@Test
+
+    /**
+     * Is within attraction proximity.
+     */
+    @Test
 	public void isWithinAttractionProximity() {
 
 		Attraction attraction = gpsUtilFeign.getAttractions().get(0);
 		assertTrue(DistanceCalculator.isWithinAttractionProximity(attraction, attraction));
 	}
-	
 
-	@Test
+
+    /**
+     * Near all attractions.
+     *
+     * @throws UserNotFoundException   the user not found exception
+     * @throws UsersGatheringException the users gathering exception
+     */
+    @Test
 	public void nearAllAttractions() throws UserNotFoundException, UsersGatheringException {
 
 		DistanceCalculator.setProximityBuffer(Integer.MAX_VALUE);

@@ -32,6 +32,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
+/**
+ * The type Tour guide service test.
+ */
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class TourGuideServiceTest {
@@ -49,6 +52,9 @@ public class TourGuideServiceTest {
     private User user2;
     private User user3;
 
+    /**
+     * Setup.
+     */
     @BeforeAll
     public static void setup(){
 
@@ -57,6 +63,12 @@ public class TourGuideServiceTest {
         Locale.setDefault(new Locale("en", "US")); //Set default locale to avoid problems with comma between "," and "."
     }
 
+    /**
+     * Init.
+     *
+     * @throws UserAlreadyExistsException the user already exists exception
+     * @throws UserNotFoundException      the user not found exception
+     */
     @BeforeEach
     void init() throws UserAlreadyExistsException, UserNotFoundException {
         logger.debug("@BeforeEach");
@@ -70,12 +82,20 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Tear down.
+     */
     @AfterEach
     void tearDown(){
         logger.debug("@AfterEach");
         InternalTestHelper.freeInternalUserMap();
     }
 
+    /**
+     * Gets user.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void getUser() throws UserNotFoundException {
 
@@ -85,6 +105,9 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets user should throws user not found exception.
+     */
     @Test
     public void getUser_shouldThrowsUserNotFoundException() {
 
@@ -92,6 +115,11 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets all users.
+     *
+     * @throws UsersGatheringException the users gathering exception
+     */
     @Test
     public void getAllUsers() throws UsersGatheringException {
 
@@ -101,6 +129,11 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets user location.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void getUserLocation() throws UserNotFoundException {
 
@@ -113,6 +146,9 @@ public class TourGuideServiceTest {
         assertThat(tourGuideService.getUserLocation(user).location.longitude,allOf(greaterThan(longMin),lessThan(longMax)));
     }
 
+    /**
+     * Gets user location should throws user not found exception.
+     */
     @Test
     public void getUserLocation_shouldThrowsUserNotFoundException() {
 
@@ -120,6 +156,13 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Add user.
+     *
+     * @throws UserNotFoundException      the user not found exception
+     * @throws UserAlreadyExistsException the user already exists exception
+     * @throws UsersGatheringException    the users gathering exception
+     */
     @Test
     public void addUser() throws UserNotFoundException, UserAlreadyExistsException, UsersGatheringException {
         User user4 = new User(UUID.randomUUID(), "jon4", "000", "jon@tourGuide.com");
@@ -132,6 +175,9 @@ public class TourGuideServiceTest {
         assertEquals(1,user4.getVisitedLocations().size());
     }
 
+    /**
+     * Add user should throws user already exists exception.
+     */
     @Test
     public void addUser_shouldThrowsUserAlreadyExistsException() {
         User user4 = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
@@ -139,6 +185,11 @@ public class TourGuideServiceTest {
         assertThrows(UserAlreadyExistsException.class, () -> tourGuideService.addUser(user4));
     }
 
+    /**
+     * Gets trip deals.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void getTripDeals() throws UserNotFoundException {
 
@@ -147,6 +198,9 @@ public class TourGuideServiceTest {
         assertEquals(130, providers.size());
     }
 
+    /**
+     * Gets trip deals should throws user notfound exception.
+     */
     @Test
     public void getTripDeals_shouldThrowsUserNotfoundException() {
 
@@ -154,6 +208,9 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Get attractions within range preferences should throws user not found exception.
+     */
     @Test
     public void getAttractionsWithinRangePreferences_shouldThrowsUserNotFoundException(){
 
@@ -161,6 +218,11 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets attractions within range preferences.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void getAttractionsWithinRangePreferences() throws UserNotFoundException {
 
@@ -171,6 +233,9 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Track user location should throws user not found exception.
+     */
     @Test
     public void trackUserLocation_shouldThrowsUserNotFoundException(){
 
@@ -178,6 +243,11 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Track user location.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void trackUserLocation() throws UserNotFoundException {
 
@@ -198,6 +268,11 @@ public class TourGuideServiceTest {
 
     }*/
 
+    /**
+     * Gets nearby attractions.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void getNearbyAttractions() throws UserNotFoundException {
 
@@ -209,6 +284,9 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets nearby attractions should throw user not found exception.
+     */
     @Test
     public void getNearbyAttractions_shouldThrowUserNotFoundException() {
 
@@ -216,6 +294,12 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Gets all current location.
+     *
+     * @throws UserNotFoundException   the user not found exception
+     * @throws UsersGatheringException the users gathering exception
+     */
     @Test
     public void getAllCurrentLocation() throws UserNotFoundException, UsersGatheringException {
 
@@ -227,6 +311,9 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Update preferences should throws user not found exception.
+     */
     @Test
     public void updatePreferences_shouldThrowsUserNotFoundException() {
 
@@ -236,6 +323,11 @@ public class TourGuideServiceTest {
 
     }
 
+    /**
+     * Update preferences.
+     *
+     * @throws UserNotFoundException the user not found exception
+     */
     @Test
     public void updatePreferences() throws UserNotFoundException {
 
