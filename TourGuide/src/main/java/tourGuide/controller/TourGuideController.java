@@ -62,9 +62,9 @@ public class TourGuideController {
     }
 
     /**
-     * Gets user.
+     * Gets user as JSON.
      *
-     * @param userName the user name
+     * @param userName the user's name
      * @return the user
      * @throws UserNotFoundException the user not found exception
      */
@@ -91,7 +91,7 @@ public class TourGuideController {
     }
 
     /**
-     * Gets user preferences.
+     * Gets user preferences as JSON.
      *
      * @param userName the user name
      * @return the user preferences
@@ -120,7 +120,7 @@ public class TourGuideController {
     }
 
     /**
-     * Gets all Users.
+     * Gets all users as JSON.
      *
      * @return the all
      * @throws UsersGatheringException the users gathering exception
@@ -143,9 +143,9 @@ public class TourGuideController {
     }
 
     /**
-     * Return the last visited VisitedLocation for a specified userName.
+     * Return the last visited VisitedLocation for a specified userName as JSON.
      *
-     * @param userName the user name
+     * @param userName the user's name
      * @return the location
      * @throws UserNotFoundException the user not found exception
      */
@@ -164,7 +164,8 @@ public class TourGuideController {
 
     	try {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(visitedLocation); //fixme:?? return timeVisited as Integer number instead of readable date format
+            //fixme:?? return timeVisited as Integer number instead of readable date format
+            return objectMapper.writeValueAsString(visitedLocation);
 
         } catch (JsonProcessingException e) {
     	    logger.error("ERROR: Object visitedLocation could not be serialized to JSON.");
@@ -173,11 +174,11 @@ public class TourGuideController {
     }
 
     /**
-     * Gets nearby attractions.
+     * Gets nearby attractions as JSON.
      * Return the closest five tourist attractions to the user
      * - no matter how far the user is -
      *
-     * @param userName the user name
+     * @param userName the user's name
      * @return the nearby attractions
      * @throws UserNotFoundException the user not found exception
      */
@@ -206,9 +207,9 @@ public class TourGuideController {
     }
 
     /**
-     * Rturns the rewards for a specific user.
+     * Returns the rewards for a specific user as JSON.
      *
-     * @param userName the user name
+     * @param userName the user's name
      * @return the rewards
      * @throws UserNotFoundException the user not found exception
      */
@@ -235,7 +236,7 @@ public class TourGuideController {
     }
 
     /**
-     * Gets all current locations as a JSON.
+     * Gets all current locations.
      * Current location are the most recent ones.
      * Return object is a JSON mapping of userId to Locations similar to:<br>
      * <p>
@@ -266,13 +267,13 @@ public class TourGuideController {
     }
 
     /**
-     * Return all the Rewards for a specified user name.
+     * Calculate and return a list of providers for attractions depending on user total reward points and preferences.
      *
-     * @param userName the user name
+     * @param userName the user's name
      * @return the trip deals
      * @throws UserNotFoundException the user not found exception
      */
-    @ApiOperation(value = "Return all the Rewards for a specified user name.")
+    @ApiOperation(value = "Calculate and return a list of providers for attractions depending on user total reward points and preferences.")
     @RequestMapping(value = "/getTripDeals",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getTripDeals(
             @ApiParam(
@@ -295,14 +296,14 @@ public class TourGuideController {
     }
 
     /**
-     * Update preferences response entity.
+     * Update user's preferences.
      *
-     * @param userName       the user name
+     * @param userName       the user's name
      * @param newPreferences the new preferences
      * @return the response entity
      * @throws UserNotFoundException the user not found exception
      */
-    @ApiOperation(value = "This URI allows to update user preferencies.")
+    @ApiOperation(value = "This URI allows to update user preferences.")
     @PutMapping("/updatePreferences")
     public ResponseEntity<String> updatePreferences(
             @ApiParam(
@@ -318,6 +319,20 @@ public class TourGuideController {
         tourGuideService.updatePreferences(user,newPreferences);
 
         return new ResponseEntity<>("Preferences updated", HttpStatus.OK);
+    }
+
+    /**
+     * Force new tracking of all users
+     *
+     * @throws UsersGatheringException the user gathering exception
+     */
+    @ApiOperation(value = "Force new tracking of all users")
+    @RequestMapping(value = "/trackAll",produces = MediaType.APPLICATION_JSON_VALUE)
+    public void trackAllUsers() throws UsersGatheringException {
+        logger.info("HTTP GET request received at /trackAll");
+
+        tourGuideService.trackUserLocationMultiThread(tourGuideService.getAllUsers());
+
     }
 
 }

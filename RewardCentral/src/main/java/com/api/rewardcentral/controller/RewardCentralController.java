@@ -1,5 +1,6 @@
 package com.api.rewardcentral.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import java.util.UUID;
  * The type Reward central controller.
  */
 @RestController
+@Api(description = "RewardCentral api")
 public class RewardCentralController {
 
     private final Logger logger = LoggerFactory.getLogger(RewardCentralController.class);

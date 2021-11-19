@@ -29,11 +29,20 @@ public class Tracker extends Thread {
 	 * Instantiates a new Tracker.
 	 *
 	 * @param tourGuideService the tour guide service
+	 * @param runTrackerAtStartup boolean used to disable Tracker at creation, this allows to make
+	 * tests without tracker thread running.
 	 */
-	public Tracker(TourGuideService tourGuideService) {
+	public Tracker(TourGuideService tourGuideService, boolean runTrackerAtStartup) {
 		this.tourGuideService = tourGuideService;
-		
-		executorService.submit(this);
+
+		if(!runTrackerAtStartup) {
+			logger.info("Tracker run at startup: DISABLED");
+			this.stop = true;
+			executorService.shutdown();
+		} else {
+			logger.info("Tracker run at startup: ENABLE");
+			executorService.submit(this);
+		}
 	}
 
 	/**

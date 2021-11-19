@@ -5,7 +5,7 @@
 ## Description
 
 OpenClassRoom project number 8.
-This app use 4 microservice to help clients planning their trips depending on their location and attractions nearby. Clients earn points, and get trip deals depending on how many points the client has.
+> This app use 4 microservice to help clients planning their trips depending on their location and attractions nearby. Clients earn points, and get trip deals depending on how many points the client has.
 
 ## Getting started
 

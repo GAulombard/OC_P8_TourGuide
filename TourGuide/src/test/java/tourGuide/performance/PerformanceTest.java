@@ -58,8 +58,6 @@ public class PerformanceTest {
 	@Autowired
 	private GpsUtilFeign gpsUtilFeign;
 	@Autowired
-	private TourGuideService tourGuideService;
-	@Autowired
 	private RewardsService rewardsService;
 	private static Locale locale = new Locale("en", "US");
 
@@ -69,20 +67,19 @@ public class PerformanceTest {
     @BeforeAll
 	public static void setUp() {
 		Locale.setDefault(locale);
-		InternalTestHelper.setInternalUserNumber(1000);
+		InternalTestHelper.setInternalUserNumber(100);
 	}
 
     /**
      * High volume track location.
      *
-     * @throws UserNotFoundException   the user not found exception
      * @throws UsersGatheringException the users gathering exception
      */
-//@Ignore
-	@Test
-	public void highVolumeTrackLocation() throws UserNotFoundException, UsersGatheringException {
 
-		tourGuideService.tracker.stopTracking();
+	@Test
+	public void highVolumeTrackLocation() throws UsersGatheringException {
+
+		TourGuideService tourGuideService = new TourGuideService(rewardsService,true,false);
 
 		List<User> allUsers = new ArrayList<>();
 		allUsers = tourGuideService.getAllUsers();
@@ -106,26 +103,25 @@ public class PerformanceTest {
      *
      * @throws UsersGatheringException the users gathering exception
      */
-//@Ignore
+
 	@Test
 	public void highVolumeGetRewards() throws UsersGatheringException {
-		tourGuideService.tracker.stopTracking();
+		TourGuideService tourGuideService = new TourGuideService(rewardsService,true,false);
 
 		StopWatch stopWatch = new StopWatch();
-		stopWatch.start();
 
 	    Attraction attraction = gpsUtilFeign.getAttractions().get(0);
 		List<User> allUsers;
 		allUsers = tourGuideService.getAllUsers();
 		allUsers.forEach(u -> u.addToVisitedLocations(new VisitedLocation(u.getUserId(), attraction, new Date())));
 
+		stopWatch.start();
 		rewardsService.calculateRewardsMultiThread(allUsers);
+		stopWatch.stop();
 
 		for(User user : allUsers) {
 			assertTrue(user.getUserRewards().size() > 0);
 		}
-
-		stopWatch.stop();
 
 		System.out.println("highVolumeGetRewards: Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds.");
 

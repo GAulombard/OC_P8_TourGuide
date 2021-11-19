@@ -46,6 +46,8 @@ public class RewardsService {
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
+		calculateRewards(user);
+
 		return user.getUserRewards();
 	}
 
@@ -60,21 +62,10 @@ public class RewardsService {
 
 		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		CopyOnWriteArrayList<VisitedLocation> userLocations = new CopyOnWriteArrayList<>();
-		CopyOnWriteArrayList<Attraction> attractions = new CopyOnWriteArrayList<>();
+		List<User> userList = new ArrayList<>();
+		userList.add(user);
 
-		userLocations.addAll(user.getVisitedLocations());
-		attractions.addAll(gpsUtilFeign.getAttractions());
-
-		for(VisitedLocation visitedLocation : userLocations) {
-			for(Attraction attraction : attractions) {
-				if (user.getUserRewards().stream()
-						.noneMatch(r -> r.attraction.getAttractionName().equals(attraction.getAttractionName()))
-						&& DistanceCalculator.nearAttraction(visitedLocation, attraction)) {
-					user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
-				}
-			}
-		}
+		calculateRewardsMultiThread(userList);
 	}
 
 	/**

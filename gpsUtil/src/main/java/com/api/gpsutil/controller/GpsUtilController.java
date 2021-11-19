@@ -3,6 +3,7 @@ package com.api.gpsutil.controller;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import java.util.UUID;
  * The type Gps util controller.
  */
 @RestController
+@Api(description = "GpsUtil api")
 public class GpsUtilController {
 
     private Logger logger = LoggerFactory.getLogger(GpsUtilController.class);

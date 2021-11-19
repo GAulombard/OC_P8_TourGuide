@@ -13,6 +13,7 @@ import com.tourguide.commons.model.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import tourGuide.exception.UserAlreadyExistsException;
@@ -52,27 +53,28 @@ public class TourGuideService {
 	 */
 	public final Tracker tracker;
 	private final InternalTestHelper internalTestHelper = new InternalTestHelper();
-	/**
-	 * The Test mode.
-	 */
-	boolean testMode = true;
+
 
 	/**
 	 * Instantiates a new Tour guide service.
 	 *
 	 * @param rewardsService the rewards service
+	 * @param testMode the test mode
+	 * @param runTrackerAtStartup the run tracker at startup
 	 */
-	public TourGuideService(RewardsService rewardsService) {
+	@Autowired
+	public TourGuideService(RewardsService rewardsService, @Value("true") boolean testMode,@Value("true") boolean runTrackerAtStartup) {
 
 		this.rewardsService = rewardsService;
-		
+
+		logger.info("TestMode: {}",testMode);
+
 		if(testMode) {
-			logger.info("TestMode enabled");
 			logger.debug("Initializing users");
 			internalTestHelper.initializeInternalUsers();
 			logger.debug("Finished initializing users");
 		}
-		tracker = new Tracker(this);
+		tracker = new Tracker(this, runTrackerAtStartup);
 		addShutDownHook();
 	}
 
@@ -112,7 +114,8 @@ public class TourGuideService {
 	}
 
 	/**
-	 * Gets user location.
+	 * Gets user's last visited location.
+	 *if last visited location is empty, ask GpsUtil api to get a location update.
 	 *
 	 * @param user the user
 	 * @return the user location
@@ -211,7 +214,7 @@ public class TourGuideService {
 
 	/**
 	 * Track user location by calling the GpsUtil Api.
-	 * The api provide a random coordinates in WGS884 decimal format.
+	 * The api provide a random coordinates in WGS84 decimal format.
 	 *
 	 *
 	 * @param user the user
@@ -221,16 +224,13 @@ public class TourGuideService {
 	public VisitedLocation trackUserLocation(User user) throws UserNotFoundException {
 
 		logger.info("** Processing to track user location. User: "+user.getUserName());
-
-		//tracker.run(); //update all user location
-
 		Locale.setDefault(new Locale("en", "US"));
 
 		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException("User not found");
 
-		VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());
+		VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId()); //return random WGS84 position
 		user.addToVisitedLocations(visitedLocation);
-		rewardsService.calculateRewards(user);
+		rewardsService.calculateRewards(user); // calculate new reward
 
 		return visitedLocation;
 	}
@@ -245,22 +245,25 @@ public class TourGuideService {
 	public void trackUserLocationMultiThread(List<User> userList) {
 
 		logger.info("** Multithreading ** Processing to track all user location.");
-		ExecutorService executorService = Executors.newFixedThreadPool(50);
+		//requesting a pool of n Threads
+		ExecutorService executorService = Executors.newFixedThreadPool(200);//get an instance of the n threads
 
 		List<Future<?>> listFuture = new ArrayList<>();
 
 		for(User user: userList) {
+			//submit multiple callable instances to the pool, using lambda
 			Future<?> future = executorService.submit( () -> {
 
-				VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());;
+				VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());//return random WGS84 position
 				user.addToVisitedLocations(visitedLocation);
 			});
 			listFuture.add(future);
 		}
 
-		listFuture.stream().forEach(f->{
+		listFuture.stream().forEach(futureResult->{
 			try {
-				f.get();
+				//call get() to see the result returned by the callable lambda used before
+				futureResult.get();
 			} catch (InterruptedException | ExecutionException e) {
 				logger.error(e.getMessage());
 
@@ -277,7 +280,7 @@ public class TourGuideService {
 	 *
 	 * @param visitedLocation the visited location
 	 * @param user            the user
-	 * @return the near by attractions
+	 * @return the nearby attractions
 	 * @throws UserNotFoundException the user not found exception
 	 */
 
