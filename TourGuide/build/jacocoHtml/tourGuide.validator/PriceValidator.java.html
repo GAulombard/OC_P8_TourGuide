@@ -10,17 +10,17 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * The type Price validator.
  */
-<span class="nc" id="L13">public class PriceValidator implements ConstraintValidator&lt;PriceCheck, UserPreferences&gt; {</span>
+<span class="fc" id="L13">public class PriceValidator implements ConstraintValidator&lt;PriceCheck, UserPreferences&gt; {</span>
 
-<span class="nc" id="L15">    private Logger logger = LoggerFactory.getLogger(PriceValidator.class);</span>
+<span class="fc" id="L15">    private Logger logger = LoggerFactory.getLogger(PriceValidator.class);</span>
 
     @Override
     public boolean isValid(UserPreferences userPreferences, ConstraintValidatorContext context) {
 
-<span class="nc" id="L20">        double highPrice = userPreferences.getHighPricePoint().getNumber().doubleValueExact();</span>
-<span class="nc" id="L21">        double lowPrice = userPreferences.getLowerPricePoint().getNumber().doubleValueExact();</span>
+<span class="fc" id="L20">        double highPrice = userPreferences.getHighPricePoint().getNumber().doubleValueExact();</span>
+<span class="fc" id="L21">        double lowPrice = userPreferences.getLowerPricePoint().getNumber().doubleValueExact();</span>
 
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(highPrice &gt; lowPrice) return true;</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if(highPrice &gt; lowPrice) return true;</span>
 <span class="nc" id="L24">        else return false;</span>
 
     }

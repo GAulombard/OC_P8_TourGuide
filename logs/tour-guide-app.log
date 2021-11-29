@@ -290,3 +290,21 @@
 2021-11-29 22:52:56.108  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
 2021-11-29 22:52:56.138  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
 2021-11-29 22:52:56.139  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:57:56.140  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:57:56.141  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:57:56.142  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:57:56.350  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:57:56.377  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:57:56.377  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 23:02:56.377  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 23:02:56.378  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 23:02:56.378  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 23:02:56.587  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 23:02:56.614  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 23:02:56.615  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 23:07:56.616  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 23:07:56.616  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 23:07:56.616  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 23:07:56.816  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 23:07:56.841  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 23:07:56.842  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping

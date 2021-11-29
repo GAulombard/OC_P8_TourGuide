@@ -42,13 +42,13 @@ import tourGuide.util.DistanceCalculator;
 	 * @throws UserNotFoundException the user not found exception
 	 */
 	public List&lt;UserReward&gt; getUserRewards(User user) throws UserNotFoundException {
-<span class="nc" id="L45">		logger.info(&quot;** Processing to get user rewards&quot;);</span>
+<span class="fc" id="L45">		logger.info(&quot;** Processing to get user rewards&quot;);</span>
 
-<span class="nc bnc" id="L47" title="All 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
 
-<span class="nc" id="L49">		calculateRewards(user);</span>
+<span class="fc" id="L49">		calculateRewards(user);</span>
 
-<span class="nc" id="L51">		return user.getUserRewards();</span>
+<span class="fc" id="L51">		return user.getUserRewards();</span>
 	}
 
 	/**
@@ -58,15 +58,15 @@ import tourGuide.util.DistanceCalculator;
 	 * @throws UserNotFoundException the user not found exception
 	 */
 	public void calculateRewards(User user) throws UserNotFoundException {
-<span class="nc" id="L61">		logger.info(&quot;** Processing to calculate rewards. User: &quot;+user.getUserName());</span>
+<span class="fc" id="L61">		logger.info(&quot;** Processing to calculate rewards. User: &quot;+user.getUserName());</span>
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if(!InternalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
 
-<span class="nc" id="L65">		List&lt;User&gt; userList = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L66">		userList.add(user);</span>
+<span class="fc" id="L65">		List&lt;User&gt; userList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L66">		userList.add(user);</span>
 
-<span class="nc" id="L68">		calculateRewardsMultiThread(userList);</span>
-<span class="nc" id="L69">	}</span>
+<span class="fc" id="L68">		calculateRewardsMultiThread(userList);</span>
+<span class="fc" id="L69">	}</span>
 
 	/**
 	 * Calculate rewards for all users.
@@ -87,7 +87,7 @@ import tourGuide.util.DistanceCalculator;
 
 <span class="fc bfc" id="L88" title="All 2 branches covered.">				for(Attraction attraction : attractions) {</span>
 
-<span class="pc bpc" id="L90" title="1 of 2 branches missed.">					if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">					if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))) {</span>
 
 <span class="fc" id="L92">						VisitedLocation lastVisitedLocation = user.getVisitedLocations().get(user.getVisitedLocations().size()-1);</span>
 <span class="fc bfc" id="L93" title="All 2 branches covered.">						if(DistanceCalculator.nearAttraction(lastVisitedLocation, attraction)) {</span>
@@ -106,9 +106,9 @@ import tourGuide.util.DistanceCalculator;
 <span class="fc" id="L106">		listFuture.stream().forEach(f-&gt;{</span>
 			try {
 <span class="fc" id="L108">				f.get();</span>
-<span class="nc" id="L109">			} catch (InterruptedException | ExecutionException e) {</span>
+<span class="fc" id="L109">			} catch (InterruptedException | ExecutionException e) {</span>
 
-<span class="nc" id="L111">				e.printStackTrace();</span>
+<span class="fc" id="L111">				e.printStackTrace();</span>
 <span class="fc" id="L112">			}</span>
 <span class="fc" id="L113">		});</span>
 <span class="fc" id="L114">		executorService.shutdown();</span>

@@ -10,6 +10,7 @@ import org.apache.commons.lang3.time.StopWatch;
 
 import com.tourguide.commons.model.Attraction;
 import com.tourguide.commons.model.VisitedLocation;
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -67,7 +68,7 @@ public class PerformanceTest {
     @BeforeAll
 	public static void setUp() {
 		Locale.setDefault(locale);
-		InternalTestHelper.setInternalUserNumber(10000);
+		InternalTestHelper.setInternalUserNumber(100);
 	}
 
     /**
@@ -76,6 +77,7 @@ public class PerformanceTest {
      * @throws UsersGatheringException the users gathering exception
      */
 
+	@Ignore
 	@Test
 	public void highVolumeTrackLocation() throws UsersGatheringException {
 
@@ -104,6 +106,7 @@ public class PerformanceTest {
      * @throws UsersGatheringException the users gathering exception
      */
 
+	@Ignore
 	@Test
 	public void highVolumeGetRewards() throws UsersGatheringException {
 		TourGuideService tourGuideService = new TourGuideService(rewardsService,true,false);
