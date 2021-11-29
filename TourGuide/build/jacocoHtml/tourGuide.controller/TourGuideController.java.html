@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourGuideController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.controller</a> &gt; <span class="el_source">TourGuideController.java</span></div><h1>TourGuideController.java</h1><pre class="source lang-java linenums">package tourGuide.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tourguide.commons.model.Location;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+
+import com.tourguide.commons.model.VisitedLocation;
+import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
+import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
+import tourGuide.model.UserReward;
+import tourGuide.service.RewardsService;
+import tourGuide.service.TourGuideService;
+import tourGuide.model.User;
+import com.tourguide.commons.model.Provider;
+
+import javax.validation.Valid;
+
+/**
+ * The type Tour guide controller.
+ */
+@RestController
+@Validated
+@Api(description = &quot;Tour Guide api&quot;)
+<span class="fc" id="L41">public class TourGuideController {</span>
+
+<span class="fc" id="L43">    private final Logger logger = LoggerFactory.getLogger(TourGuideController.class);</span>
+
+	@Autowired
+	private TourGuideService tourGuideService;
+    @Autowired
+    private RewardsService rewardsService;
+
+    /**
+     * Index string.
+     *
+     * @return the string
+     */
+    @ApiOperation(value = &quot;This URI returns \&quot;Greetings from TourGuide!\&quot;.&quot;)
+    @GetMapping(value={&quot;&quot;,&quot;/&quot;})
+    public String index() {
+
+<span class="nc" id="L59">        logger.info(&quot;HTTP GET request receive at index&quot;);</span>
+
+<span class="nc" id="L61">        return &quot;Greetings from TourGuide!&quot;;</span>
+    }
+
+    /**
+     * Gets user as JSON.
+     *
+     * @param userName the user's name
+     * @return the user
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;This URI returns a User requiring userName.&quot;)
+    @GetMapping(value = &quot;/getUser&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getUser(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+
+<span class="nc" id="L79">        logger.info(&quot;HTTP GET request receive at /getUser?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L81">        User user = tourGuideService.getUser(userName);</span>
+
+        try {
+<span class="nc" id="L84">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L85">            return objectMapper.writeValueAsString(user);</span>
+
+<span class="nc" id="L87">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L88">            logger.error(&quot;ERROR: user could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L89">            return null;</span>
+        }
+    }
+
+    /**
+     * Gets user preferences as JSON.
+     *
+     * @param userName the user name
+     * @return the user preferences
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;This URI returns a user preferences requiring userName.&quot;)
+    @GetMapping(value = &quot;/getPreferences&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getUserPreferences(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+
+<span class="nc" id="L108">        logger.info(&quot;HTTP GET request receive at /getPreferences?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L110">        User user = tourGuideService.getUser(userName);</span>
+
+        try {
+<span class="nc" id="L113">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L114">            return objectMapper.writeValueAsString(user.getUserPreferences());</span>
+
+<span class="nc" id="L116">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L117">            logger.error(&quot;ERROR: user could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L118">            return null;</span>
+        }
+    }
+
+    /**
+     * Gets all users as JSON.
+     *
+     * @return the all
+     * @throws UsersGatheringException the users gathering exception
+     */
+    @ApiOperation(value = &quot;This URI returns a list of all Users.&quot;)
+    @GetMapping(value = &quot;/getAllUsers&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getAll() throws UsersGatheringException {
+<span class="nc" id="L131">        logger.info(&quot;HTTP GET request receive at /getAllUsers&quot;);</span>
+
+<span class="nc" id="L133">        List&lt;User&gt; users = tourGuideService.getAllUsers();</span>
+
+        try {
+<span class="nc" id="L136">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L137">            return objectMapper.writeValueAsString(users);</span>
+
+<span class="nc" id="L139">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L140">            logger.error(&quot;ERROR: list of users could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L141">            return null;</span>
+        }
+    }
+
+    /**
+     * Return the last visited VisitedLocation for a specified userName as JSON.
+     *
+     * @param userName the user's name
+     * @return the location
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;Return the last visited VisitedLocation for a specified user name.&quot;)
+    @GetMapping(value = &quot;/getLocation&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getLocation(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+
+<span class="nc" id="L160">        logger.info(&quot;HTTP GET request receive at \&quot;/getLocation?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L162">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L163">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
+
+    	try {
+<span class="nc" id="L166">            ObjectMapper objectMapper = new ObjectMapper();</span>
+            //fixme:?? return timeVisited as Integer number instead of readable date format
+<span class="nc" id="L168">            return objectMapper.writeValueAsString(visitedLocation);</span>
+
+<span class="nc" id="L170">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L171">    	    logger.error(&quot;ERROR: Object visitedLocation could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L172">    	    return null;</span>
+        }
+    }
+
+    /**
+     * Gets nearby attractions as JSON.
+     * Return the closest five tourist attractions to the user
+     * - no matter how far the user is -
+     *
+     * @param userName the user's name
+     * @return the nearby attractions
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;Return the closest five tourist attractions to the user - no matter how far the user is -&quot;)
+    @GetMapping(value = &quot;/getNearbyAttractions&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getNearbyAttractions(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+
+<span class="nc" id="L193">        logger.info(&quot;HTTP GET request receive at \&quot;/getNearbyAttractions?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L195">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L196">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);</span>
+<span class="nc" id="L197">        List&lt;NearbyAttraction&gt; nearbyAttractions = tourGuideService.getNearByAttractions(visitedLocation,user);</span>
+
+        try {
+<span class="nc" id="L200">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L201">            return objectMapper.writeValueAsString(nearbyAttractions);</span>
+
+<span class="nc" id="L203">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L204">            logger.error(&quot;ERROR: Object visitedLocation could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L205">            return null;</span>
+        }
+    }
+
+    /**
+     * Returns the rewards for a specific user as JSON.
+     *
+     * @param userName the user's name
+     * @return the rewards
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;Return all the Rewards for a specified user name.&quot;)
+    @GetMapping(value = &quot;/getRewards&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getRewards(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+<span class="nc" id="L223">        logger.info(&quot;HTTP GET request receive at \&quot;/getRewards?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L225">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L226">        List&lt;UserReward&gt; userRewards = rewardsService.getUserRewards(user);</span>
+
+        try {
+<span class="nc" id="L229">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L230">            return objectMapper.writeValueAsString(userRewards);</span>
+
+<span class="nc" id="L232">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L233">            logger.error(&quot;ERROR: List of user rewards could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L234">            return null;</span>
+        }
+    }
+
+    /**
+     * Gets all current locations.
+     * Current location are the most recent ones.
+     * Return object is a JSON mapping of userId to Locations similar to:&lt;br&gt;
+     * &lt;p&gt;
+     * {
+     * &quot;019b04a9-067a-4c76-8817-ee75088c3822&quot;: {&quot;longitude&quot;:-48.188821,&quot;latitude&quot;:74.84371}
+     *  ...
+     * }
+     * &lt;/p&gt;
+     *
+     * @return the all current locations
+     * @throws UsersGatheringException the users gathering exception
+     */
+    @ApiOperation(value = &quot;Get the list of every user's most recent location as JSON.&quot;)
+    @GetMapping(value = &quot;/getAllCurrentLocations&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getAllCurrentLocations() throws UsersGatheringException {
+<span class="nc" id="L255">        logger.info(&quot;HTTP GET request receive at \&quot;/getAllCurrentLocations\&quot;&quot;);</span>
+
+<span class="nc" id="L257">        Map&lt;String, Location&gt; allCurrentLocations = tourGuideService.getAllCurrentLocation();</span>
+
+        try {
+<span class="nc" id="L260">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L261">            return objectMapper.writeValueAsString(allCurrentLocations);</span>
+
+<span class="nc" id="L263">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L264">            logger.error(&quot;ERROR: List of user's current location could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L265">            return null;</span>
+        }
+    }
+
+    /**
+     * Calculate and return a list of providers for attractions depending on user total reward points and preferences.
+     *
+     * @param userName the user's name
+     * @return the trip deals
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;Calculate and return a list of providers for attractions depending on user total reward points and preferences.&quot;)
+    @GetMapping(value = &quot;/getTripDeals&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getTripDeals(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName) throws UserNotFoundException {
+<span class="nc" id="L283">        logger.info(&quot;HTTP GET request receive at \&quot;/getTripDeals?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L285">        User user = tourGuideService.getUser(userName);</span>
+<span class="nc" id="L286">    	List&lt;Provider&gt; providers = tourGuideService.getTripDeals(user);</span>
+
+        try {
+<span class="nc" id="L289">            ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L290">            return objectMapper.writeValueAsString(providers);</span>
+
+<span class="nc" id="L292">        } catch (JsonProcessingException e) {</span>
+<span class="nc" id="L293">            logger.error(&quot;ERROR: List of providers could not be serialized to JSON.&quot;);</span>
+<span class="nc" id="L294">            return null;</span>
+        }
+    }
+
+    /**
+     * Update user's preferences.
+     *
+     * @param userName       the user's name
+     * @param newPreferences the new preferences
+     * @return the response entity
+     * @throws UserNotFoundException the user not found exception
+     */
+    @ApiOperation(value = &quot;This URI allows to update user preferences.&quot;)
+    @PutMapping(&quot;/updatePreferences&quot;)
+    public ResponseEntity&lt;String&gt; updatePreferences(
+            @ApiParam(
+                    value = &quot;userName&quot;,
+                    example = &quot;internalUser1&quot;)
+            @RequestParam String userName,
+            @Valid @RequestBody UserPreferences newPreferences) throws UserNotFoundException {
+
+<span class="nc" id="L315">        logger.info(&quot;HTTP PUT request receive at \&quot;/updatePreferences?userName=&quot;+userName+&quot;\&quot;&quot;);</span>
+
+<span class="nc" id="L317">        User user = tourGuideService.getUser(userName);</span>
+
+<span class="nc" id="L319">        tourGuideService.updatePreferences(user,newPreferences);</span>
+
+<span class="nc" id="L321">        return new ResponseEntity&lt;&gt;(&quot;Preferences updated&quot;, HttpStatus.OK);</span>
+    }
+
+    /**
+     * Force new tracking of all users
+     *
+     * @throws UsersGatheringException the user gathering exception
+     */
+    @ApiOperation(value = &quot;Force new tracking of all users&quot;)
+    @GetMapping(value = &quot;/trackAll&quot;,produces = MediaType.APPLICATION_JSON_VALUE)
+    public void trackAllUsers() throws UsersGatheringException {
+<span class="nc" id="L332">        logger.info(&quot;HTTP GET request received at /trackAll&quot;);</span>
+
+<span class="nc" id="L334">        tourGuideService.trackUserLocationMultiThread(tourGuideService.getAllUsers());</span>
+
+<span class="nc" id="L336">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

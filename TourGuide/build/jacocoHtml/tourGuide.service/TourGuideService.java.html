@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourGuideService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.service</a> &gt; <span class="el_source">TourGuideService.java</span></div><h1>TourGuideService.java</h1><pre class="source lang-java linenums">package tourGuide.service;
+
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Collectors;
+
+import com.tourguide.commons.model.VisitedLocation;
+import com.tourguide.commons.model.Attraction;
+import com.tourguide.commons.model.Location;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import tourGuide.exception.UserAlreadyExistsException;
+import tourGuide.exception.UserNotFoundException;
+import tourGuide.exception.UsersGatheringException;
+import tourGuide.helper.InternalTestHelper;
+import tourGuide.model.NearbyAttraction;
+import tourGuide.model.UserPreferences;
+import tourGuide.service.feign.GpsUtilFeign;
+import tourGuide.service.feign.RewardCentralFeign;
+import tourGuide.service.feign.TripPricerFeign;
+import tourGuide.tracker.Tracker;
+import tourGuide.model.User;
+import tourGuide.util.DistanceCalculator;
+import com.tourguide.commons.model.Provider;
+
+
+/**
+ * The type Tour guide service.
+ */
+@Service
+public class TourGuideService {
+
+<span class="fc" id="L40">	private final Logger logger = LoggerFactory.getLogger(TourGuideService.class);</span>
+
+	//Libs
+	@Autowired
+	private GpsUtilFeign gpsUtilFeign;
+	@Autowired
+	private RewardCentralFeign rewardCentralFeign;
+	@Autowired
+	private TripPricerFeign tripPricerFeign;
+
+	private final RewardsService rewardsService;
+	/**
+	 * The Tracker.
+	 */
+	public final Tracker tracker;
+<span class="fc" id="L55">	private final InternalTestHelper internalTestHelper = new InternalTestHelper();</span>
+
+
+	/**
+	 * Instantiates a new Tour guide service.
+	 *
+	 * @param rewardsService the rewards service
+	 * @param testMode the test mode
+	 * @param runTrackerAtStartup the run tracker at startup
+	 */
+	@Autowired
+<span class="fc" id="L66">	public TourGuideService(RewardsService rewardsService, @Value(&quot;true&quot;) boolean testMode,@Value(&quot;true&quot;) boolean runTrackerAtStartup) {</span>
+
+<span class="fc" id="L68">		this.rewardsService = rewardsService;</span>
+
+<span class="fc" id="L70">		logger.info(&quot;TestMode: {}&quot;,testMode);</span>
+
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if(testMode) {</span>
+<span class="fc" id="L73">			logger.debug(&quot;Initializing users&quot;);</span>
+<span class="fc" id="L74">			internalTestHelper.initializeInternalUsers();</span>
+<span class="fc" id="L75">			logger.debug(&quot;Finished initializing users&quot;);</span>
+		}
+<span class="fc" id="L77">		tracker = new Tracker(this, runTrackerAtStartup);</span>
+<span class="fc" id="L78">		addShutDownHook();</span>
+<span class="fc" id="L79">	}</span>
+
+	/**
+	 * Gets user.
+	 *
+	 * @param userName the user name
+	 * @return the user
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public User getUser(String userName) throws UserNotFoundException {
+<span class="nc" id="L89">		logger.info(&quot;** Processing to get user by username&quot;);</span>
+
+<span class="nc bnc" id="L91" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(userName)) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L93">		return internalTestHelper.getInternalUserMap().get(userName);</span>
+	}
+
+	/**
+	 * Gets all users.
+	 *
+	 * @return the all users
+	 * @throws UsersGatheringException the users gathering exception
+	 */
+	public List&lt;User&gt; getAllUsers() throws UsersGatheringException {
+<span class="fc" id="L103">		logger.info(&quot;** Processing to get all users&quot;);</span>
+
+<span class="fc" id="L105">		List&lt;User&gt; users = new ArrayList&lt;&gt;();</span>
+
+		try {
+<span class="fc" id="L108">			users = internalTestHelper.getInternalUserMap().values().stream().collect(Collectors.toList());</span>
+<span class="nc" id="L109">		}catch (Exception e) {</span>
+<span class="nc" id="L110">			logger.error(&quot;ERROR: Impossible to get all users&quot;);</span>
+<span class="nc" id="L111">			throw new UsersGatheringException(e.getMessage());</span>
+<span class="fc" id="L112">		}</span>
+<span class="fc" id="L113">		return users;</span>
+	}
+
+	/**
+	 * Gets user's last visited location.
+	 *if last visited location is empty, ask GpsUtil api to get a location update.
+	 *
+	 * @param user the user
+	 * @return the user location
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public VisitedLocation getUserLocation(User user) throws UserNotFoundException {
+<span class="nc" id="L125">		logger.info(&quot;** Processing to get user location. User: &quot;+user.getUserName());</span>
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc bnc" id="L129" title="All 2 branches missed.">		VisitedLocation visitedLocation = (user.getVisitedLocations().size() &gt; 0) ? user.getLastVisitedLocation() : trackUserLocation(user);</span>
+
+<span class="nc" id="L131">		return visitedLocation;</span>
+	}
+
+	/**
+	 * Add user.
+	 *
+	 * @param user the user
+	 * @throws UserAlreadyExistsException the user already exists exception
+	 * @throws UserNotFoundException      the user not found exception
+	 */
+
+	public void addUser(User user) throws UserAlreadyExistsException, UserNotFoundException {
+<span class="nc" id="L143">		logger.info(&quot;** Processing to add new user: &quot;+user.getUserName());</span>
+
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) {</span>
+<span class="nc" id="L146">			internalTestHelper.getInternalUserMap().put(user.getUserName(), user);</span>
+<span class="nc" id="L147">			trackUserLocation(user);</span>
+		} else {
+<span class="nc" id="L149">			throw new UserAlreadyExistsException(&quot;ERROR: User already exists&quot;);</span>
+		}
+<span class="nc" id="L151">	}</span>
+
+	/**
+	 * Gets trip deals.
+	 * Calculate the sum of rewards points, and for each attraction within the range user preference
+	 * return a corresponding trip deal if this one exists (requiring user preferences).
+	 *
+	 * @param user the user
+	 * @return the trip deals
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public List&lt;Provider&gt; getTripDeals(User user) throws UserNotFoundException {
+<span class="nc" id="L163">		logger.info(&quot;** Processing to get trip deals. User: &quot;+user.getUserName());</span>
+<span class="nc" id="L164">		List&lt;Provider&gt; providers = new ArrayList&lt;&gt;();</span>
+
+
+<span class="nc bnc" id="L167" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L169">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(i -&gt; i.getRewardPoints()).sum();</span>
+
+<span class="nc" id="L171">		List&lt;Attraction&gt; attractionsWithinRange = getAttractionsWithinRangePreferences(gpsUtilFeign.getAttractions(),user);</span>
+
+<span class="nc" id="L173">		attractionsWithinRange.forEach(attraction -&gt; {</span>
+
+<span class="nc" id="L175">			List&lt;Provider&gt; tempProviders = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L177">			tempProviders = tripPricerFeign.getPrice(internalTestHelper.getTripPricerApiKey(), attraction.attractionId, user.getUserPreferences().getNumberOfAdults(),</span>
+<span class="nc" id="L178">					user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulativeRewardPoints);</span>
+
+<span class="nc" id="L180">			tempProviders.forEach(provider -&gt; {</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">				if(provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValueExact()) {</span>
+<span class="nc" id="L182">					logger.info(&quot;** --&gt; Provider found: &quot;+provider.name+&quot; / Price: &quot;+provider.price+&quot; USD / Attraction: &quot;+attraction.attractionName);</span>
+<span class="nc" id="L183">					providers.add(provider);</span>
+				}
+<span class="nc" id="L185">			});</span>
+<span class="nc" id="L186">		});</span>
+
+<span class="nc" id="L188">		user.setTripDeals(providers);</span>
+
+<span class="nc" id="L190">		return providers;</span>
+	}
+
+	/**
+	 * Gets attractions within range preferences.
+	 *
+	 * @param attractions the attractions
+	 * @param user        the user
+	 * @return the attractions within range preferences
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public List&lt;Attraction&gt; getAttractionsWithinRangePreferences(List &lt;Attraction&gt; attractions, User user) throws UserNotFoundException {
+<span class="nc" id="L202">		List&lt;Attraction&gt; attractionsWithinRange = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L204">		Location userLocation = trackUserLocation(user).location;</span>
+
+<span class="nc" id="L206">		attractions.forEach(attraction -&gt; {</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">			if(DistanceCalculator.getDistance(attraction,userLocation) &lt;= user.getUserPreferences().getAttractionProximity()) {</span>
+<span class="nc" id="L208">				attractionsWithinRange.add(attraction);</span>
+			}
+<span class="nc" id="L210">		});</span>
+
+<span class="nc" id="L212">		return attractionsWithinRange;</span>
+	}
+
+	/**
+	 * Track user location by calling the GpsUtil Api.
+	 * The api provide a random coordinates in WGS84 decimal format.
+	 *
+	 *
+	 * @param user the user
+	 * @return the visited location
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public VisitedLocation trackUserLocation(User user) throws UserNotFoundException {
+
+<span class="nc" id="L226">		logger.info(&quot;** Processing to track user location. User: &quot;+user.getUserName());</span>
+<span class="nc" id="L227">		Locale.setDefault(new Locale(&quot;en&quot;, &quot;US&quot;));</span>
+
+<span class="nc bnc" id="L229" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L231">		VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId()); //return random WGS84 position</span>
+<span class="nc" id="L232">		user.addToVisitedLocations(visitedLocation);</span>
+<span class="nc" id="L233">		rewardsService.calculateRewards(user); // calculate new reward</span>
+
+<span class="nc" id="L235">		return visitedLocation;</span>
+	}
+
+
+	/**
+	 * Track all users' location by calling the GpsUtil api.
+	 * The api provide a random coordinates in WGS884 decimal format for all users.
+	 *
+	 * @param userList the user list
+	 */
+	public void trackUserLocationMultiThread(List&lt;User&gt; userList) {
+
+<span class="fc" id="L247">		logger.info(&quot;** Multithreading ** Processing to track all user location.&quot;);</span>
+		//requesting a pool of n Threads
+<span class="fc" id="L249">		ExecutorService executorService = Executors.newFixedThreadPool(50);//get an instance of the n threads</span>
+		//ExecutorService executorService = Executors.newCachedThreadPool();
+
+<span class="fc" id="L252">		List&lt;Future&lt;?&gt;&gt; listFuture = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L254" title="All 2 branches covered.">		for(User user: userList) {</span>
+			//submit multiple callable instances to the pool, using lambda
+<span class="fc" id="L256">			Future&lt;?&gt; future = executorService.submit( () -&gt; {</span>
+
+<span class="fc" id="L258">				VisitedLocation visitedLocation = gpsUtilFeign.getUserLocation(user.getUserId());//return random WGS84 position</span>
+<span class="fc" id="L259">				user.addToVisitedLocations(visitedLocation);</span>
+<span class="fc" id="L260">			});</span>
+<span class="fc" id="L261">			listFuture.add(future);</span>
+<span class="fc" id="L262">		}</span>
+
+<span class="fc" id="L264">		listFuture.stream().forEach(futureResult-&gt;{</span>
+			try {
+				//call get() to see the result returned by the callable lambda used before(returns the returned value of lambda)
+<span class="fc" id="L267">				futureResult.get();</span>
+<span class="fc" id="L268">			} catch (InterruptedException | ExecutionException e) {</span>
+<span class="fc" id="L269">				logger.error(e.getMessage());</span>
+
+<span class="fc" id="L271">			}</span>
+<span class="fc" id="L272">		});</span>
+
+<span class="fc" id="L274">		executorService.shutdown();</span>
+<span class="fc" id="L275">		rewardsService.calculateRewardsMultiThread(userList);</span>
+
+<span class="fc" id="L277">	}</span>
+
+	/**
+	 * Gets nearby attractions.
+	 * Always return the 5 closest attraction from the user no matter how far he is.
+	 *
+	 * @param visitedLocation the visited location
+	 * @param user            the user
+	 * @return the nearby attractions
+	 * @throws UserNotFoundException the user not found exception
+	 */
+
+	public List&lt;NearbyAttraction&gt; getNearByAttractions(VisitedLocation visitedLocation,User user) throws UserNotFoundException {
+<span class="nc" id="L290">		logger.info(&quot;** Processing to get nearby attractions.&quot;);</span>
+<span class="nc" id="L291">		logger.info(&quot;** --&gt;User: &quot;+user.getUserName());</span>
+<span class="nc" id="L292">		logger.info(&quot;** --&gt;Latitude: &quot;+visitedLocation.location.latitude+&quot; Longitude: &quot;+visitedLocation.location.longitude);</span>
+
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L296">		List&lt;NearbyAttraction&gt; nearbyAttractions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L297">		List&lt;Attraction&gt; attractions = gpsUtilFeign.getAttractions();</span>
+
+<span class="nc" id="L299">		attractions.forEach(attraction -&gt; {</span>
+<span class="nc" id="L300">			NearbyAttraction nearbyAttraction = new NearbyAttraction();</span>
+<span class="nc" id="L301">			nearbyAttraction.setAttractionName(attraction.attractionName);</span>
+<span class="nc" id="L302">			nearbyAttraction.setAttractionLatitude(attraction.latitude);</span>
+<span class="nc" id="L303">			nearbyAttraction.setAttractionLongitude(attraction.longitude);</span>
+<span class="nc" id="L304">			nearbyAttraction.setUserLatitude(visitedLocation.location.latitude);</span>
+<span class="nc" id="L305">			nearbyAttraction.setUserLongitude(visitedLocation.location.longitude);</span>
+<span class="nc" id="L306">			nearbyAttraction.setDistanceBetweenUserAndAttraction(DistanceCalculator.getDistance(attraction,visitedLocation.location));</span>
+<span class="nc" id="L307">			nearbyAttraction.setRewardPoint(rewardCentralFeign.getAttractionRewardPoints(attraction.attractionId,user.getUserId()));</span>
+<span class="nc" id="L308">			nearbyAttractions.add(nearbyAttraction);</span>
+<span class="nc" id="L309">		});</span>
+
+<span class="nc" id="L311">		Collections.sort(nearbyAttractions,Comparator.comparingDouble(NearbyAttraction::getDistanceBetweenUserAndAttraction));</span>
+
+		// Get the closest five tourist attractions to the user - no matter how far away they are.
+<span class="nc" id="L314">		nearbyAttractions.subList(5,nearbyAttractions.size()).clear();</span>
+
+<span class="nc" id="L316">		return nearbyAttractions;</span>
+	}
+
+	/**
+	 * Gets all most recent location.
+	 *
+	 * @return the all current location
+	 * @throws UsersGatheringException the users gathering exception
+	 */
+	public Map&lt;String, Location&gt; getAllCurrentLocation() throws UsersGatheringException {
+<span class="nc" id="L326">		logger.info(&quot;** Processing to get all user's current location&quot;);</span>
+<span class="nc" id="L327">		Map&lt;String,Location&gt; allCurrentLocations = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L328">		List&lt;User&gt; users = getAllUsers();</span>
+
+<span class="nc" id="L330">		users.forEach(user -&gt; {</span>
+			try {
+<span class="nc" id="L332">				allCurrentLocations.put(user.getUserId().toString(),getUserLocation(user).getLocation());</span>
+<span class="nc" id="L333">			} catch (UserNotFoundException e) {</span>
+<span class="nc" id="L334">				e.printStackTrace();</span>
+<span class="nc" id="L335">			}</span>
+<span class="nc" id="L336">		});</span>
+
+<span class="nc" id="L338">		return allCurrentLocations;</span>
+	}
+
+	/**
+	 * Update preferences.
+	 *
+	 * @param user           the user
+	 * @param newPreferences the new preferences
+	 * @throws UserNotFoundException the user not found exception
+	 */
+	public void updatePreferences(User user, UserPreferences newPreferences) throws UserNotFoundException {
+<span class="nc" id="L349">		logger.info(&quot;** Processing to update preferences&quot;);</span>
+
+<span class="nc bnc" id="L351" title="All 2 branches missed.">		if(!internalTestHelper.getInternalUserMap().containsKey(user.getUserName())) throw new UserNotFoundException(&quot;User not found&quot;);</span>
+
+<span class="nc" id="L353">		UserPreferences actualPreferences = user.getUserPreferences();</span>
+
+<span class="nc" id="L355">		actualPreferences.setNumberOfAdults(newPreferences.getNumberOfAdults());</span>
+<span class="nc" id="L356">		actualPreferences.setNumberOfChildren(newPreferences.getNumberOfChildren());</span>
+<span class="nc" id="L357">		actualPreferences.setAttractionProximity(newPreferences.getAttractionProximity());</span>
+<span class="nc" id="L358">		actualPreferences.setHighPricePoint(newPreferences.getHighPricePoint().getNumber().intValue());</span>
+<span class="nc" id="L359">		actualPreferences.setLowerPricePoint(newPreferences.getLowerPricePoint().getNumber().intValue());</span>
+<span class="nc" id="L360">		actualPreferences.setTicketQuantity(newPreferences.getTicketQuantity());</span>
+<span class="nc" id="L361">		actualPreferences.setTripDuration(newPreferences.getTripDuration());</span>
+
+<span class="nc" id="L363">	}</span>
+
+	private void addShutDownHook() {
+<span class="fc" id="L366">		Runtime.getRuntime().addShutdownHook(new Thread() {</span>
+		      public void run() {
+<span class="fc" id="L368">		        tracker.stopTracking();</span>
+<span class="fc" id="L369">		      } </span>
+		    }); 
+<span class="fc" id="L371">	}</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

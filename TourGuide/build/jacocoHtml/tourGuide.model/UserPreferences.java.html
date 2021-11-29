@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserPreferences.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.model</a> &gt; <span class="el_source">UserPreferences.java</span></div><h1>UserPreferences.java</h1><pre class="source lang-java linenums">package tourGuide.model;
+
+import javax.money.CurrencyUnit;
+import javax.money.Monetary;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.javamoney.moneta.Money;
+import tourGuide.validator.PriceCheck;
+
+/**
+ * The type User preferences.
+ */
+@PriceCheck
+public class UserPreferences {
+
+<span class="fc" id="L17">	private CurrencyUnit currency = Monetary.getCurrency(&quot;USD&quot;);</span>
+<span class="fc" id="L18">	@Min(value = 1, message = &quot;The proximity should be a positive number and at least 1&quot;)</span>
+	private int attractionProximity = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
+<span class="fc" id="L20">	@Min(value = 0, message = &quot;Lower price should be a positive number or 0&quot;)</span>
+	private double lowerPricePoint = 0; //0 by default
+<span class="fc" id="L22">	@Min(value = 0, message = &quot;High price should be a positive number&quot;)</span>
+	private double highPricePoint = Integer.MAX_VALUE; //Integer.MAX_VALUE by default
+<span class="fc" id="L24">	@Min(value = 1, message = &quot;Trip duration should be positive and at least 1&quot;)</span>
+	private int tripDuration = 1; //1 by default
+<span class="fc" id="L26">	@Min(value = 1, message = &quot;Ticket Quantity should be positive and at least 1&quot;)</span>
+	private int ticketQuantity = 1; //1 by default
+<span class="fc" id="L28">	@Min(value = 1, message = &quot;Number of adults should be positive and at least 1&quot;)</span>
+	private int numberOfAdults = 1; //1 by default
+<span class="fc" id="L30">	@Min(value = 0, message = &quot;Number of children should be positive and at least 0&quot;)</span>
+	private int numberOfChildren = 0; //0 by default
+
+	/**
+	 * Instantiates a new User preferences.
+	 */
+<span class="fc" id="L36">	public UserPreferences() {</span>
+<span class="fc" id="L37">	}</span>
+
+	/**
+	 * Sets attraction proximity.
+	 *
+	 * @param attractionProximity the attraction proximity
+	 */
+	public void setAttractionProximity(int attractionProximity) {
+<span class="nc" id="L45">		this.attractionProximity = attractionProximity;</span>
+<span class="nc" id="L46">	}</span>
+
+	/**
+	 * Gets attraction proximity.
+	 *
+	 * @return the attraction proximity
+	 */
+	public int getAttractionProximity() {
+<span class="nc" id="L54">		return attractionProximity;</span>
+	}
+
+	/**
+	 * Gets lower price point.
+	 *
+	 * @return the lower price point
+	 */
+	public Money getLowerPricePoint() {
+<span class="nc" id="L63">		return Money.of(lowerPricePoint, currency);</span>
+	}
+
+	/**
+	 * Gets currency.
+	 *
+	 * @return the currency
+	 */
+	public CurrencyUnit getCurrency() {
+<span class="nc" id="L72">		return currency;</span>
+	}
+
+	/**
+	 * Sets currency.
+	 *
+	 * @param currency the currency
+	 */
+	public void setCurrency(CurrencyUnit currency) {
+<span class="nc" id="L81">		this.currency = currency;</span>
+<span class="nc" id="L82">	}</span>
+
+	/**
+	 * Sets lower price point.
+	 *
+	 * @param lowerPricePoint the lower price point
+	 */
+	public void setLowerPricePoint(double lowerPricePoint) {
+<span class="nc" id="L90">		this.lowerPricePoint = lowerPricePoint;</span>
+<span class="nc" id="L91">	}</span>
+
+	/**
+	 * Gets high price point.
+	 *
+	 * @return the high price point
+	 */
+	public Money getHighPricePoint() {
+<span class="nc" id="L99">		return Money.of(highPricePoint, currency);</span>
+	}
+
+	/**
+	 * Sets high price point.
+	 *
+	 * @param highPricePoint the high price point
+	 */
+	public void setHighPricePoint(double highPricePoint) {
+<span class="nc" id="L108">		this.highPricePoint = highPricePoint;</span>
+<span class="nc" id="L109">	}</span>
+
+	/**
+	 * Gets trip duration.
+	 *
+	 * @return the trip duration
+	 */
+	public int getTripDuration() {
+<span class="nc" id="L117">		return tripDuration;</span>
+	}
+
+	/**
+	 * Sets trip duration.
+	 *
+	 * @param tripDuration the trip duration
+	 */
+	public void setTripDuration(int tripDuration) {
+<span class="nc" id="L126">		this.tripDuration = tripDuration;</span>
+<span class="nc" id="L127">	}</span>
+
+	/**
+	 * Gets ticket quantity.
+	 *
+	 * @return the ticket quantity
+	 */
+	public int getTicketQuantity() {
+<span class="nc" id="L135">		return ticketQuantity;</span>
+	}
+
+	/**
+	 * Sets ticket quantity.
+	 *
+	 * @param ticketQuantity the ticket quantity
+	 */
+	public void setTicketQuantity(int ticketQuantity) {
+<span class="nc" id="L144">		this.ticketQuantity = ticketQuantity;</span>
+<span class="nc" id="L145">	}</span>
+
+	/**
+	 * Gets number of adults.
+	 *
+	 * @return the number of adults
+	 */
+	public int getNumberOfAdults() {
+<span class="nc" id="L153">		return numberOfAdults;</span>
+	}
+
+	/**
+	 * Sets number of adults.
+	 *
+	 * @param numberOfAdults the number of adults
+	 */
+	public void setNumberOfAdults(int numberOfAdults) {
+<span class="nc" id="L162">		this.numberOfAdults = numberOfAdults;</span>
+<span class="nc" id="L163">	}</span>
+
+	/**
+	 * Gets number of children.
+	 *
+	 * @return the number of children
+	 */
+	public int getNumberOfChildren() {
+<span class="nc" id="L171">		return numberOfChildren;</span>
+	}
+
+	/**
+	 * Sets number of children.
+	 *
+	 * @param numberOfChildren the number of children
+	 */
+	public void setNumberOfChildren(int numberOfChildren) {
+<span class="nc" id="L180">		this.numberOfChildren = numberOfChildren;</span>
+<span class="nc" id="L181">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

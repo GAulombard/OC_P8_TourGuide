@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomErrorDecoder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.exception</a> &gt; <span class="el_source">CustomErrorDecoder.java</span></div><h1>CustomErrorDecoder.java</h1><pre class="source lang-java linenums">package tourGuide.exception;
+
+import feign.Response;
+import feign.codec.ErrorDecoder;
+
+
+/**
+ * The type Custom error decoder.
+ */
+<span class="fc" id="L10">public class CustomErrorDecoder implements ErrorDecoder {</span>
+
+<span class="fc" id="L12">    private final ErrorDecoder defaultErrorDecoder = new Default();</span>
+
+    @Override
+    public Exception decode(String methodKey, Response response) {
+
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if(response.status() == 404) {</span>
+<span class="nc" id="L18">            return new UserNotFoundException(&quot;User not found&quot;);</span>
+        }
+
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if(response.status() == 500) {</span>
+<span class="nc" id="L22">            return new UsersGatheringException(&quot; User gathering exception&quot;);</span>
+        }
+
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(response.status() == 409) {</span>
+<span class="nc" id="L26">            return  new UserAlreadyExistsException(&quot;User already exist&quot;);</span>
+        }
+
+<span class="nc" id="L29">        return defaultErrorDecoder.decode(methodKey,response);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

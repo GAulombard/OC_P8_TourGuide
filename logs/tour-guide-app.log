@@ -1,0 +1,292 @@
+2021-11-29 21:33:37.097  INFO 8884 --- [main] tourGuide.Application                    : Starting Application using Java 11.0.11 on DESKTOP-2K67CMT with PID 8884 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide)
+2021-11-29 21:33:37.111  INFO 8884 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-11-29 21:33:40.265  INFO 8884 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e79f015d-8c2b-39e6-8d05-52638315b087
+2021-11-29 21:33:41.231  INFO 8884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-29 21:33:41.259  INFO 8884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-29 21:33:41.261  INFO 8884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-29 21:33:41.585  INFO 8884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-29 21:33:41.589  INFO 8884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4371 ms
+2021-11-29 21:33:42.444  INFO 8884 --- [main] tourGuide.service.TourGuideService       : TestMode: true
+2021-11-29 21:33:42.480  INFO 8884 --- [main] tourGuide.tracker.Tracker                : Tracker run at startup: ENABLE
+2021-11-29 21:33:42.496  INFO 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:33:42.498  INFO 8884 --- [pool-2-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:33:42.500  INFO 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:33:43.430  INFO 8884 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-11-29 21:33:43.552 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=7dfe42b4-77b2-4a55-bef6-750e1b4456de
+2021-11-29 21:33:43.555 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ebb78994-34a2-41e2-a360-c2f5023288b6
+2021-11-29 21:33:43.569 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=5672ad13-7ead-4d74-adfd-fffe980a26ac
+2021-11-29 21:33:43.569 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=af02bbc4-f74b-4698-9861-eb95ba411e09
+2021-11-29 21:33:43.569 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=fb10e504-ecb7-44f8-a223-0ad19fabb814
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=181d2afe-b7af-4e11-88b4-f83a2ee8ff38
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b78ce256-baaa-4737-8045-545160ae6d08
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=852e2c10-3d79-4f70-ae1b-094d144d626c
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=2e612cb9-0d22-4d95-b609-02ce39c7d722
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=4e497827-4240-4e62-8ee9-cad9f358e935
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=05c52c18-ed2d-42b0-8731-a6460dc83b26
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f8341067-68dd-4a0b-8041-38279003e3da
+2021-11-29 21:33:43.570 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=fd7ab0c4-ae12-411d-ba4a-86ce2a22d498
+2021-11-29 21:33:43.600  INFO 8884 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-29 21:33:43.731 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=de137d53-314a-485d-8c4b-0033ccaa668f
+2021-11-29 21:33:43.732 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=439096ab-4ee8-4f5c-bb1d-14bf698a2c7e
+2021-11-29 21:33:43.734 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=d6b185d7-f5a2-4ba6-a32d-6a1836776147
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f6a63536-9dc5-4fe6-a4ad-72126063e67f
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b7f6ad77-4586-4e75-bc42-3297b7ed34dd
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=45fd2ced-f763-49a2-b3bd-df7f105b662b
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=d03385c1-bb5e-471a-b534-57cee184201f
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=1473bce9-1b9d-4f59-beec-ee71a706ad31
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=df85f3d1-942a-4c15-8e41-f4b98892d8ff
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=c7d736ac-be27-42ca-adb9-2556d80d0fd1
+2021-11-29 21:33:43.735 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=83a18d37-efd0-4bd4-8ea2-91e33fe63d31
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=cf1bae23-eb18-4a3a-9a1b-60fcfd59982f
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=6cbb6590-356b-4496-b66d-eae6200bd1e1
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=65fe68fa-3a28-4dc7-a1ac-af8c9ce58a88
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=6497da9b-cb7b-47b5-afc9-c2c3cd2da9bf
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b4766ff8-8d85-4c8e-a770-7443b4c3b71f
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9af73267-6153-4c65-b82e-6e48b69ee5e2
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=d612c93f-e77e-416c-818c-2ca8aa002c13
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=8c897256-4eab-423f-8ca1-3aad650f3b52
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f734666f-366b-4fe2-9a2d-aed9e0ccd76e
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=8adef197-2692-4d82-a41a-73ae5e7b36c6
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=fadee08e-fa47-4b56-8f9b-047e31a0deaa
+2021-11-29 21:33:43.736 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b3d6cd89-1708-4ded-9c3f-520b35eceb01
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=4a87cb22-3d42-4a17-b41a-90a50bf0d0ee
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=905bf5cf-63a7-4bf3-9bb9-c30c64c6d08b
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=e6c0f466-305d-45de-8af3-d032400de85a
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=49e3b007-0549-47cf-9591-4935213fa074
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=69007ce4-7526-4677-b733-b40b020a4b9c
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=22366e0a-ca21-4afe-8f64-0884aac15588
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=a8e3cab5-c5b3-4f50-aece-df16d33af113
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=7fcaa981-685d-4d26-8e6e-415b6b1b079f
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9ffed4e8-7fe5-4c89-bdd2-9e4f34d106c6
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=2356285b-4971-4ebb-82d5-9b08cfb0c2d9
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=959c1418-260a-4b34-94d1-2a69aa49828c
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=d9e04d81-863f-419f-bbee-5745193969d7
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=a69c55ae-9cb1-4988-9a91-3bf7c7a3944a
+2021-11-29 21:33:43.737 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f9d6a51d-55e0-4c3d-93c6-ea26f6df5698
+2021-11-29 21:33:44.572 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9b22261a-6123-47b8-aa8f-f0bcae6cc510
+2021-11-29 21:33:44.573 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9216231b-15ee-4c4c-af59-816d2dadbeed
+2021-11-29 21:33:44.575 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=54989784-c10c-4a19-958f-40889e92de07
+2021-11-29 21:33:44.575 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=6c98918f-f444-4025-a997-bb8c4de1c471
+2021-11-29 21:33:44.575 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ae1af31d-571d-409e-9f26-411f28afa9be
+2021-11-29 21:33:44.576 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=e70be778-bf51-4fa1-8bcf-e77e6accda44
+2021-11-29 21:33:44.577 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ac103c91-801c-4ed3-bf3b-0aa9db88194d
+2021-11-29 21:33:44.578 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9134b751-ec0b-489d-88ac-7039a7800397
+2021-11-29 21:33:44.579 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b7a9fdbe-83e7-4609-bca4-3de65ecf5741
+2021-11-29 21:33:44.581 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=0834d165-fefc-4433-8423-12d494884e16
+2021-11-29 21:33:44.634 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=8a9eb9fa-feb4-4662-91b4-680d25052919
+2021-11-29 21:33:44.635 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=4f841604-6a70-4858-805b-e67ad113d4c6
+2021-11-29 21:33:44.635 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=0ccaff4e-91ed-44c0-afb2-6cafb47ce49b
+2021-11-29 21:33:44.635 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=30519366-da2c-40aa-93d3-d98bce4d6d31
+2021-11-29 21:33:44.635 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=35675c4e-f7e5-4cc9-bb43-ef553ca1b4e4
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ec13b3b7-b2b0-4a38-992f-2000496611d6
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f4a4c8d7-9cfd-46ab-90b4-6df70e18899a
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=3b2078c4-b188-4060-abf6-e0b98f7bcacc
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=63affe5c-c8f1-415f-b914-de43f2690bf5
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=1b6b7f26-d339-4fd2-ad8a-b9bc94f7b983
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=0585eecd-57f7-4ecf-8152-638c02510e6b
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=7da21d0c-3f4d-473a-9d55-34873425e647
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9fa859a3-0b68-429c-a058-6dde09c29c8e
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=25e8a5aa-e9e2-430e-a23a-1ce778427f29
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=9002650b-89de-4d9c-88dc-8053e6bd4ec6
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=77de8e5b-9080-4604-906e-01ab14333cf6
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=28860b52-9b1d-4646-b399-54c2d9cd7e7d
+2021-11-29 21:33:44.636 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ebb32838-43fe-4940-8b3e-a6cfdf7562f8
+2021-11-29 21:33:44.641 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=0f94903f-c5e7-43e6-ab3a-454dd98ca458
+2021-11-29 21:33:44.642 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=e454d379-da73-4968-bd43-7cecd82c5791
+2021-11-29 21:33:44.642 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=85140bed-69ec-4354-b6dd-e207e79a687f
+2021-11-29 21:33:44.643 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=2609d8b8-2711-4ee6-ae18-d33003d0fa37
+2021-11-29 21:33:44.643 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=6dffc72a-f0d4-43da-a456-cdec33f76b69
+2021-11-29 21:33:44.643 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=c3a4d0a7-3627-483c-8b43-3651f7f1f130
+2021-11-29 21:33:44.643 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=c9c41cb3-2e22-4761-83a3-306ff764180f
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=b387d1c1-8c7b-47fb-bd0a-5d387934a9b8
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=cf7091fd-4e94-42dd-8884-519a58e4c29c
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=4ca8cb30-1f22-4b82-8cae-12a0233a7f09
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ddeec8fd-67f1-41ce-8ec3-d3ba18a1c03e
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=12805ebe-3049-4c4e-a831-a7fe8ba090c1
+2021-11-29 21:33:44.644 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=45f8b177-d0a5-4eca-9e79-b5127eda2368
+2021-11-29 21:33:44.678 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=917b5b2d-3076-4c54-a837-c99218a6c6f6
+2021-11-29 21:33:44.870 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=94897144-5256-480d-b44e-eb96ae09ee1b
+2021-11-29 21:33:44.870 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=f22338ba-5c78-4e39-a706-8400ed309a51
+2021-11-29 21:33:44.870 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=c1a839af-2cb1-4989-946a-e1fdfe727446
+2021-11-29 21:33:44.871 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=dcb8f496-3e39-404d-9956-18f313e03438
+2021-11-29 21:33:44.931 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=35461ede-80f5-4d8f-a428-ee333183c18e
+2021-11-29 21:33:44.932 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=3849f49c-3221-4d5c-9b48-5def271e1572
+2021-11-29 21:33:44.932 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=ed998f41-6216-46e4-98ef-15db72d70d88
+2021-11-29 21:33:45.031 ERROR 8884 --- [pool-2-thread-1] tourGuide.service.TourGuideService       : feign.RetryableException: Connection refused: connect executing GET http://localhost:8081/getUserLocation?userId=3f6a409a-d9a5-4bc5-bb28-d09beffdbbbc
+2021-11-29 21:33:45.032  INFO 8884 --- [pool-2-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:33:45.877  INFO 8884 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-11-29 21:33:46.602  INFO 8884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 21:33:47.639  INFO 8884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-29 21:33:47.709  INFO 8884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-29 21:33:47.805  INFO 8884 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-29 21:33:48.366  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-11-29 21:33:48.370  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2021-11-29 21:33:48.371  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2021-11-29 21:33:48.374  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2021-11-29 21:33:48.378  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2021-11-29 21:33:48.379  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2021-11-29 21:33:48.381  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2021-11-29 21:33:48.388  INFO 8884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2021-11-29 21:33:48.640  INFO 8884 --- [main] tourGuide.Application                    : Started Application in 13.971 seconds (JVM running for 15.631)
+2021-11-29 21:33:49.926  INFO 8884 --- [RMI TCP Connection(7)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-29 21:33:49.926  INFO 8884 --- [RMI TCP Connection(7)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-29 21:33:49.931  INFO 8884 --- [RMI TCP Connection(7)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2021-11-29 21:34:39.893  INFO 8884 --- [http-nio-8080-exec-1] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-11-29 21:35:48.365  INFO 11940 --- [main] tourGuide.Application                    : Starting Application using Java 11.0.11 on DESKTOP-2K67CMT with PID 11940 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide)
+2021-11-29 21:35:48.367  INFO 11940 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-11-29 21:35:49.397  INFO 11940 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e79f015d-8c2b-39e6-8d05-52638315b087
+2021-11-29 21:35:49.670  INFO 11940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-29 21:35:49.678  INFO 11940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-29 21:35:49.679  INFO 11940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-29 21:35:49.779  INFO 11940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-29 21:35:49.779  INFO 11940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1375 ms
+2021-11-29 21:35:50.083  INFO 11940 --- [main] tourGuide.service.TourGuideService       : TestMode: true
+2021-11-29 21:35:50.106  INFO 11940 --- [main] tourGuide.tracker.Tracker                : Tracker run at startup: ENABLE
+2021-11-29 21:35:50.109  INFO 11940 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:35:50.112  INFO 11940 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:35:50.113  INFO 11940 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:35:50.767  INFO 11940 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:35:50.836  INFO 11940 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:35:50.838  INFO 11940 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 21:35:50.921  INFO 11940 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-11-29 21:35:50.971  INFO 11940 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-29 21:35:52.293  INFO 11940 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-11-29 21:35:52.430  INFO 11940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 21:35:53.733  INFO 11940 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-11-29 21:35:53.734  INFO 11940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-29 21:35:53.749  INFO 11940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-29 21:35:53.773  INFO 11940 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-29 21:35:53.883  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-11-29 21:35:53.884  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2021-11-29 21:35:53.884  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2021-11-29 21:35:53.885  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2021-11-29 21:35:53.885  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2021-11-29 21:35:53.885  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2021-11-29 21:35:53.886  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2021-11-29 21:35:53.886  INFO 11940 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2021-11-29 21:35:53.932  INFO 11940 --- [main] tourGuide.Application                    : Started Application in 7.148 seconds (JVM running for 8.163)
+2021-11-29 21:35:54.523  INFO 11940 --- [RMI TCP Connection(1)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-29 21:35:54.523  INFO 11940 --- [RMI TCP Connection(1)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-29 21:35:54.527  INFO 11940 --- [RMI TCP Connection(1)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-11-29 21:35:57.375  INFO 11940 --- [http-nio-8080-exec-7] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-11-29 21:36:03.779  INFO 11940 --- [http-nio-8080-exec-4] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-11-29 21:37:49.118  INFO 19140 --- [main] tourGuide.Application                    : Starting Application using Java 11.0.11 on DESKTOP-2K67CMT with PID 19140 (D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide\build\classes\java\main started by Hodor-Fixe in D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide)
+2021-11-29 21:37:49.121  INFO 19140 --- [main] tourGuide.Application                    : No active profile set, falling back to default profiles: default
+2021-11-29 21:37:50.072  INFO 19140 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e79f015d-8c2b-39e6-8d05-52638315b087
+2021-11-29 21:37:50.345  INFO 19140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-29 21:37:50.355  INFO 19140 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-29 21:37:50.356  INFO 19140 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-29 21:37:50.459  INFO 19140 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-29 21:37:50.459  INFO 19140 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1302 ms
+2021-11-29 21:37:50.763  INFO 19140 --- [main] tourGuide.service.TourGuideService       : TestMode: true
+2021-11-29 21:37:50.787  INFO 19140 --- [main] tourGuide.tracker.Tracker                : Tracker run at startup: ENABLE
+2021-11-29 21:37:50.789  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:37:50.790  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:37:50.790  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:37:51.222  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:37:51.274  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:37:51.277  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 21:37:51.386  INFO 19140 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 5 endpoint(s) beneath base path '/actuator'
+2021-11-29 21:37:51.436  INFO 19140 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-29 21:37:52.675  INFO 19140 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-11-29 21:37:52.746  INFO 19140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 21:37:53.844  INFO 19140 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-11-29 21:37:53.844  INFO 19140 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-29 21:37:53.857  INFO 19140 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-29 21:37:53.878  INFO 19140 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-29 21:37:53.946  INFO 19140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2021-11-29 21:37:53.998  INFO 19140 --- [main] tourGuide.Application                    : Started Application in 6.396 seconds (JVM running for 7.39)
+2021-11-29 21:37:54.215  INFO 19140 --- [RMI TCP Connection(1)-10.0.75.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-29 21:37:54.216  INFO 19140 --- [RMI TCP Connection(1)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-29 21:37:54.219  INFO 19140 --- [RMI TCP Connection(1)-10.0.75.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-29 21:37:57.250  INFO 19140 --- [http-nio-8080-exec-6] t.controller.TourGuideController         : HTTP GET request receive at index
+2021-11-29 21:42:51.279  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:42:51.279  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:42:51.280  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:42:51.518  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:42:51.548  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:42:51.548  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 21:47:51.548  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:47:51.549  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:47:51.549  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:47:51.785  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:47:51.829  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:47:51.830  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 21:52:51.830  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:52:51.830  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:52:51.830  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:52:52.060  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:52:52.087  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:52:52.087  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 21:57:52.088  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 21:57:52.089  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 21:57:52.089  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 21:57:52.314  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 21:57:52.338  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 21:57:52.339  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:02:52.339  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:02:52.339  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:02:52.340  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:02:52.567  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:02:52.592  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:02:52.592  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:07:52.593  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:07:52.593  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:07:52.593  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:07:52.814  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:07:52.843  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:07:52.844  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:12:52.844  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:12:52.845  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:12:52.845  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:12:53.049  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:12:53.077  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:12:53.077  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:17:53.078  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:17:53.079  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:17:53.079  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:17:53.293  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:17:53.320  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:17:53.321  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:22:53.321  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:22:53.322  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:22:53.323  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:22:53.533  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:22:53.557  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:22:53.558  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:27:53.558  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:27:53.560  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:27:53.560  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:27:53.755  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:27:53.780  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:27:53.781  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:32:53.781  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:32:53.782  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:32:53.782  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:32:53.987  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:32:54.047  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:32:54.047  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:37:54.053  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:37:54.054  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:37:54.054  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:37:55.101  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:37:55.296  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 1 seconds.
+2021-11-29 22:37:55.297  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:42:55.304  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:42:55.305  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:42:55.305  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:42:55.557  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:42:55.614  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:42:55.614  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:47:55.614  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:47:55.615  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:47:55.615  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:47:55.856  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:47:55.887  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:47:55.887  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2021-11-29 22:52:55.889  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Processing to get all users
+2021-11-29 22:52:55.890  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2021-11-29 22:52:55.890  INFO 19140 --- [pool-1-thread-1] tourGuide.service.TourGuideService       : ** Multithreading ** Processing to track all user location.
+2021-11-29 22:52:56.108  INFO 19140 --- [pool-1-thread-1] tourGuide.service.RewardsService         : ** Multithreading ** Processing to calculate all rewards
+2021-11-29 22:52:56.138  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2021-11-29 22:52:56.139  INFO 19140 --- [pool-1-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping

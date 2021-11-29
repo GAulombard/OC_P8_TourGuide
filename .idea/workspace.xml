@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="129d89e7-34de-4c07-ba01-968e41d27c39" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/RewardCentral">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/TourGuide">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/TripPricer">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/commons">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/gpsUtil">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/RewardCentral">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/TripPricer">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/TourGuide">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TourGuideApp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TourGuideApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TourGuideApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TourGuideApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20PBZpngpUnx53lf4lx11jQPumL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="17" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../P9_aulombard_geoffrey/_Autres/MediscreenApp-release" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3873563" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide" />
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TripPricer" />
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\gpsUtil" />
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\RewardCentral" />
+      <recent name="D:\DevInformatique\_OpenClasseRoom_DeveloppeurApllicationJava\P8_aulombard_geoffrey\OC_P8_TourGuide\TourGuide" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.PerformanceTest.highVolumeTrackLocation">
+    <configuration name="OC_P8_TourGuide [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PerformanceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;tourGuide.performance.PerformanceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":TourGuide:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PerformanceTest.highVolumeGetRewards" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;tourGuide.performance.PerformanceTest.highVolumeGetRewards&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":TourGuide:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PerformanceTest.highVolumeTrackLocation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;tourGuide.performance.PerformanceTest.highVolumeTrackLocation&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":TourGuide:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'TourGuideApp.TourGuide.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests *" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":TourGuide:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="TourGuideApp.TourGuide.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tourGuide.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GpsUtilApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="TourGuideApp.gpsUtil.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.gpsutil.GpsUtilApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RewardCentralApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="TourGuideApp.RewardCentral.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.rewardcentral.RewardCentralApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TripPricerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="TourGuideApp.TripPricer.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.trippricer.TripPricerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.OC_P8_TourGuide [bootJar]" />
+      <item itemvalue="Gradle.Tests in 'TourGuideApp.TourGuide.test'" />
+      <item itemvalue="Gradle.PerformanceTest.highVolumeTrackLocation" />
+      <item itemvalue="Gradle.PerformanceTest.highVolumeGetRewards" />
+      <item itemvalue="Gradle.PerformanceTest" />
+      <item itemvalue="Spring Boot.Application (1)" />
+      <item itemvalue="Spring Boot.GpsUtilApplication (2)" />
+      <item itemvalue="Spring Boot.RewardCentralApplication (1)" />
+      <item itemvalue="Spring Boot.TripPricerApplication (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.PerformanceTest.highVolumeTrackLocation" />
+        <item itemvalue="Gradle.PerformanceTest.highVolumeGetRewards" />
+        <item itemvalue="Gradle.PerformanceTest" />
+        <item itemvalue="Gradle.Tests in 'TourGuideApp.TourGuide.test'" />
+        <item itemvalue="Gradle.OC_P8_TourGuide [bootJar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="129d89e7-34de-4c07-ba01-968e41d27c39" name="Changes" comment="" />
+      <created>1635936402284</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635936402284</updated>
+      <workItem from="1635936413704" duration="15476000" />
+      <workItem from="1635960534790" duration="1191000" />
+      <workItem from="1636024244391" duration="1529000" />
+      <workItem from="1636100994392" duration="7151000" />
+      <workItem from="1636108760960" duration="3786000" />
+      <workItem from="1636112569793" duration="9085000" />
+      <workItem from="1636365843358" duration="14829000" />
+      <workItem from="1636381775391" duration="2562000" />
+      <workItem from="1636453648086" duration="5003000" />
+      <workItem from="1636459511901" duration="23358000" />
+      <workItem from="1636546845502" duration="8574000" />
+      <workItem from="1636567770119" duration="1670000" />
+      <workItem from="1636569548566" duration="18000" />
+      <workItem from="1636632134825" duration="1683000" />
+      <workItem from="1636634221393" duration="12031000" />
+      <workItem from="1636728381915" duration="12717000" />
+      <workItem from="1636993086495" duration="596000" />
+      <workItem from="1637059701807" duration="15407000" />
+      <workItem from="1637174107983" duration="4650000" />
+      <workItem from="1637226079240" duration="12598000" />
+      <workItem from="1637314829379" duration="6124000" />
+      <workItem from="1637665645773" duration="569000" />
+      <workItem from="1638164685997" duration="6211000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
