@@ -53,7 +53,7 @@ public class TourGuideController {
      * @return the string
      */
     @ApiOperation(value = "This URI returns \"Greetings from TourGuide!\".")
-    @RequestMapping(value={"","/"})
+    @GetMapping(value={"","/"})
     public String index() {
 
         logger.info("HTTP GET request receive at index");
@@ -69,7 +69,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "This URI returns a User requiring userName.")
-    @RequestMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUser(
             @ApiParam(
                     value = "userName",
@@ -98,7 +98,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "This URI returns a user preferences requiring userName.")
-    @RequestMapping(value = "/getPreferences",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getPreferences",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUserPreferences(
             @ApiParam(
                     value = "userName",
@@ -126,7 +126,7 @@ public class TourGuideController {
      * @throws UsersGatheringException the users gathering exception
      */
     @ApiOperation(value = "This URI returns a list of all Users.")
-    @RequestMapping(value = "/getAllUsers",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getAllUsers",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAll() throws UsersGatheringException {
         logger.info("HTTP GET request receive at /getAllUsers");
 
@@ -150,7 +150,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "Return the last visited VisitedLocation for a specified user name.")
-    @RequestMapping(value = "/getLocation",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getLocation",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getLocation(
             @ApiParam(
                     value = "userName",
@@ -183,7 +183,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "Return the closest five tourist attractions to the user - no matter how far the user is -")
-    @RequestMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getNearbyAttractions",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getNearbyAttractions(
             @ApiParam(
                     value = "userName",
@@ -214,7 +214,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "Return all the Rewards for a specified user name.")
-    @RequestMapping(value = "/getRewards",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getRewards",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getRewards(
             @ApiParam(
                     value = "userName",
@@ -250,7 +250,7 @@ public class TourGuideController {
      * @throws UsersGatheringException the users gathering exception
      */
     @ApiOperation(value = "Get the list of every user's most recent location as JSON.")
-    @RequestMapping(value = "/getAllCurrentLocations",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getAllCurrentLocations",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllCurrentLocations() throws UsersGatheringException {
         logger.info("HTTP GET request receive at \"/getAllCurrentLocations\"");
 
@@ -274,7 +274,7 @@ public class TourGuideController {
      * @throws UserNotFoundException the user not found exception
      */
     @ApiOperation(value = "Calculate and return a list of providers for attractions depending on user total reward points and preferences.")
-    @RequestMapping(value = "/getTripDeals",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getTripDeals",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getTripDeals(
             @ApiParam(
                     value = "userName",
@@ -327,7 +327,7 @@ public class TourGuideController {
      * @throws UsersGatheringException the user gathering exception
      */
     @ApiOperation(value = "Force new tracking of all users")
-    @RequestMapping(value = "/trackAll",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/trackAll",produces = MediaType.APPLICATION_JSON_VALUE)
     public void trackAllUsers() throws UsersGatheringException {
         logger.info("HTTP GET request received at /trackAll");
 

@@ -246,7 +246,8 @@ public class TourGuideService {
 
 		logger.info("** Multithreading ** Processing to track all user location.");
 		//requesting a pool of n Threads
-		ExecutorService executorService = Executors.newFixedThreadPool(200);//get an instance of the n threads
+		ExecutorService executorService = Executors.newFixedThreadPool(50);//get an instance of the n threads
+		//ExecutorService executorService = Executors.newCachedThreadPool();
 
 		List<Future<?>> listFuture = new ArrayList<>();
 
@@ -262,7 +263,7 @@ public class TourGuideService {
 
 		listFuture.stream().forEach(futureResult->{
 			try {
-				//call get() to see the result returned by the callable lambda used before
+				//call get() to see the result returned by the callable lambda used before(returns the returned value of lambda)
 				futureResult.get();
 			} catch (InterruptedException | ExecutionException e) {
 				logger.error(e.getMessage());
@@ -270,6 +271,7 @@ public class TourGuideService {
 			}
 		});
 
+		executorService.shutdown();
 		rewardsService.calculateRewardsMultiThread(userList);
 
 	}

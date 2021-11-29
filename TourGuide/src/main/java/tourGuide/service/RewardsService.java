@@ -77,6 +77,7 @@ public class RewardsService {
 		logger.info("** Multithreading ** Processing to calculate all rewards");
 
 		ExecutorService executorService = Executors.newFixedThreadPool(200);
+		//ExecutorService executorService = Executors.newCachedThreadPool();
 
 		List<Attraction> attractions = gpsUtilFeign.getAttractions();
 		List<Future<?>> listFuture = new ArrayList<>();
@@ -110,7 +111,7 @@ public class RewardsService {
 				e.printStackTrace();
 			}
 		});
-
+		executorService.shutdown();
 	}
 
 	/**
