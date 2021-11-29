@@ -23,7 +23,7 @@ This is a Spring Boot Application, working with (check the ``build.gradle`` file
 
 ### Architecture, Technical conception
 
-![TechnicalConception](TechnicalConception.png)
+![TechnicalConception](TechnicalConceptionDiagram.png)
 
 
 ### Run the app
