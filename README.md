@@ -21,9 +21,9 @@ This is a Spring Boot Application, working with (check the ``build.gradle`` file
 - Gradle 6.9.1
 - Docker version 18.09.0, build 4d60db4
 
-### Architecture
+### Architecture, Technical conception
 
-- this application use the MVC pattern.
+![TechnicalConception](TechnicalConception.png)
 
 
 ### Run the app
