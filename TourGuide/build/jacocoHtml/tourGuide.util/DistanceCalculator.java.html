@@ -7,7 +7,7 @@ import com.tourguide.commons.model.VisitedLocation;
 /**
  * The type Distance calculator.
  */
-<span class="fc" id="L10">public class DistanceCalculator {</span>
+<span class="nc" id="L10">public class DistanceCalculator {</span>
 
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 <span class="fc" id="L13">    private static int defaultProximityBuffer = 10; // proximity in miles (10 by default)</span>
@@ -20,8 +20,8 @@ import com.tourguide.commons.model.VisitedLocation;
      * @param proximityBufferToSet the proximity buffer to set
      */
     public static void setProximityBuffer(int proximityBufferToSet) {
-<span class="fc" id="L23">        proximityBuffer = proximityBufferToSet;</span>
-<span class="fc" id="L24">    }</span>
+<span class="nc" id="L23">        proximityBuffer = proximityBufferToSet;</span>
+<span class="nc" id="L24">    }</span>
 
     /**
      * Gets default proximity buffer.
@@ -38,15 +38,15 @@ import com.tourguide.commons.model.VisitedLocation;
      * @return the proximity buffer
      */
     public static int getProximityBuffer() {
-<span class="fc" id="L41">        return proximityBuffer;</span>
+<span class="nc" id="L41">        return proximityBuffer;</span>
     }
 
     /**
      * Sets default proximity buffer.
      */
     public void setDefaultProximityBuffer() {
-<span class="fc" id="L48">        proximityBuffer = defaultProximityBuffer;</span>
-<span class="fc" id="L49">    }</span>
+<span class="nc" id="L48">        proximityBuffer = defaultProximityBuffer;</span>
+<span class="nc" id="L49">    }</span>
 
     /**
      * Sets attraction proximity range.
@@ -54,8 +54,8 @@ import com.tourguide.commons.model.VisitedLocation;
      * @param attractionProximityRange the attraction proximity range
      */
     public static void setAttractionProximityRange(int attractionProximityRange) {
-<span class="fc" id="L57">        DistanceCalculator.attractionProximityRange = attractionProximityRange;</span>
-<span class="fc" id="L58">    }</span>
+<span class="nc" id="L57">        DistanceCalculator.attractionProximityRange = attractionProximityRange;</span>
+<span class="nc" id="L58">    }</span>
 
     /**
      * Is within attraction proximity boolean.
@@ -66,7 +66,7 @@ import com.tourguide.commons.model.VisitedLocation;
      */
     public static boolean isWithinAttractionProximity(Attraction attraction, Location location) {
 
-<span class="fc bfc" id="L69" title="All 2 branches covered.">        return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
     }
 
     /**

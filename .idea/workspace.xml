@@ -5,7 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="129d89e7-34de-4c07-ba01-968e41d27c39" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TechnicalConception.png" beforeDir="false" afterPath="$PROJECT_DIR$/TechnicalConception.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/helper/InternalTestHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/helper/InternalTestHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/RewardsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/RewardsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/TourGuideService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/TourGuideService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/TourGuideService.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/main/tourGuide/service/TourGuideService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/controller/TourGuideControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/controller/TourGuideControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/performance/PerformanceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/performance/PerformanceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/service/RewardsServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/classes/java/test/tourGuide/service/RewardsServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacoco/test.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/prettify.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/prettify.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/prettify.js" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/prettify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/report.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/report.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/sort.js" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-resources/sort.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.configuration/FeignExceptionConfig.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.configuration/FeignExceptionConfig.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.configuration/SwaggerConfig.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.configuration/SwaggerConfig.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/TourGuideController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.controller/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/CustomErrorDecoder.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/CustomErrorDecoder.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserAlreadyExistsException.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserAlreadyExistsException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserAlreadyExistsException.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserAlreadyExistsException.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserNotFoundException.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserNotFoundException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserNotFoundException.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UserNotFoundException.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UsersGatheringException.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/UsersGatheringException.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.exception/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/InternalTestHelper.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/InternalTestHelper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/InternalTestHelper.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/InternalTestHelper.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.helper/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User$1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/User.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserPreferences.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserPreferences.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserPreferences.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserPreferences.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserReward.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/UserReward.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.model/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/RewardsService.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/RewardsService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/RewardsService.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/RewardsService.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService$1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/TourGuideService.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.service/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.tracker/Tracker.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/DistanceCalculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/DistanceCalculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/DistanceCalculator.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/DistanceCalculator.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.util/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/PriceValidator.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/PriceValidator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/PriceValidator.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/PriceValidator.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide.validator/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/jacocoHtml/tourGuide/Application.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/jacoco/test/jacocoTestReport.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/jacoco/test/jacocoTestReport.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/classes/tourGuide.performance.PerformanceTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/classes/tourGuide.performance.PerformanceTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/packages/tourGuide.performance.html" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/reports/tests/test/packages/tourGuide.performance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/TEST-tourGuide.performance.PerformanceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/TEST-tourGuide.performance.PerformanceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/logs/tour-guide-app.log" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/logs/tour-guide-app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/helper/InternalTestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/helper/InternalTestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/service/RewardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/service/RewardsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/service/TourGuideService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/main/java/tourGuide/service/TourGuideService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/controller/TourGuideControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/controller/TourGuideControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/performance/PerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/performance/PerformanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/service/RewardsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourGuide/src/test/java/tourGuide/service/RewardsServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/tour-guide-app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/tour-guide-app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/tour-guide-app.log.2021-11-18.0.gz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,28 +214,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'TourGuideApp.TourGuide.test'">
-    <configuration name="OC_P8_TourGuide [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.PerformanceTest.highVolumeGetRewards">
     <configuration name="PerformanceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -223,12 +278,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'TourGuideApp.TourGuide.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RewardsServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests *" />
+        <option name="scriptParameters" value="--tests &quot;tourGuide.service.RewardsServiceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":TourGuide:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TourGuideServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;tourGuide.service.TourGuideServiceTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -279,11 +355,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.OC_P8_TourGuide [bootJar]" />
-      <item itemvalue="Gradle.Tests in 'TourGuideApp.TourGuide.test'" />
-      <item itemvalue="Gradle.PerformanceTest.highVolumeTrackLocation" />
-      <item itemvalue="Gradle.PerformanceTest.highVolumeGetRewards" />
       <item itemvalue="Gradle.PerformanceTest" />
+      <item itemvalue="Gradle.RewardsServiceTest" />
+      <item itemvalue="Gradle.TourGuideServiceTest" />
+      <item itemvalue="Gradle.PerformanceTest.highVolumeGetRewards" />
+      <item itemvalue="Gradle.PerformanceTest.highVolumeTrackLocation" />
       <item itemvalue="Spring Boot.Application (1)" />
       <item itemvalue="Spring Boot.GpsUtilApplication (2)" />
       <item itemvalue="Spring Boot.RewardCentralApplication (1)" />
@@ -291,11 +367,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PerformanceTest" />
         <item itemvalue="Gradle.PerformanceTest.highVolumeGetRewards" />
         <item itemvalue="Gradle.PerformanceTest.highVolumeTrackLocation" />
-        <item itemvalue="Gradle.Tests in 'TourGuideApp.TourGuide.test'" />
-        <item itemvalue="Gradle.OC_P8_TourGuide [bootJar]" />
+        <item itemvalue="Gradle.PerformanceTest" />
+        <item itemvalue="Gradle.TourGuideServiceTest" />
+        <item itemvalue="Gradle.RewardsServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -329,7 +405,10 @@
       <workItem from="1637226079240" duration="12598000" />
       <workItem from="1637314829379" duration="6124000" />
       <workItem from="1637665645773" duration="569000" />
-      <workItem from="1638164685997" duration="9350000" />
+      <workItem from="1638164685997" duration="9545000" />
+      <workItem from="1638263460289" duration="1844000" />
+      <workItem from="1638286893349" duration="6780000" />
+      <workItem from="1638350567884" duration="2917000" />
     </task>
     <servers />
   </component>

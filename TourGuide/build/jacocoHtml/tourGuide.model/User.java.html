@@ -71,7 +71,7 @@ public class User {
 	 * @return the phone number
 	 */
 	public String getPhoneNumber() {
-<span class="fc" id="L74">		return phoneNumber;</span>
+<span class="nc" id="L74">		return phoneNumber;</span>
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class User {
 	 * @return the email address
 	 */
 	public String getEmailAddress() {
-<span class="fc" id="L92">		return emailAddress;</span>
+<span class="nc" id="L92">		return emailAddress;</span>
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class User {
 	 * @return the latest location timestamp
 	 */
 	public Date getLatestLocationTimestamp() {
-<span class="fc" id="L110">		return latestLocationTimestamp;</span>
+<span class="nc" id="L110">		return latestLocationTimestamp;</span>
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class User {
 	 * @return the user preferences
 	 */
 	public UserPreferences getUserPreferences() {
-<span class="fc" id="L166">		return userPreferences;</span>
+<span class="nc" id="L166">		return userPreferences;</span>
 	}
 
 	/**
@@ -181,16 +181,16 @@ public class User {
 	 * @return the last visited location
 	 */
 	public VisitedLocation getLastVisitedLocation() {
-<span class="fc" id="L184">		List&lt;VisitedLocation&gt; visitedLocationList = getVisitedLocations();</span>
-<span class="fc" id="L185">		Comparator&lt;VisitedLocation&gt; byTimeVisited = new Comparator&lt;VisitedLocation&gt;() {</span>
+<span class="nc" id="L184">		List&lt;VisitedLocation&gt; visitedLocationList = getVisitedLocations();</span>
+<span class="nc" id="L185">		Comparator&lt;VisitedLocation&gt; byTimeVisited = new Comparator&lt;VisitedLocation&gt;() {</span>
 
 			public int compare(VisitedLocation o1, VisitedLocation o2) {
-<span class="fc" id="L188">				return Long.valueOf(o1.timeVisited.getTime()).compareTo(o2.timeVisited.getTime());</span>
+<span class="nc" id="L188">				return Long.valueOf(o1.timeVisited.getTime()).compareTo(o2.timeVisited.getTime());</span>
 			}
 		};
-<span class="fc" id="L191">		Collections.sort(visitedLocationList,byTimeVisited.reversed());</span>
+<span class="nc" id="L191">		Collections.sort(visitedLocationList,byTimeVisited.reversed());</span>
 
-<span class="fc" id="L193">		return visitedLocationList.get(0);</span>
+<span class="nc" id="L193">		return visitedLocationList.get(0);</span>
 	}
 
 	/**
@@ -199,8 +199,8 @@ public class User {
 	 * @param tripDeals the trip deals
 	 */
 	public void setTripDeals(List&lt;Provider&gt; tripDeals) {
-<span class="fc" id="L202">		this.tripDeals = tripDeals;</span>
-<span class="fc" id="L203">	}</span>
+<span class="nc" id="L202">		this.tripDeals = tripDeals;</span>
+<span class="nc" id="L203">	}</span>
 
 	/**
 	 * Gets trip deals.
@@ -208,7 +208,7 @@ public class User {
 	 * @return the trip deals
 	 */
 	public List&lt;Provider&gt; getTripDeals() {
-<span class="fc" id="L211">		return tripDeals;</span>
+<span class="nc" id="L211">		return tripDeals;</span>
 	}
 
 }

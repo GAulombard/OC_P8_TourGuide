@@ -47,8 +47,8 @@ public class InternalTestHelper {
 	 * Free internal user map.
 	 */
 	public static void freeInternalUserMap() {
-<span class="fc" id="L50">		internalUserMap.clear();</span>
-<span class="fc" id="L51">	}</span>
+<span class="nc" id="L50">		internalUserMap.clear();</span>
+<span class="nc" id="L51">	}</span>
 
 	/**
 	 * Gets internal user number.
@@ -65,7 +65,7 @@ public class InternalTestHelper {
 	 * @return the trip pricer api key
 	 */
 	public String getTripPricerApiKey() {
-<span class="fc" id="L68">		return tripPricerApiKey;</span>
+<span class="nc" id="L68">		return tripPricerApiKey;</span>
 	}
 
 	/**
@@ -107,14 +107,14 @@ public class InternalTestHelper {
 <span class="fc" id="L107">	}</span>
 
 	private double generateRandomLongitude() {
-<span class="fc" id="L110">		double leftLimit = -180; //-180 by default</span>
-<span class="fc" id="L111">		double rightLimit = 180; //180 by default</span>
+<span class="fc" id="L110">		double leftLimit = -149.88; //-180 by default</span>
+<span class="fc" id="L111">		double rightLimit = -71.07; //180 by default</span>
 <span class="fc" id="L112">		return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
 	}
 
 	private double generateRandomLatitude() {
-<span class="fc" id="L116">		double leftLimit = -85.05112878; //-85.05112878 by default</span>
-<span class="fc" id="L117">		double rightLimit = 85.05112878; //85.05112878 by default</span>
+<span class="fc" id="L116">		double leftLimit = 33.6; //-85.05112878 by default</span>
+<span class="fc" id="L117">		double rightLimit = 61.22; //85.05112878 by default</span>
 <span class="fc" id="L118">		return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
 	}
 

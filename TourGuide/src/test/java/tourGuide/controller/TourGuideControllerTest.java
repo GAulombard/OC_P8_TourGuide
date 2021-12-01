@@ -193,7 +193,7 @@ public class TourGuideControllerTest {
         Attraction attraction = gpsUtilFeign.getAttractions().get(0);
         VisitedLocation visitedLocation = new VisitedLocation(user.getUserId(), attraction, new Date());
         user.addToVisitedLocations(visitedLocation);
-        tourGuideService.trackUserLocation(user);
+        rewardsService.calculateRewards(user);
 
         mockMvc.perform(get("/getRewards").param("userName",username))
                 .andExpect(status().isOk())

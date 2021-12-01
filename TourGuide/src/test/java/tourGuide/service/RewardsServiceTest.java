@@ -100,7 +100,7 @@ public class RewardsServiceTest {
 
 		Attraction attraction = gpsUtilFeign.getAttractions().get(0);
 		user.addToVisitedLocations(new VisitedLocation(user.getUserId(), attraction, new Date()));
-		tourGuideService.trackUserLocation(user);
+		rewardsService.calculateRewards(user);
 		List<UserReward> userRewards = user.getUserRewards();
 
 		assertTrue(userRewards.size() == 1);

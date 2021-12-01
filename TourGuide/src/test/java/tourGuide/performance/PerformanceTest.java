@@ -60,6 +60,8 @@ public class PerformanceTest {
 	private GpsUtilFeign gpsUtilFeign;
 	@Autowired
 	private RewardsService rewardsService;
+	@Autowired
+	private TourGuideService tourGuideService;
 	private static Locale locale = new Locale("en", "US");
 
     /**
@@ -68,7 +70,7 @@ public class PerformanceTest {
     @BeforeAll
 	public static void setUp() {
 		Locale.setDefault(locale);
-		InternalTestHelper.setInternalUserNumber(100);
+		InternalTestHelper.setInternalUserNumber(100000);
 	}
 
     /**
@@ -77,11 +79,8 @@ public class PerformanceTest {
      * @throws UsersGatheringException the users gathering exception
      */
 
-	@Ignore
 	@Test
-	public void highVolumeTrackLocation() throws UsersGatheringException {
-
-		TourGuideService tourGuideService = new TourGuideService(rewardsService,true,false);
+	public void highVolumeTrackLocation() throws UsersGatheringException {//195s for 100 000 users
 
 		List<User> allUsers = new ArrayList<>();
 		allUsers = tourGuideService.getAllUsers();
@@ -106,9 +105,9 @@ public class PerformanceTest {
      * @throws UsersGatheringException the users gathering exception
      */
 
-	@Ignore
 	@Test
-	public void highVolumeGetRewards() throws UsersGatheringException {
+	public void highVolumeGetRewards() throws UsersGatheringException {//253 seconds for 100 000 users
+
 		TourGuideService tourGuideService = new TourGuideService(rewardsService,true,false);
 
 		StopWatch stopWatch = new StopWatch();
