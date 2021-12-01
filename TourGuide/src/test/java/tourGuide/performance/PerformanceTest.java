@@ -70,7 +70,7 @@ public class PerformanceTest {
     @BeforeAll
 	public static void setUp() {
 		Locale.setDefault(locale);
-		InternalTestHelper.setInternalUserNumber(100000);
+		InternalTestHelper.setInternalUserNumber(100);
 	}
 
     /**
