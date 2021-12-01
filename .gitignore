@@ -5,3 +5,6 @@
 /logs/
 /.gradle/
 /build/
+/.idea/
+/build/
+/logs/
